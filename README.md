@@ -2,6 +2,9 @@
 
 This site was originally built with Gatsby, Strapi and GSAP; it is in the process of being rebuilt with Svelte.
 
+## To-do
+As-is from React site:
+[] Menu
 [] Homepage
 [] About
 [] Educational resources

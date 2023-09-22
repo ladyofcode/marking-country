@@ -3,6 +3,8 @@
     import Map from "$lib/components/Map.svelte";
     import Modal from "$lib/layout/Modal.svelte";
 
+    let video = "/videos/Introduction.webm";
+
     let showModal = false;
 </script>
 
@@ -33,10 +35,12 @@
         on:click={() => {
           goto(`${base}/about/`);
         }}
-      >
+      >About Marking Country</button>
       <Modal bind:showModal>
         <h2 slot="header">
-          modal
+          <video autoPlay controls>
+            <source src={video} />
+          </video>
         </h2>
       </Modal>
     </div>
@@ -94,15 +98,15 @@ width: 100%;
   flex-direction: column;
 }
 
-.home-buttons button:first-child {
+.home-buttons button:first-of-type{
     background-color: var(--color-terracotta);
     margin-right: 2rem;
     color: #ffffff;
   }
 
-  .home-buttons button:last-child {
-    background-color: var(--color-bg-light);
-    color: var(--color-terracotta);
+  .home-buttons button:last-of-type {
+    background-color: transparent !important;
+    color: var(--color-terracotta) !important;
   }
 
   .home-buttons button:last-child:hover a {

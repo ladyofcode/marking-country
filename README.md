@@ -3,9 +3,9 @@
 This site was originally built with Gatsby, Strapi and GSAP; it is in the process of being rebuilt with Svelte.
 
 ## To-do
-As-is from React site:
+### As-is from React site:
 [] Menu
-[] Homepage
+[x] Homepage
 [] About
 [] Educational resources
 [] Woddordda & Ngarinyin Intro
@@ -16,3 +16,11 @@ As-is from React site:
 [] Yawuru
 [] Mapping
 [] Quinkan
+
+### Components
+[] Intro modal
+[] Acknowledgement modal
+[] Carnarvon modals
+
+#### Scrollytelling
+[] ... list.

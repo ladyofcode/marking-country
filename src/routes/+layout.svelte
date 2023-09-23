@@ -17,5 +17,4 @@
 	.container {
 		scroll-snap-type: y mandatory;
 	}
-
 </style>

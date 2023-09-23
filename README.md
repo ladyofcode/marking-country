@@ -22,10 +22,11 @@ This site was originally built with Gatsby, Strapi and GSAP; it is in the proces
 [] Acknowledgement modal
 [] Carnarvon modals
 [] Collapsible
-[] Slideshow
+[] Slider
 [x] Credits
 [x] Inline Quote
 [x] Generic Content
+[x] Learn more Box
 
 #### Scrollytelling
 [] ... list.

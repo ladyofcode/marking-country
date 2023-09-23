@@ -6,6 +6,11 @@
 
 <style>
 
+	svg {
+		max-height: 80vh;
+		margin: 0 auto;
+	}
+
 .active {
     fill: #F03AA9;
 }

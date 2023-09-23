@@ -19,9 +19,9 @@ const config = {
 		paths: {
 			base: '/marking-country'
 		},
-		// alias: {
-		// 	@static: "src/components",
-		//   },
+		alias: {
+			'@stories': 'static/stories',
+		}
 	}
 };
 

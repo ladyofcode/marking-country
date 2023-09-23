@@ -21,6 +21,11 @@ This site was originally built with Gatsby, Strapi and GSAP; it is in the proces
 [] Intro modal
 [] Acknowledgement modal
 [] Carnarvon modals
+[] Collapsible
+[] Slideshow
+[x] Credits
+[x] Inline Quote
+[x] Generic Content
 
 #### Scrollytelling
 [] ... list.

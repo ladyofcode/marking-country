@@ -1,5 +1,6 @@
 <script>
     import { base } from "$app/paths";
+    import { goto } from "$app/navigation";
     import Map from "$lib/components/Map.svelte";
     import Modal from "$lib/layout/Modal.svelte";
 
@@ -80,10 +81,6 @@
       margin-top: 2.4rem;  
     }
 
-    svg {
-      margin: 0 auto;    
-    }
-
     .marking-country {
 
 padding: 1.6rem;
@@ -109,7 +106,7 @@ width: 100%;
     color: var(--color-terracotta) !important;
   }
 
-  .home-buttons button:last-child:hover a {
+  .home-buttons button:last-of-type:hover {
     color: #ffffff;
   }
   
@@ -158,10 +155,6 @@ width: 100%;
  .header p {
     max-width: 200px;
       margin-top: 80px;
-  }
-
-  svg {
-    max-height: 80vh;
   }
 
   .marking-country {

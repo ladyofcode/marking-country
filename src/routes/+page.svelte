@@ -4,7 +4,7 @@
     import Map from "$lib/components/Map.svelte";
     import Modal from "$lib/layout/Modal.svelte";
 
-    let video = "/videos/Introduction.webm";
+    let video = `${base}/videos/Introduction.webm`;
 
     let showModal = false;
 </script>

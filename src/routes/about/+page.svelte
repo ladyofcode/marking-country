@@ -9,18 +9,18 @@
 	import ImageSliderFullscreen from '$lib/components/ImageSliderFullscreen.svelte';
 	import Credits from '$lib/components/Credits.svelte';
 
-	let dualMaps = '/about/images/dualMap.jpg';
-	let collage = '/about/images/collage.jpg';
-	let schoolMap = '/about/images/1913_School_Exploration_Map.jpg';
-	let coastlines = '/about/images/Coastlines.gif';
-	let david = '/about/images/David_Unaipon.jpg';
-	let fitzeroy = '/about/images/FitzroyIsland.jpg';
-	let durerMap = '/about/images/DurerMap.jpg';
-	let slideshowOne1 = '/about/images/slideshow_one/SlideshowOne01.jpg';
-	let slideshowOne2 = '/about/images/slideshow_one/SlideshowOne02.jpg';
-	let slideshowOne3 = '/about/images/slideshow_one/SlideshowOne03.jpg';
-	let slideshowOne4 = '/about/images/slideshow_one/SlideshowOne04.jpg';
-	let slideshowOne5 = '/about/images/slideshow_one/SlideshowOne05.jpg';
+	let dualMaps = `${base}/about/images/dualMap.jpg`;
+	let collage = `${base}/about/images/collage.jpg`;
+	let schoolMap = `${base}/about/images/1913_School_Exploration_Map.jpg`;
+	let coastlines = `${base}/about/images/sahul_animated.gif`;
+	let david = `${base}/about/images/David_Unaipon.jpg`;
+	let fitzeroy = `${base}/about/images/FitzroyIsland.jpg`;
+	let durerMap = `${base}/about/images/DurerMap.jpg`;
+	let slideshowOne1 = `${base}/about/images/slideshow_one/SlideshowOne01.jpg`;
+	let slideshowOne2 = `${base}/about/images/slideshow_one/SlideshowOne02.jpg`;
+	let slideshowOne3 = `${base}/about/images/slideshow_one/SlideshowOne03.jpg`;
+	let slideshowOne4 = `${base}/about/images/slideshow_one/SlideshowOne04.jpg`;
+	let slideshowOne5 = `${base}/about/images/slideshow_one/SlideshowOne05.jpg`;
 
 	import { gsap } from 'gsap/dist/gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -134,7 +134,7 @@
 				Aboriginal people also lived alongside lake systems that were drying out, such as the rich
 				lake system now known as Lake Mungo and Willandra Lakes. Their descendants shared the
 				stories of their Country to create the{' '}
-				<a href="${base}/willandra-lakes">Mungo Map</a>.
+				<!-- <a href="${base}/willandra-lakes">Mungo Map</a>. -->
 			</p>
 
 			<p>
@@ -231,7 +231,7 @@
 
 			<LearnMoreBox>
 				<img src={dualMaps} alt="" />
-				<a href="/mapping"> » Learn more about the history of mapping </a>
+				<a href="{base}/mapping"> » Learn more about the history of mapping </a>
 			</LearnMoreBox>
 
 			<p>
@@ -356,22 +356,22 @@
 
 			<ul class="body-list">
 				<li>
-					<a href="/carnarvon-gorge">Bidjara—Kooramindanji Place (Carnarvon Gorge), Queensland</a>
+					<a href="{base}/carnarvon-gorge">Carnarvon Gorge, Queensland</a>
 				</li>
 				<li>
-					<a href="/woddordda-ngarinyin-intro"
+					<a href="{base}/woddordda-ngarinyin-intro"
 						>Woddordda and Ngarinyin—West Kimberley, Western Australia</a
 					>
 				</li>
 				<li>
-					<a href="/yawuru">
+					<a href="{base}/yawuru">
 						Yawuru—Jangu and Janyjagurdiny (Thangoo Station), Western Australia
 					</a>
 				</li>
 				<li>
-					<a href="/willandra-lakes">
+					<!-- <a href="{base}/willandra-lakes">
 						Mutthi Mutthi, Ngyaampa and Barkintji—Willandra Lakes and region, New South Wales
-					</a>
+					</a> -->
 				</li>
 			</ul>
 

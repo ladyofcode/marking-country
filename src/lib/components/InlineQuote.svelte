@@ -4,7 +4,9 @@
 
 <figure class="quote quote-inline">
 	<blockquote><slot /></blockquote>
+	{#if credit}
 	<figcaption>~ {credit}</figcaption>
+	{/if}
 </figure>
 
 <style>

@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 
 	import GenericContent from '$lib/layout/GenericContent.svelte';
+	import Collapsible from '$lib/components/Collapsible.svelte';
 	import InlineQuote from '$lib/components/InlineQuote.svelte';
 	import LearnMoreBox from '$lib/components/LearnMoreBox.svelte';
 	// import HorizontalScroller from '$lib/components/HorizontalScroller.svelte';
@@ -380,7 +381,7 @@
 				bring more stories online in the coming months.
 			</p>
 
-			<!-- <Collapsible
+			<Collapsible
 				name="collapsibleApproach"
         label="Learn more about our approach"
         checked={true}
@@ -417,7 +418,7 @@
 			Indigenous communities to ensure they retain ownership of their
 			stories.
         </p>
-	</Collapsible> -->
+	</Collapsible>
 		</GenericContent>
 	</section>
 

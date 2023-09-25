@@ -3,8 +3,11 @@
 	import { onMount } from 'svelte';
 
 	let current = '';
+	let handleMenuToggle;
 
 	onMount(() => {
+		const input = document.getElementById('menuButton') | null;
+
 		handleMenuToggle = () => {
 			if (input != null) {
         current = '';
@@ -17,7 +20,7 @@
 <header>
 	<div class="wrapper">
 		<a href="{base}/" class="logo"
-    on:click={() => handleMenuToggle()}
+    on:click={handleMenuToggle}
     >
 			Home
 		</a>
@@ -41,7 +44,7 @@
 							<a
 								href="{base}/about"
 								class:active={current === ''}
-								on:click={() => handleMenuToggle()}
+								on:click={handleMenuToggle}
 							>
 								Marking Country
 							</a>
@@ -50,7 +53,7 @@
 							<a
 								href="{base}/educational-resources"
 								class:active={current === ''}
-								on:click={() => handleMenuToggle()}
+								on:click={handleMenuToggle}
 							>
 								Educational resources
 							</a>
@@ -61,7 +64,7 @@
 					<a
 						href="{base}/mapping"
 						class:active={current === ''}
-						on:click={() => handleMenuToggle()}
+						on:click={handleMenuToggle}
 					>
 						Mapping
 					</a>
@@ -73,7 +76,7 @@
 							<a
 								href="{base}/carnarvon-gorge"
 								class:active={current === ''}
-								on:click={() => handleMenuToggle()}
+								on:click={handleMenuToggle}
 							>
 								Carnarvon
 							</a>
@@ -82,7 +85,7 @@
 							<a
 								href="{base}/western-yalanji"
 								class:active={current === ''}
-								on:click={() => handleMenuToggle()}
+								on:click={handleMenuToggle}
 							>
 								Western Yalanji</a
 							>
@@ -91,7 +94,7 @@
 							<a
 								href="{base}/willandra-lakes"
 								class:active={current === ''}
-								on:click={() => handleMenuToggle()}
+								on:click={handleMenuToggle}
 							>
 								Willandra
 							</a>
@@ -100,7 +103,7 @@
 							<a
 								href="{base}/woddordda-ngarinyin-intro"
 								class:active={current === ''}
-								on:click={() => handleMenuToggle()}
+								on:click={handleMenuToggle}
 							>
 								Woddordda & Ngarinyin
 							</a>
@@ -109,7 +112,7 @@
 							<a
 								href="{base}/yawuru"
 								class:active={current === ''}
-								on:click={() => handleMenuToggle()}
+								on:click={handleMenuToggle}
 							>
 								Yawuru
 							</a>

@@ -1,7 +1,8 @@
 <script>
 	import { base } from '$app/paths';
-	import Youtube from 'svelte-youtube-embed';
     import { goto } from '$app/navigation';
+
+	import { YouTube } from 'sveltekit-embed';
 
 	let sound = `${base}/stories/woddorda-ngarinyin-intro/audio/sound-intro-wudoo_final.mp3`;
 	let marardda = `${base}/stories/woddorda-ngarinyin-intro/images/marardda_navTile.png`;
@@ -85,17 +86,8 @@
 				meanings of some of the places on the baby’s body in a Wurdu/Wudoo smoking ceremony.
 			</p>
 
-			<Youtube id="HkKLuybg2p8" />
+			<YouTube youTubeId="HkKLuybg2p8" />
 
-			<!-- <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/HkKLuybg2p8?rel=0&amp;modestbranding=1?rel=0"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe> -->
 		</div>
 	</div>
 

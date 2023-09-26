@@ -1,7 +1,7 @@
 <script>
 	import { base } from '$app/paths';
   import { page } from '$app/stores';
-    import Youtube from 'svelte-youtube-embed';
+  import { YouTube } from 'sveltekit-embed';
 
 	import Header from '$lib/components/Header.svelte';
 	import Intro from '$lib/components/Intro.svelte';
@@ -266,17 +266,8 @@
           Mutthi, Barkintji, and Nyaampa people that date back nearly 20 years.{' '}
         </p>
 
-        <Youtube id="iWfvzgN5jIU" />
+        <YouTube youTubeId="iWfvzgN5jIU" />
 
-        <!-- <iframe
-          width="100%"
-          height="400"
-          src="https://www.youtube.com/embed/iWfvzgN5jIU?rel=0"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe> -->
       </GenericContent>
 
 <GenericContent>

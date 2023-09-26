@@ -2,7 +2,7 @@
 	import { base } from '$app/paths';
     import { page } from '$app/stores';
 
-	import Youtube from 'svelte-youtube-embed';
+	import { YouTube } from 'sveltekit-embed';
 
 	import Header from '$lib/components/Header.svelte';
     import Collapsible from '$lib/components/Collapsible.svelte';
@@ -172,16 +172,8 @@
 	</p>
 
 	<figure>
-		<Youtube id="Rqa8qxFxwDE" />
-		<!-- <iframe
-			width="100%"
-			height="auto"
-			src="https://www.youtube.com/embed/Rqa8qxFxwDE?rel=0"
-			title="YouTube video player"
-			frameBorder="0"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-			allowFullScreen
-		/> -->
+		<YouTube youTubeId="Rqa8qxFxwDE" />
+
 		<figcaption>
 			Charlie Lee Cheu and Danny Lee Cheu. Courtesy of Western Yalanji Aboriginal Corporation.
 		</figcaption>
@@ -325,8 +317,8 @@
 	</p>
 
 	<figure>
-		<Youtube id="FjTcA4Ldato" />
-		<!-- <iframe width="100%" height="auto" src="https://www.youtube.com/embed/FjTcA4Ldato?rel=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe> -->
+		<YouTube youTubeId="FjTcA4Ldato" />
+
 		<figcaption>
 			Aileen Meldrum and Betty Knowles. Courtesy Western Yalanji Aboriginal Corporation.
 		</figcaption>
@@ -431,9 +423,8 @@
 	</p>
 
 	<figure>
-		<Youtube id="BIoSyyNXhTA" />
-		<!-- <iframe width="100%" height="auto" src="https://www.youtube.com/embed/BIoSyyNXhTA?rel=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-      <figcaption>Danny O'Shane. Courtesy Western Yalanji Aboriginal Corporation.</figcaption> -->
+		<YouTube youTubeId="BIoSyyNXhTA" />
+      <figcaption>Danny O'Shane. Courtesy Western Yalanji Aboriginal Corporation.</figcaption>
 	</figure>
 
 	<p>
@@ -633,7 +624,7 @@
 		</div>
 	</TwoColumnContent>
 
-    <Youtube id="uSSUNeida8" />
+    <YouTube youTubeId="uSSUNeida8" />
 	<!-- <iframe
 		width="100%"
 		height="auto"
@@ -711,7 +702,7 @@
     <p>Quinkan Country has been listed on the National Heritage Register. Today, the Western Yalanji Aboriginal Corporation plays a crucial role in keeping the Stories alive and the Country strong, including through the use of digital technologies. Glenis Grogan talks about the prospects of digital platforms and their relevance for the future of the Yalanji people and knowledge of Country.</p>
 
     <figure>
-        <Youtube id="1RfQQ" />
+        <YouTube youTubeId="1RfQQ" />
       <!-- <iframe width="100%" height="auto" src="https://www.youtube.com/embed/E9EhS-1RfQQ?rel=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe> -->
       <figcaption>Glenis Grogan. Courtesy Western Yalanji Aboriginal Corporation.</figcaption>
     </figure>

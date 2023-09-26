@@ -1,6 +1,5 @@
 <script>
 	import { base } from '$app/paths';
-
     import { page } from '$app/stores';
 
 	import Youtube from 'svelte-youtube-embed';

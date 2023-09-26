@@ -777,7 +777,7 @@
         { insert: "Aileen Meldrum", authors: "Aileen Meldrum in Ann McGrath and Mike Jones, (2023)" },
         { insert: "Betty Knowles", authors: "Betty Knowles in Ann McGrath and Mike Jones, (2023)" }
       ]}
-      location={page}
+      location={$page.url.href}
       page={pageTitle}
     />
   </GenericContent>

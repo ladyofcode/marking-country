@@ -29,11 +29,6 @@
 			throw new Error('Must set either bounds, or view and zoom.');
 		}
 
-		// , {
-		// 	center: [-15.8564, 144.24],
-		// 	zoom: 13
-		// }
-
 		map = L.map(mapElement)
 			// example to expose map events to parent components:
 			.on('zoom', (e) => dispatch('zoom', e));

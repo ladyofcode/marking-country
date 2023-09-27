@@ -6,27 +6,21 @@ This site was originally built with Gatsby, Strapi and GSAP; it is in the proces
 ### As-is from React site:
 [] Menu
 [x] Homepage
-[] About
-[] Educational resources
-[] Woddordda & Ngarinyin Intro
+[x] About
+[x] Educational resources
+[x] Woddordda & Ngarinyin Intro
 [] Woddordda
 [] Ngarinyin
-[] Willandra
+[x] Willandra
 [] Carnarvon
 [] Yawuru
-[] Mapping
-[] Quinkan
-
-### Components
-[] Intro modal
-[] Acknowledgement modal
-[] Carnarvon modals
-[] Collapsible
-[] Slider
-[x] Credits
-[x] Inline Quote
-[x] Generic Content
-[x] Learn more Box
+[x] Mapping
+[x] Quinkan
 
 #### Scrollytelling
-[] ... list.
+[] ... TBA.
+
+### Later...
+[] Convert all audio to components
+[] Convert warning headers to componentz
+[] Reduce styles

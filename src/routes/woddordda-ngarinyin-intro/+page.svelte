@@ -1,8 +1,9 @@
 <script>
 	import { base } from '$app/paths';
     import { goto } from '$app/navigation';
-
 	import { YouTube } from 'sveltekit-embed';
+
+	import Warning from '$lib/components/Warning.svelte';
 
 	let sound = `${base}/stories/woddorda-ngarinyin-intro/audio/sound-intro-wudoo_final.mp3`;
 	let marardda = `${base}/stories/woddorda-ngarinyin-intro/images/marardda_navTile.png`;
@@ -18,26 +19,15 @@
 		</video>
 	</div>
 
-	<header class="full-section pane">
-		<div>
-			<p>
+	
+	<Warning>
+		<p>
 				Phillip Duckhole, Janet Oobagooma, and Yorna Woolagoodja have passed away since the making
 				of this website and the short films it includes. Their images, voices and names are
 				reproduced here in recognition of their tireless efforts to share their knowledge for future
 				generations.
 			</p>
-
-			<div class="warning-buttons">
-				<button
-					on:click={() => {
-						goto('#intro');
-					}}
-				>
-					<a href="#intro">Continue</a>
-				</button>
-			</div>
-		</div>
-	</header>
+	</Warning>
 
 	<div id="intro" class="title">
 		<div>

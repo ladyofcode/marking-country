@@ -9,9 +9,14 @@
 	import ImageSliderFullscreen from '$lib/components/ImageSliderFullscreen.svelte';
 	import InlineQuote from '$lib/components/InlineQuote.svelte';
 	import AudioFullWidth from '$lib/components/AudioFullWidth.svelte';
-    import MediaFullWidth from '$lib/components/MediaFullWidth.svelte';
-    import TwoColumnContent from '$lib/layout/TwoColumnContent.svelte';
-    import Intro from '$lib/components/Intro.svelte';
+	import MediaFullWidth from '$lib/components/MediaFullWidth.svelte';
+	import TwoColumnContent from '$lib/layout/TwoColumnContent.svelte';
+	import Intro from '$lib/components/Intro.svelte';
+
+	import YawuruAustraliaMap from '$lib/components/leaflet/YawuruAustraliaMap.svelte';
+	import YawuruBroomeMap from '$lib/components/leaflet/YawuruBroomeMap.svelte';
+	import YawuruThangooMap from '$lib/components/leaflet/YawuruThangooMap.svelte';
+	import YawuruCoastMap from '$lib/components/leaflet/YawuruCoastMap.svelte';
 
 	let image_header = `${base}/stories/yawuru/images/Header_MG_0337.jpg`;
 	let image_calendar = `${base}/stories/yawuru/images/YawuruSeasonalCalendar.png`;
@@ -130,123 +135,221 @@
 </script>
 
 <Header
-        image={image_header}
-        name="yawuru"
-        alt=""
-        heading="Jangu yirr Janyjagurdiny: murra mala nyurdany"
-        subheading="Holding Yawuru history on Country at Thangoo Station"
-    />
+	image={image_header}
+	name="yawuru"
+	alt=""
+	heading="Jangu yirr Janyjagurdiny: murra mala nyurdany"
+	subheading="Holding Yawuru history on Country at Thangoo Station"
+/>
 
-    <Intro intro="yawuru">
-        <p>Co-created by Yawuru storytellers and the Research Centre for Deep History</p>
-        <p>November 20, 2022</p>
+<Intro intro="yawuru">
+	<p>Co-created by Yawuru storytellers and the Research Centre for Deep History</p>
+	<p>November 20, 2022</p>
 
-        <p>This is a digital story about the history of Yawuru Country around the area known as Jangu and Janyjagurdiny (later referred to by European pastoralists as Thangoo Station), told mainly through the voices of Yawuru people. Starting with Bugarrigarra, it explores seasonal time, people's continuing connection to place, and the need to hold and respect Country, law, culture, and history now and into the future.</p>
+	<p>
+		This is a digital story about the history of Yawuru Country around the area known as Jangu and
+		Janyjagurdiny (later referred to by European pastoralists as Thangoo Station), told mainly
+		through the voices of Yawuru people. Starting with Bugarrigarra, it explores seasonal time,
+		people's continuing connection to place, and the need to hold and respect Country, law, culture,
+		and history now and into the future.
+	</p>
 
-        <p><strong>WARNING</strong>: Aboriginal and Torres Strait Islander peoples are warned that the following digital story may contain images and voices of deceased persons.</p>
-    </Intro>
+	<p>
+		<strong>WARNING</strong>: Aboriginal and Torres Strait Islander peoples are warned that the
+		following digital story may contain images and voices of deceased persons.
+	</p>
+</Intro>
 
-    <GenericContent>
-        <h2>Bugarrigarra nyurdany</h2>
+<GenericContent>
+	<h2>Bugarrigarra nyurdany</h2>
 
-        <InlineQuote
-            credit="Susan Edgar, 2022">
-            <p>Bugarrigarra is a Yawuru thing, dreamtime, dreamtime stories.</p>
-        </InlineQuote>
+	<InlineQuote credit="Susan Edgar, 2022">
+		<p>Bugarrigarra is a Yawuru thing, dreamtime, dreamtime stories.</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Jimmy Edgar, 2022">
-            <p>It's not 'dreamtime' in the sense of going to sleep and dreaming.</p>
-        </InlineQuote>
+	<InlineQuote credit="Jimmy Edgar, 2022">
+		<p>It's not 'dreamtime' in the sense of going to sleep and dreaming.</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Janet Cox, 2022">
-            <p>We're talking about our history.</p>
-        </InlineQuote>
+	<InlineQuote credit="Janet Cox, 2022">
+		<p>We're talking about our history.</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Dianne Appleby, 2022">
-            <p>Bugarrigarra is real, it's still living.</p>
-        </InlineQuote>
+	<InlineQuote credit="Dianne Appleby, 2022">
+		<p>Bugarrigarra is real, it's still living.</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Thomas 'Unda' Edgar, 2022">
-            <p>Bugarrigarra is life. A living story. It's Yawuru existence.</p>
-        </InlineQuote>
+	<InlineQuote credit="Thomas 'Unda' Edgar, 2022">
+		<p>Bugarrigarra is life. A living story. It's Yawuru existence.</p>
+	</InlineQuote>
 
-        <p>There are many Bugarrigarra stories in and of this landscape. One is Marrimarrigun, which Thomas 'Unda' Edgar describes as "a Jangu story."</p>
+	<p>
+		There are many Bugarrigarra stories in and of this landscape. One is Marrimarrigun, which Thomas
+		'Unda' Edgar describes as "a Jangu story."
+	</p>
 
-        <p>During the incoming tide, two young boys find themselves stranded on a sandbar, lost to their people forever. Marrimarrigun, the giant spirit, returns them to their people as men.</p>
+	<p>
+		During the incoming tide, two young boys find themselves stranded on a sandbar, lost to their
+		people forever. Marrimarrigun, the giant spirit, returns them to their people as men.
+	</p>
 
-        <figure>
-            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/GczGhPs3rzQ?rel=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-            <figcaption>Marrimarrigun (2017), 13mins. Director: Kimberley West. Writers: Dot (Dorothy) West, Dianne Appleby. Producer: Jodie Bell. Reproduced with permission.</figcaption>
-        </figure>
+	<figure>
+		<iframe
+			width="100%"
+			height="auto"
+			src="https://www.youtube.com/embed/GczGhPs3rzQ?rel=0"
+			title="YouTube video player"
+			frameBorder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowFullScreen
+		/>
+		<figcaption>
+			Marrimarrigun (2017), 13mins. Director: Kimberley West. Writers: Dot (Dorothy) West, Dianne
+			Appleby. Producer: Jodie Bell. Reproduced with permission.
+		</figcaption>
+	</figure>
 
-        <p>Like all Bugarrigarra stories, Marrimarrigun has many meanings. It is about law and culture, remembering and acknowledging the spirituality of Country, the need to be aware of the tides and surrounding environment, and liyan (inner spirit, wellbeing, and connection with people, community, and Country). Marrimarrigun also contains lessons about the dangers of greed, and is a reminder to respect Elders and buru (Country).</p>
+	<p>
+		Like all Bugarrigarra stories, Marrimarrigun has many meanings. It is about law and culture,
+		remembering and acknowledging the spirituality of Country, the need to be aware of the tides and
+		surrounding environment, and liyan (inner spirit, wellbeing, and connection with people,
+		community, and Country). Marrimarrigun also contains lessons about the dangers of greed, and is
+		a reminder to respect Elders and buru (Country).
+	</p>
 
-        <p>Marrimarrigun relates to a culturally sensitive area, and the storyline runs through Jangu. It is vital that people care for and hold this place so that its strength endures today and continues into the future</p>
-    </GenericContent>
+	<p>
+		Marrimarrigun relates to a culturally sensitive area, and the storyline runs through Jangu. It
+		is vital that people care for and hold this place so that its strength endures today and
+		continues into the future
+	</p>
+</GenericContent>
 
-    <GenericContent>
-        <h2>Buru</h2>
-        <InlineQuote credit="Jimmy Edgar, 2022"><p>Buru is Country.</p></InlineQuote>
+<GenericContent>
+	<h2>Buru</h2>
+	<InlineQuote credit="Jimmy Edgar, 2022"><p>Buru is Country.</p></InlineQuote>
 
-        <InlineQuote credit="Thomas 'Unda' Edgar, 2022"><p>Bugarrigarra created buru, Law, and culture.</p></InlineQuote>
+	<InlineQuote credit="Thomas 'Unda' Edgar, 2022"
+		><p>Bugarrigarra created buru, Law, and culture.</p></InlineQuote
+	>
 
-        <InlineQuote credit="Joseph Nipper Roe Ngulibardu (Yawuru Cultural Management Plan)"><p>The people, the land, and the Law are three aspects of the same thing. We have a duty to look after them all, and looking after one of them means looking after the other two as well.</p></InlineQuote>
+	<InlineQuote credit="Joseph Nipper Roe Ngulibardu (Yawuru Cultural Management Plan)"
+		><p>
+			The people, the land, and the Law are three aspects of the same thing. We have a duty to look
+			after them all, and looking after one of them means looking after the other two as well.
+		</p></InlineQuote
+	>
 
-        <p>The Yawuru people are the traditional owners of Birragun and Nagulagun buru (land and sea Country), including the town of Broome, in the Kimberley region of northern Western Australia.</p>
+	<p>
+		The Yawuru people are the traditional owners of Birragun and Nagulagun buru (land and sea
+		Country), including the town of Broome, in the Kimberley region of northern Western Australia.
+	</p>
 
-        <!-- <ClientSide>
-            <YawuruAustraliaMap />
-        </ClientSide> -->
+	<YawuruAustraliaMap />
 
-        <p>Yawuru Country  is a landscape of plains, mudflats, mangroves, foreshore, sandbars, and sea. On the south coast of the bay is an area called Jangu, and a place called Janyjagurdiny—an area of Country that European pastoralists named Thangoo Station.</p>
+	<p>
+		Yawuru Country is a landscape of plains, mudflats, mangroves, foreshore, sandbars, and sea. On
+		the south coast of the bay is an area called Jangu, and a place called Janyjagurdiny—an area of
+		Country that European pastoralists named Thangoo Station.
+	</p>
 
-        <p>The following map shows just some of the key cultural sites on this landscape, including jila (springs or waterholes).</p>
+	<p>
+		The following map shows just some of the key cultural sites on this landscape, including jila
+		(springs or waterholes).
+	</p>
 
-        <!-- <ClientSide>
-            <YawuruBroomeMap />
-        </ClientSide> -->
+	<YawuruBroomeMap />
 
-        <p>The rhythms of life on Country are about time as well as place. For generations Yawuru people have lived seasonally on these lands, fishing for salmon, catfish, stingray, and sharks, hunting turtles, dugong, and goanna, and collecting bushfoods.</p>
+	<p>
+		The rhythms of life on Country are about time as well as place. For generations Yawuru people
+		have lived seasonally on these lands, fishing for salmon, catfish, stingray, and sharks, hunting
+		turtles, dugong, and goanna, and collecting bushfoods.
+	</p>
 
-        <InlineQuote credit="Susan Edgar, Laja (October) 2022">
-            <p>Yes, wanggaja [mud crab] always fat one time. Wanggaja, crab you know like birndany it’s a different season, it’s a different nagula for birndany, for stingrays and stuff. Birndany, balarri (shovel shark), jurrwayi (eating shark). Fish come into that season now.  Now all the reef fish is fat.</p>
-        </InlineQuote>
+	<InlineQuote credit="Susan Edgar, Laja (October) 2022">
+		<p>
+			Yes, wanggaja [mud crab] always fat one time. Wanggaja, crab you know like birndany it’s a
+			different season, it’s a different nagula for birndany, for stingrays and stuff. Birndany,
+			balarri (shovel shark), jurrwayi (eating shark). Fish come into that season now. Now all the
+			reef fish is fat.
+		</p>
+	</InlineQuote>
 
-        <p>There are many seasonal indicators, from flowers and weather patterns to animal behaviour. On a visit to Thangoo Station in April 2022, Thomas 'Unda' Edgar and Dianne Appleby talked to Ben Silverstein about some of these signs, and the sustainability of seasonal living.</p>
+	<p>
+		There are many seasonal indicators, from flowers and weather patterns to animal behaviour. On a
+		visit to Thangoo Station in April 2022, Thomas 'Unda' Edgar and Dianne Appleby talked to Ben
+		Silverstein about some of these signs, and the sustainability of seasonal living.
+	</p>
 
-<AudioFullWidth audio={audio_seasons} credit="Thomas Edgar and Dianne Appleby on Thangoo Station discussing seasons with Ben Silverstein, Marrul (April) 2022." />
-    
+	<AudioFullWidth
+		audio={audio_seasons}
+		credit="Thomas Edgar and Dianne Appleby on Thangoo Station discussing seasons with Ben Silverstein, Marrul (April) 2022."
+	/>
 
-        <p>Yawuru people live by six seasons: Man-gala, Marrul, Wirralburu, Barrgana, Wirlburu, and Laja.</p>
+	<p>
+		Yawuru people live by six seasons: Man-gala, Marrul, Wirralburu, Barrgana, Wirlburu, and Laja.
+	</p>
 
-        <figure>
-            <img src={image_calendar} alt="" />
-            <figcaption>Yawuru Seasonal Calendar.</figcaption>
-        </figure>
+	<figure>
+		<img src={image_calendar} alt="" />
+		<figcaption>Yawuru Seasonal Calendar.</figcaption>
+	</figure>
 
-        <InlineQuote credit="Janet Cox, 2022"><p>This is sort of a map.</p></InlineQuote>
-        <InlineQuote credit="Thomas 'Unda' Edgar, 2022"><p>This is Bugarrigarra. We believe in this seasonal map.</p></InlineQuote>
+	<InlineQuote credit="Janet Cox, 2022"><p>This is sort of a map.</p></InlineQuote>
+	<InlineQuote credit="Thomas 'Unda' Edgar, 2022"
+		><p>This is Bugarrigarra. We believe in this seasonal map.</p></InlineQuote
+	>
 
-        <p>Janyjagurdiny and the areas around it are rich in food and other cultural resources. As people grow up, they learn about the connections between buru, seasons, culture, and law.</p>
+	<p>
+		Janyjagurdiny and the areas around it are rich in food and other cultural resources. As people
+		grow up, they learn about the connections between buru, seasons, culture, and law.
+	</p>
 
-        <InlineQuote credit="Susan Edgar, 2022"> <p>We were told to do what we can do, and told not to do what we can't do, and places not to go and places you can go, things you can eat, things you can't eat and all these like sea snakes and all that, they got banaga, burungu, barrjarri, garimba, but they got skin groups and I know them.</p></InlineQuote>
+	<InlineQuote credit="Susan Edgar, 2022">
+		<p>
+			We were told to do what we can do, and told not to do what we can't do, and places not to go
+			and places you can go, things you can eat, things you can't eat and all these like sea snakes
+			and all that, they got banaga, burungu, barrjarri, garimba, but they got skin groups and I
+			know them.
+		</p></InlineQuote
+	>
 
-        <InlineQuote credit="Jimmy Edgar, 2022"><p>All these places are cultural; not just jila, all places are cultural.</p></InlineQuote>
+	<InlineQuote credit="Jimmy Edgar, 2022"
+		><p>All these places are cultural; not just jila, all places are cultural.</p></InlineQuote
+	>
 
-        <p>When outsiders came to this Country, they used its resources without showing respect for culture.</p>
+	<p>
+		When outsiders came to this Country, they used its resources without showing respect for
+		culture.
+	</p>
 
-        <p>In early 1864, Frederick Panter and James Martin arrived at Miriny Gujarra (which Nicholas Baudin had named Cape Villaret) looking for land suitable for pastoral ventures. Taking fresh water from the Yardugarra jila, they moved up the coast over the land that would become Thangoo Station, using what they called 'native wells' and 'native paths' to travel inland.</p>
+	<p>
+		In early 1864, Frederick Panter and James Martin arrived at Miriny Gujarra (which Nicholas
+		Baudin had named Cape Villaret) looking for land suitable for pastoral ventures. Taking fresh
+		water from the Yardugarra jila, they moved up the coast over the land that would become Thangoo
+		Station, using what they called 'native wells' and 'native paths' to travel inland.
+	</p>
 
-        <InlineQuote credit="Thomas 'Unda' Edgar"><p>Then the cattle came and the sheep there and you know what happened after that, with all the messiness and everything.</p></InlineQuote>
+	<InlineQuote credit="Thomas 'Unda' Edgar"
+		><p>
+			Then the cattle came and the sheep there and you know what happened after that, with all the
+			messiness and everything.
+		</p></InlineQuote
+	>
 
-        <p>The invasion of European pastoralism and the pearling trade carved up Yawuru Country, appropriating names (including Jangu, for Thangoo Station), using jila, fencing off areas where people hunted for meat and collected bushfoods and medicines, and demanding labour from Yawuru and neighbouring peoples.</p>
+	<p>
+		The invasion of European pastoralism and the pearling trade carved up Yawuru Country,
+		appropriating names (including Jangu, for Thangoo Station), using jila, fencing off areas where
+		people hunted for meat and collected bushfoods and medicines, and demanding labour from Yawuru
+		and neighbouring peoples.
+	</p>
 
-        <p>The following slideshow features a series of maps showing how the knowledge of peoples, including Yawuru, was taken and used by European pastoralists in the area.</p>
+	<p>
+		The following slideshow features a series of maps showing how the knowledge of peoples,
+		including Yawuru, was taken and used by European pastoralists in the area.
+	</p>
+</GenericContent>
 
-
-    </GenericContent>
-
-    <!--
+<!--
     <ScrollingCaptionSide id="maps1" image={slide_maps_1} caption="left" align="right" alt="" captionStyle="side">
         <h3>North West Australia—Chart shewing explorations about Roebuck Bay, &c. up to 1864. [detail]</h3>
 
@@ -275,52 +378,126 @@
     </ScrollingCaptionSide>
  -->
 
+<GenericContent>
+	<p>
+		Despite the pastoral invasion, the Country referred to as Thangoo Station remained an integral
+		part of Yawuru law and culture. As Dianne Appleby explains, the area is like a 'cultural
+		intelligence office' that captured and looked after language and tradition, a place where people
+		continue to practice their culture today, and carry it into the future.
+	</p>
 
-    <GenericContent>
-        <p>Despite the pastoral invasion, the Country referred to as Thangoo Station remained an integral part of Yawuru law and culture. As Dianne Appleby explains, the area is like a 'cultural intelligence office' that captured and looked after language and tradition, a place where people continue to practice their culture today, and carry it into the future.</p>
+	<AudioFullWidth
+		audio={audio_thangoo}
+		credit="Dianne Appleby, 2021, speaking about the continuing cultural significance of Thangoo."
+	/>
+</GenericContent>
 
-        <AudioFullWidth audio={audio_thangoo} credit="Dianne Appleby, 2021, speaking about the continuing cultural significance of Thangoo." />
-    
-    </GenericContent>
+<GenericContent>
+	<h2>Ngarrangu and life on the station</h2>
 
-    <GenericContent>
-        <h2>Ngarrangu and life on the station</h2>
+	<p>
+		Yawuru Country surrounds Thangoo Station to the north and south. For millennia Yawuru ngarrangu
+		(people) have lived along this coastline.
+	</p>
 
-        <p>Yawuru Country surrounds Thangoo Station to the north and south. For millennia Yawuru ngarrangu (people) have lived along this coastline.</p>
+	<figure>
+		<img src={image_thangoo_coast} alt="" />
+		<figcaption>Yawuru Country, as shown in the Yawuru Cultural Management Plan.</figcaption>
+	</figure>
 
-        <figure>
-            <img src={image_thangoo_coast} alt="" />
-            <figcaption>Yawuru Country, as shown in the Yawuru Cultural Management Plan.</figcaption>
-        </figure>
+	<p>
+		In the twentieth century, Janyjagurdiny was home not just to Yawuru but also to Karajarri,
+		Nyigina, Mangala, and Nyangumarta people. These peoples were connected through story and trade,
+		and most importantly through their cultural identity.
+	</p>
 
-        <p>In the twentieth century, Janyjagurdiny was home not just to Yawuru but also to Karajarri, Nyigina, Mangala, and Nyangumarta people. These peoples were connected through story and trade, and most importantly through their cultural identity.</p>
+	<p>
+		There are four different but related cultural identities among Yawuru (and Karajarri)
+		people—Banaga, Burungu, Barrjarri, and Garimba—which structure and set rules for proper
+		relationships.
+	</p>
 
-        <p>There are four different but related cultural identities among Yawuru (and Karajarri) people—Banaga, Burungu, Barrjarri, and Garimba—which structure and set rules for proper relationships.</p>
+	<InlineQuote credit="Dianne Appleby, 2022"
+		><p>
+			Our cultural identity is to do with our roles and responsibilities, and who we are ... Who we
+			can marry and who we can’t marry, who we can talk to and who we can laugh with, who we can
+			growl, and those sorts of things.
+		</p></InlineQuote
+	>
 
-        <InlineQuote credit="Dianne Appleby, 2022"><p>Our cultural identity is to do with our roles and responsibilities, and who we are ... Who we can marry and who we can’t marry, who we can talk to and who we can laugh with, who we can growl, and those sorts of things.</p></InlineQuote>
+	<p>
+		With all these different peoples there, Janyjagurdiny was a vibrant place of cultural exchange
+		between people of different languages. People would engage in trade, and perform and share their
+		different cultural practices including nurlu (songs), ceremonies, corroborees, hunting, and
+		fishing.
+	</p>
 
-        <p>With all these different peoples there, Janyjagurdiny was a vibrant place of cultural exchange between people of different languages. People would engage in trade, and perform and share their different cultural practices including nurlu (songs), ceremonies, corroborees, hunting, and fishing.</p>
+	<p>
+		Jimmy Edgar talks about station life, and being taken out bush as a child, where he could learn
+		about Country.
+	</p>
 
-        <p>Jimmy Edgar talks about station life, and being taken out bush as a child, where he could learn about Country.</p>
+	<AudioFullWidth audio={audio_jimmy_country} credit="Jimmy Edgar, 2021." />
 
- <AudioFullWidth audio={audio_jimmy_country} credit="Jimmy Edgar, 2021." />
+	<p>
+		Susan Edgar speaks about the foods and medicines found on Country, including at Janyjagurdiny,
+		that helped to keep people healthy.
+	</p>
 
-        <p>Susan Edgar speaks about the foods and medicines found on Country, including at Janyjagurdiny, that helped to keep people healthy.</p>
+	<InlineQuote credit="Susan Edgar, 2022"
+		><p>
+			The yaminyarri should be starting soon. Yaminyarri is gubinge tree. You know, they hold a lot
+			of Vitamin C, more than orange and they are cleansing too for sores ... we never used to get
+			sores. The only sores we get is when we scratched walking barefoot there or whatever, but no
+			sores because we used to always have our food sources, our natural food sources to eat, we
+			would clean our blood system out you know.
+		</p></InlineQuote
+	>
 
-        <InlineQuote credit="Susan Edgar, 2022"><p>The yaminyarri should be starting soon. Yaminyarri is gubinge tree. You know, they hold a lot of Vitamin C, more than orange and they are cleansing too for sores ... we never used to get sores. The only sores we get is when we scratched walking barefoot there or whatever, but no sores because we used to always have our food sources, our natural food sources to eat, we would clean our blood system out you know.</p></InlineQuote>
+	<p>
+		This food would be shared, given without expectation in a culture of respect. And this sharing
+		meant many people could gather, sometimes for ceremony. These gatherings took place across
+		Yawuru Country and connected Yawuru with their neighbours. In different seasons, people would
+		meet to share resources and nurlu at Janyjagurdiny, further north at the law grounds at Karnin
+		just outside Broome, or south on Karajarri Country at Bidyadanga.
+	</p>
 
-        <p>This food would be shared, given without expectation in a culture of respect. And this sharing meant many people could gather, sometimes for ceremony. These gatherings took place across Yawuru Country and connected Yawuru with their neighbours. In different seasons, people would meet to share resources and nurlu at Janyjagurdiny, further north at the law grounds at Karnin just outside Broome, or south on Karajarri Country at Bidyadanga.</p>
+	<InlineQuote credit="Thomas 'Unda' Edgar, 2022"
+		><p>
+			We get the sea there, right there. Everything in there, like all the big turtles and
+			everything. Everything here, because that’s the time of the year now! [Mangala season is the]
+			wet time of the year. Plenty abundance. They had it every year. Or in Karnin then. They’d
+			shift place, every time then. Same law, but they shift right back to Karnin. Everybody go
+			there. Everybody go here, and everybody go Bidyadanga.
+		</p></InlineQuote
+	>
 
-        <InlineQuote credit="Thomas 'Unda' Edgar, 2022"><p>We get the sea there, right there. Everything in there, like all the big turtles and everything. Everything here, because that’s the time of the year now! [Mangala season is the] wet time of the year.  Plenty abundance. They had it every year. Or in Karnin then.  They’d shift place, every time then.  Same law, but they shift right back to Karnin.  Everybody go there. Everybody go here, and everybody go Bidyadanga.</p></InlineQuote>
+	<InlineQuote credit="Janet Cox, 2022"
+		><p>
+			It was good, it was a good life … Everybody was happy, children was happy. We were all happy
+			there playing around … And there’d be ceremonies there. They, oh, it was beautiful. Every
+			night, when there was a lot of people there living, they had lovely ceremonies. Like dancing
+			and singing and, and everybody was happy and laughing and it was good. Because I was only
+			little myself and watching it, you know … And they came from different places … But they all
+			mixed together and they were very happy … And the people in those days were very good.
+		</p></InlineQuote
+	>
 
-        <InlineQuote credit="Janet Cox, 2022"><p>It was good, it was a good life … Everybody was happy, children was happy. We were all happy there playing around … And there’d be ceremonies there. They, oh, it was beautiful. Every night, when there was a lot of people there living, they had lovely ceremonies.  Like dancing and singing and, and everybody was happy and laughing and it was good. Because I was only little myself and watching it, you know … And they came from different places … But they all mixed together and they were very happy … And the people in those days were very good.</p></InlineQuote>
+	<InlineQuote credit="Jimmy Edgar, 2022"
+		><p>
+			Every night there was corroboree … My goodness, there was singing every night … People
+			practiced corroboree and danced every day. And I used to get sick of it, because I wanted to
+			play guitar and play basketball.
+		</p></InlineQuote
+	>
 
-        <InlineQuote credit="Jimmy Edgar, 2022"><p>Every night there was corroboree … My goodness, there was singing every night … People practiced corroboree and danced every day. And I used to get sick of it, because I wanted to play guitar and play basketball.</p></InlineQuote>
+	<p>
+		Alongside responsibilities to Country and community, while living on the station Yawuru and
+		others performed all the domestic and stock work on the station.
+	</p>
+</GenericContent>
 
-        <p>Alongside responsibilities to Country and community, while living on the station Yawuru and others performed all the domestic and stock work on the station.</p>
-    </GenericContent>
-
-    <!--
+<!--
     <ScrollingCaptionSide id="station1" image={slide_station_1} caption="left" align="right" alt="" captionStyle="side">
         <h3>Photograph on the Thangoo homestead verandah (1932).</h3>
 
@@ -336,25 +513,40 @@
     </ScrollingCaptionSide>
 
  -->
-    <GenericContent>
-        <p>Women, like Ngalyjan, did all the domestic work, including washing, cleaning, and cooking. Gurndiga was a senior cultural law boss, initiated into Yawuru law. He was a man of great stature with status across the region, from Yawuru to Karrajarri and down south through the Pilbara, and east through the desert to Bunuba. When Gurndiga and Ngalyjan were married, the registrar demanded English names for his forms: Tommy and Doris Edgar took their surname from the name of the Thangoo station-owner.</p>
+<GenericContent>
+	<p>
+		Women, like Ngalyjan, did all the domestic work, including washing, cleaning, and cooking.
+		Gurndiga was a senior cultural law boss, initiated into Yawuru law. He was a man of great
+		stature with status across the region, from Yawuru to Karrajarri and down south through the
+		Pilbara, and east through the desert to Bunuba. When Gurndiga and Ngalyjan were married, the
+		registrar demanded English names for his forms: Tommy and Doris Edgar took their surname from
+		the name of the Thangoo station-owner.
+	</p>
 
-        <figure class="image-duo">
-            <div>
-                <img src={image_tommy_edgar} alt="" />
-                <img src={image_doris_edgar} alt="" />
-            </div>
-            <figcaption>Gurndiga/Tommy Edgar, and Ngalyjan/Doris Edgar.</figcaption>
-        </figure>
+	<figure class="image-duo">
+		<div>
+			<img src={image_tommy_edgar} alt="" />
+			<img src={image_doris_edgar} alt="" />
+		</div>
+		<figcaption>Gurndiga/Tommy Edgar, and Ngalyjan/Doris Edgar.</figcaption>
+	</figure>
 
-        <p>Tommy Edgar was one of the first Aboriginal people in the region to get a driver's licence, and drove cattle trucks around the area. He was a water diviner, and a skilled windmill repairer. Tommy became known as the 'Windmill Man.'</p>
+	<p>
+		Tommy Edgar was one of the first Aboriginal people in the region to get a driver's licence, and
+		drove cattle trucks around the area. He was a water diviner, and a skilled windmill repairer.
+		Tommy became known as the 'Windmill Man.'
+	</p>
 
-        <InlineQuote credit="Janet Cox, 2022">
-            <p>He travelled the whole station, fixing up windmills. Because there would be about 12 windmills.  And he’d go to fix up that windmill and all them other windmills, you know, going with the big trucks and, I mean, the station trucks, and see that everything was running.</p>
-        </InlineQuote>
-    </GenericContent>
- -->
-    <!--
+	<InlineQuote credit="Janet Cox, 2022">
+		<p>
+			He travelled the whole station, fixing up windmills. Because there would be about 12
+			windmills. And he’d go to fix up that windmill and all them other windmills, you know, going
+			with the big trucks and, I mean, the station trucks, and see that everything was running.
+		</p>
+	</InlineQuote>
+</GenericContent>
+
+<!--
     <ScrollingCaptionSide id="maps4" image={slide_thangoo_1} caption="left" align="right" alt="" captionStyle="side">
         <h3>Well on Thangoo Station, 1935, photographer John K Ewers, State Library of Western Australia: BA1658/203.</h3>
 
@@ -364,68 +556,104 @@
         <h3>Thangoo Station – cattle at windmill, August 1943, photographer F Dale and G Gale, National Archives of Australia: K1131, W827 2/15.</h3>
     </ScrollingCaptionSide>
  -->
-    <GenericContent>
-        <p>Conditions were hard at Thangoo, and people who lived on the station experienced disrespect and the constant threat of violence.</p>
-        <InlineQuote credit="Jimmy Edgar, 2021">
-            <p>They were the bosses, they had the guns … You know, you know if, if you said anything wrong they’d put, they’d, they’d have a gun in front of you, that sort of things. … everybody had to abide by the station managers where, because of the rifle … what I saw was not the station manager, but it was the gun.</p>
-        </InlineQuote>
+<GenericContent>
+	<p>
+		Conditions were hard at Thangoo, and people who lived on the station experienced disrespect and
+		the constant threat of violence.
+	</p>
+	<InlineQuote credit="Jimmy Edgar, 2021">
+		<p>
+			They were the bosses, they had the guns … You know, you know if, if you said anything wrong
+			they’d put, they’d, they’d have a gun in front of you, that sort of things. … everybody had to
+			abide by the station managers where, because of the rifle … what I saw was not the station
+			manager, but it was the gun.
+		</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Jimmy Edgar, 2022">
-            <p>They hurt me too as well. Like, I used to play with the calves and that, and the stockmen used to kick us up the bum and that … So, you know, yeah, definitely that kind of things that would happen … Because I often see them chase of all my, all my aunties and sisters, all the stockmens, yeah?</p>
-        </InlineQuote>
+	<InlineQuote credit="Jimmy Edgar, 2022">
+		<p>
+			They hurt me too as well. Like, I used to play with the calves and that, and the stockmen used
+			to kick us up the bum and that … So, you know, yeah, definitely that kind of things that would
+			happen … Because I often see them chase of all my, all my aunties and sisters, all the
+			stockmens, yeah?
+		</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Janet Cox, 2022">
-            <p>I think something was happening there but I, I, I don't, I'm too small to know, understand … And if, when the girls came back from doing things, you'd hear them screaming, come running, running back into the camp. Might be that's why they ran away from there.</p>
-        </InlineQuote>
- 
-        <p>Dianne Appleby remembers her mother describing their treatment as slaves.</p>
+	<InlineQuote credit="Janet Cox, 2022">
+		<p>
+			I think something was happening there but I, I, I don't, I'm too small to know, understand …
+			And if, when the girls came back from doing things, you'd hear them screaming, come running,
+			running back into the camp. Might be that's why they ran away from there.
+		</p>
+	</InlineQuote>
 
-        <AudioFullWidth audio={audio_dianne_2022} credit="Dianne Appleby, 2022." />
- 
-        <p>From the 1930s onwards, some kids moved into Broome for schooling, and continued to move back and forth.</p>
+	<p>Dianne Appleby remembers her mother describing their treatment as slaves.</p>
 
-        <figure>
-            <!--image here -->
-            <figcaption>Elsie Edgar arriving at the Common Gate, where people crossed the municipal boundary into Broome.</figcaption>
-        </figure>
+	<AudioFullWidth audio={audio_dianne_2022} credit="Dianne Appleby, 2022." />
 
-        <p>Janet Cox talks about living in Broome and having a home on Thangoo.</p>
+	<p>
+		From the 1930s onwards, some kids moved into Broome for schooling, and continued to move back
+		and forth.
+	</p>
 
-        <AudioFullWidth audio={audio_janet_2022} credit="Janet Cox, 2022." />
+	<figure>
+		<!--image here -->
+		<figcaption>
+			Elsie Edgar arriving at the Common Gate, where people crossed the municipal boundary into
+			Broome.
+		</figcaption>
+	</figure>
 
-    </GenericContent>
-  
-    <GenericContent>
-        <TwoColumnContent>
+	<p>Janet Cox talks about living in Broome and having a home on Thangoo.</p>
 
-            <div>
-                <p>After the war, things changed.</p>
+	<AudioFullWidth audio={audio_janet_2022} credit="Janet Cox, 2022." />
+</GenericContent>
 
-                <p>In 1946 Aboriginal pastoral workers across the Pilbara went on strike. Tommy Edgar, who drove road trains around the state, learnt about the strike in Port Hedland and, from there, he was involved with the strike mob.</p>
+<GenericContent>
+	<TwoColumnContent>
+		<div>
+			<p>After the war, things changed.</p>
 
-                <p>But word also spread through other connections, and soon those in Thangoo knew what was happening. </p>
+			<p>
+				In 1946 Aboriginal pastoral workers across the Pilbara went on strike. Tommy Edgar, who
+				drove road trains around the state, learnt about the strike in Port Hedland and, from there,
+				he was involved with the strike mob.
+			</p>
 
-                <p>Some walked off the station in 1946, moving to Broome.</p>
+			<p>
+				But word also spread through other connections, and soon those in Thangoo knew what was
+				happening.
+			</p>
 
-                <p>In February 1951 the remaining Aboriginal workers on Thangoo walked off and, when they returned, they demanded wages and better conditions.</p>
+			<p>Some walked off the station in 1946, moving to Broome.</p>
 
-                <p>The station managers refused, and the Broome office of the Native Affairs department was directed to suspend issuing employment permits, meaning that station workers who had left were unable to obtain legal employment in Broome.</p>
+			<p>
+				In February 1951 the remaining Aboriginal workers on Thangoo walked off and, when they
+				returned, they demanded wages and better conditions.
+			</p>
 
-                <p>Some moved to the settlement on Didirrgun (Kennedy Hill), which was declared as a reserve in the 1950s. From here people had easy access to the mangroves and the sea, waterholes, corroborree sites, bushfoods, and more, with Thangoo in clear line of sight across the bay.</p>
+			<p>
+				The station managers refused, and the Broome office of the Native Affairs department was
+				directed to suspend issuing employment permits, meaning that station workers who had left
+				were unable to obtain legal employment in Broome.
+			</p>
 
-            </div>
+			<p>
+				Some moved to the settlement on Didirrgun (Kennedy Hill), which was declared as a reserve in
+				the 1950s. From here people had easy access to the mangroves and the sea, waterholes,
+				corroborree sites, bushfoods, and more, with Thangoo in clear line of sight across the bay.
+			</p>
+		</div>
 
-            <div>
-                <figure>
-                    <img src={image_dispute} alt="" />
-                </figure>
-            </div>
+		<div>
+			<figure>
+				<img src={image_dispute} alt="" />
+			</figure>
+		</div>
+	</TwoColumnContent>
+</GenericContent>
 
-        </TwoColumnContent>
-
-    </GenericContent>
-
-    <!--
+<!--
     <ScrollingCaptionSide id="maps4" image={slide_kennedy_1} caption="left" align="right" alt="" captionStyle="side">
         <h3>Huts on Didirrgun (Kennedy Hill) (c.1958?).</h3>
     </ScrollingCaptionSide>
@@ -439,105 +667,184 @@
     </ScrollingCaptionSide>
 -->
 
-    <GenericContent>
+<GenericContent>
+	<InlineQuote credit="Thomas 'Unda' Edgar">
+		<p>
+			This was my growing up place, and the happiest time of my life. We had everything, we had the
+			fish, we had the crab just straight down there, the creek, everything.
+		</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Thomas 'Unda' Edgar">
-            <p>This was my growing up place, and the happiest time of my life. We had everything, we had the fish, we had the crab just straight down there, the creek, everything. </p>
-        </InlineQuote>
+	<InlineQuote credit="Janet Edgar, 2022">
+		<p>It was like a tin shack, but it doesn't matter because we were all there together.</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Janet Edgar, 2022">
-            <p>It was like a tin shack, but it doesn't matter because we were all there together.</p>
-        </InlineQuote>
+	<p>
+		Others moved to Karnin, where they supported themselves by selling oysters, crab, and other
+		cultural resources. Hear Susan Edgar talking about life during this period.
+	</p>
 
-        <p>Others moved to Karnin, where they supported themselves by selling oysters, crab, and other cultural resources. Hear Susan Edgar talking about life during this period.</p>
+	<AudioFullWidth
+		audio={audio_susan_karnin}
+		credit="Susan Edgar discussing life at Karnin with Ben Silverstein and Mike Jones, drawn from two separate interview sessions in 2021 and 2022."
+	/>
+</GenericContent>
 
-        <AudioFullWidth audio={audio_susan_karnin} credit="Susan Edgar discussing life at Karnin with Ben Silverstein and Mike Jones, drawn from two separate interview sessions in 2021 and 2022." />
-        
-    </GenericContent>
+<MediaFullWidth
+	image={image_susan_father}
+	caption="Susan Edgar's father, carrying fish, at Karnin. Photo provided by Susan Edgar."
+/>
 
-    <MediaFullWidth image={image_susan_father}
-        caption="Susan Edgar's father, carrying fish, at Karnin. Photo provided by Susan Edgar." />
+<GenericContent>
+	<h2>Mabu liyan ngayini ngan-ga</h2>
 
-    <GenericContent>
-        <h2>Mabu liyan ngayini ngan-ga</h2>
+	<p>
+		Through the station times, Yawuru people maintained their law, language, and culture at
+		Janyjagurdiny.
+	</p>
 
-        <p>Through the station times, Yawuru people maintained their law, language, and culture at Janyjagurdiny.</p>
+	<InlineQuote credit="Susan Edgar, 2022">
+		<p>
+			They never take that away from the old, old people in Janyjagurdiny. They were strong and they
+			kept it going. They couldn't take it off them, because they already, their minds [were] set.
+			That's their law and they have to keep it.
+		</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Susan Edgar, 2022">
-            <p>They never take that away from the old, old people in Janyjagurdiny. They were strong and they kept it going.  They couldn't take it off them, because they already, their minds [were] set.  That's their law and they have to keep it.</p>
-        </InlineQuote>
+	<p>
+		The use of language and practice of law continues. Yawuru people remain connected to Country and
+		learn cultural knowledge through their connection to Janyjagurdiny. It is still home for so many
+		Yawuru people.
+	</p>
 
-        <p>The use of language and practice of law continues. Yawuru people remain connected to Country and learn cultural knowledge through their connection to Janyjagurdiny. It is still home for so many Yawuru people.</p>
+	<InlineQuote credit="Dianne Appleby, 2022">
+		<p>
+			Well we’d be there every weekend. After school, you know, like the holiday time. They actually
+			never left, basically. All they wanted to do was spend time back on Country.
+		</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Dianne Appleby, 2022">
-            <p>Well we’d be there every weekend.  After school, you know, like the holiday time.  They actually never left, basically.  All they wanted to do was spend time back on Country.</p>
-        </InlineQuote>
+	<InlineQuote credit="Janet Cox, 2022">
+		<p>
+			It’s what the place means to you. When you go there, what does Thangoo mean to all of us? It
+			means home. It’s everything that we’ve got there. And so we want to go back and see that
+			place, and know our feeling for that place. It might be hot and sticky and whatever it is, but
+			that’s our home. It’s like when you go back to your home, what you feel for it. And that’s
+			just what we feel for Thangoo. That’s where we grew up, that’s where we know: where we can
+			hunt, and where to go, not to damage the place but just go there. We can go fishing, we can
+			get our crabs, we can get our goanna, whatever. Honey from the tree, it’s there! And our
+			feeling there, our liyan, is there. Because that’s where we’re from. And we tell that to our
+			grandchildren, what happened to us when we were there, what our feelings towards Thangoo are.
+			Our place is there. And there’s sacred places.
+		</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Janet Cox, 2022">
-            <p>It’s what the place means to you. When you go there, what does Thangoo mean to all of us? It means home. It’s everything that we’ve got there. And so we want to go back and see that place, and know our feeling for that place. It might be hot and sticky and whatever it is, but that’s our home. It’s like when you go back to your home, what you feel for it. And that’s just what we feel for Thangoo. That’s where we grew up, that’s where we know: where we can hunt, and where to go, not to damage the place but just go there. We can go fishing, we can get our crabs, we can get our goanna, whatever. Honey from the tree, it’s there! And our feeling there, our liyan, is there. Because that’s where we’re from. And we tell that to our grandchildren, what happened to us when we were there, what our feelings towards Thangoo are. Our place is there. And there’s sacred places.</p>
-        </InlineQuote>
+	<InlineQuote credit="Dianne Appleby, 2022">
+		<p>When our cup is empty, we return to refill the cup, to make it full.</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Dianne Appleby, 2022">
-            <p>When our cup is empty, we return to refill the cup, to make it full.</p>
-        </InlineQuote>
+	<p>
+		Though it wasn’t always easy, returning, in the right tide and the right season, allowed Yawuru
+		people to continue to learn about Country. Some would walk, others drive, and, from the 1980s
+		onwards, many would take the shorter route (and a route less visible to the station owners) and
+		travel across the Bay by boat.
+	</p>
 
-        <p>Though it wasn’t always easy, returning, in the right tide and the right season, allowed Yawuru people to continue to learn about Country. Some would walk, others drive, and, from the 1980s onwards, many would take the shorter route (and a route less visible to the station owners) and travel across the Bay by boat.</p>
+	<figure>
+		<img src={image_gate} alt="" />
+		<figcaption>The entrance to Thangoo Station in 2022. Photo: Ben Silverstein.</figcaption>
+	</figure>
 
-        <figure>
-            <img src={image_gate} alt="" />
-            <figcaption>The entrance to Thangoo Station in 2022. Photo: Ben Silverstein.</figcaption>
-        </figure>
+	<p>
+		Dianne Appleby and Thomas 'Unda' Edgar talk about opening the gate and returning to Thangoo.
+	</p>
 
-        <p>Dianne Appleby and Thomas 'Unda' Edgar talk about opening the gate and returning to Thangoo.</p>
+	<AudioFullWidth
+		audio={audio_dianne_thomas}
+		credit="Dianne Appleby and Thomas 'Unda' Edgar, 2022."
+	/>
 
+	<p>
+		Returning from Broome to Janyjagurdiny is a way of mapping Country. From Broome, looking over
+		Roebuck Bay, you can see the tamarind tree near the Thangoo homestead.
+	</p>
 
-<AudioFullWidth audio={audio_dianne_thomas} credit="Dianne Appleby and Thomas 'Unda' Edgar, 2022." />
+	<YawuruThangooMap />
 
+	<p>
+		In what now looks like a small clearing just above the younger tree in the image above, there
+		used to stand an older tamarind tree, later knocked down in a cyclone. A long time ago, when
+		welfare came to take children away, some (like Doris Edgar's father, Tommy Roe) managed to
+		escape by climbing up that tamarind tree and hiding behind its branches. Later, others, like
+		Doris herself, eluded welfare by painting themselves with guba (charcoal) from the jarridany
+		balu (tree).
+	</p>
 
-       
+	<p>
+		As an adult, Guminy/Tommy Roe was to become birrga-man for Jangu, the most senior cultural law
+		boss responsible for Yawuru Country. A Garimba man, he was promised a high profile wife,
+		Bajingga/Monica, a Barrjari Naja Karajarri woman from Miriny Gujarra (Eco Beach), who was the
+		daughter of a survivor of the LaGrange Massacre in 1865.
+	</p>
 
-        <p>Returning from Broome to Janyjagurdiny is a way of mapping Country. From Broome, looking over Roebuck Bay, you can see the tamarind tree near the Thangoo homestead.</p>
+	<p>
+		Later, Tommy Roe passed his birrga role and and responsibility on to Tommy Edgar, who had been
+		promised to and married Tommy Roe’s eldest daughter Doris. In his later years, Tommy Roe
+		established a community at Kennedy Hill and lived at other places around Broome, outside the
+		common fence.
+	</p>
 
-        <!-- <ClientSide>
-            <ThangooHomsteadMap />
-        </ClientSide> -->
+	<p>
+		Looking from Broome at the younger tamarind tree today, Yawuru people recall the years they
+		lived there and maintain their connection; spiritually, they are still at Janyjagurdiny and
+		Jangu.
+	</p>
 
-        <p>In what now looks like a small clearing just above the younger tree in the image above, there used to stand an older tamarind tree, later knocked down in a cyclone. A long time ago, when welfare came to take children away, some (like Doris Edgar's father, Tommy Roe) managed to escape by climbing up that tamarind tree and hiding behind its branches. Later, others, like Doris herself, eluded welfare by painting themselves with guba (charcoal) from the jarridany balu (tree).</p>
+	<InlineQuote credit="Thomas 'Unda' Edgar, 2022">
+		<p>We always return.</p>
+	</InlineQuote>
 
-        <p>As an adult, Guminy/Tommy Roe was to become birrga-man for Jangu, the most senior cultural law boss responsible for Yawuru Country. A Garimba man, he was promised a high profile wife, Bajingga/Monica, a Barrjari Naja Karajarri woman from Miriny Gujarra (Eco Beach), who was the daughter of a survivor of the LaGrange Massacre in 1865.</p>
+	<InlineQuote credit="Dianne Appleby, 2021">
+		<p>We never disconnect. Although we live here, we’re always back there.</p>
+	</InlineQuote>
 
-        <p>Later, Tommy Roe passed his birrga role and and responsibility on to Tommy Edgar, who had been promised to and married Tommy Roe’s eldest daughter Doris. In his later years, Tommy Roe established a community at Kennedy Hill and lived at other places around Broome, outside the common fence.</p>
+	<p>
+		Yawuru people regularly return to Jangu and Janyjagurdiny, sometimes by car and often by boat.
+		There they can share knowledge, access resources, and bring them back to share fish and other
+		nagulagun and birragun warli mayi (sea and bush food) from Country with community in Broome and
+		surrounds. These visits maintain cultural connection and liyan—Yawuru wellbeing.
+	</p>
 
-        <p>Looking from Broome at the younger tamarind tree today, Yawuru people recall the years they lived there and maintain their connection; spiritually, they are still at Janyjagurdiny and Jangu.</p>
+	<InlineQuote credit="Thomas 'Unda' Edgar, 2022">
+		<p>
+			This knowledge comes from our old people who told us how to protect Country; this is their
+			story of what they’ve been doing all their life.
+		</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Thomas 'Unda' Edgar, 2022">
-            <p>We always return.</p>
-        </InlineQuote>
+	<InlineQuote credit="Dianne Appleby, 2022">
+		<p>
+			Liyan is the thing driving us back, drawing us back there. When we get back there now, Unda
+			mob go and get birndany, for example. When we light that jungku from gundurung, that smell
+			starts to create a story. We sit down there with mum and dad. We get birndany, we get crab,
+			and all the memories come back. It’s so refreshing. Suddenly our spirit is lifted up because
+			we’re in a place where we’re not interrupted or being interfered with our thoughts, because
+			the liyan is free. The freedom of what Marrimarrigun brings, that’s freedom too, that spirit
+			from that Country. That liyan is so beautiful there.
+		</p>
+	</InlineQuote>
 
-        <InlineQuote credit="Dianne Appleby, 2021">
-            <p>We never disconnect. Although we live here, we’re always back there.</p>
-        </InlineQuote>
+	<p>Listen to Dianne Appleby speak more about an ongoing connection to Jangu.</p>
 
-        <p>Yawuru people regularly return to Jangu and Janyjagurdiny, sometimes by car and often by boat. There they can share knowledge, access resources, and bring them back to share fish and other nagulagun and birragun warli mayi (sea and bush food) from Country with community in Broome and surrounds. These visits maintain cultural connection and liyan—Yawuru wellbeing.</p>
+	<AudioFullWidth audio={audio_dianne_2021} credit="Dianne Appleby, 2021" />
 
-        <InlineQuote credit="Thomas 'Unda' Edgar, 2022">
-            <p>This knowledge comes from our old people who told us how to protect Country; this is their story of what they’ve been doing all their life.</p>
-        </InlineQuote>
-
-        <InlineQuote credit="Dianne Appleby, 2022">
-            <p>Liyan is the thing driving us back, drawing us back there. When we get back there now, Unda mob go and get birndany, for example. When we light that jungku from gundurung, that smell starts to create a story. We sit down there with mum and dad. We get birndany, we get crab, and all the memories come back. It’s so refreshing. Suddenly our spirit is lifted up because we’re in a place where we’re not interrupted or being interfered with our thoughts, because the liyan is free. The freedom of what Marrimarrigun brings, that’s freedom too, that spirit from that Country. That liyan is so beautiful there.</p>
-        </InlineQuote>
-
-        <p>Listen to Dianne Appleby speak more about an ongoing connection to Jangu.</p>
-
-        <AudioFullWidth audio={audio_dianne_2021} credit="Dianne Appleby, 2021" />
-
-        <figure>
-            <img src={image_jack_edgar} alt="" />
-            <figcaption>Bulan/Jack Edgar back home at Jangu (date unknown). Photo provided by Susan Edgar.</figcaption>
-        </figure>
-
-    </GenericContent>
+	<figure>
+		<img src={image_jack_edgar} alt="" />
+		<figcaption>
+			Bulan/Jack Edgar back home at Jangu (date unknown). Photo provided by Susan Edgar.
+		</figcaption>
+	</figure>
+</GenericContent>
 
 <GenericContent>
 	<h2>Wirriya liyan buru</h2>
@@ -618,9 +925,7 @@
 	</InlineQuote>
 </GenericContent>
 
-<!-- <ClientSide>
         <YawuruCoastMap />
-    </ClientSide> -->
 
 <GenericContent>
 	<h2>Making Jangu yirr Janyjagurdiny</h2>

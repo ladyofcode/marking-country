@@ -1,6 +1,7 @@
 <script>
 	import { base } from '$app/paths';
 	import { onMount, onDestroy, setContext, createEventDispatcher } from 'svelte';
+	import { YouTube } from 'sveltekit-embed';
 	import L from 'leaflet';
 	import 'leaflet/dist/leaflet.css';
 
@@ -93,7 +94,205 @@
     <p><a href="#durdu-ngardi-film">Watch the short film about the catfish story</a></p>
 `;
 
-	const defaultText = `<div class="default-text">
+	const hawkeText = `    <h3>Dalandi</h3>
+    <figure>
+      <audio key="dalandi" controls>
+        <source src=${dalandi} />
+      </audio>
+    </figure>
+
+    <figure>
+      <img src=${hawke} alt="" />
+    </figure>
+
+    <p>When Europeans came to the area they called Dalandi ‘Silent Grove’.</p>
+
+    <figure>
+      <blockquote>
+        <p>We don’t own the Country but the Country owns us. That’s our Law.</p>
+      </blockquote>
+      <figcaption>~ Philip Cracker Duckhole 2022.</figcaption>
+    </figure>
+
+    <p>
+      Phillip (Cracker) Duckhole is Traditional Owner for the Walarda (Mount
+      Hart) and Dalandi (Silent Grove) area. His Wunggud, special spirit place,
+      is near Dalandi. Phillip created the hawk which represents and symbolises
+      the area and his daughter (deceased) whose spirit lives in the hawk.
+    </p>
+
+    <iframe
+      width="100%"
+      height="400"
+      src="https://www.youtube.com/embed/HSrNTwZ7-68?rel=0&amp;modestbranding=1?rel=0"
+      title="YouTube video player"
+      frameBorder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+
+    <p>
+      Dalandi and Marardda contain many galleries of Wandjina paintings. Phillip
+      Duckhole's sons and nephews are rangers who walk the area often. He will
+      show them how to paint the Wandjinas properly, to use the right ochres and
+      hands not brushes. He describes how it feels to refresh and repaint a
+      Wandjina and how the Country responds to human care.
+    </p>
+
+    <figure>
+      <audio controls>
+        <source src=${philip} />
+      </audio>
+    </figure>
+
+    <details>
+      <summary>Audio transcript</summary>
+      <p>
+        You make it happy repainting, make it fresh, really good. And when you
+        smoke and walk away, you can hear the sound Ummm like that from the
+        cave, feel it that's he happy for redoing it, repainting it, you know,
+        yeah.
+      </p>
+    </details>
+`;
+
+	const dingoText = `
+    <h3>Walarda Mindi (Mount Hart Station) </h3>
+
+    <figure>
+      <audio key="walarda" controls>
+        <source src=${walarda} />
+      </audio>
+    </figure>
+
+    <p>
+      The dingo dreaming is the main creation story for the Walarda area. He is
+      considered a boss.
+    </p>
+
+    <figure>
+      <img src=${dingo} alt="" />
+    </figure>
+
+    <p>
+      Matthew Dembal Martin learned from birth how to walk his Country by
+      following the pathways laid down by Wandjinas and his ancestors in song,
+      story and physical markings or signposts. He was born on Walarda (Mount
+      Hart station) where his mother worked as a stock woman.
+    </p>
+
+    <iframe
+      width="100%"
+      height="400"
+      src="https://www.youtube.com/embed/0rSdmx_U-nE?rel=0&amp;modestbranding=1?rel=0"
+      title="YouTube video player"
+      frameBorder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+
+    <p>
+      His Wunggud is also on Mount Hart. He is a senior songman and cultural
+      custodian who has travelled this area since childhood. His songs and
+      stories give meaning to the land. His European name is taken from the
+      European name for Dawungumen Mindi - near Mount Matthew.
+    </p>
+
+    <p>
+      As a boy he walked with his mother and father from Walarda Mindi north to
+      Wunambal and Uunggu Country (Kalumburu Mission area) learning about the
+      Country and how to live on it. He returned to live and work as a stockman
+      near his land at Dodnun (Mount Elizabeth station) and Ngallagunda (Gibb
+      River station).
+    </p>
+
+    <figure className={styles.quote}>
+      <blockquote>
+        <p>
+          Those days there was no road up there, driving cars up nothing. The
+          road was just lately. We went to Silent Grove, Beverley Springs, Mount
+          House, back here, holiday. Second time we went Beverley Springs to
+          Mount Barnett, then to Gibb River. Went to Mount Elizabeth, drop my
+          grandmother over there leave her at Mount Elizabeth, old Mount
+          Elizabeth. Mum and Dad decided to take me to Kalumburu, walk. … No
+          road to Kalumburu that time, nothing, it was just bush land. Anyway we
+          walk, walk follow the river down that King Edward River getting fish
+          and kangaroo, that’s all. That’s all we can eat.
+        </p>
+      </blockquote>
+      <figcaption>~ Matthew Dembal Martin 2022</figcaption>
+    </figure>
+
+    <figure>
+      <img src=${matthew} alt="" />
+      <figcaption>
+        Keith Tattaya, Duliwan Gordon Smith and Matthew Martin working at
+        Pantijan cattle station, 1977. Photo: Kerin O’Dea. Courtesy Mowanjum
+        Aboriginal Art & Culture Centre.
+      </figcaption>
+    </figure>
+
+    <p>
+      Nulgit (Pansy) shared a story about the places she walked and camped when
+      her family came from Munja to Walarda hill and began working for Gardia
+      (white men). The family camped at a place called Dalgumen near Walarda
+      Mindi (Mount Hart station) the same location she and her family and the
+      recording team camped in 2022.
+    </p>
+
+    <p>
+      The family had not worked for white men before and they were ‘nervous’.
+      Nulgit started work as a child after her big sister, Matthew Dembal
+      Martin’s mother, came to their camp and explained they would get food and
+      Nulgit would take care of the goats and pigs, and learn to ride horses. It
+      is a story of places and relationships not dates or forced entry into the
+      pastoral workforce.
+    </p>
+
+    <iframe
+      width="100%"
+      height="400"
+      src="https://www.youtube.com/embed/Vhxt3dhzoxU?rel=0&amp;modestbranding=1?rel=0"
+      title="YouTube video player"
+      frameBorder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+
+    <details>
+      <summary>Video transcript</summary>
+      <p>
+        This place, we came from Munja, all the way, that big hill we been climb
+        over, when I was small, you know, good size. We been walking from Munja
+        camp to camp all along, all along we been camping. Then one place we
+        made a camp. And my father been go hunting for kangaroo, and he been
+        look, find this place, straight over from this hill, you know Walarda
+        Hill. He seen all the houses there, “We have to go.” Go see if he got
+        some boys there. So we came down night time to that person what been
+        there, chuckem rock. And that boy reckon, “Hey somebody been chuckem
+        rock. Who You?” “No me fella from Munja we been come.”
+      </p>
+      <p>
+        So old people been still nervous for Gardia you know, never been with
+        Gardia all the time. Yeah they been frightened for us you know. Somebody
+        came along, my big sister, Dembal for Mum. He been tellem me now (gotta
+        language) “We gotta work for Gardia now.” She told me. You mob gotta do
+        milking goat, getting all the bushes for goat, feed them. We been learn,
+        that’s the one now, in that place where we camping, yeah.
+      </p>
+    </details>
+
+    <figure>
+      <img src=${jebb} alt="" />
+      <figcaption>
+        Waterhole near Walarda Mindi (Mount Hart station) where Nulgit camped
+        when she started work for the station and where Matthew Dembal Martin
+        was born. Photo: Mary Anne Jebb, 2022.
+      </figcaption>
+    </figure>
+`;
+
+	let infoText = `<div class="default-text">
     <hr />
     <h3>Interactive map</h3>
     <p>Click an icon to learn more</p>
@@ -103,19 +302,13 @@
 
 	export let bounds;
 	export let view = [-17.1, 124.44];
-	export let zoom = 6;
+	export let zoom = 8;
 
 	const dispatch = createEventDispatcher();
 
 	let map;
 	let mapElement;
-
-	// let pin = L.icon({
-	// 	iconUrl: mapPin,
-	// 	className: `pin`,
-	// 	html: `<img src=${mapPin}></img>`,
-	// 	iconSize: [45, 60]
-	// });
+	let infoBox;
 
 	const catfishIcon = new L.divIcon({
 		className: `fish`,
@@ -123,28 +316,47 @@
 		iconSize: [140, 140]
 	});
 
-	const outerContainer = document.querySelector('map-container');
+	const dingoIcon = new L.divIcon({
+		className: `dingo`,
+		html: `<img src=${dingo}></img>`,
+		iconSize: [140, 100]
+	});
+
+	const hawkeIcon = new L.divIcon({
+		className: `hawke`,
+		html: `<img src=${hawke}></img>`,
+		iconSize: [140, 100]
+	});
+
+	const catfishIconSmall = new L.divIcon({
+		className: `fish`,
+		html: `<img src=${catfish}></img>`,
+		iconSize: [100, 90]
+	});
+
+	const dingoIconSmall = new L.divIcon({
+		className: `dingo`,
+		html: `<img src=${dingo}></img>`,
+		iconSize: [90, 90]
+	});
+
+	const hawkeIconSmall = new L.divIcon({
+		className: `hawke`,
+		html: `<img src=${hawke}></img>`,
+		iconSize: [90, 90]
+	});
+
 	const largeScreen = window.matchMedia('(min-width: 900px)');
+
+	const handleClick = (text) => {
+		infoText = text;
+		infoBox.scrollTop = 0;
+	};
+
 	onMount(() => {
 		if (!bounds && (!view || !zoom)) {
 			throw new Error('Must set either bounds, or view and zoom.');
 		}
-
-		if (outerContainer.offsetWidth > 900) {
-			map.setView([-17.1, 124.44], 9);
-		} else {
-			map.setView([-17.1, 125], 8);
-		}
-
-		largeScreen.addListener((e) => {
-			if (e.matches) {
-				map.setView([-17.1, 124.44], 9);
-				setZoom(9);
-			} else {
-				map.setView([-17.1, 125], 8);
-				setZoom(8);
-			}
-		});
 
 		map = L.map(mapElement)
 			// example to expose map events to parent components:
@@ -157,7 +369,31 @@
 			}
 		).addTo(map);
 
-		L.marker([-17.27, 124.719], { icon: catfishIcon }).addTo(map);
+		if (zoom <= 8) {
+			L.marker([-17.4, 124.6], { icon: catfishIconSmall })
+				.addTo(map)
+				.on('click', () => handleClick(catfishText));
+
+			L.marker([-17.4, 125.252], { icon: hawkeIconSmall })
+				.addTo(map)
+				.on('click', () => handleClick(hawkeText));
+
+			L.marker([-16.827, 124.915], { icon: dingoIconSmall })
+				.addTo(map)
+				.on('click', () => handleClick(dingoText));
+		} else {
+			L.marker([-17.27, 124.719], { icon: catfishIcon })
+				.addTo(map)
+				.on('click', () => handleClick(catfishText));
+
+			L.marker([-17.4, 125.252], { icon: hawkeIcon })
+				.addTo(map)
+				.on('click', () => handleClick(hawkeText));
+
+			L.marker([-16.827, 124.915], { icon: dingoIcon })
+				.addTo(map)
+				.on('click', () => handleClick(dingoText));
+		}
 	});
 
 	onDestroy(() => {
@@ -173,20 +409,89 @@
 		if (bounds) {
 			map.fitBounds(bounds);
 		} else if (view && zoom) {
-			map.setView(view, zoom);
+			// map.setView(view, zoom);
+			if (mapElement.offsetWidth > 900) {
+				map.setView([-17.1, 124.44], 9);
+			} else {
+				map.setView([-17.1, 125], 8);
+			}
 		}
 	}
+
+	largeScreen.addListener((e) => {
+		if (e.matches) {
+			map.setView([-17.1, 124.44], 9);
+			// map.setZoom(9);
+		} else {
+			map.setView([-17.1, 125], 8);
+			// setZoom(8);
+		}
+	});
 </script>
 
-<div id="map-container" class="container" bind:this={mapElement}>
-	{#if map}
-		<slot />
-	{/if}
+<div id="map-container" class="container" >
+	<div class="map-container" bind:this={mapElement}>
+
+	</div>
+	<!-- {#if map} -->
+		<!-- <slot /> -->
+	<!-- {/if} -->
+	<div id="info" bind:this={infoBox}>{@html infoText}</div>
 </div>
 
 <style>
 	.container {
+		position: relative;
+		/* height: 100%; */
+		
+		display: flex;
+		flex-direction: column;
+	}
+
+	.map-container {
 		min-height: 400px;
+		height: 400px;
+		width: 100%;
+	}
+
+	:global(.leaflet-pane) {
+		position: static;
+	}
+
+	#info {
+		position: static;
+		z-index: 1000;
+		border: 2px solid #2e2e2e;
+		width: 100%;
+		min-height: 300px;
+		max-height: 400px;
+		background: var(--color-dark-charcoal);
+		padding: 2rem;
+		border-radius: 5px;
+		box-shadow: 0 0 10px 10px rgba(0, 82, 149, 0.2);
+		overflow-y: scroll;
+	}
+
+	#info :global(h3) {
+		margin-bottom: 3.2rem;
+	}
+
+	#info :global(audio) {
+		margin-bottom: 2.4rem;
+	}
+
+	#info :global(img) {
+		max-height: 200px;
+		margin: 0 auto;
+	}
+
+	#info :global(.quote blockquote) {
+		font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+		font-style: italic;
+	}
+
+	#info :global(.quote figcaption) {
+		text-align: right;
 	}
 
 	:global(.fish),
@@ -197,19 +502,79 @@
 		transform: scale(0.5, 0.5);
 	}
 
+	:global(.fish img),
+	:global(.dingo img),
+	:global(.hawke img) {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	:global(.fish img) {
+		animation: rotate 60s linear infinite;
+	}
+
+	:global(.dingo img) {
+		animation: wiggle 10s infinite;
+	}
+
+	:global(.hawke img) {
+		animation: wiggle 16s infinite;
+		animation-delay: 0.4;
+	}
+
+	@keyframes rotate {
+		from {
+			transform: rotate(0deg);
+		}
+
+		to {
+			transform: rotate(-360deg);
+		}
+	}
+
+	@keyframes wiggle {
+		0% {
+			transform: rotate(8deg);
+		}
+
+		25% {
+			transform: rotate(-4deg);
+		}
+
+		50% {
+			transform: rotate(10deg);
+		}
+
+		75% {
+			transform: rotate(-2deg);
+		}
+
+		100% {
+			transform: rotate(0deg);
+		}
+	}
+
 	@media (min-width: 900px) {
+		.map-container {
+			display: block;
+			height: 600px;
+		}
+
 		:global(.fish),
 		:global(.dingo),
 		:global(.hawke) {
 			transform: scale(1, 1);
 		}
 
-		:global(.fish img),
-		:global(.dingo img),
-		:global(.hawke img) {
+		#info {
+			max-width: 320px;
+			position: absolute;
+			top: 40px;
+			bottom: 64px;
+			left: 24px;
 			width: 100%;
-			height: 100%;
-			object-fit: contain;
+			max-width: 40vw;
 		}
 	}
 </style>

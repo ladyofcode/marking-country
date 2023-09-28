@@ -182,9 +182,6 @@
 	];
 </script>
 
-<MararddaMap />
-
-
 <Warning>
 	<p>
 		Phillip Duckhole has passed away since the making of this website and the short films it
@@ -388,7 +385,7 @@
 	<h2 id="map">Marardda</h2>
 </GenericContent>
 
-<!-- <MararddaMap /> -->
+<MararddaMap />
 
 <GenericContent>
 	<h2>Wurdu</h2>

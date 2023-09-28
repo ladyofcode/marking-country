@@ -16,6 +16,7 @@
 	import TwoColumnContent from '$lib/layout/TwoColumnContent.svelte';
 	import Warning from '$lib/components/Warning.svelte';
 	import AudioFullWidth from '$lib/components/AudioFullWidth.svelte';
+	import WoddorddaMap from '$lib/components/leaflet/WoddorddaMap.svelte';
 
 	let leahIntro = `${base}/stories/woddordda/audio/Leah-Umbagai-intro-clan-tribe-mowanjum-edit.mp3`;
 	let leahSymbols = `${base}/stories/woddordda/audio/Leah-Umbagai-map-language-symbols.mp3`;
@@ -453,9 +454,7 @@
 </GenericContent>
 
 <div id="interactive-map" class="container">
-	<!-- <ClientSide>
-        <MudMap />
-      </ClientSide> -->
+	<WoddorddaMap />
 </div>
 
 <GenericContent>

@@ -14,6 +14,12 @@
 	import Intro from '$lib/components/Intro.svelte';
 	import InlineQuote from '$lib/components/InlineQuote.svelte';
 	import LargeQuote from '$lib/components/LargeQuote.svelte';
+	import ScrollingCaption from '$lib/components/ScrollingCaption.svelte';
+
+	import GalleryOne from '$lib/components/carnarvon/GalleryOne.svelte';
+	import GalleryTwo from '$lib/components/carnarvon/GalleryTwo.svelte';
+	import WalkOne from '$lib/components/carnarvon/WalkOne.svelte';
+	import WalkTwo from '$lib/components/carnarvon/WalkTwo.svelte';
 
 	let audio_C0041_AudioOnly2 = `${base}/stories/carnarvon/audio/C0041_AudioOnly2.mp3`;
 
@@ -103,6 +109,19 @@
 
 	const pageTitle = `Walking deep history: Carnarvon Gorge`;
 </script>
+
+<h1>c</h1>
+
+<ScrollingCaption
+	id="trio1"
+	video={video_C0025}
+	alt=""
+	type="video/webm"
+	poster={image_poster_C0025}
+	autoplay="true"
+>
+	<p>Walking Carnarvon Gorge takes you down into shaded rainforests...</p>
+</ScrollingCaption>
 
 <Header
 	poster={image_poster_carnarvon}
@@ -226,7 +245,7 @@
       ></iframe>
     </VideoEmbedFullWidth> -->
 
-<!-- <WalkOne /> -->
+<WalkOne />
 
 <!-- <ScrollingCaption id="trio1" video={video_C0025} type="video/webm" caption="left" align="right" alt="" poster={image_poster_C0025}>
       <p>
@@ -309,7 +328,7 @@
 	</figure>
 </GenericContent>
 
-<!-- <GalleryOne /> -->
+<GalleryOne />
 
 <GenericContent>
 	<p>
@@ -594,7 +613,8 @@
 -->
 <MediaFullWidth video={video_C0001} poster={image_C0001_poster} alt="" />
 
-<!-- <WalkTwo /> -->
+<WalkTwo />
+
 <!--
     <ScrollingCaption video={video_C0008} alt="" poster={image_poster_C0025}>
       <p>Even when the creek is dry, there is a coolness to this Country</p>
@@ -633,6 +653,7 @@
 
     </ScrollingCaption>
 -->
+
 <GenericContent>
 	<p id="creek-stories">
 		Being on Country has such special significance for Jackie and Uncle Fred. After the Covid-19

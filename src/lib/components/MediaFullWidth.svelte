@@ -18,42 +18,41 @@
 		<img src={image} {alt} />
 	{/if}
 
-	<figcaption>{caption}</figcaption>
+	{#if caption}
+		<figcaption>{caption}</figcaption>
+	{/if}
 </figure>
 
 <style>
+	figure {
+		height: 100%;
+	}
 
-figure {
-    height: 100%;
-}
+	img,
+	video {
+		width: 100%;
+		height: 100%;
+		max-height: 80vh;
+		object-fit: scale-down;
+	}
 
+	video {
+		max-height: 100vh;
+	}
 
+	figcaption {
+		padding: 0 1.6rem;
+	}
 
-    img,
-    video {
-        width: 100%;
-        height: 100%;
-        max-height: 80vh;
-        object-fit: scale-down;
-    }
+	@media (min-width: 900px) {
+		figure {
+			max-height: 100vh;
+		}
 
-    video {
-        max-height: 100vh;
-    }
-
-    figcaption {
-        padding: 0 1.6rem;
-    }
-
-    @media (min-width: 900px) {
-    figure {
-        max-height: 100vh;
-    }
-
-    img, video {
-        object-fit: cover;
-            max-height: 80vh;
-    }
-}
-
+		img,
+		video {
+			object-fit: cover;
+			max-height: 80vh;
+		}
+	}
 </style>

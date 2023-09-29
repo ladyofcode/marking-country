@@ -3,30 +3,28 @@
 	import { onMount } from 'svelte';
 
 	let current = '';
+	let menuChecked = false;
 	let handleMenuToggle;
-
+	
 	onMount(() => {
-		const input = document.getElementById('menuButton') | null;
+		const largeScreen = window.matchMedia('(min-width: 900px)');
 
-		handleMenuToggle = () => {
-			if (input != null) {
-        current = '';
-				input.checked = false;
-			}
-		};
+		if (largeScreen) {
+			menuChecked = false;
+		}
+
 	});
 </script>
 
 <header>
 	<div class="wrapper">
 		<a href="{base}/" class="logo"
-    on:click={handleMenuToggle}
     >
 			Home
 		</a>
 
-		<input type="checkbox" class="menu-button" id="menuButton" />
-		<label htmlFor="menuButton" class="menu-label">
+		<input type="checkbox" class="menu-button" id="menuButton" bind:checked={menuChecked} on:click={handleMenuToggle} />
+		<label for="menuButton" class="menu-label">
 			<div class="hamburger">
 				<div class="hamburger">
 					<span class="line line1" />
@@ -206,7 +204,7 @@
 		display: none;
 	}
 
-	nav ul li ul li a {
+	nav > ul > li >ul >li >a {
 		width: 100%;
 	}
 
@@ -277,9 +275,19 @@
 		background-color: #fff;
 	}
 
+	.subnav-content {
+		/* background-color: var(--color-dark-charcoal); */
+		border-bottom: 2px solid grey;
+	}
+
+
 	@media (min-width: 900px) {
 		.wrapper a {
 			width: fit-content;
+		}
+
+		.wrapper nav a {
+			width: 100%;
 		}
 
 		nav {

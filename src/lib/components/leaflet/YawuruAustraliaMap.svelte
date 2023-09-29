@@ -71,4 +71,9 @@
     height: 400px;
     width: 100%;
 }
+
+:global(.leaflet-popup-content-wrapper),
+:global(.leaflet-popup-tip) {
+	background-color: var(--color-dark-charcoal);
+}
 </style>

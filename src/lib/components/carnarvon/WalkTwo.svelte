@@ -12,7 +12,7 @@
 </script>
 
 <div class="map-section">
-	<h2 id="rock-walk">Walking to the rock archive</h2>
+	<h2 id="bidjara-history">Learn Bijdara History along Mickey's Creek</h2>
 
 	<div class="container-left">
 		<p>
@@ -78,92 +78,6 @@
 			</figcaption>
 		</figure>
 	</div>
-
-	<!-- <div class="container-left">
-		<figure>
-			<img src={image_ANU6915} alt="" />
-			<figcaption>
-				Uncle Fred Conway resting and talking, Carnarvon Gorge, QLD, 22 March 2022. Photo: Amy Way.
-			</figcaption>
-		</figure>
-
-		<p>
-			On the first day, Uncle Fred and Jackie lead us through the 10km journey that Uncle had walked
-			for so many years, including as a Park Ranger. Uncle stops frequently to point out a plant, a
-			bird, or to share a joke—such as the tricky one he used to tell tourists about a 'water tree.'
-			Deep histories are interwoven with personal memories of Uncle's colleagues, family and
-			friends.
-		</p>
-
-		<InlineQuote credit="Uncle Fred Conway">
-			<p>
-				Now our women folk… had <strong>boiling technique</strong>. They said "Aboriginal people
-				never had any saucepans, billy cans, pan." But we had all these things before white man was
-				put into Australia.
-			</p>
-		</InlineQuote>
-
-		<p>
-			By cutting into the side of a tree, lighting a fire and crafting a spit, Bidjara people could
-			slow-cook their food in a smouldering burl of charcoal, like a blacksmith's forge.
-		</p>
-
-		<InlineQuote credit="Uncle Fred Conway">
-			<p>
-				We weren't in a hurry to go anywhere.
-				<br />
-				We had all the patience and time in the world.
-			</p>
-		</InlineQuote>
-
-		<figure>
-			<img src={image_ANU6921} alt="" />
-			<figcaption>
-				Uncle Fred Conway talking about Bijara boiling techniques. Carnarvon Gorge, QLD 22 March
-				2022. Photo: Amy Way.
-			</figcaption>
-		</figure>
-
-		<figure>
-			<YouTube youTubeId="ukLpVOI6pys" />
-			<figcaption>
-				Uncle Fred Conway describes the six uses of grass trees, Carnarvon Gorge, QLD 22 March 2022.
-			</figcaption>
-		</figure>
-
-		<p>
-			Bidjara people used many of the gorge plants in their everyday life. Some, like the grass
-			tree, had multiple uses across its life cycle. Bidjara women used its fronds to make{' '}
-			<strong>dilly bags</strong>. Burning the base of the plant produced a resin as strong as
-			<strong>super glue</strong>. When the leaves at the base are green and flexible, the tree
-			flowers and produces <strong>sweet honey</strong>. When the plant has finished flowering, the
-			top dries out and the seeds could be used to make bread. The entire tree stem can be broken
-			off to make a spear, or halved to make a <strong>fire stick</strong>.
-		</p>
-
-		<InlineQuote credit="Uncle Fred Conway">
-			<p>
-				Our people were the greatest scientists on this earth.
-				<br />
-				They had no rush to do—nobody to say "You do it this bloody way" or "Listen here you stupid so-and-so".
-				They didn't do that. They sat and they talked. And they got from there to where it is handed
-				down today.
-			</p>
-		</InlineQuote>
-
-		<p>
-			Uncle Fred's deep history will in time be taught to his nephews, who can pass it down to their
-			family, to{' '}
-			<em>all the other family.</em>
-		</p>
-
-		<figure>
-			<img src={image_ANU6976} alt="" />
-			<figcaption>
-				Uncle Fred Conway 'rock talking' in Carnarvon Gorge, QLD, 22 March 2022. Photo: Amy Way.
-			</figcaption>
-		</figure>
-	</div> -->
 
 	<div id="rock-archive-inner-container" class="image-container">
 		<div id="scrolling-image-container" class="scrolling-image-container">

@@ -1,6 +1,7 @@
 <script>
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
+	import { YouTube } from 'sveltekit-embed';
 
 	import Header from '$lib/components/Header.svelte';
 	import GenericContent from '$lib/layout/GenericContent.svelte';
@@ -15,6 +16,8 @@
 	import InlineQuote from '$lib/components/InlineQuote.svelte';
 	import LargeQuote from '$lib/components/LargeQuote.svelte';
 	import ScrollingCaption from '$lib/components/ScrollingCaption.svelte';
+	import FullScreenStop from '$lib/components/FullScreenStop.svelte';
+	import ScrollStop from '$lib/components/ScrollStop.svelte';
 
 	import GalleryOne from '$lib/components/carnarvon/GalleryOne.svelte';
 	import GalleryTwo from '$lib/components/carnarvon/GalleryTwo.svelte';
@@ -61,6 +64,9 @@
 	let image_poster_C0025 = `${base}/stories/carnarvon/images/image_poster_C0025.jpg`;
 	let image_poster_C0027 = `${base}/stories/carnarvon/images/image_poster_C0027.jpg`;
 	let image_poster_C0028 = `${base}/stories/carnarvon/images/image_poster_C0028.jpg`;
+	let image_poster_C0009 = `${base}/stories/carnarvon/images/image_poster_C0028.jpg`;
+	let image_poster_C0008 = `${base}/stories/carnarvon/images/image_poster_C0028.jpg`;
+	let image_poster_C0010 = `${base}/stories/carnarvon/images/image_poster_C0028.jpg`;
 
 	let video_C0001 = `${base}/stories/carnarvon/videos/C0001.webm`;
 	let video_C0008 = `${base}/stories/carnarvon/videos/C0008.webm`;
@@ -109,19 +115,6 @@
 
 	const pageTitle = `Walking deep history: Carnarvon Gorge`;
 </script>
-
-<h1>c</h1>
-
-<ScrollingCaption
-	id="trio1"
-	video={video_C0025}
-	alt=""
-	type="video/webm"
-	poster={image_poster_C0025}
-	autoplay="true"
->
-	<p>Walking Carnarvon Gorge takes you down into shaded rainforests...</p>
-</ScrollingCaption>
 
 <Header
 	poster={image_poster_carnarvon}
@@ -233,6 +226,8 @@
 	</div>
 </GenericContent> -->
 
+<MediaFullWidth youTubeId="v0tiqh1Ml04" />
+
 <!-- <VideoEmbedFullWidth>
       <iframe
         width="100%"
@@ -247,19 +242,41 @@
 
 <WalkOne />
 
-<!-- <ScrollingCaption id="trio1" video={video_C0025} type="video/webm" caption="left" align="right" alt="" poster={image_poster_C0025}>
-      <p>
-        Walking Carnarvon Gorge takes you down into shaded rainforests...
-      </p>
-    </ScrollingCaption>
+<ScrollingCaption
+	id="trio1"
+	video={video_C0025}
+	type="video/webm"
+	caption="left"
+	alt=""
+	poster={image_poster_C0025}
+	autoplay={true}
+>
+	<p>Walking Carnarvon Gorge takes you down into shaded rainforests...</p>
+</ScrollingCaption>
 
-    <ScrollingCaption id="trio2" video={video_C0027} type="video/webm" alt="" poster={image_poster_C0027}>
-      <p>... over creek crossings...</p>
-    </ScrollingCaption>
+<ScrollingCaption
+	id="trio2"
+	video={video_C0027}
+	type="video/webm"
+	caption="left"
+	alt=""
+	poster={image_poster_C0027}
+	autoplay={true}
+>
+	<p>... over creek crossings...</p>
+</ScrollingCaption>
 
-    <ScrollingCaption id="trio3" video={video_C0028} type="video/webm" alt="" poster={image_poster_C0028}>
-      <p>... and right alongside the base of the ancient rock shelter.</p>
-    </ScrollingCaption> -->
+<ScrollingCaption
+	id="trio3"
+	video={video_C0028}
+	caption="left"
+	type="video/webm"
+	alt=""
+	poster={image_poster_C0028}
+	autoplay={true}
+>
+	<p>... and right alongside the base of the ancient rock shelter.</p>
+</ScrollingCaption>
 
 <GenericContent>
 	<p>
@@ -271,7 +288,7 @@
 	</p>
 </GenericContent>
 
-<!-- <FullScreenStop>
+<FullScreenStop>
       <p id="rock-archive">The reunion is intimate.</p>
       <p>
         It is the first time Uncle has been back in almost three years— since
@@ -279,28 +296,25 @@
       </p>
       <p>Uncle was not sure he would ever be able to return.</p>
       <p>But he was determined to walk that track again.</p>
-    </FullScreenStop> -->
+    </FullScreenStop>
 
-<!-- <ScrollStop
+<ScrollStop
       video={video_UncleFredArrival}
       alt=""
       poster={image_poster_reunion}
-    /> -->
+    />
 
-<!-- <ScrollingCaption
-      image={image_ANU7118_cropped}
-      caption="right"
-      credit="Uncle Fred explains the significance of the Art Gallery in
+<ScrollingCaption
+	image={image_ANU7118_cropped}
+	caption="right"
+	credit="Uncle Fred explains the significance of the Art Gallery in
     Carnarvon Gorge, QLD, 22 March 2022. Photo: Amy Way."
-      orientation="portrait"
-      align="left"
-      poster={image_poster_C0025}
-    >
-      <audio src={audio_C0041_AudioOnly2} controls></audio>
+	orientation="portrait"
+>
+	<audio src={audio_C0041_AudioOnly2} controls />
 
-      <p>"I'm happy to be home. That's why I said <em>yumbagurri</em>.
-        I'm coming home."</p>
-    </ScrollingCaption> -->
+	<p>"I'm happy to be home. That's why I said <em>yumbagurri</em>. I'm coming home."</p>
+</ScrollingCaption>
 
 <GenericContent>
 	<p>
@@ -349,7 +363,7 @@
 	</p>
 </GenericContent>
 
-<!-- <GalleryTwo /> -->
+<GalleryTwo />
 
 <GenericContent>
 	<InlineQuote credit="Uncle Fred Conway">
@@ -439,7 +453,7 @@
 	<p>The gorge became part of the Carnarvon National Park in 1932.</p>
 </GenericContent>
 
-<!-- <FullScreenStop>
+<FullScreenStop>
       <p id="sacred-sites">
         In 2018, an ancient Bidjara rock archive within the park was destroyed
         by fire.
@@ -457,10 +471,11 @@
         She greets her ancestors as we approach, introducing us and seeking
         their permission to visit.
       </p>
-    </FullScreenStop> -->
+    </FullScreenStop>
 
-<!-- <ScrollStop>
-      <iframe
+<ScrollStop>
+	<YouTube youTubeId="uwCshjO59" />
+      <!-- <iframe
         width="100%"
         height="100%"
         src="https://www.youtube.com/embed/uwCshjO59-o?rel=0"
@@ -468,89 +483,57 @@
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
-      ></iframe>
-    </ScrollStop> -->
+      ></iframe> -->
+    </ScrollStop>
 
-<!--
-    <ScrollingCaption
-      image={slideshowOne1}
-      alt=""
-      poster={image_poster_C0025}
-    >
-      <p>
-        It takes time to walk the debris-covered track to the site. The
-        destruction is obvious as soon as we arrive.
-      </p>
-    </ScrollingCaption>
+<ScrollingCaption image={slideshowOne1} alt="" caption="left">
+	<p>
+		It takes time to walk the debris-covered track to the site. The destruction is obvious as soon
+		as we arrive.
+	</p>
+</ScrollingCaption>
 
-    <ScrollingCaption
-      image={slideshowOne2}
-      alt=""
-      poster={image_poster_C0025}
-    >
-      <p>
-        The entire rock overhang has been burnt and its painted underside demolished.
-      </p>
-    </ScrollingCaption>
+<ScrollingCaption image={slideshowOne2} alt="" caption="left" orientation="portrait">
+	<p>The entire rock overhang has been burnt and its painted underside demolished.</p>
+</ScrollingCaption>
 
-    <ScrollingCaption
-      image={slideshowOne3}
-      alt=""
-      poster={image_poster_C0025}
-    >
-      <p>
-        The destructive power of the fire was fuelled by a plastic walkway and
-        viewing platform that had been built, against community wishes, in
-        2014.
-      </p>
-    </ScrollingCaption>
+<ScrollingCaption image={slideshowOne3} alt="" caption="left">
+	<p>
+		The destructive power of the fire was fuelled by a plastic walkway and viewing platform that had
+		been built, against community wishes, in 2014.
+	</p>
+</ScrollingCaption>
 
-    <ScrollingCaption
-      image={slideshowOne4}
-      alt=""
-      poster={image_poster_C0025}
-    >
-      <p>
-        The supposedly fire-retardant material ignited to create a
-        fire so hot it shattered the rock, reducing enormous slabs of
-        painted walls into piles of rubble.
-      </p>
-    </ScrollingCaption>
+<ScrollingCaption image={slideshowOne4} alt="" caption="left">
+	<p>
+		The supposedly fire-retardant material ignited to create a fire so hot it shattered the rock,
+		reducing enormous slabs of painted walls into piles of rubble.
+	</p>
+</ScrollingCaption>
 
-    <ScrollingCaption
-      image={slideshowOne5}
-      alt=""
-      poster={image_poster_C0025}
-    >
-      <p>
-        Plastic fibres remain mixed with
-        the soil and rock. Very few images from the ancient archive
-        survived.
-      </p>
-    </ScrollingCaption>
-    <ScrollingCaption
-      image={slideshowOne6}
-      alt=""
-      poster={image_poster_C0025}
-    >
-      <p>Site photos. Carnarvon Gorge, QLD, 23 March 2022. Photos: Amy Way</p>
-    </ScrollingCaption>
+<ScrollingCaption image={slideshowOne5} alt="" caption="left">
+	<p>
+		Plastic fibres remain mixed with the soil and rock. Very few images from the ancient archive
+		survived.
+	</p>
+</ScrollingCaption>
+<ScrollingCaption image={slideshowOne6} alt="" caption="left">
+	<p>Site photos. Carnarvon Gorge, QLD, 23 March 2022. Photos: Amy Way</p>
+</ScrollingCaption>
 
-    <ScrollingCaption
-      image={image_ANU7606}
-      alt=""
-      credit="Professor Jackie Huggins discusses fire damage in Carnarvon Gorge,
+<ScrollingCaption
+	image={image_ANU7606}
+	alt=""
+	credit="Professor Jackie Huggins discusses fire damage in Carnarvon Gorge,
       Queensland, 24 March 2022. Photo: Amy Way."
-      align="right"
-      poster={image_poster_C0025}
-    >
-      <p>
-        It's like the blueprint has been desecrated, and we cannot rebuild
-        something that was here for thousands and thousands and thousands of
-        years before white man colonisation.
-      </p>
-    </ScrollingCaption>
-  -->
+	align="right"
+	caption="left"
+>
+	<p>
+		It's like the blueprint has been desecrated, and we cannot rebuild something that was here for
+		thousands and thousands and thousands of years before white man colonisation.
+	</p>
+</ScrollingCaption>
 
 <GenericContent>
 	<p>
@@ -593,50 +576,45 @@
 	<p>All quotes above are by Professor Jackie Huggins.</p>
 </GenericContent>
 
-<!--
-    <ScrollingCaption
-      image={image_still_C0027}
-      credit="Professor Jackie Huggins discusses fire damage in Carnarvon Gorge,
+<ScrollingCaption
+	image={image_still_C0027}
+	credit="Professor Jackie Huggins discusses fire damage in Carnarvon Gorge,
     Queensland, 24 March 2022. Photo: Amy Way."
-      alt=""
-      poster={image_poster_C0025}
-    >
+	alt=""
+	caption="left"
+>
+	<p>"Listen, consult, and action everything that we say."</p>
 
-      <p>"Listen, consult, and action everything that we say."</p>
+	<a class="youtube-button" href="https://www.youtube.com/watch?v=LXrYauhb3Po">
+		Watch full interview on YouTube (04:55)
+	</a>
+</ScrollingCaption>
 
-      <button class={styles.interviewButton}>
-        <a href="https://www.youtube.com/watch?v=LXrYauhb3Po">
-          Watch full interview on YouTube (04:55)
-        </a>
-      </button>
-    </ScrollingCaption>
--->
 <MediaFullWidth video={video_C0001} poster={image_C0001_poster} alt="" />
 
 <WalkTwo />
 
-<!--
-    <ScrollingCaption video={video_C0008} alt="" poster={image_poster_C0025}>
-      <p>Even when the creek is dry, there is a coolness to this Country</p>
-    </ScrollingCaption>
+<ScrollingCaption video={video_C0008} alt="" poster={image_poster_C0008} caption="left" autoplay={true}>
+	<p>Even when the creek is dry, there is a coolness to this Country</p>
+</ScrollingCaption>
 
-    <ScrollingCaption video={video_C0009} alt="" poster={image_poster_C0025}>
-      <p>A valley of palms, ferns, and grasses...</p>
-    </ScrollingCaption>
+<ScrollingCaption video={video_C0009} alt="" poster={image_poster_C0009} caption="left" autoplay={true}>
+	<p>A valley of palms, ferns, and grasses...</p>
+</ScrollingCaption>
 
-    <ScrollingCaption video={video_C0010} alt="" poster={image_poster_C0025}>
-      <p>...whose path is nestled underneath the rock.</p>
-    </ScrollingCaption>
+<ScrollingCaption video={video_C0010} alt="" poster={image_poster_C0010} caption="left" autoplay={true}>
+	<p>...whose path is nestled underneath the rock.</p>
+</ScrollingCaption>
 
 
+<!-- caption="Rita Huggins, Jackie's mother, in Carnarvon Gorge, QLD. Photo:
+Jane M. Jacobs" -->
     <ScrollingCaption
       image={image_aunty_rita}
       orientation="portrait"
-      caption="Rita Huggins, Jackie's mother, in Carnarvon Gorge, QLD. Photo:
-    Jane M. Jacobs"
-      poster={image_poster_C0025}
+	caption="right"
     >
-      {/* <InlineQuote credit={`Rita Huggins in 'Auntie Rita'`}>*/}
+
       <p>
         In our land are waterfalls, waterholes and creeks where we swam
         and where the older people fished. Our mob always seemed cool,
@@ -649,10 +627,10 @@
       </p>
 
       <p>- Rita Huggins in 'Auntie Rita'</p>
-      {/* </InlineQuote> */}
+
+	  <p>Image: Rita Huggins, Jackie's mother, in Carnarvon Gorge, QLD. Jane M. Jacobs.</p>
 
     </ScrollingCaption>
--->
 
 <GenericContent>
 	<p id="creek-stories">
@@ -689,9 +667,8 @@
 	</p>
 </GenericContent>
 
-<!--
-    <ScrollingCaption align="left" id="groupPhoto" image={image_groupPhoto} type="video/webm" caption="right" alt=""
-      poster={image_poster_C0025}
+
+    <ScrollingCaption align="left" id="groupPhoto" image={image_groupPhoto} caption="right" alt=""
     >
       <p>Coming back, every time I ask Uncle to come with me
         and to guide us, to steer us in the right direction.
@@ -703,7 +680,7 @@
 
       <p>Photo: Jackie Huggins refers to Uncle Fred as her 'teacher' and eminent Bidjara knowledge holder. Mickey's Creek, Carnarvon Gorge, QLD, 23 March 2022. Photo by Amy Way</p>
     </ScrollingCaption>
--->
+
 <GenericContent>
 	<p>
 		Jackie and Uncle Fred use diverse skills to teach their deep histories. For Jackie, studying at

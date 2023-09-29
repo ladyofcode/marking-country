@@ -12,23 +12,29 @@
 	}
 
 .active {
-    fill: #F03AA9;
+    /* fill: #F03AA9; */
+	fill: #a32110;
 }
 
 .active:hover {
-    fill: #f5b6dd;
-    stroke: #f788cc;
+    /* fill: #f5b6dd; */
+	fill: #872a20;
+    /* stroke: #f788cc; */
+	stroke: #f79e94;
     stroke-width: 20;
     cursor: pointer;
 }
 
 .inactive {
-    fill: #412CDD;
+    /* fill: #412CDD; */
+	fill: #dd762c;
 }
 
 .inactive:hover {
-    fill: #bfb9f0;
-    stroke: #8c80e3;
+    /* fill: #bfb9f0; */
+	fill: #945b15;
+    /* stroke: #8c80e3; */
+    stroke: #f7ca92;
     stroke-width: 20;
     cursor: pointer;
 }

@@ -21,7 +21,11 @@
 <div class="image-slider-container">
 	<div class="image-container">
 		{#each [slides[currentSlide]] as item}
-			<img transition:fade={{ duration: 2000 }} src={item.url} alt={item.caption} />
+			{#if item.url.includes('mp4')}
+				<video controls type="video/mp4" src={item.url} />
+			{:else}
+				<img  src={item.url} alt={item.caption} />
+			{/if}
 		{/each}
 	</div>
 	<button class="left" on:click={() => prevImage()}>
@@ -102,7 +106,7 @@
 		background-color: #242424;
 	}
 
-	img {
+	img, video {
 		height: 100%;
 		width: auto;
 		margin: 0 auto;

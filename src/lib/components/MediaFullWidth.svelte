@@ -1,9 +1,11 @@
 <script>
-	export let image, video, poster, alt, caption, autoplay;
+	export let image, video, poster, alt, caption, autoplay, youTubeId;
+
+	import { YouTube } from "sveltekit-embed";
 </script>
 
 <figure>
-	{#if video && autoplay}
+	{#if (video || youTubeId) && autoplay}
 		<video autoPlay preload="none" muted>
 			<source src={video} />
 		</video>
@@ -12,6 +14,9 @@
 		<video controls preload="none" {poster}>
 			<source src={video} />
 		</video>
+	{/if}
+	{#if youTubeId}
+	  <YouTube youTubeId={youTubeId} />
 	{/if}
 
 	{#if image}

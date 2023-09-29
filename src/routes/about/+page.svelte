@@ -109,7 +109,7 @@
 			</p>
 		</GenericContent>
 	</section>
-	<section class="panel">
+	<section class="">
 		<GenericContent>
 			<h2>Deep History's changing coasts</h2>
 
@@ -243,7 +243,7 @@
 		</GenericContent>
 	</section>
 
-	<section class="panel">
+	<section class="">
 		<GenericContent>
 			<h2>Why?</h2>
 
@@ -294,7 +294,7 @@
 		<ImageSliderFullscreen slides={slideshowOne} />
 	</section>
 
-	<section class="panel">
+	<section class="">
 		<GenericContent>
 			<!-- <ImageSliderFullscreen slides={slideshowOne} /> -->
 
@@ -337,7 +337,7 @@
 		</GenericContent>
 	</section>
 
-	<section class="panel">
+	<section class="">
 		<GenericContent>
 			<h2>Co-creating with communities</h2>
 			<figure>
@@ -422,7 +422,7 @@
 		</GenericContent>
 	</section>
 
-	<section class="panel">
+	<section class="">
 		<GenericContent>
 			<h2>Credits</h2>
 

@@ -12,6 +12,7 @@
 	import MediaFullWidth from '$lib/components/MediaFullWidth.svelte';
 	import TwoColumnContent from '$lib/layout/TwoColumnContent.svelte';
 	import Intro from '$lib/components/Intro.svelte';
+	import SideCaption from '$lib/components/SideCaption.svelte';
 
 	import YawuruAustraliaMap from '$lib/components/leaflet/YawuruAustraliaMap.svelte';
 	import YawuruBroomeMap from '$lib/components/leaflet/YawuruBroomeMap.svelte';
@@ -76,58 +77,76 @@
 
 	const slider = [
 		{
-			url: slide_making_1
+			url: slide_making_1,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_2
+			url: slide_making_2,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_3
+			url: slide_making_3,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_4
+			url: slide_making_4,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_5
+			url: slide_making_5,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_6
+			url: slide_making_6,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_7
+			url: slide_making_7,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_8
+			url: slide_making_8,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_9
+			url: slide_making_9,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_10
+			url: slide_making_10,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_11
+			url: slide_making_11,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_12
+			url: slide_making_12,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_13
+			url: slide_making_13,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_14
+			url: slide_making_14,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_15
+			url: slide_making_15,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_16
+			url: slide_making_16,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_17
+			url: slide_making_17,
+			caption:'Research Centre for Deep History'
 		},
 		{
-			url: slide_making_18
+			url: slide_making_18,
+			caption:'Research Centre for Deep History'
 		}
 	];
 
@@ -349,34 +368,34 @@
 	</p>
 </GenericContent>
 
-<!--
-    <ScrollingCaptionSide id="maps1" image={slide_maps_1} caption="left" align="right" alt="" captionStyle="side">
+
+    <SideCaption id="maps1" image={slide_maps_1} caption="left"  alt="" >
         <h3>North West Australia—Chart shewing explorations about Roebuck Bay, &c. up to 1864. [detail]</h3>
 
         <p>Some of the detail for this map was provided by Frederick Panter and James Martin. It described low grassy plains, mangroves and lines of paperbark trees—in Yawuru language Murrga yirr Ganburr. The map shows lines of paperbark stretching inland, along the edges of the saline grasslands of the southern part of Roebuck bay, as they do today.</p>
 
         <p>Several sites are marked 'Native well'. Other notes include: 'Well grassed', 'Kangaroos numerous', 'Game abundant', and 'Native tracks everywhere'.</p>
-    </ScrollingCaptionSide>
+    </SideCaption>
 
 
-    <ScrollingCaptionSide id="maps2" image={slide_maps_2} caption="left" align="right" alt="" captionStyle="side">
+    <SideCaption id="maps2" image={slide_maps_2} caption="left"  alt="" >
         <h3>Kimberley [Tally No. 505395], cons4898 06K/7, State Records of Western Australia, produced 1901 and cancelled 1903.</h3>
 
         <p>In one of the obituaries after his death in 1924, George Roe was referred to as a ‘pioneer’ of the north, and that he ‘squatted’ on land near Roebuck Bay. According to later government records, Roe established Thangoo station in 1891. Later, John Edgar went into partnership with pearler Frank Biddles, and this map produced in 1901 shows their leases from Cape Gourdon to the mangrove shores just north of Langurru (Goldwyer Well). Edgar and Biddles’ station on Yawuru country was initially called Yardogarra, spelled various ways on different maps, and was named after the jila Yardugarra, just inland from the shore.</p>
-    </ScrollingCaptionSide>
+    </SideCaption>
 
-    <ScrollingCaptionSide id="maps3" image={slide_maps_3} caption="left" align="right" alt="" captionStyle="side">
+    <SideCaption id="maps3" image={slide_maps_3} caption="left"  alt="" >
         <h3>Australia. Department of the Interior. Property and Survey Branch & Australia. Royal Australian  Air Force & Australia. Army. A.H.Q. Cartographic Company (1945).  Australian aeronautical map: Broome (Sheet E4). [detail]</h3>
 
         <p>This detail from a large aeronautical map of the area shows numerous 'native wells', including 'Than-gool-ngun-jal' (an attempt to transcribe Thangoo or Jangu Ngunjal, where Ngunjal means place) and 'Thangoo or Cowan Well'. Also labelled are places such as the sand hills (Mararr, a restricted area), Racecourse Plains (a massacre site), and Yardogarra Well.</p>
-    </ScrollingCaptionSide>
+    </SideCaption>
 
-    <ScrollingCaptionSide id="maps4" image={slide_maps_4} caption="left" align="right" alt="" captionStyle="side">
+    <SideCaption id="maps4" image={slide_maps_4} caption="left"  alt="" >
         <h3>300 Chain Plan [Tally No. 503215], cons4567 127/4, map produced 1924 and cancelled 1955, State Records of Western Australia.</h3>
 
         <p>The Thangoo leases were sold in 1939. Among the advertised attractions of the leases at the time were 'numerous native watering places', and the 20 wells that had been built on what were originally Yawuru water sources. Despite the fact that the resources of this part of Yawuru Country were included in the attractions of the property, Yawuru people had no say in the sale of the leases and gained no material benefit when the Edgars sold them.</p>
-    </ScrollingCaptionSide>
- -->
+    </SideCaption>
+
 
 <GenericContent>
 	<p>
@@ -497,22 +516,22 @@
 	</p>
 </GenericContent>
 
-<!--
-    <ScrollingCaptionSide id="station1" image={slide_station_1} caption="left" align="right" alt="" captionStyle="side">
+
+    <SideCaption id="station1" image={slide_station_1} caption="left"  alt="" >
         <h3>Photograph on the Thangoo homestead verandah (1932).</h3>
 
         <p>The people pictured standing in front of the two women on the verandah are, in the back row: Jalgana/Ellen Edgar on far left; Gubajarra/Jack Edgar next to Jalgana; Mangkala/Flossie Edgar/Flossie Larry; Jagura/Thelma Sadler nee Edgar on far right. In the front row are Susan Edgar’s mum’s brothers and sisters.</p>
-    </ScrollingCaptionSide>
+    </SideCaption>
 
-    <ScrollingCaptionSide id="station2" image={slide_station_2} caption="left" align="right" alt="" captionStyle="side">
+    <SideCaption id="station2" image={slide_station_2} caption="left"  alt="" >
         <h3>Frank 'Pilot' Edgar and Annie Edgar's children, at Janyjagurdiny (Thangoo Station) (date unknown). Photo provided by Susan Edgar.</h3>
-    </ScrollingCaptionSide>
+    </SideCaption>
 
-    <ScrollingCaptionSide id="station3" image={slide_station_3} caption="left" align="right" alt="" captionStyle="side">
+    <SideCaption id="station3" image={slide_station_3} caption="left"  alt="" >
         <h3>Jack Edgar on Thangoo Station (date unknown). Photo provided by Susan Edgar.</h3>
-    </ScrollingCaptionSide>
+    </SideCaption>
 
- -->
+
 <GenericContent>
 	<p>
 		Women, like Ngalyjan, did all the domestic work, including washing, cleaning, and cooking.
@@ -546,16 +565,16 @@
 	</InlineQuote>
 </GenericContent>
 
-<!--
-    <ScrollingCaptionSide id="maps4" image={slide_thangoo_1} caption="left" align="right" alt="" captionStyle="side">
+
+    <SideCaption id="maps4" image={slide_thangoo_1} caption="left"  alt="" >
         <h3>Well on Thangoo Station, 1935, photographer John K Ewers, State Library of Western Australia: BA1658/203.</h3>
 
         <p>Sourced from the collections of the State Library of Western Australia and reproduced with the permission of the Library Board of Western Australia.</p>
-    </ScrollingCaptionSide>
-    <ScrollingCaptionSide id="maps4" image={slide_thangoo_2} caption="left" align="right" alt="" captionStyle="side">
+    </SideCaption>
+    <SideCaption id="maps4" image={slide_thangoo_2} caption="left"  alt="" >
         <h3>Thangoo Station – cattle at windmill, August 1943, photographer F Dale and G Gale, National Archives of Australia: K1131, W827 2/15.</h3>
-    </ScrollingCaptionSide>
- -->
+    </SideCaption>
+
 <GenericContent>
 	<p>
 		Conditions were hard at Thangoo, and people who lived on the station experienced disrespect and
@@ -653,19 +672,19 @@
 	</TwoColumnContent>
 </GenericContent>
 
-<!--
-    <ScrollingCaptionSide id="maps4" image={slide_kennedy_1} caption="left" align="right" alt="" captionStyle="side">
-        <h3>Huts on Didirrgun (Kennedy Hill) (c.1958?).</h3>
-    </ScrollingCaptionSide>
 
-    <ScrollingCaptionSide id="maps4" image={slide_kennedy_2} caption="left" align="right" alt="" captionStyle="side">
+    <SideCaption id="maps4" image={slide_kennedy_1} caption="left"  alt="" >
+        <h3>Huts on Didirrgun (Kennedy Hill) (c.1958?).</h3>
+    </SideCaption>
+
+    <SideCaption id="maps4" image={slide_kennedy_2} caption="left"  alt="" >
         <h3>Huts on Dirridigun (Kennedy Hill).</h3>
 
         <p>Buildings and landscape, Broome. From the papers of D'Arcy James Ryan, ANU Archives (ANUA 590-141-23). Reproduced with permission from ANU Archives.</p>
 
         <p>Dianne Appleby recalls growing up in the home on the left of this image.</p>
-    </ScrollingCaptionSide>
--->
+    </SideCaption>
+
 
 <GenericContent>
 	<InlineQuote credit="Thomas 'Unda' Edgar">

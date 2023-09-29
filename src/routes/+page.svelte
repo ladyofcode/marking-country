@@ -2,7 +2,7 @@
     import { base } from "$app/paths";
     import { goto } from "$app/navigation";
     import Map from "$lib/components/Map.svelte";
-    import Modal from "$lib/layout/Modal.svelte";
+    import ModalHome from "$lib/layout/ModalHome.svelte";
 
     let video = `${base}/videos/Introduction.webm`;
 
@@ -37,13 +37,13 @@
           goto(`${base}/about/`);
         }}
       >About Marking Country</button>
-      <Modal bind:showModal>
+      <ModalHome bind:showModal>
         <h2 slot="header">
-          <video autoPlay controls>
+          <video controls>
             <source src={video} />
           </video>
         </h2>
-      </Modal>
+      </ModalHome>
     </div>
   </section>
 

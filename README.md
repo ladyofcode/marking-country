@@ -3,10 +3,6 @@
 This site was originally built with Gatsby, Strapi and GSAP; it is in the process of being rebuilt with Svelte.
 
 ## To-do
-[] ScrollCaptions in Carnarvon and Yawuru
-[] Final Carnarvon Modules
-[] Fix the menu
-[] Leaflet Popup styles
 
 #### Scrollytelling
 [] ... TBA.

@@ -55,39 +55,39 @@
 	const slidesMagnificentGallery = [
 		{
 			url: slide_gallery_1,
-			caption: 'Image credit?'
+			caption: 'Mike Jones'
 		},
 		{
 			url: slide_gallery_2,
-			caption: 'Image credit?'
+			caption: 'Mike Jones'
 		},
 		{
 			url: slide_gallery_3,
-			caption: 'Image credit?'
+			caption: 'Mike Jones'
 		},
 		{
 			url: slide_gallery_4,
-			caption: 'Image credit?'
+			caption: 'Mike Jones'
 		},
 		{
 			url: slide_gallery_5,
-			caption: 'Image credit?'
+			caption: 'Mike Jones'
 		},
 		{
 			url: slide_gallery_6,
-			caption: 'Image credit?'
+			caption: 'Mike Jones'
 		},
 		{
 			url: slide_gallery_7,
-			caption: 'Image credit?'
+			caption: 'Mike Jones'
 		},
 		{
 			url: slide_gallery_8,
-			caption: 'Image credit?'
+			caption: 'Mike Jones'
 		},
 		{
 			url: slide_gallery_9,
-			caption: 'Image credit?'
+			caption: 'Mike Jones'
 		}
 	];
 

@@ -5,7 +5,7 @@
 	let current = '';
 	let menuChecked = false;
 	let handleMenuToggle;
-	
+
 	onMount(() => {
 		const largeScreen = window.matchMedia('(min-width: 900px)');
 
@@ -13,17 +13,23 @@
 			menuChecked = false;
 		}
 
+		handleMenuToggle = () => {
+			menuChecked ? menuChecked = false : menuChecked = true;
+		}
 	});
 </script>
 
 <header>
 	<div class="wrapper">
-		<a href="{base}/" class="logo"
-    >
-			Home
-		</a>
+		<a href="{base}/" class="logo"> Home </a>
 
-		<input type="checkbox" class="menu-button" id="menuButton" bind:checked={menuChecked} on:click={handleMenuToggle} />
+		<input
+			type="checkbox"
+			class="menu-button"
+			id="menuButton"
+			bind:checked={menuChecked}
+			on:click={handleMenuToggle}
+		/>
 		<label for="menuButton" class="menu-label">
 			<div class="hamburger">
 				<div class="hamburger">
@@ -39,11 +45,7 @@
 					<a href="{base}#"> About </a>
 					<ul class="subnav-content">
 						<li>
-							<a
-								href="{base}/about"
-								class:active={current === ''}
-								on:click={handleMenuToggle}
-							>
+							<a href="{base}/about" class:active={current === ''} on:click={handleMenuToggle}>
 								Marking Country
 							</a>
 						</li>
@@ -59,11 +61,7 @@
 					</ul>
 				</li>
 				<li>
-					<a
-						href="{base}/mapping"
-						class:active={current === ''}
-						on:click={handleMenuToggle}
-					>
+					<a href="{base}/mapping" class:active={current === ''} on:click={handleMenuToggle}>
 						Mapping
 					</a>
 				</li>
@@ -107,11 +105,7 @@
 							</a>
 						</li>
 						<li>
-							<a
-								href="{base}/yawuru"
-								class:active={current === ''}
-								on:click={handleMenuToggle}
-							>
+							<a href="{base}/yawuru" class:active={current === ''} on:click={handleMenuToggle}>
 								Yawuru
 							</a>
 						</li>
@@ -131,6 +125,8 @@
 		left: 0;
 		right: 0;
 		z-index: 1020;
+		width: 100%;
+		max-width: 100vw;
 	}
 
 	.wrapper {
@@ -144,6 +140,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		background-color: #000000;
 	}
 	.wrapper a {
 		text-decoration: none;
@@ -160,8 +157,9 @@
 		list-style-type: none;
 		padding: 0;
 	}
- .logo {
+	.logo {
 		z-index: 300;
+		font-size: 1.12rem;
 	}
 
 	nav {
@@ -204,7 +202,7 @@
 		display: none;
 	}
 
-	nav > ul > li >ul >li >a {
+	nav > ul > li > ul > li > a {
 		width: 100%;
 	}
 
@@ -279,7 +277,6 @@
 		/* background-color: var(--color-dark-charcoal); */
 		border-bottom: 2px solid grey;
 	}
-
 
 	@media (min-width: 900px) {
 		.wrapper a {

@@ -1,7 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
     import { base } from '$app/paths';
-	let homeMap = '/images/home_map2.png';
+	let homeMap = `${base}/images/home_map2.png`;
 </script>
 
 <style>

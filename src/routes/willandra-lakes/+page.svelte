@@ -1,7 +1,7 @@
 <script>
 	import { base } from '$app/paths';
-  import { page } from '$app/stores';
-  import { YouTube } from 'sveltekit-embed';
+	import { page } from '$app/stores';
+	import { YouTube } from 'sveltekit-embed';
 
 	import Header from '$lib/components/Header.svelte';
 	import Intro from '$lib/components/Intro.svelte';
@@ -10,9 +10,9 @@
 	import GenericContent from '$lib/layout/GenericContent.svelte';
 	import PhotoswipeSimple from '$lib/components/PhotoswipeSimple.svelte';
 	import Collapsible from '$lib/components/Collapsible.svelte';
-    import WillandraMap from '$lib/components/leaflet/WillandraMap.svelte';
-    import MediaFullWidth from '$lib/components/MediaFullWidth.svelte';
-    import LearnMoreBox from '$lib/components/LearnMoreBox.svelte';
+	import WillandraMap from '$lib/components/leaflet/WillandraMap.svelte';
+	import MediaFullWidth from '$lib/components/MediaFullWidth.svelte';
+	import LearnMoreBox from '$lib/components/LearnMoreBox.svelte';
 
 	let maryPappin = `${base}/stories/willandra/images/MaryPappin.png`;
 	let dvd = `${base}/stories/willandra/images/Message-From-Mungo-DVD-slick-hi-res.jpg`;
@@ -29,8 +29,8 @@
 		{
 			largeURL: willandraLakesMap,
 			thumbnailURL: willandraLakesMap,
-			width: 1875,
-			height: 2500
+			width: 3804,
+			height: 4000
 		}
 	];
 </script>
@@ -224,384 +224,357 @@
 	</p>
 </Collapsible>
 
-     <GenericContent>
-        <p>
-          In August 2021, the Research Centre worked with the National Library
-          of Australia's Trove Collaborative Services to digitise the Willandra
-          Map.
-        </p>
+<GenericContent>
+	<p>
+		In August 2021, the Research Centre worked with the National Library of Australia's Trove
+		Collaborative Services to digitise the Willandra Map.
+	</p>
 
-        <figure>
-          <img src={nlaVisit} alt="" />
-          <figcaption>
-            National Library of Australia staff visiting the Research Centre for
-            Deep History at the Australian National University to see the
-            Willandra Lakes Map, June 2021. Photo: Mike Jones.
-          </figcaption>
-        </figure>
+	<figure>
+		<img src={nlaVisit} alt="" />
+		<figcaption>
+			National Library of Australia staff visiting the Research Centre for Deep History at the
+			Australian National University to see the Willandra Lakes Map, June 2021. Photo: Mike Jones.
+		</figcaption>
+	</figure>
 
-        <p>
-          Following this, and an initial image-capture process conducted by an
-          external consultant, Mike Jones developed a layered digital version of
-          the map, working with Kim Mahood to check the text and layers.
-        </p>
+	<p>
+		Following this, and an initial image-capture process conducted by an external consultant, Mike
+		Jones developed a layered digital version of the map, working with Kim Mahood to check the text
+		and layers.
+	</p>
 
-        <p>
-          This digital map allows people to explore individual families, and
-          helps them navigate the many complex stories that mark this Country.
-        </p>
-        
-          <WillandraMap />
+	<p>
+		This digital map allows people to explore individual families, and helps them navigate the many
+		complex stories that mark this Country.
+	</p>
 
-        <p>
-          The Research Centre for Deep History is continuing to work with
-          families in the region to develop the interactive map, including the
-          potential to incorporate digital archival materials to enrich the
-          stories of the families represented.
-        </p>
+	<WillandraMap />
 
-        <p>
-          In doing so, they continue to build on relationships between
-          historians from the Australian National University and the Mutthi
-          Mutthi, Barkintji, and Nyaampa people that date back nearly 20 years.{' '}
-        </p>
+	<p>
+		The Research Centre for Deep History is continuing to work with families in the region to
+		develop the interactive map, including the potential to incorporate digital archival materials
+		to enrich the stories of the families represented.
+	</p>
 
-        <YouTube youTubeId="iWfvzgN5jIU" />
+	<p>
+		In doing so, they continue to build on relationships between historians from the Australian
+		National University and the Mutthi Mutthi, Barkintji, and Nyaampa people that date back nearly
+		20 years.{' '}
+	</p>
 
-      </GenericContent>
+	<YouTube youTubeId="iWfvzgN5jIU" />
+</GenericContent>
 
 <GenericContent>
-        <h2>The Mungo Project</h2>
+	<h2>The Mungo Project</h2>
 
-        <p>
-          Although archaeologists had worked there since 1969, the historical
-          scholars saw the history of Lake Mungo, a place where living
-          individuals resided in deep time, as particularly relevant. The
-          individuals who had once lived there - now known as Mungo Lady and
-          Mungo Man, amongst others, helped to overturn the idea that
-          'Australian history' started in 1770 or 1788, with European invaders
-          and convict arrivals. After all, they lived at least 40,000 years
-          before the present time.
-        </p>
+	<p>
+		Although archaeologists had worked there since 1969, the historical scholars saw the history of
+		Lake Mungo, a place where living individuals resided in deep time, as particularly relevant. The
+		individuals who had once lived there - now known as Mungo Lady and Mungo Man, amongst others,
+		helped to overturn the idea that 'Australian history' started in 1770 or 1788, with European
+		invaders and convict arrivals. After all, they lived at least 40,000 years before the present
+		time.
+	</p>
 
-        <p>
-          The team of university historians led by Professor McGrath wanted to
-          learn more about the history that took place on the continent before
-          European colonisers.
-        </p>
+	<p>
+		The team of university historians led by Professor McGrath wanted to learn more about the
+		history that took place on the continent before European colonisers.
+	</p>
 
-        <p>
-          Local elders soon led the education; they taught the team how their
-          views of history are far more complex than the dates and time-lines
-          that divide conventional histories. Indigenous people view the past
-          and present as multi-layered; it may be as recent as 'yesterday'—the
-          land's inspirited aspects and that of their ancestors and their
-          knowledge continues ever-present in Country. It is Everywhen.
-        </p>
+	<p>
+		Local elders soon led the education; they taught the team how their views of history are far
+		more complex than the dates and time-lines that divide conventional histories. Indigenous people
+		view the past and present as multi-layered; it may be as recent as 'yesterday'—the land's
+		inspirited aspects and that of their ancestors and their knowledge continues ever-present in
+		Country. It is Everywhen.
+	</p>
 
-        <p>
-          Their Country story was about relationships with kin and Country
-          today; their ancestral spirits were active and formative; they made
-          the present - an animated landscape. People living today had a duty to
-          them.
-        </p>
-      </GenericContent>
+	<p>
+		Their Country story was about relationships with kin and Country today; their ancestral spirits
+		were active and formative; they made the present - an animated landscape. People living today
+		had a duty to them.
+	</p>
+</GenericContent>
 
-      <GenericContent>
-        <LearnMoreBox>
-    
-              <img src={dvd} alt="" />
-              <div>
-                <h3>Message from Mungo documentary</h3>
-                <ul>
-                  <li>
-                    <a href="https://www.roninfilms.com.au/feature/9901/message-from-mungo.html">
-                      » Buy the Ronin Films DVD
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.sbs.com.au/ondemand/movie/message-from-mungo/498456643653">
-                      » Watch on SBS On Demand
-                    </a>
-                  </li>
-                </ul>
-    
-              </div>
+<GenericContent>
+	<LearnMoreBox>
+		<img src={dvd} alt="" />
+		<div>
+			<h3>Message from Mungo documentary</h3>
+			<ul>
+				<li>
+					<a href="https://www.roninfilms.com.au/feature/9901/message-from-mungo.html">
+						» Buy the Ronin Films DVD
+					</a>
+				</li>
+				<li>
+					<a href="https://www.sbs.com.au/ondemand/movie/message-from-mungo/498456643653">
+						» Watch on SBS On Demand
+					</a>
+				</li>
+			</ul>
+		</div>
+	</LearnMoreBox>
+</GenericContent>
 
-        </LearnMoreBox>
-
-      </GenericContent>
-
-      <MediaFullWidth
-        image={duneTree}
-        alt=""
-        caption="Willandra Lakes—a Pleistocene Dry Lake Landscape. Photo: Ann
+<MediaFullWidth
+	image={duneTree}
+	alt=""
+	caption="Willandra Lakes—a Pleistocene Dry Lake Landscape. Photo: Ann
         McGrath, 2018."
-      />
+/>
 
- <GenericContent>
-        <p>
-          The Willandra Lakes traditional custodians or tribal groups felt this
-          powerfully; they held strong to their ancestors going back into deep
-          time.
-        </p>
+<GenericContent>
+	<p>
+		The Willandra Lakes traditional custodians or tribal groups felt this powerfully; they held
+		strong to their ancestors going back into deep time.
+	</p>
 
-        <p>
-          Lady Mungo and Mungo Man surfaced in the late 1960s, in the lifetimes
-          of local elders. In that decade, scientists thought that Aboriginal
-          people had been on the continent for up to 20,000 years—already a big
-          advance of the previous dates of around 10,000 years. But these human
-          remains doubled this span of Aboriginal history to at least 40,000
-          years before the present.
-        </p>
+	<p>
+		Lady Mungo and Mungo Man surfaced in the late 1960s, in the lifetimes of local elders. In that
+		decade, scientists thought that Aboriginal people had been on the continent for up to 20,000
+		years—already a big advance of the previous dates of around 10,000 years. But these human
+		remains doubled this span of Aboriginal history to at least 40,000 years before the present.
+	</p>
 
-        <p>
-          While the dates of Aboriginal people in the north of the continent are
-          now estimated at 65,000 years, the Mungo burials represent the
-          earliest known individual people—as well as the earliest known
-          cremation and earliest known full burial on the continent.
-        </p>
+	<p>
+		While the dates of Aboriginal people in the north of the continent are now estimated at 65,000
+		years, the Mungo burials represent the earliest known individual people—as well as the earliest
+		known cremation and earliest known full burial on the continent.
+	</p>
 
-        <p>
-          To the local tribes, their ancestors were not simply 'evidence.' They
-          are not objects for scientific research or museum repositories. They
-          are family who must be honoured; they are agents creating their
-          futures. Local Aboriginal people do not necessarily see a big gap
-          between deep time and the present. Rather, they have an intimate
-          connection with people who had lived at least 40,000 years ago.
-        </p>
+	<p>
+		To the local tribes, their ancestors were not simply 'evidence.' They are not objects for
+		scientific research or museum repositories. They are family who must be honoured; they are
+		agents creating their futures. Local Aboriginal people do not necessarily see a big gap between
+		deep time and the present. Rather, they have an intimate connection with people who had lived at
+		least 40,000 years ago.
+	</p>
 
-        <p>
-          Lady Mungo is a revered relative. It was as if she is a close aunty
-          who only died yesterday. The deep past continues ever-present. Lady
-          Mungo is an agent in people's lives and in the landscape—a powerful
-          creative force that affects the everyday—from the weather to the
-          happiness or unhappiness of people who venture on their ground.{' '}
-        </p>
-      </GenericContent>
+	<p>
+		Lady Mungo is a revered relative. It was as if she is a close aunty who only died yesterday. The
+		deep past continues ever-present. Lady Mungo is an agent in people's lives and in the
+		landscape—a powerful creative force that affects the everyday—from the weather to the happiness
+		or unhappiness of people who venture on their ground.{' '}
+	</p>
+</GenericContent>
 
-      <Collapsible name="collapsible" label="Read more about the Mungo project">
-        <p>
-          Historians Ann McGrath and Malcolm Allbrook, and film historian,
-          producer and director Andrew Pike worked on the research and film side
-          of this project. They filmed numerous interviews about the local
-          people's experience of deep history, and about important historical
-          figures. People from the three main custodial groups or tribes, plus
-          scientists undertaking geological and archaeological research and
-          local pastoralists, all participated in this work.
-        </p>
+<Collapsible name="collapsible" label="Read more about the Mungo project">
+	<p>
+		Historians Ann McGrath and Malcolm Allbrook, and film historian, producer and director Andrew
+		Pike worked on the research and film side of this project. They filmed numerous interviews about
+		the local people's experience of deep history, and about important historical figures. People
+		from the three main custodial groups or tribes, plus scientists undertaking geological and
+		archaeological research and local pastoralists, all participated in this work.
+	</p>
 
-        <p>
-          Aboriginal people struggled to gain control over ancestral human
-          remains and have the final say in any other research that would take
-          place in their Country. With the support of Isabel McBryde and
-          sympathetic supporters, a carefully negotiated joint management plan
-          followed—with Indigenous custodians, scientists and pastoralists in
-          collaboration with National Parks NSW and World Heritage Australia.
-        </p>
+	<p>
+		Aboriginal people struggled to gain control over ancestral human remains and have the final say
+		in any other research that would take place in their Country. With the support of Isabel McBryde
+		and sympathetic supporters, a carefully negotiated joint management plan followed—with
+		Indigenous custodians, scientists and pastoralists in collaboration with National Parks NSW and
+		World Heritage Australia.
+	</p>
 
-        <p>
-          Conflicts continue over management and representation. Elders were
-          deeply concerned about the fact that, without their permission,
-          scientists took their ancestral remains far away to Canberra, to the
-          Australian National University in Canberra. In special ceremonies,
-          which included formal apologies to the Indigenous custodians, all
-          remains have now been returned to Country.
-        </p>
+	<p>
+		Conflicts continue over management and representation. Elders were deeply concerned about the
+		fact that, without their permission, scientists took their ancestral remains far away to
+		Canberra, to the Australian National University in Canberra. In special ceremonies, which
+		included formal apologies to the Indigenous custodians, all remains have now been returned to
+		Country.
+	</p>
 
-        <p>
-          But their rightful place and role continues to be a point of
-          controversy.
-        </p>
+	<p>But their rightful place and role continues to be a point of controversy.</p>
 
-        <figure>
-          <img src={mungoReturnCropped} alt="" />
-          <figcaption>
-            Return and reburial of Mungo Man's remains, 17 November 2017, Lake
-            Mungo. Photo: Ann McGrath.
-          </figcaption>
-        </figure>
-      </Collapsible>
+	<figure>
+		<img src={mungoReturnCropped} alt="" />
+		<figcaption>
+			Return and reburial of Mungo Man's remains, 17 November 2017, Lake Mungo. Photo: Ann McGrath.
+		</figcaption>
+	</figure>
+</Collapsible>
 
-      <GenericContent>
-        <h2>Creating the Mungo Map</h2>
+<GenericContent>
+	<h2>Creating the Mungo Map</h2>
 
-        <p>
-          In 2013, the Deepening Histories project held a symposium called
-          Deepening Histories of Place at the Australian National University.
-          Members of the Mungo community made vital contributions.{' '}
-        </p>
+	<p>
+		In 2013, the Deepening Histories project held a symposium called Deepening Histories of Place at
+		the Australian National University. Members of the Mungo community made vital contributions.{' '}
+	</p>
 
-        <p>
-          The Willandra custodians had already demonstrated a sustained interest
-          in learning from scientists, and to ensure that their voices, sharing
-          their powerful ancestral knowledge, were heard in relevant forums. Now
-          they showed their interest in hearing what scholars, especially the
-          academic historians, had to say.
-        </p>
+	<p>
+		The Willandra custodians had already demonstrated a sustained interest in learning from
+		scientists, and to ensure that their voices, sharing their powerful ancestral knowledge, were
+		heard in relevant forums. Now they showed their interest in hearing what scholars, especially
+		the academic historians, had to say.
+	</p>
 
-        <p>
-          The representatives travelled together from their home towns around
-          Lake Mungo and Willandra Lakes, where they took up the opportunity to
-          inspect the ancestral remains still held at the Australian National
-          University. They allowed some research to proceed before their return.
-          The remains were then carefully prepared for their return to Country.
-        </p>
-      </GenericContent>
+	<p>
+		The representatives travelled together from their home towns around Lake Mungo and Willandra
+		Lakes, where they took up the opportunity to inspect the ancestral remains still held at the
+		Australian National University. They allowed some research to proceed before their return. The
+		remains were then carefully prepared for their return to Country.
+	</p>
+</GenericContent>
 
-      <MediaFullWidth
-        image={visitingANU}
-        alt=""
-        caption="Visitors and friends from the Willandra Lakes World Heritage region
+<MediaFullWidth
+	image={visitingANU}
+	alt=""
+	caption="Visitors and friends from the Willandra Lakes World Heritage region
             at The Australian National University in June 2013. From left to
             right: Ann McGrath, Darryl Pappin, Leanne Mitchell, Tanya Charles,
             Joan Slade, Dawn Smith, Robyn Bancroft, Beryl and Roy Kennedy, Eric
             and Maureen Taylor, Warwick Clark (at rear), Sam Wickman (at rear),
             Marie Mitchell, Lottie Mitchell, Ricky Mitchell, Richard Mintern,
             Warren Clark. Photo: Monica Conaghan 2013."
-      />
+/>
 
-      <GenericContent>
-        <p>
-          At the symposium, members of a community panel pointed out that
-          researchers were overly interested in the deep past. What about their
-          own life stories? And those of their grandmothers and fathers? These
-          included traumatic stories of forced removal from one reserve to the
-          next, and forced removal from their families. It was a rare exception
-          for any family to escape these horrendous government policies.
-        </p>
+<GenericContent>
+	<p>
+		At the symposium, members of a community panel pointed out that researchers were overly
+		interested in the deep past. What about their own life stories? And those of their grandmothers
+		and fathers? These included traumatic stories of forced removal from one reserve to the next,
+		and forced removal from their families. It was a rare exception for any family to escape these
+		horrendous government policies.
+	</p>
 
-        <p>
-          The community spokespeople identified a role for historians: to record
-          their personal stories, and that of their grandparents and
-          great-grandparents.
-        </p>
+	<p>
+		The community spokespeople identified a role for historians: to record their personal stories,
+		and that of their grandparents and great-grandparents.
+	</p>
 
-        <p>
-          People had expressed an interest in telling the story through cultural
-          mapping techniques - but this would be a different kind of 'history
-          map': a visual depiction of their lives as historically experienced in
-          their beloved lands, their ancestral Country.{' '}
-        </p>
+	<p>
+		People had expressed an interest in telling the story through cultural mapping techniques - but
+		this would be a different kind of 'history map': a visual depiction of their lives as
+		historically experienced in their beloved lands, their ancestral Country.{' '}
+	</p>
 
-        <p>
-          A visual method that they could co-create was appealing. Kim Mahood,
-          an expert in the practice of cultural mapping with Aboriginal
-          communities—and also an accomplished artist and writer—agreed to work
-          with the various language and family groups in the Willandra Lakes
-          region. She would produce a giant history map.
-        </p>
+	<p>
+		A visual method that they could co-create was appealing. Kim Mahood, an expert in the practice
+		of cultural mapping with Aboriginal communities—and also an accomplished artist and
+		writer—agreed to work with the various language and family groups in the Willandra Lakes region.
+		She would produce a giant history map.
+	</p>
 
-        <p>Many have likened the result to a treasure map.</p>
-      </GenericContent>
+	<p>Many have likened the result to a treasure map.</p>
+</GenericContent>
 
-      <GenericContent>
-        <Collapsible
-          name="referencesWillandra"
-          label="References and further reading">
-          <ul>
-            <li>
-              Allbrook, M. and McGrath, A., "Collaborative Histories of the
-              Willandra Lakes". In{' '}
-              <em>Long history, deep time: deepening histories of place</em>,
-              edited by McGrath, A. and Jebb, M, 241-252. Canberra: ANU Press,
-              2015.
-            </li>
+<GenericContent>
+	<Collapsible name="referencesWillandra" label="References and further reading">
+		<ul>
+			<li>
+				Allbrook, M. and McGrath, A., "Collaborative Histories of the Willandra Lakes". In{' '}
+				<em>Long history, deep time: deepening histories of place</em>, edited by McGrath, A. and
+				Jebb, M, 241-252. Canberra: ANU Press, 2015.
+			</li>
 
-            <li>
-              Barrows, Timothy T., Kathryn E. Fitzsimmons, Stephanie C. Mills,
-              Jacqui Tumney, Daryl Pappin, and Nicola Stern. 2020. “Late
-              Pleistocene Lake Level History of Lake Mungo, Australia.”{' '}
-              <em>Quaternary Science Reviews</em> 238 (June): 106338.{' '}
-              <a href="https://doi.org/10.1016/j.quascirev.2020.106338">
-                https://doi.org/10.1016/j.quascirev.2020.106338
-              </a>
-              .
-            </li>
+			<li>
+				Barrows, Timothy T., Kathryn E. Fitzsimmons, Stephanie C. Mills, Jacqui Tumney, Daryl
+				Pappin, and Nicola Stern. 2020. “Late Pleistocene Lake Level History of Lake Mungo,
+				Australia.”{' '}
+				<em>Quaternary Science Reviews</em> 238 (June): 106338.{' '}
+				<a href="https://doi.org/10.1016/j.quascirev.2020.106338">
+					https://doi.org/10.1016/j.quascirev.2020.106338
+				</a>
+				.
+			</li>
 
-            <li>
-              Bowler, J. M., Rhys Jones, Harry Allen, and A. G. Thorne. 1970.
-              "Pleistocene Human Remains from Australia: A Living Site and Human
-              Cremation from Lake Mungo, Western New South Wales."{' '}
-              <em>World Archaeology</em> 2 (1): 39-60.
-            </li>
+			<li>
+				Bowler, J. M., Rhys Jones, Harry Allen, and A. G. Thorne. 1970. "Pleistocene Human Remains
+				from Australia: A Living Site and Human Cremation from Lake Mungo, Western New South Wales."{' '}
+				<em>World Archaeology</em> 2 (1): 39-60.
+			</li>
 
-            <li>
-              McGrath, Ann. 2018. "Lady Mungo and the New and Old Discovery
-              Narrative.” In{' '}
-              <em>
-                Unmasking Ideology in Imperial and Colonial Archeology:
-                Vocabulary, Symbols, and Legacy
-              </em>
-              , edited by B. Effros and L. Guolong, 227-56. Los Angeles: The
-              Cotsen Institute of Archaeology Press.
-            </li>
+			<li>
+				McGrath, Ann. 2018. "Lady Mungo and the New and Old Discovery Narrative.” In{' '}
+				<em>
+					Unmasking Ideology in Imperial and Colonial Archeology: Vocabulary, Symbols, and Legacy
+				</em>
+				, edited by B. Effros and L. Guolong, 227-56. Los Angeles: The Cotsen Institute of Archaeology
+				Press.
+			</li>
 
-            <li>
-              McGrath, Ann, Laura Rademaker, and Jakelin Troy, eds. 2023.{' '}
-              <em>Everywhen: Australia and the Language of Deep History</em>.
-              Lincoln: University of Nebraska Press. Sydney: UNSW Press.
-            </li>
+			<li>
+				McGrath, Ann, Laura Rademaker, and Jakelin Troy, eds. 2023.{' '}
+				<em>Everywhen: Australia and the Language of Deep History</em>. Lincoln: University of
+				Nebraska Press. Sydney: UNSW Press.
+			</li>
 
-            <li>
-              Pike, Andrew, and Ann McGrath. 2014. <em>Message from Mungo</em>.
-              Canberra: Ronin Films.
-            </li>
-          </ul>
-        </Collapsible>
-      </GenericContent>
+			<li>
+				Pike, Andrew, and Ann McGrath. 2014. <em>Message from Mungo</em>. Canberra: Ronin Films.
+			</li>
+		</ul>
+	</Collapsible>
+</GenericContent>
 
-      <GenericContent>
-        <h2>Credits</h2>
+<GenericContent>
+	<h2>Credits</h2>
 
-        <Credits
-          credits={[
-            { title: "Mutthi Mutthi", names: "Mary Pappin Senior, Patsy Winch, Tanya Charles, Bernadette Pappin, Danny Kelly, Maureen Reyland, Mary Pappin Junior, Kia Charles, Barry Pierce" },
-            { title: "Barkintji/Parinji", names: "Patricia Johnson, Michael Young, Eunice Hudson, Priscilla Biggs, Lottie Williams, Brenda Brodie" },
-            { title: "Ngiyaampa", names: "Roy Kennedy, Joan Kennedy/Slade, Coral Ellis, Mark (Doc) Slade, Dawn Smith, Maureen Taylor, Mick Kelly" },
-            { title: "Barkintji/Murora", names: "Philip Lawson, Ivan Johnston, Ernest (Narkie) Mitchell 3rd, Junette Mitchell, Doreen Mitchell, Lynne Mitchell" },
-            { title: "Written by", names: "Ann McGrath, Kim Mahood" },
-            { title: "Marking Country Project Manager", names: "Mike Jones" },
-            { title: "Interactive digital map", names: "Mike Jones, Tabassum Fakier" },
-            { title: "Developer", names: "Tabassum Fakier" },
-            { title: "Director of Research Centre for Deep History", names: "Ann McGrath" }
-          ]}
-        />
+	<Credits
+		credits={[
+			{
+				title: 'Mutthi Mutthi',
+				names:
+					'Mary Pappin Senior, Patsy Winch, Tanya Charles, Bernadette Pappin, Danny Kelly, Maureen Reyland, Mary Pappin Junior, Kia Charles, Barry Pierce'
+			},
+			{
+				title: 'Barkintji/Parinji',
+				names:
+					'Patricia Johnson, Michael Young, Eunice Hudson, Priscilla Biggs, Lottie Williams, Brenda Brodie'
+			},
+			{
+				title: 'Ngiyaampa',
+				names:
+					'Roy Kennedy, Joan Kennedy/Slade, Coral Ellis, Mark (Doc) Slade, Dawn Smith, Maureen Taylor, Mick Kelly'
+			},
+			{
+				title: 'Barkintji/Murora',
+				names:
+					'Philip Lawson, Ivan Johnston, Ernest (Narkie) Mitchell 3rd, Junette Mitchell, Doreen Mitchell, Lynne Mitchell'
+			},
+			{ title: 'Written by', names: 'Ann McGrath, Kim Mahood' },
+			{ title: 'Marking Country Project Manager', names: 'Mike Jones' },
+			{ title: 'Interactive digital map', names: 'Mike Jones, Tabassum Fakier' },
+			{ title: 'Developer', names: 'Tabassum Fakier' },
+			{ title: 'Director of Research Centre for Deep History', names: 'Ann McGrath' }
+		]}
+	/>
 
-        <p>
-          Work in the Willandra Lakes region has been supported by funding from
-          the Australian Research Council, including the Discovery grant
-          'Australia's Ancient and Modern Pasts: A History of Lake Mungo'
-          (DP110103193), the Linkage grant 'Deepening Histories of Place:
-          Exploring Indigenous Landscapes of National and International
-          Significance' (LP100100427), and the Laureate Program 'Rediscovering
-          the Deep Human Past: Global Networks, Future Opportunities'
-          (F170100121).
-        </p>
+	<p>
+		Work in the Willandra Lakes region has been supported by funding from the Australian Research
+		Council, including the Discovery grant 'Australia's Ancient and Modern Pasts: A History of Lake
+		Mungo' (DP110103193), the Linkage grant 'Deepening Histories of Place: Exploring Indigenous
+		Landscapes of National and International Significance' (LP100100427), and the Laureate Program
+		'Rediscovering the Deep Human Past: Global Networks, Future Opportunities' (F170100121).
+	</p>
 
-        <p>
-          The map was digitised by the National Library of Australia through its
-          Trove Collaborative Services team. Thank you to National Library staff
-          and representatives who engaged with the project throughout, including
-          Catherine Aldersey, Rochelle Armstrong, Rebecca Bateman, Lisa
-          Jong-Reuss, Nicola Mackay-Sim, Craig Mackenzie, Elizabeth MacKenzie,
-          Sue McFadden, Aleara Pearce, Shirleene Robinson, and Kathryn Ross.{' '}
-        </p>
-      </GenericContent>
+	<p>
+		The map was digitised by the National Library of Australia through its Trove Collaborative
+		Services team. Thank you to National Library staff and representatives who engaged with the
+		project throughout, including Catherine Aldersey, Rochelle Armstrong, Rebecca Bateman, Lisa
+		Jong-Reuss, Nicola Mackay-Sim, Craig Mackenzie, Elizabeth MacKenzie, Sue McFadden, Aleara
+		Pearce, Shirleene Robinson, and Kathryn Ross.{' '}
+	</p>
+</GenericContent>
 
-      <GenericContent>
-        <h2>Citations</h2>
+<GenericContent>
+	<h2>Citations</h2>
 
-        <Citations
-          citations={[
-            { insert: "this page", authors: "Ann McGrath and Kim Mahood (2022)" },
-            { insert: "direct quotes from Bernadette Pappin", authors: "Bernadette Pappin cited in Ann McGrath and Kim Mahood (2022)" },
-            { insert: "the Willandra Lakes Map", authors: "Research Centre for Deep History, (2022)" }
-          ]}
-          location={$page.url.href}
-          page={pageTitle}
-        />
-      </GenericContent> 
+	<Citations
+		citations={[
+			{ insert: 'this page', authors: 'Ann McGrath and Kim Mahood (2022)' },
+			{
+				insert: 'direct quotes from Bernadette Pappin',
+				authors: 'Bernadette Pappin cited in Ann McGrath and Kim Mahood (2022)'
+			},
+			{ insert: 'the Willandra Lakes Map', authors: 'Research Centre for Deep History, (2022)' }
+		]}
+		location={$page.url.href}
+		page={pageTitle}
+	/>
+</GenericContent>
 
 <style>
 	.button-view-fullscreen {
@@ -617,7 +590,7 @@
 		color: var(--text-light);
 	}
 
-	.portrait-image >img {
+	.portrait-image > img {
 		max-height: 88vh;
 		width: auto;
 		margin: 0 auto;

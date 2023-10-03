@@ -18,6 +18,10 @@
 	});
 </script>
 
+<svelte:head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.1.0/screenfull.min.js"></script>
+</svelte:head>
+
 <div class="pswp-gallery" id={galleryId}>
 	{#each images as image}
 		<a

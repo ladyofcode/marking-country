@@ -624,16 +624,8 @@
 		</div>
 	</TwoColumnContent>
 
-    <YouTube youTubeId="uSSUNeida8" />
-	<!-- <iframe
-		width="100%"
-		height="auto"
-		src="https://www.youtube.com/embed/-uSSUNeida8?rel=0"
-		title="YouTube video player"
-		frameBorder="0"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-		allowFullScreen
-	/> -->
+    <YouTube youTubeId="-uSSUNeida8" />
+
 </GenericContent>
 
 <Collapsible name="percyWesternYalanji" label="Percy Tresize and Dick Roughsey">
@@ -702,8 +694,7 @@
     <p>Quinkan Country has been listed on the National Heritage Register. Today, the Western Yalanji Aboriginal Corporation plays a crucial role in keeping the Stories alive and the Country strong, including through the use of digital technologies. Glenis Grogan talks about the prospects of digital platforms and their relevance for the future of the Yalanji people and knowledge of Country.</p>
 
     <figure>
-        <YouTube youTubeId="1RfQQ" />
-      <!-- <iframe width="100%" height="auto" src="https://www.youtube.com/embed/E9EhS-1RfQQ?rel=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe> -->
+        <YouTube youTubeId="E9EhS-1RfQQ" />
       <figcaption>Glenis Grogan. Courtesy Western Yalanji Aboriginal Corporation.</figcaption>
     </figure>
   </GenericContent>

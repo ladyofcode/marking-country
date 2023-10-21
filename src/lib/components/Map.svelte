@@ -94,7 +94,7 @@
 
 </style>
 
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 4353.7 4209.8" enable-background="new 0 0 4353.7 4209.8" xml:space="preserve">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 4353.7 4209.8" enable-background="new 0 0 4353.7 4209.8" xml:space="preserve" alt="Map of Austrsalia including the blue to show the ancient coastline, and interactive markers showing the location of each page (accessible via main menu).">
 			<g id="Logo">
 				<g id="logomark">
 					<path fill="#FFFFFF" d="M267.8,4189.4v17.4h-75.1c-22.5-48-28-60.7-47.1-94.2c-14.9-26.3-25.9-34.8-49.2-36.5v82.8

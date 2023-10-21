@@ -30,7 +30,8 @@
 			largeURL: willandraLakesMap,
 			thumbnailURL: willandraLakesMap,
 			width: 3804,
-			height: 4000
+			height: 4000,
+			alt: "The Willandra Lakes created by the project, showing where the families of the participants who created the map lived and moved."
 		}
 	];
 </script>
@@ -38,7 +39,7 @@
 <Header
 	image={image_header}
 	name="willandra"
-	alt=""
+	alt="Sand and rock formations at Willandra Lakes."
 	heading="Willandra Lakes map"
 	subheading="Ancestral stories"
 />
@@ -144,7 +145,7 @@
 	</p>
 
 	<figure class="portrait-image">
-		<img src={maryPappin} alt="" />
+		<img src={maryPappin} alt="Mary Pappin standing in front of the map." />
 		<figcaption>
 			Mary Pappin with the Willandra Lakes Map, March 2021. Photo: Ann McGrath.
 		</figcaption>
@@ -231,7 +232,7 @@
 	</p>
 
 	<figure>
-		<img src={nlaVisit} alt="" />
+		<img src={nlaVisit} alt="Six people standing the Willandra Map on the table at ANU." />
 		<figcaption>
 			National Library of Australia staff visiting the Research Centre for Deep History at the
 			Australian National University to see the Willandra Lakes Map, June 2021. Photo: Mike Jones.
@@ -300,7 +301,7 @@
 
 <GenericContent>
 	<LearnMoreBox>
-		<img src={dvd} alt="" />
+		<img src={dvd} alt="Front cover of the DVD of the documentary 'Message from Mungo.'" />
 		<div>
 			<h3>Message from Mungo documentary</h3>
 			<ul>
@@ -321,7 +322,7 @@
 
 <MediaFullWidth
 	image={duneTree}
-	alt=""
+	alt="A typical Willandra Lakes scene, with a sandy dune, some scrubs and a small tree, and a vast blue sky in the background."
 	caption="Willandra Lakes—a Pleistocene Dry Lake Landscape. Photo: Ann
         McGrath, 2018."
 />
@@ -389,7 +390,7 @@
 	<p>But their rightful place and role continues to be a point of controversy.</p>
 
 	<figure>
-		<img src={mungoReturnCropped} alt="" />
+		<img src={mungoReturnCropped} alt="The return of Mungo Man's remains to Lake Mungo in 2017 in a 1970s blarge black hearse  with an Aboriginal flag on the door. A group of people are standing and sitting on chairs nearby." />
 		<figcaption>
 			Return and reburial of Mungo Man's remains, 17 November 2017, Lake Mungo. Photo: Ann McGrath.
 		</figcaption>
@@ -401,7 +402,7 @@
 
 	<p>
 		In 2013, the Deepening Histories project held a symposium called Deepening Histories of Place at
-		the Australian National University. Members of the Mungo community made vital contributions.{' '}
+		the Australian National University. Members of the Mungo community made vital contributions.
 	</p>
 
 	<p>
@@ -421,7 +422,7 @@
 
 <MediaFullWidth
 	image={visitingANU}
-	alt=""
+	alt="Participants from the Willandra Lakes map project standing in front of a min-bus at ANU."
 	caption="Visitors and friends from the Willandra Lakes World Heritage region
             at The Australian National University in June 2013. From left to
             right: Ann McGrath, Darryl Pappin, Leanne Mitchell, Tanya Charles,

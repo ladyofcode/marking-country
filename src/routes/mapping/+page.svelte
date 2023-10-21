@@ -200,7 +200,7 @@
 	</p>
     
 	<figure>
-        <img src={magnificentGallery1} alt="" />
+        <img src={magnificentGallery1} alt="Colour photograph of rock art, showing layers of images painted over the top of each other." />
 		<figcaption>Magnificent Gallery. Photo: Brad Grogan, Western Yalanji Corporation.</figcaption>
 	</figure>
     
@@ -251,7 +251,7 @@
 	</p>
     
 	<figure>
-        <img src={mudMap} alt="" />
+        <img src={mudMap} alt="Hand-painted map by Leah Umbagai, showing the changes to the coastline of Woddordda Country, and includes symbols like a fireplace with red flames and a hand outstretched over the fire; the head and face of a baby; as well as animals, including a brolga, a kangaroo, a quoll, a snake." />
 		<figcaption>Woddordda Country. Leah Umbagai, 2022.</figcaption>
 	</figure>
 </GenericContent>
@@ -262,7 +262,7 @@
         <h2>Blanks on the Map of the World: What Europeans did not know about Australia</h2>
         
 		<figure>
-            <img src={worldMap1500} alt="" />
+            <img src={worldMap1500} alt="Map from c. 1500, demonstrating what Europeans knew about the world." />
 			<figcaption>
                 [Map of the World ca. 1500], photo-lithographed at the NSW Govt. Printing Office [between
 				1880 and 1899], Date: 1500.
@@ -358,7 +358,7 @@
 		</p>
 
 		<figure>
-			<img src={tindaleMap} alt="" />
+			<img src={tindaleMap} alt="A black and white print map created by Norman Tindale in 1940, showing his view of the distribution of Aboriginal groups in Australia." />
 			<figcaption>
 				Map showing the distribution of the Aboriginal tribes of Australia, Author: Norman B.
 				Tindale, Date: 1940. National Library of Australia.{' '}
@@ -395,7 +395,7 @@
 		</p>
 
 		<figure>
-			<img src={magnificentGallery2} alt="" />
+			<img src={magnificentGallery2} alt="The Magnificent Gallery, showing paintings of animal and human-like figures." />
 			<figcaption>Magnificent Gallery. Photo: Brad Grogan, Western Yalanji Corporation.</figcaption>
 		</figure>
 
@@ -425,7 +425,7 @@
 		<TwoColumnContent>
 			<figure>
 				<div>
-					<img src={matthew} alt="" />
+					<img src={matthew} alt="Matthew Demnal Martin, sitting on a chair, holding clapsticks. A group of women are sitting  in a circle facing one another on the ground nearby." />
 				</div>
 				<div>
 					<h3>
@@ -455,7 +455,7 @@
 		</p>
 
 		<figure>
-			<img src={everywhen_cover} alt="" />
+			<img src={everywhen_cover} alt="Cover of Everywhen (book)." />
 			<figcaption>
 				The Ngarigo artist Gail Neuss painted the image that we selected for the cover of our
 				project's publication Everywhen. Entitled Nura Nganymitung (Grandmother's Country), like

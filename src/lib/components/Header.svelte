@@ -9,11 +9,11 @@
 	</div>
 
 	{#if image}
-		<img src={image} {alt} />
+		<img src={image} alt={alt} />
 	{/if}
 
 	{#if video}
-		<video autoPlay muted loop alt="" {poster}>
+		<video autoPlay muted loop {poster}>
 			<source src={video} {type} />
 			Your browser does not support the video tag.
 		</video>

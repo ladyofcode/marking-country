@@ -20,7 +20,7 @@
 	{/if}
 
 	{#if image}
-		<img src={image} {alt} />
+		<img src={image} alt={alt} />
 	{/if}
 
 	{#if caption}

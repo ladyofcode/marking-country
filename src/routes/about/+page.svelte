@@ -114,7 +114,7 @@
 			<h2>Deep History's changing coasts</h2>
 
 			<figure>
-				<img src={coastlines} alt="" />
+				<img src={coastlines} alt="Animated map showing the changing coastline of Sahul from today to 21,000 years ago." />
 				<figcaption>
 					Sahul animation by Mike Jones. Shapefiles provided by CartoGIS Services, Australian
 					National University.
@@ -147,7 +147,7 @@
 			</p>
 
 			<figure>
-				<img src={fitzeroy} alt="" />
+				<img src={fitzeroy} alt="Black and white aerial photograph of Fitzroy Island." />
 				<figcaption>
 					Fitzroy Island. Commonwealth of Australia, 1943. Australian aerial photographs; E 55 2 52.
 					.{' '}
@@ -173,7 +173,7 @@
 			</p>
 
 			<figure>
-				<img src={david} alt="" />
+				<img src={david} alt="Black and white photograph of David Ngunaitoponi, in the sytle of a formal portrait, taken in 1924." />
 				<figcaption>
 					Portrait of David Ngunaitponi (Unaipon), 1924. Public domain, via Wikimedia Commons.
 				</figcaption>
@@ -189,7 +189,7 @@
 			</p>
 
 			<figure>
-				<img src={durerMap} alt="" />
+				<img src={durerMap} alt="Woodcut black and white map of the world from 1515. Around the margins of the globe are pictures of human-style heads blowing 'winds'." />
 				<figcaption>
 					World Map 1515, Author: Albrecht Dürer, woodcut, Date: 1515. British Museum.{' '}
 					<a href="https://www.britishmuseum.org/collection/object/P_1848-1111-7-8">
@@ -248,7 +248,7 @@
 			<h2>Why?</h2>
 
 			<figure>
-				<img src={schoolMap} alt="" />
+				<img src={schoolMap} alt="Map of the Australian continent featuring the routes taken by the so-called explorers and discoverers of Australia. It was created by Charles Long, around 1912, and was intended to be used as an educational resource." />
 				<figcaption>
 					Exploration map of the Commonwealth of Australia: compiled by C.R. Long, M.A., Inspector
 					of Schools, Education Department, Victoria, for use with 'Stories of Australian
@@ -341,7 +341,7 @@
 		<GenericContent>
 			<h2>Co-creating with communities</h2>
 			<figure>
-				<img src={collage} alt="" />
+				<img src={collage} alt="Collage of numerous participants and researchers in the Marking Country project." />
 				<figcaption>Photos: Amy Way.</figcaption>
 			</figure>
 

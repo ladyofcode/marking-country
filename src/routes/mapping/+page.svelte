@@ -31,39 +31,6 @@
 	let matthew = `${base}/stories/ngarinyin/images/Matthew-Dembal-Martin_sings-06062022_RCDH.jpg`;
 	let mudMap = `${base}/stories/woddordda/images/Mudmap_01.jpg`;
 
-	const slideshowOne = [
-		{
-			url: slideshowOne1,
-			caption:
-				'Map of Australia, Author: Gordon and Gotch, shows routes of explorers, lighthouses and the route of steamers along the coast of Australia, Date: 1876. National Library of Australia.',
-			link: 'https://catalogue.nla.gov.au/Record/1017669'
-		},
-		{
-			url: slideshowOne2,
-			caption:
-				'Exploration map of Australia 1890, Author: John George Bartholomew, Date: 1890. National Library of Australia.',
-			link: "'https://catalogue.nla.gov.au/Record/3989570"
-		},
-		{
-			url: slideshowOne3,
-			caption:
-				"Australia, Other title: Philips' authentic map of Australia, Author: George Philip & Son, cartographer, shows routes of explorers, railways and submarine cables, Date: 1890. National Library of Australia.",
-			link: 'https://catalogue.nla.gov.au/Record/6856866'
-		},
-		{
-			url: slideshowOne4,
-			caption:
-				"Sketch map of Captain Sturt's tracks & discoveries on his various expeditions into south eastern central Australia, Author: John Arrowsmith, Date: 1849. National Library of Australia.",
-			link: 'https://catalogue.nla.gov.au/Record/412739'
-		},
-		{
-			url: slideshowOne5,
-			caption:
-				'TAA map of the Commonwealth of Australia: showing air routes, industries, & routes of explorers, Author: Trans Australia Airlines and Commonwealth Surveyor General, shows TAA routes and internal and external routes of other airlines, and principal explorers routes, railways, primary industries, state boundaries, cities, towns, minor settlements and homesteads, Date: 1948. National Library of Australia',
-			link: 'https://catalogue.nla.gov.au/Record/6451646'
-		}
-	];
-
 	const slideshowTwo = [
 		{
 			url: slideshowTwo1,
@@ -201,7 +168,7 @@
     
 	<figure>
         <img src={magnificentGallery1} alt="Colour photograph of rock art, showing layers of images painted over the top of each other." />
-		<figcaption>Magnificent Gallery. Photo: Brad Grogan, Western Yalanji Corporation.</figcaption>
+		<figcaption><em>Magnificent Gallery</em>. Photo: Brad Grogan, Western Yalanji Corporation.</figcaption>
 	</figure>
     
 	<p>
@@ -361,7 +328,7 @@
 			<img src={tindaleMap} alt="A black and white print map created by Norman Tindale in 1940, showing his view of the distribution of Aboriginal groups in Australia." />
 			<figcaption>
 				Map showing the distribution of the Aboriginal tribes of Australia, Author: Norman B.
-				Tindale, Date: 1940. National Library of Australia. 
+				Tindale, Date: 1940. National Library of Australia, Canberra. 
 				<a href="https://catalogue.nla.gov.au/Record/3698417"> See resource </a>
 				.
 			</figcaption>
@@ -396,7 +363,7 @@
 
 		<figure>
 			<img src={magnificentGallery2} alt="The Magnificent Gallery, showing paintings of animal and human-like figures." />
-			<figcaption>Magnificent Gallery. Photo: Brad Grogan, Western Yalanji Corporation.</figcaption>
+			<figcaption><em>Magnificent Gallery</em>. Photo: Brad Grogan, Western Yalanji Corporation.</figcaption>
 		</figure>
 
 		<p>

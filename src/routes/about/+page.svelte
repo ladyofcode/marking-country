@@ -30,35 +30,35 @@
 		{
 			url: slideshowOne1,
 			caption:
-				'Map of Australia, Author: Gordon and Gotch, shows routes of explorers, lighthouses and the route of steamers along the coast of Australia, Date: 1876.',
-			source: 'National Library of Australia.',
+				'<em>Map of Australia</em>, 1876. Gordon and Gotch. Shows routes of explorers, lighthouses and the route of steamers along the coast of Australia.',
+			source: 'National Library of Australia, Canberra',
 			link: 'https://catalogue.nla.gov.au/Record/1017669'
 		},
 		{
 			url: slideshowOne2,
-			caption: 'Exploration map of Australia 1890, Author: John George Bartholomew, Date: 1890.',
-			source: 'National Library of Australia.',
-			link: "'https://catalogue.nla.gov.au/Record/3989570"
+			caption: '<em>Exploration map of Australia</em>, 1890. Map by John G Bartholomew.',
+			source: 'National Library of Australia, Canberra',
+			link: 'https://catalogue.nla.gov.au/catalog/3989570'
 		},
 		{
 			url: slideshowOne3,
 			caption:
-				"Australia, Other title: Philips' authentic map of Australia, Author: George Philip & Son, cartographer, shows routes of explorers, railways and submarine cables, Date: 1890.",
-			source: 'National Library of Australia.',
+				"<em>Australia</em>, 1890. Map by George Philip & Son. Shows routes of explorers, railways, and submarine cables.",
+			source: 'National Library of Australia, Canberra',
 			link: 'https://catalogue.nla.gov.au/Record/6856866'
 		},
 		{
 			url: slideshowOne4,
 			caption:
-				"Sketch map of Captain Sturt's tracks & discoveries on his various expeditions into south eastern central Australia, Author: John Arrowsmith, Date: 1849.",
-			source: 'National Library of Australia.',
+				"<em>Sketch map of Captain Sturt's tracks & discoveries on his various expeditions into south eastern central Australia</em>, 1849. Map by John Arrowsmith.",
+			source: 'National Library of Australia, Canberra',
 			link: 'https://catalogue.nla.gov.au/Record/412739'
 		},
 		{
 			url: slideshowOne5,
 			caption:
-				'TAA map of the Commonwealth of Australia: showing air routes, industries, & routes of explorers, Author: Trans Australia Airlines and Commonwealth Surveyor General, shows TAA routes and internal and external routes of other airlines, and principal explorers routes, railways, primary industries, state boundaries, cities, towns, minor settlements and homesteads, Date: 1948.',
-			source: 'National Library of Australia.',
+				'<em>TAA map of the Commonwealth of Australia</em>, 1948. Trans Australia Airlines and Commonwealth Surveyor General. Shows air routes, principal explorers routes, railways, primary industries, state boundaries, cities, towns, minor settlements and homesteads',
+			source: 'National Library of Australia, Canberra',
 			link: 'https://catalogue.nla.gov.au/Record/6451646'
 		}
 	];
@@ -95,7 +95,7 @@
 			<h1>About <em>Marking Country</em></h1>
 
 			<p>
-				<em>Marking Country</em> visualizes Australia's deep history.
+				<em>Marking Country</em> visualises Australia's deep history.
 			</p>
 
 			<p>
@@ -114,7 +114,10 @@
 			<h2>Deep History's changing coasts</h2>
 
 			<figure>
-				<img src={coastlines} alt="Animated map showing the changing coastline of Sahul from today to 21,000 years ago." />
+				<img
+					src={coastlines}
+					alt="Animated map showing the changing coastline of Sahul from today to 21,000 years ago."
+				/>
 				<figcaption>
 					Sahul animation by Mike Jones. Shapefiles provided by CartoGIS Services, Australian
 					National University.
@@ -140,7 +143,7 @@
 			<p>
 				They observed rivers form and change course. They witnessed bays changing shape. Local
 				Aboriginal people tell stories of how their Country, including places that we know today as
-				Islands, such as Koba or Fitzroy Island off Cairns, had once been joined to the mainland.
+				islands, such as Koba or Fitzroy Island off Cairns, had once been joined to the mainland.
 				Some important ancestral sagas still told today took place in areas that are now underwater,
 				so descendants take special care when in the waters nearby.
 			</p>
@@ -148,8 +151,9 @@
 			<figure>
 				<img src={fitzeroy} alt="Black and white aerial photograph of Fitzroy Island." />
 				<figcaption>
-					Fitzroy Island. Commonwealth of Australia, 1943. Australian aerial photographs; E 55 2 52.
-					. <a href="https://nla.gov.au/nla.cat-vn4602881">National Library of Australia</a>.
+					<em>Fitzroy Island</em>, 1943. Commonwealth of Australia. (<a
+						href="https://nla.gov.au/nla.obj-234023015/view">National Library of Australia</a
+					>).
 				</figcaption>
 			</figure>
 
@@ -164,14 +168,17 @@
 			</p>
 
 			<p>
-				Australia was joined to Papua New Guinea and was much closer to the Indonesian Islands.
+				Australia was joined to Papua New Guinea and was much closer to the Indonesian islands.
 				After the Pleistocene the warmer period of the Holocene followed. Around 18,000 years before
 				the present, the ice melted; the sea started to inundate the land and the coastline moved
 				inland. This created an Australia of a different shape and scale.
 			</p>
 
 			<figure>
-				<img src={david} alt="Black and white photograph of David Ngunaitoponi, in the sytle of a formal portrait, taken in 1924." />
+				<img
+					src={david}
+					alt="Black and white photograph of David Ngunaitoponi, in the sytle of a formal portrait, taken in 1924."
+				/>
 				<figcaption>
 					Portrait of David Ngunaitponi (Unaipon), 1924. Public domain, via Wikimedia Commons.
 				</figcaption>
@@ -182,22 +189,29 @@
 				lectures around Australia about the beliefs of his people. He pointed out his people's
 				knowledge of the compass points, and he described their words for the various wind (NOTE:
 				The importance of winds is also evident in this European map of 1515. Here the winds come
-				out of the mouths of humans of various moods and personalities.) He spoke of a continent
-				linked to other lands in the north.
+				out of the mouths of humans of various moods and personalities).
 			</p>
 
 			<figure>
-				<img src={durerMap} alt="Woodcut black and white map of the world from 1515. Around the margins of the globe are pictures of human-style heads blowing 'winds'." />
+				<img
+					src={durerMap}
+					alt="Woodcut black and white map of the world from 1515. Around the margins of the globe are pictures of human-style heads blowing 'winds'."
+				/>
 				<figcaption>
-					World Map 1515, Author: Albrecht Dürer, woodcut, Date: 1515. British Museum. 
-					<a href="https://www.britishmuseum.org/collection/object/P_1848-1111-7-8">
-						See resource
+					World map, 1515. Print made by Albrecht Dürer from woodcut.(<a
+						href="https://www.britishmuseum.org/collection/object/P_1848-1111-7-8"
+					>
+						British Museum, London
 					</a>
-					.
+					).
 				</figcaption>
 			</figure>
 
-			<InlineQuote credit="David Unaipon, Legendary tales of the Australian Aborigines, 2001.">
+			<p>He spoke of a continent linked to other lands in the north.</p>
+
+			<InlineQuote
+				credit="David Unaipon, <em>Legendary tales of the Australian Aborigines</em>, 1924-1925."
+			>
 				<p>
 					The traditions say that the Aborigines came out of the north-west, the Loo loo poon cold.
 					'Too loo' means a break, a severance. 'Poon cold' means a connection. The tradition
@@ -246,12 +260,15 @@
 			<h2>Why?</h2>
 
 			<figure>
-				<img src={schoolMap} alt="Map of the Australian continent featuring the routes taken by the so-called explorers and discoverers of Australia. It was created by Charles Long, around 1912, and was intended to be used as an educational resource." />
+				<img
+					src={schoolMap}
+					alt="Map of the Australian continent featuring the routes taken by the so-called explorers and discoverers of Australia. It was created by Charles Long, around 1912, and was intended to be used as an educational resource."
+				/>
 				<figcaption>
-					Exploration map of the Commonwealth of Australia: compiled by C.R. Long, M.A., Inspector
-					of Schools, Education Department, Victoria, for use with 'Stories of Australian
-					exploration'; S. Yandasynde, del., Melbourne. National Library of Australia digitised
-					item. MAP G8961.S12 [1606-1879] (Copy 1).
+					<em>Exploration map of the Commonwealth of Australia</em>, 1913. Map by Charles R Long. (<a
+						href="https://catalogue.nla.gov.au/catalog/1973344"
+						>National Library of Australia, Canberra</a
+					>).
 				</figcaption>
 			</figure>
 
@@ -265,7 +282,7 @@
 
 			<p>
 				<em>Marking Country</em> aims to speak back to the dominant ways that Australia has been
-				visualized. <em>Marking Country</em> 
+				visualised. <em>Marking Country</em>
 				demonstrates how the continent of Australia has long been documented in vivid detail, uniting
 				layers of storied time and the people of deep history.
 			</p>
@@ -301,7 +318,7 @@
 			<p>
 				The Research Centre for Deep History is on the unceded lands of the Ngunnawal and Ngambri
 				peoples, in the School of History, Australian National University. It builds on the
-				Australian Research Council-funded Laureate program 
+				Australian Research Council-funded Laureate program
 				<strong>
 					'Rediscovering the Deep Human Past: Global Networks, Future Opportunities' (FL170100121)
 				</strong>
@@ -321,7 +338,7 @@
 			</p>
 
 			<p>
-				We are guided by two 
+				We are guided by two
 				<a href="https://re.anu.edu.au/advisory-committees"> advisory committees </a>
 				, an Indigenous Advisory Committee and a General Advisory Committee, and by the Elders, cultural
 				advisers, and community members we work with.
@@ -339,7 +356,10 @@
 		<GenericContent>
 			<h2>Co-creating with communities</h2>
 			<figure>
-				<img src={collage} alt="Collage of numerous participants and researchers in the Marking Country project." />
+				<img
+					src={collage}
+					alt="Collage of numerous participants and researchers in the Marking Country project."
+				/>
 				<figcaption>Photos: Amy Way.</figcaption>
 			</figure>
 
@@ -381,42 +401,39 @@
 
 			<Collapsible
 				name="collapsibleApproach"
-        label="Learn more about our approach"
-        checked={true}
-        readOnly
-		>
-        <p>
-			Indigenous performances of stories, song, dance and artistic
-			practices—of marking Country—extend over an exceptionally long
-			span of time and with a depth of understanding that we refer to as 
-			<em>deep history</em>.
-        </p>
-        <p>
-			Our team is committed to working alongside and learning from
-			Indigenous practitioners of history. We are inspired by Indigenous
-			ways of thinking about time, and by people’s kinship with Country.
-        </p>
-        <p>
-			In doing so, we commit to community-collaborative research which
-			includes the following guidelines and aims:
-        </p>
-        <p>
-			<strong>Rediscover</strong> - as researchers, we are not seeing
-			anything for the first time; we are not 'discovering' something as
-			such. Rather, we are revisiting pasts that were lived and that
-			remain alive in Country today.
-        </p>
-        <p>
-			<strong>Return</strong> - we return archival knowledge to
-			communities and reciprocate in ways that have real value to
-			Indigenous communities.
-        </p>
-        <p>
-			<strong>Repatriate</strong> - we repatriate knowledge back to
-			Indigenous communities to ensure they retain ownership of their
-			stories.
-        </p>
-	</Collapsible>
+				label="Learn more about our approach"
+				checked={true}
+				readOnly
+			>
+				<p>
+					Indigenous performances of stories, song, dance and artistic practices—of marking
+					Country—extend over an exceptionally long span of time and with a depth of understanding
+					that we refer to as
+					<em>deep history</em>.
+				</p>
+				<p>
+					Our team is committed to working alongside and learning from Indigenous practitioners of
+					history. We are inspired by Indigenous ways of thinking about time, and by people’s
+					kinship with Country.
+				</p>
+				<p>
+					In doing so, we commit to community-collaborative research which includes the following
+					guidelines and aims:
+				</p>
+				<p>
+					<strong>Rediscover</strong> - as researchers, we are not seeing anything for the first time;
+					we are not 'discovering' something as such. Rather, we are revisiting pasts that were lived
+					and that remain alive in Country today.
+				</p>
+				<p>
+					<strong>Return</strong> - we return archival knowledge to communities and reciprocate in ways
+					that have real value to Indigenous communities.
+				</p>
+				<p>
+					<strong>Repatriate</strong> - we repatriate knowledge back to Indigenous communities to ensure
+					they retain ownership of their stories.
+				</p>
+			</Collapsible>
 		</GenericContent>
 	</section>
 
@@ -430,13 +447,13 @@
 			</p>
 
 			<p>
-				Indigenous Advisory Committee: Jakelin Troy (Chair), Lorina L. Barker (Deputy Chair), Bruce
-				Gorring, Lynette Russell, Asmi Wood, Peter Yu
+				<strong>Indigenous Advisory Committee</strong>: Jakelin Troy (Chair), Lorina L. Barker
+				(Deputy Chair), Lynette Russell, Asmi Wood, Peter Yu
 			</p>
 
 			<p>
-				General Advisory Committee: Jakelin Troy (Chair), Lynette Russell (Deputy Chair), Malcolm
-				Allbrook, Lorina L. Barker, Alison Bashford, Bruce Gorring, Emma Kowal, Jane Lydon, Julian
+				<strong>General Advisory Committee</strong>: Jakelin Troy (Chair), Lynette Russell (Deputy
+				Chair), Malcolm Allbrook, Lorina L. Barker, Alison Bashford, Emma Kowal, Jane Lydon, Julian
 				Thomas, Asmi Wood, Peter Yu
 			</p>
 
@@ -461,6 +478,10 @@
 					{
 						title: 'Shape files for Sahul animation',
 						names: 'CartoGIS Services, Australian National University'
+					},
+					{
+						title: 'Educational resources',
+						names: 'Beth Marsden'
 					}
 				]}
 			/>

@@ -858,12 +858,12 @@ Jane M. Jacobs" -->
 				authors: 'Uncle Fred Conway, Jackie Huggins, Amy Way and Ann McGrath (2022)'
 			},
 			{
-				insert: 'direct quotes from Uncle Fred Conway',
+				insert: 'Uncle Fred Conway',
 				authors:
 					'Uncle Fred Conway cited in Uncle Fred Conway, Jackie Huggins, Amy Way and Ann McGrath (2022)'
 			},
 			{
-				insert: 'direct quotes from Jackie Huggins',
+				insert: 'Jackie Huggins',
 				authors:
 					'Jackie Huggins cited in Uncle Fred Conway, Jackie Huggins, Amy Way and Ann McGrath (2022)'
 			}

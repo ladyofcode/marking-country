@@ -567,7 +567,7 @@
 		citations={[
 			{ insert: 'this page', authors: 'Ann McGrath and Kim Mahood (2022)' },
 			{
-				insert: 'direct quotes from Bernadette Pappin',
+				insert: 'Bernadette Pappin',
 				authors: 'Bernadette Pappin cited in Ann McGrath and Kim Mahood (2022)'
 			},
 			{ insert: 'the Willandra Lakes Map', authors: 'Research Centre for Deep History, (2022)' }

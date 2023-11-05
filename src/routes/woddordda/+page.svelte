@@ -463,7 +463,7 @@
 	<h3>Woddordda Wudoo (8 mins)</h3>
 
 	<p>
-		This short film records the Wudoo baby smoking ceremony conducted by the late Yorna Wollagoodja
+		This short film records the Wudoo baby smoking ceremony conducted by the late Yorna Woolagoodja
 		and the late Janet Oobagooma in 2022. This intimate and significant ceremony is performed by
 		senior men and women for all babies to carry them into the future by following the words of
 		their Wandjina creation ancestors. Leah Umbagai explains the deeper meaning of Wudoo as well as
@@ -663,7 +663,7 @@
 	<h2>Credits</h2>
 
 	<p>
-		This digital story was developed in collaboration with Yorna Wolladoodja, Janet Oobagooma, and
+		This digital story was developed in collaboration with Yorna Woolagoodja, Janet Oobagooma, and
 		Leah Umbagai. Thank you to Woddordda community members, and to Mowanjum Aboriginal Art & Culture
 		Centre for providing facilities and support.
 	</p>
@@ -706,7 +706,7 @@
 			{
 				insert: 'Eewaambood Janet Oobagooma',
 				authors:
-					'Eweaambood Janet Oobagooma cited in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
+					'Eewaambood Janet Oobagooma cited in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
 			},
 			{
 				insert: 'Leah Umbagai',
@@ -716,7 +716,7 @@
 			{
 				insert: 'Sam Woolagoodja',
 				authors:
-					'Leah Umbagai cited in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
+					'Sam Woolagoodja cited in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
 			},
 			{
 				insert: '‘Woddordda Wudoo’',

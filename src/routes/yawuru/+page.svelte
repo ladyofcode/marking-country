@@ -1176,29 +1176,29 @@
 					'Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
 			},
 			{
-				insert: 'direct quotes from Janet Cox',
+				insert: 'Janet Cox',
 				authors:
-					'Janet Cox cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan Edgar, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
+					'Janet Cox cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
 			},
 			{
-				insert: 'direct quotes from Jimmy Edgar',
+				insert: 'Jimmy Edgar',
 				authors:
 					'Jimmy Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
 			},
 			{
-				insert: 'direct quotes from Thomas ‘Unda’ Edgar',
+				insert: 'Thomas ‘Unda’ Edgar',
 				authors:
 					'Thomas ‘Unda’ Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
 			},
 			{
-				insert: 'direct quotes from Dianne Appleby',
+				insert: 'Dianne Appleby',
 				authors:
 					'Dianne Appleby cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
 			},
 			{
-				insert: 'direct quotes from Susan ‘Marjadee’ Edgar',
+				insert: 'Susan ‘Marjadee’ Edgar',
 				authors:
-					'Susan Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
+					'Susan ‘Marjadee’ Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
 			}
 		]}
 		location={$page.url.href}

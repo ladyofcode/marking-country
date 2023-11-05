@@ -620,7 +620,7 @@
 					'Matthew Dembal Martin and Pansy Nulgit, ‘Durdu-ngardi’ in Pansy Nulgit, Matthew Dembal Martin, Chloe Nulgit, Phillip ‘Cracker’ Duckhole, Sherika Duckhole, Mary Anne Jebb and Ann McGrath (2022)'
 			},
 			{
-				insert: 'direct quotes from Sherika Duckhole',
+				insert: 'Sherika Duckhole',
 				authors:
 					'Sherika Duckhole cited in Pansy Nulgit, Matthew Dembal Martin, Chloe Nulgit, Phillip ‘Cracker’ Duckhole, Sherika Duckhole, Mary Anne Jebb and Ann McGrath (2022)'
 			},

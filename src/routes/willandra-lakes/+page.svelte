@@ -261,7 +261,7 @@
 	<p>
 		In doing so, they continue to build on relationships between historians from the Australian
 		National University and the Mutthi Mutthi, Barkintji, and Nyaampa people that date back nearly
-		20 years.{' '}
+		20 years. 
 	</p>
 
 	<YouTube youTubeId="iWfvzgN5jIU" />
@@ -358,7 +358,7 @@
 		Lady Mungo is a revered relative. It was as if she is a close aunty who only died yesterday. The
 		deep past continues ever-present. Lady Mungo is an agent in people's lives and in the
 		landscape—a powerful creative force that affects the everyday—from the weather to the happiness
-		or unhappiness of people who venture on their ground.{' '}
+		or unhappiness of people who venture on their ground. 
 	</p>
 </GenericContent>
 
@@ -449,7 +449,7 @@
 	<p>
 		People had expressed an interest in telling the story through cultural mapping techniques - but
 		this would be a different kind of 'history map': a visual depiction of their lives as
-		historically experienced in their beloved lands, their ancestral Country.{' '}
+		historically experienced in their beloved lands, their ancestral Country. 
 	</p>
 
 	<p>
@@ -466,7 +466,7 @@
 	<Collapsible name="referencesWillandra" label="References and further reading">
 		<ul>
 			<li>
-				Allbrook, M. and McGrath, A., "Collaborative Histories of the Willandra Lakes". In{' '}
+				Allbrook, M. and McGrath, A., "Collaborative Histories of the Willandra Lakes". In 
 				<em>Long history, deep time: deepening histories of place</em>, edited by McGrath, A. and
 				Jebb, M, 241-252. Canberra: ANU Press, 2015.
 			</li>
@@ -474,8 +474,8 @@
 			<li>
 				Barrows, Timothy T., Kathryn E. Fitzsimmons, Stephanie C. Mills, Jacqui Tumney, Daryl
 				Pappin, and Nicola Stern. 2020. “Late Pleistocene Lake Level History of Lake Mungo,
-				Australia.”{' '}
-				<em>Quaternary Science Reviews</em> 238 (June): 106338.{' '}
+				Australia.” 
+				<em>Quaternary Science Reviews</em> 238 (June): 106338. 
 				<a href="https://doi.org/10.1016/j.quascirev.2020.106338">
 					https://doi.org/10.1016/j.quascirev.2020.106338
 				</a>
@@ -484,12 +484,12 @@
 
 			<li>
 				Bowler, J. M., Rhys Jones, Harry Allen, and A. G. Thorne. 1970. "Pleistocene Human Remains
-				from Australia: A Living Site and Human Cremation from Lake Mungo, Western New South Wales."{' '}
+				from Australia: A Living Site and Human Cremation from Lake Mungo, Western New South Wales." 
 				<em>World Archaeology</em> 2 (1): 39-60.
 			</li>
 
 			<li>
-				McGrath, Ann. 2018. "Lady Mungo and the New and Old Discovery Narrative.” In{' '}
+				McGrath, Ann. 2018. "Lady Mungo and the New and Old Discovery Narrative.” In 
 				<em>
 					Unmasking Ideology in Imperial and Colonial Archeology: Vocabulary, Symbols, and Legacy
 				</em>
@@ -498,7 +498,7 @@
 			</li>
 
 			<li>
-				McGrath, Ann, Laura Rademaker, and Jakelin Troy, eds. 2023.{' '}
+				McGrath, Ann, Laura Rademaker, and Jakelin Troy, eds. 2023. 
 				<em>Everywhen: Australia and the Language of Deep History</em>. Lincoln: University of
 				Nebraska Press. Sydney: UNSW Press.
 			</li>
@@ -556,7 +556,7 @@
 		Services team. Thank you to National Library staff and representatives who engaged with the
 		project throughout, including Catherine Aldersey, Rochelle Armstrong, Rebecca Bateman, Lisa
 		Jong-Reuss, Nicola Mackay-Sim, Craig Mackenzie, Elizabeth MacKenzie, Sue McFadden, Aleara
-		Pearce, Shirleene Robinson, and Kathryn Ross.{' '}
+		Pearce, Shirleene Robinson, and Kathryn Ross. 
 	</p>
 </GenericContent>
 

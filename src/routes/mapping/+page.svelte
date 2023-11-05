@@ -151,7 +151,7 @@
 			Using different digital ways to map the Country, Indigenous community members have mapped
 			local and continent-wide Deep Histories for the Marking Country project. Indigenous places are
 			places of the heart—homes and sites of physical and spiritual sustenance and transgenerational
-			knowledge.{' '}
+			knowledge. 
 		</p>
 	</GenericContent>
 </section>
@@ -295,7 +295,7 @@
 
 		<p>
 			Due to improvements in maritime technologies, the Portuguese, Dutch, British and other nations
-			gained knowledge of another continent.{' '}
+			gained knowledge of another continent. 
 		</p>
 
 		<p>European navigators mapped the western side of Australia before the east.</p>
@@ -354,14 +354,14 @@
 			This became the basis of AIATSIS's well-known map of Aboriginal Australia, compiled by David
 			Horton. This map is an important teaching tool—a guide to the hundreds of Aboriginal
 			languages, nations and identities that constitute Aboriginal Australia and that reflect the
-			deep, enduring history of its peoples.{' '}
+			deep, enduring history of its peoples. 
 		</p>
 
 		<figure>
 			<img src={tindaleMap} alt="A black and white print map created by Norman Tindale in 1940, showing his view of the distribution of Aboriginal groups in Australia." />
 			<figcaption>
 				Map showing the distribution of the Aboriginal tribes of Australia, Author: Norman B.
-				Tindale, Date: 1940. National Library of Australia.{' '}
+				Tindale, Date: 1940. National Library of Australia. 
 				<a href="https://catalogue.nla.gov.au/Record/3698417"> See resource </a>
 				.
 			</figcaption>

@@ -24,7 +24,7 @@
 		</p>
 		
 		<figure>
-			<img src={image_still_02} alt="" />
+			<img src={image_still_02} alt="Uncle Fred's hands in which he is holding white myrtle leaves." />
 			<figcaption>
 				Uncle Fred makes soap from white myrtle leaves, Carnarvon Gorge, QLD, 23 March 2022. Photo:
 				Amy Way.
@@ -72,7 +72,7 @@
 		</p>
 
 		<figure>
-			<img src={image_ANU7376} alt="" />
+			<img src={image_ANU7376} alt="A folded pouch of palm bark on the ground." />
 			<figcaption>
 				A folded pouch of palm bark, Carnarvon Gorge, QLD, 23 March 2022. Photo: Amy Way.
 			</figcaption>

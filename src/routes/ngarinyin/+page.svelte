@@ -194,7 +194,7 @@
 	id="intro"
 	image={image_ngarinyin_header}
 	name="ngarinyin"
-	alt=""
+	alt="A water hold, seen through paper bark trees, with a bright blue sky in the background."
 	heading="Marardda"
 	subheading="Stories from Ngarinyin Country"
 />
@@ -213,7 +213,7 @@
 	<TwoColumnContent>
 		<figure>
 			<div>
-				<img src={pansy} alt="" />
+				<img src={pansy} alt="Pansy Nulgit, wiht trees, grass and scrub in the background. Pansy is gesturing with her right hand." />
 			</div>
 			<div>
 				<h3>
@@ -228,7 +228,7 @@
 	<TwoColumnContent>
 		<figure>
 			<div>
-				<img src={matthew} alt="" />
+				<img src={matthew} alt="Matthew Dembal Martin. He is sitting on a chair, holding clap sticks and there are a group of women sitting close by on the ground." />
 			</div>
 			<div>
 				<h3>
@@ -243,7 +243,7 @@
 	<TwoColumnContent>
 		<figure>
 			<div>
-				<img src={chloe} alt="" />
+				<img src={chloe} alt="Chloe Nulgit, sitting in a water hole. The water reaches the top of her arms and  her hands are floating on top of the water. She is in the water to collect Jalagu (algae) for Wurdu." />
 			</div>
 			<div>
 				<h3>
@@ -257,7 +257,7 @@
 	<TwoColumnContent>
 		<figure>
 			<div>
-				<img src={phillip} alt="" />
+				<img src={phillip} alt="Philip Duckhole, with a track and scrub in the background." />
 			</div>
 			<div>
 				<h3>
@@ -272,7 +272,7 @@
 	<TwoColumnContent>
 		<figure>
 			<div>
-				<img src={sherika} alt="" />
+				<img src={sherika} alt="Sherika Duckhole." />
 			</div>
 			<div>
 				<h3>
@@ -354,7 +354,7 @@
 	</InlineQuote>
 
 	<figure>
-		<img src={jalala} alt="" />
+		<img src={jalala} alt="A Jalala standing upright as a marker among a collection of rocks surrounded by grass." />
 		<figcaption>Jalala—Mt. Hart Marking Stones. Photo: Tim Mummery, 2022.</figcaption>
 	</figure>
 

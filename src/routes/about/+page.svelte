@@ -100,7 +100,7 @@
 
 			<p>
 				This is a history that extends far beyond the two and a half centuries since the arrival of
-				British ships from the northern hemisphere.{' '}
+				British ships from the northern hemisphere.
 			</p>
 
 			<p>
@@ -134,8 +134,7 @@
 			<p>
 				Aboriginal people also lived alongside lake systems that were drying out, such as the rich
 				lake system now known as Lake Mungo and Willandra Lakes. Their descendants shared the
-				stories of their Country to create the{' '}
-				<!-- <a href="${base}/willandra-lakes">Mungo Map</a>. -->
+				stories of their Country to create the <a href="${base}/willandra-lakes">Mungo Map</a>.
 			</p>
 
 			<p>
@@ -150,8 +149,7 @@
 				<img src={fitzeroy} alt="Black and white aerial photograph of Fitzroy Island." />
 				<figcaption>
 					Fitzroy Island. Commonwealth of Australia, 1943. Australian aerial photographs; E 55 2 52.
-					.{' '}
-					<a href="https://nla.gov.au/nla.cat-vn4602881">National Library of Australia</a>.
+					. <a href="https://nla.gov.au/nla.cat-vn4602881">National Library of Australia</a>.
 				</figcaption>
 			</figure>
 
@@ -191,7 +189,7 @@
 			<figure>
 				<img src={durerMap} alt="Woodcut black and white map of the world from 1515. Around the margins of the globe are pictures of human-style heads blowing 'winds'." />
 				<figcaption>
-					World Map 1515, Author: Albrecht Dürer, woodcut, Date: 1515. British Museum.{' '}
+					World Map 1515, Author: Albrecht Dürer, woodcut, Date: 1515. British Museum. 
 					<a href="https://www.britishmuseum.org/collection/object/P_1848-1111-7-8">
 						See resource
 					</a>
@@ -267,7 +265,7 @@
 
 			<p>
 				<em>Marking Country</em> aims to speak back to the dominant ways that Australia has been
-				visualized. <em>Marking Country</em>{' '}
+				visualized. <em>Marking Country</em> 
 				demonstrates how the continent of Australia has long been documented in vivid detail, uniting
 				layers of storied time and the people of deep history.
 			</p>
@@ -303,7 +301,7 @@
 			<p>
 				The Research Centre for Deep History is on the unceded lands of the Ngunnawal and Ngambri
 				peoples, in the School of History, Australian National University. It builds on the
-				Australian Research Council-funded Laureate program{' '}
+				Australian Research Council-funded Laureate program 
 				<strong>
 					'Rediscovering the Deep Human Past: Global Networks, Future Opportunities' (FL170100121)
 				</strong>
@@ -323,7 +321,7 @@
 			</p>
 
 			<p>
-				We are guided by two{' '}
+				We are guided by two 
 				<a href="https://re.anu.edu.au/advisory-committees"> advisory committees </a>
 				, an Indigenous Advisory Committee and a General Advisory Committee, and by the Elders, cultural
 				advisers, and community members we work with.
@@ -370,9 +368,9 @@
 					</a>
 				</li>
 				<li>
-					<!-- <a href="{base}/willandra-lakes">
+					<a href="{base}/willandra-lakes">
 						Mutthi Mutthi, Ngyaampa and Barkintji—Willandra Lakes and region, New South Wales
-					</a> -->
+					</a>
 				</li>
 			</ul>
 
@@ -390,7 +388,7 @@
         <p>
 			Indigenous performances of stories, song, dance and artistic
 			practices—of marking Country—extend over an exceptionally long
-			span of time and with a depth of understanding that we refer to as{' '}
+			span of time and with a depth of understanding that we refer to as 
 			<em>deep history</em>.
         </p>
         <p>

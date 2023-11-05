@@ -78,75 +78,95 @@
 	const slider = [
 		{
 			url: slide_making_1,
-			caption:'Research Centre for Deep History'
+			caption:
+				'Naomi Appleby, Susan Yu, Ann McGrath and Shirleen Robinson out the front of NBY Ltd.',
+			alt: 'Naomi Appleby, Susan Yu, Ann McGrath and Shirleen Robinson out the front of NBY Ltd.'
 		},
 		{
 			url: slide_making_2,
-			caption:'Research Centre for Deep History'
+			caption: 'Jimmy Edgar and Ben Silverstein sitting inside at NBY Ltd.',
+			alt: 'Jimmy Edgar and Ben Silverstein sitting at a table inside at NBY. There is a recording device on the table between them, and Ben has his computer open and is looking at some printed text on paper.'
 		},
 		{
 			url: slide_making_3,
-			caption:'Research Centre for Deep History'
+			caption: 'Lloyd Pigram, Susan Edgar, Chad Sloan and Mike Jones.',
+			alt: 'Lloyd Pigram, Susan Edgar, Chad Sloan and Mike Jones, sitting at an outdoor table at the Magrove Hotel.'
 		},
 		{
 			url: slide_making_4,
-			caption:'Research Centre for Deep History'
+			caption: 'Lloyd Pigram and Ben Silverstein at the Roebuck Bay Lookout.',
+			alt: 'Lloyd Pigram and Ben Silverstein at the Roebuck Bay Lookout.'
 		},
 		{
 			url: slide_making_5,
-			caption:'Research Centre for Deep History'
+			caption: 'Thomas Edgar on Didirrgun, Kennedy Hill.',
+			alt: 'Thomas Edgar on Didirrgun, Kennedy Hill.'
 		},
 		{
 			url: slide_making_6,
-			caption:'Research Centre for Deep History'
+			caption: 'Thomas is holding the gate open as a white Toyota 4WD drives through.',
+			alt: 'Thomas is holding the gate open as a white Toyota 4WD drives through.'
 		},
 		{
 			url: slide_making_7,
-			caption:'Research Centre for Deep History'
+			caption: 'Video taken from inside the car of driving into Thangoo Station. ',
+			alt: 'It shows a group of brown Brahman cattle standing in the shade of some trees. At the end of the trees is a wide, freen plain. Another car can be seen driving slowly along the track in front.'
 		},
 		{
 			url: slide_making_8,
-			caption:'Research Centre for Deep History'
+			caption: 'Sarah Yu, Thomas Edgar, Ben Silverstein and Dianne Appleby at Janyagurdiny.',
+			alt: 'They are all standing next to a white Toyota 4WD. Sarah is writing something in a notebook. Dianne is pointing towards something and Ben and Thomas are looking at. Ben is holding a voice recorder. It has a face mask over the microphone. Diane, Ben and Sarah are wearing facemasks.'
 		},
 		{
 			url: slide_making_9,
-			caption:'Research Centre for Deep History'
+			caption: 'A jalangardu (goanna) watching us share stories at Janyjagurdiny.',
+			alt: 'A goanna in the shade undernearth a green bush.'
 		},
 		{
 			url: slide_making_10,
-			caption:'Research Centre for Deep History'
+			caption: 'Ben Silverstein, Dianne Appleby, and Thomas Edgar.',
+			alt: "Ben, Dianne and Thomas are standing together talking. There's an electric fence in the background with trees behind it. Dianne is gesturing. Thomas is looking at Ben. Ben is looking at Diane. Ben holds a sound recording with a facemask over the microphone."
 		},
 		{
 			url: slide_making_11,
-			caption:'Research Centre for Deep History'
+			caption: 'Thomas Edgar, Mike Hones abnd Diane Appleby',
+			alt: 'Thomas, Mike, and Diane standing the shade of a tree. Thomas has his hands on his hips and is looking at Diane, Diane is speaking, and Mike is holding a sound recorder that has a face mask over the microphone.'
 		},
 		{
 			url: slide_making_12,
-			caption:'Research Centre for Deep History'
+			caption: 'Thomas Edgar.',
+			alt: 'Close up photo of Thomas Edgar.'
 		},
 		{
 			url: slide_making_13,
-			caption:'Research Centre for Deep History'
+			caption:
+				'Thomas Edgar, Mike Jones, Diane Appleby and Ben Silverstein at the entrace to Thangoo Station.',
+			alt: "Thomas, Diane, Mike and Ben stand on in front of the white metal gate across the road into Thangoo station. The track is red sand and there are trees insude the gate. Thomas has his elbow resting on the top of the gate and Mike is holding a camera that is on a strap around his neck. On the right side of the gate, there are two signs on the fence. The biggest sign is at the top of the gate and reads: 'PRIVATE ROAD: STATION BUSINESS ONLY.' The second sign is smaller and reads 'NO ACCESS TO COAST THANGOO PTY LTD.'"
 		},
 		{
 			url: slide_making_14,
-			caption:'Research Centre for Deep History'
+			caption: 'Mike Jones, Lloyd Pigram, and Susan Edgar working on Jangu yirr Janyjadurdiny.',
+			alt: "Lloyd is pointing to a document projected onto a screen with the title 'Jangu yirr Janyjadurdingy: murra mala nyurdany, Holding Yawuru cultural knowledge on Country at Thangoo Station- WHY?'"
 		},
 		{
 			url: slide_making_15,
-			caption:'Research Centre for Deep History'
+			caption: 'Janet Cox, Jimmy edgar, Andy James Jr., Thomas Edgar and Ben Silverstein at NBY Ltd.',
+			alt: 'Janet Cox, Jimmy edgar, Andy James Jr., Thomas Edgar and Ben Silverstein are sitting around a square table, all looking in the same direction. There are some drinks and food on the table, as well as a voice recorder. Ben has a notepad and pen in his lap.'
 		},
 		{
 			url: slide_making_16,
-			caption:'Research Centre for Deep History'
+			caption: 'Mike Jones, Lloyd Pigram and Susan Edgar working on Jangu yirr Janyjadurdiny.',
+			alt: 'Mike Jones, Lloyd Pigram and Susan Edgar sit in chars arounbd an outdoor table. Mike is typing on his laptop, and Susan is writing on some paper. Llyod smiles at the camera. On the table are some food and drinks, documents,sunglasses, a packet of cigarettes and some old photographs in a frame.'
 		},
 		{
 			url: slide_making_17,
-			caption:'Research Centre for Deep History'
+			caption: 'Thomas Edgar and Leo Dehm at NBY Ltd.',
+			alt: 'Thomas and Leo are sitting on a concrete bench outside in the shade. They are looking at each other.'
 		},
 		{
 			url: slide_making_18,
-			caption:'Research Centre for Deep History'
+			caption: 'Short clip of the bay',
+			alt: 'This short clip shows a storm rolling across the bay, with red sand and green mangrove trees in the foreground and the blue water of the bay, followed by grey storm clouds and a lightening bolt.'
 		}
 	];
 
@@ -156,7 +176,7 @@
 <Header
 	image={image_header}
 	name="yawuru"
-	alt=""
+	alt="An expansive flat of red soil, covered with some green shrubs and grass. There is flat horizon and a light blue sky with some light clouds."
 	heading="Jangu yirr Janyjagurdiny: murra mala nyurdany"
 	subheading="Holding Yawuru history on Country at Thangoo Station"
 />
@@ -309,7 +329,7 @@
 	</p>
 
 	<figure>
-		<img src={image_calendar} alt="" />
+		<img src={image_calendar} alt="Graphic depiction of the Yawuru six seasons." />
 		<figcaption>Yawuru Seasonal Calendar.</figcaption>
 	</figure>
 
@@ -368,34 +388,90 @@
 	</p>
 </GenericContent>
 
+<SideCaption
+	id="maps1"
+	image={slide_maps_1}
+	caption="left"
+	alt="Section of map of Yawuru Country from 1864."
+>
+	<h3>
+		North West Australia—Chart showing explorations about Roebuck Bay, &c. up to 1864. [detail]
+	</h3>
 
-    <SideCaption id="maps1" image={slide_maps_1} caption="left"  alt="" >
-        <h3>North West Australia—Chart shewing explorations about Roebuck Bay, &c. up to 1864. [detail]</h3>
+	<p>
+		Some of the detail for this map was provided by Frederick Panter and James Martin. It described
+		low grassy plains, mangroves and lines of paperbark trees—in Yawuru language Murrga yirr
+		Ganburr. The map shows lines of paperbark stretching inland, along the edges of the saline
+		grasslands of the southern part of Roebuck bay, as they do today.
+	</p>
 
-        <p>Some of the detail for this map was provided by Frederick Panter and James Martin. It described low grassy plains, mangroves and lines of paperbark trees—in Yawuru language Murrga yirr Ganburr. The map shows lines of paperbark stretching inland, along the edges of the saline grasslands of the southern part of Roebuck bay, as they do today.</p>
+	<p>
+		Several sites are marked 'Native well'. Other notes include: 'Well grassed', 'Kangaroos
+		numerous', 'Game abundant', and 'Native tracks everywhere'.
+	</p>
+</SideCaption>
 
-        <p>Several sites are marked 'Native well'. Other notes include: 'Well grassed', 'Kangaroos numerous', 'Game abundant', and 'Native tracks everywhere'.</p>
-    </SideCaption>
+<SideCaption
+	id="maps2"
+	image={slide_maps_2}
+	caption="left"
+	alt="Public Plan of land near Roebuck Bay from 1901."
+>
+	<h3>
+		Kimberley [Tally No. 505395], cons4898 06K/7, State Records of Western Australia, produced 1901
+		and cancelled 1903.
+	</h3>
 
+	<p>
+		In one of the obituaries after his death in 1924, George Roe was referred to as a ‘pioneer’ of
+		the north, and that he ‘squatted’ on land near Roebuck Bay. According to later government
+		records, Roe established Thangoo station in 1891. Later, John Edgar went into partnership with
+		pearler Frank Biddles, and this map produced in 1901 shows their leases from Cape Gourdon to the
+		mangrove shores just north of Langurru (Goldwyer Well). Edgar and Biddles’ station on Yawuru
+		country was initially called Yardogarra, spelled various ways on different maps, and was named
+		after the jila Yardugarra, just inland from the shore.
+	</p>
+</SideCaption>
 
-    <SideCaption id="maps2" image={slide_maps_2} caption="left"  alt="" >
-        <h3>Kimberley [Tally No. 505395], cons4898 06K/7, State Records of Western Australia, produced 1901 and cancelled 1903.</h3>
+<SideCaption
+	id="maps3"
+	image={slide_maps_3}
+	caption="left"
+	alt="Section of aeronautical map produced by the Royal Australian Air Force and Australian Army from 1945."
+>
+	<h3>
+		Australia. Department of the Interior. Property and Survey Branch & Australia. Royal Australian
+		Air Force & Australia. Army. A.H.Q. Cartographic Company (1945). Australian aeronautical map:
+		Broome (Sheet E4). [detail]
+	</h3>
 
-        <p>In one of the obituaries after his death in 1924, George Roe was referred to as a ‘pioneer’ of the north, and that he ‘squatted’ on land near Roebuck Bay. According to later government records, Roe established Thangoo station in 1891. Later, John Edgar went into partnership with pearler Frank Biddles, and this map produced in 1901 shows their leases from Cape Gourdon to the mangrove shores just north of Langurru (Goldwyer Well). Edgar and Biddles’ station on Yawuru country was initially called Yardogarra, spelled various ways on different maps, and was named after the jila Yardugarra, just inland from the shore.</p>
-    </SideCaption>
+	<p>
+		This detail from a large aeronautical map of the area shows numerous 'native wells', including
+		'Than-gool-ngun-jal' (an attempt to transcribe Thangoo or Jangu Ngunjal, where Ngunjal means
+		place) and 'Thangoo or Cowan Well'. Also labelled are places such as the sand hills (Mararr, a
+		restricted area), Racecourse Plains (a massacre site), and Yardogarra Well.
+	</p>
+</SideCaption>
 
-    <SideCaption id="maps3" image={slide_maps_3} caption="left"  alt="" >
-        <h3>Australia. Department of the Interior. Property and Survey Branch & Australia. Royal Australian  Air Force & Australia. Army. A.H.Q. Cartographic Company (1945).  Australian aeronautical map: Broome (Sheet E4). [detail]</h3>
+<SideCaption
+	id="maps4"
+	image={slide_maps_4}
+	caption="left"
+	alt="Map from 1924 showing the stick route along the coast, and information about leases."
+>
+	<h3>
+		300 Chain Plan [Tally No. 503215], cons4567 127/4, map produced 1924 and cancelled 1955, State
+		Records of Western Australia.
+	</h3>
 
-        <p>This detail from a large aeronautical map of the area shows numerous 'native wells', including 'Than-gool-ngun-jal' (an attempt to transcribe Thangoo or Jangu Ngunjal, where Ngunjal means place) and 'Thangoo or Cowan Well'. Also labelled are places such as the sand hills (Mararr, a restricted area), Racecourse Plains (a massacre site), and Yardogarra Well.</p>
-    </SideCaption>
-
-    <SideCaption id="maps4" image={slide_maps_4} caption="left"  alt="" >
-        <h3>300 Chain Plan [Tally No. 503215], cons4567 127/4, map produced 1924 and cancelled 1955, State Records of Western Australia.</h3>
-
-        <p>The Thangoo leases were sold in 1939. Among the advertised attractions of the leases at the time were 'numerous native watering places', and the 20 wells that had been built on what were originally Yawuru water sources. Despite the fact that the resources of this part of Yawuru Country were included in the attractions of the property, Yawuru people had no say in the sale of the leases and gained no material benefit when the Edgars sold them.</p>
-    </SideCaption>
-
+	<p>
+		The Thangoo leases were sold in 1939. Among the advertised attractions of the leases at the time
+		were 'numerous native watering places', and the 20 wells that had been built on what were
+		originally Yawuru water sources. Despite the fact that the resources of this part of Yawuru
+		Country were included in the attractions of the property, Yawuru people had no say in the sale
+		of the leases and gained no material benefit when the Edgars sold them.
+	</p>
+</SideCaption>
 
 <GenericContent>
 	<p>
@@ -420,7 +496,7 @@
 	</p>
 
 	<figure>
-		<img src={image_thangoo_coast} alt="" />
+		<img src={image_thangoo_coast} alt="A map from the Yawuru Cultural Management Plan. " />
 		<figcaption>Yawuru Country, as shown in the Yawuru Cultural Management Plan.</figcaption>
 	</figure>
 
@@ -516,21 +592,42 @@
 	</p>
 </GenericContent>
 
+<SideCaption
+	id="station1"
+	image={slide_station_1}
+	caption="left"
+	alt="An old black and white photograph of nine people on the Thanhoo homestead verandah in 1932.  There is a group of seven Aboriginal children: Jagana/ Ellen Edar; Gubjarra/ Jack Edgar; Mangkala/Flossie Edgar/Flossie Larry; Jagura/Thelma Sadler; Susand Edgar's mum's brothers and sisters. Two white women stand behind them on the verandah."
+>
+	<h3>Photograph on the Thangoo homestead verandah (1932).</h3>
 
-    <SideCaption id="station1" image={slide_station_1} caption="left"  alt="" >
-        <h3>Photograph on the Thangoo homestead verandah (1932).</h3>
+	<p>
+		The people pictured standing in front of the two women on the verandah are, in the back row:
+		Jalgana/Ellen Edgar on far left; Gubajarra/Jack Edgar next to Jalgana; Mangkala/Flossie
+		Edgar/Flossie Larry; Jagura/Thelma Sadler nee Edgar on far right. In the front row are Susan
+		Edgar’s mum’s brothers and sisters.
+	</p>
+</SideCaption>
 
-        <p>The people pictured standing in front of the two women on the verandah are, in the back row: Jalgana/Ellen Edgar on far left; Gubajarra/Jack Edgar next to Jalgana; Mangkala/Flossie Edgar/Flossie Larry; Jagura/Thelma Sadler nee Edgar on far right. In the front row are Susan Edgar’s mum’s brothers and sisters.</p>
-    </SideCaption>
+<SideCaption
+	id="station2"
+	image={slide_station_2}
+	caption="left"
+	alt="An old black and white photograph of thirteen people at Janyjagurdiny (Thangoo Station). Date unknown. The photo shows a group of children and three adults: the children  are Frank 'Pilot' Edgar and Annie Edgar's children. The  woman holds the tail of a hunted kangaroo lying in front of her.  There is one white woman in the photo holding a small dog."
+>
+	<h3>
+		Frank 'Pilot' Edgar and Annie Edgar's children, at Janyjagurdiny (Thangoo Station) (date
+		unknown). Photo provided by Susan Edgar.
+	</h3>
+</SideCaption>
 
-    <SideCaption id="station2" image={slide_station_2} caption="left"  alt="" >
-        <h3>Frank 'Pilot' Edgar and Annie Edgar's children, at Janyjagurdiny (Thangoo Station) (date unknown). Photo provided by Susan Edgar.</h3>
-    </SideCaption>
-
-    <SideCaption id="station3" image={slide_station_3} caption="left"  alt="" >
-        <h3>Jack Edgar on Thangoo Station (date unknown). Photo provided by Susan Edgar.</h3>
-    </SideCaption>
-
+<SideCaption
+	id="station3"
+	image={slide_station_3}
+	caption="left"
+	alt="Old black and white photograph of Jack Edgar on Thangoo Station. He is wearing work clothes and an Akubra-style hat and standing in front of tractor parked near a fence, with a windmill in the left hand side of the photo and gum trees on the right. "
+>
+	<h3>Jack Edgar on Thangoo Station (date unknown). Photo provided by Susan Edgar.</h3>
+</SideCaption>
 
 <GenericContent>
 	<p>
@@ -544,8 +641,14 @@
 
 	<figure class="image-duo">
 		<div>
-			<img src={image_tommy_edgar} alt="" />
-			<img src={image_doris_edgar} alt="" />
+			<img
+				src={image_tommy_edgar}
+				alt="An old lack and white portrait photograph of Gurndiga/Tommy Edgar. He is wearing a white suit, a tie and jacket. "
+			/>
+			<img
+				src={image_doris_edgar}
+				alt="An old  colour photograph of Ngalyjan/Doris Edgar and Gurndiga/Tommy Edgar. They are both standing: Doris is wearing a dress, white cardigan and white sandals, Tommy is wearing a black suit, tie and shoes and a white shirt."
+			/>
 		</div>
 		<figcaption>Gurndiga/Tommy Edgar, and Ngalyjan/Doris Edgar.</figcaption>
 	</figure>
@@ -565,15 +668,33 @@
 	</InlineQuote>
 </GenericContent>
 
+<SideCaption
+	id="maps4"
+	image={slide_thangoo_1}
+	caption="left"
+	alt="Old black and white photograph of a Well on Thangoo Station from 1935.It shows a windmill and tank, surrounded by a post and rail fence and a concrete cattle trough with four cattle drinking. The cattle are emaciated. There are three cattle carcasses in the sand near the trough, and some cattle in the bakcground of the photograph close to the scrub."
+>
+	<h3>
+		Well on Thangoo Station, 1935, photographer John K Ewers, State Library of Western Australia:
+		BA1658/203.
+	</h3>
 
-    <SideCaption id="maps4" image={slide_thangoo_1} caption="left"  alt="" >
-        <h3>Well on Thangoo Station, 1935, photographer John K Ewers, State Library of Western Australia: BA1658/203.</h3>
-
-        <p>Sourced from the collections of the State Library of Western Australia and reproduced with the permission of the Library Board of Western Australia.</p>
-    </SideCaption>
-    <SideCaption id="maps4" image={slide_thangoo_2} caption="left"  alt="" >
-        <h3>Thangoo Station – cattle at windmill, August 1943, photographer F Dale and G Gale, National Archives of Australia: K1131, W827 2/15.</h3>
-    </SideCaption>
+	<p>
+		Sourced from the collections of the State Library of Western Australia and reproduced with the
+		permission of the Library Board of Western Australia.
+	</p>
+</SideCaption>
+<SideCaption
+	id="maps4"
+	image={slide_thangoo_2}
+	caption="left"
+	alt="Old black and white photograph of Thangoo Station, August 1943. It shows a windmill, post and rail dence and a herd of cattle. There is some grass in the foreground and scrub in the background. "
+>
+	<h3>
+		Thangoo Station – cattle at windmill, August 1943, photographer F Dale and G Gale, National
+		Archives of Australia: K1131, W827 2/15.
+	</h3>
+</SideCaption>
 
 <GenericContent>
 	<p>
@@ -617,6 +738,7 @@
 
 	<figure>
 		<!--image here -->
+		<img src="" alt="An old black and white photograph of a car with a group of four adults and two children standing next to it.">
 		<figcaption>
 			Elsie Edgar arriving at the Common Gate, where people crossed the municipal boundary into
 			Broome.
@@ -666,25 +788,39 @@
 
 		<div>
 			<figure>
-				<img src={image_dispute} alt="" />
+				<img
+					src={image_dispute}
+					alt="Newspaper article from 1946 from the West Australian. The title is 'Natives' Dispute: Higher Wages Wanted.'"
+				/>
 			</figure>
 		</div>
 	</TwoColumnContent>
 </GenericContent>
 
+<SideCaption
+	id="maps4"
+	image={slide_kennedy_1}
+	caption="left"
+	alt="Black and white photograph of group of houses located on top of a sandy hill. Some are made from corrugated iron. There is some scrub on the hill, the surrounding plains are flat."
+>
+	<h3>Huts on Didirrgun (Kennedy Hill) (c.1958?).</h3>
+</SideCaption>
 
-    <SideCaption id="maps4" image={slide_kennedy_1} caption="left"  alt="" >
-        <h3>Huts on Didirrgun (Kennedy Hill) (c.1958?).</h3>
-    </SideCaption>
+<SideCaption
+	id="maps4"
+	image={slide_kennedy_2}
+	caption="left"
+	alt="A colour photograph of two huts, with small verandahs at the front and louvered windows. The huts have a small chimney and seem to be made from galvanised steel (monoclad rather than corrugated). One hut has a galvanised drum and a pram at the side. There is black cloth spread over three bushes close by, and half a corrugated iron water tank in the foreground. It is sandy ground and there is a small sand hill in the backgroun with a large rank on top of it, and a gum tree to the right of the image."
+>
+	<h3>Huts on Dirridigun (Kennedy Hill).</h3>
 
-    <SideCaption id="maps4" image={slide_kennedy_2} caption="left"  alt="" >
-        <h3>Huts on Dirridigun (Kennedy Hill).</h3>
+	<p>
+		Buildings and landscape, Broome. From the papers of D'Arcy James Ryan, ANU Archives (ANUA
+		590-141-23). Reproduced with permission from ANU Archives.
+	</p>
 
-        <p>Buildings and landscape, Broome. From the papers of D'Arcy James Ryan, ANU Archives (ANUA 590-141-23). Reproduced with permission from ANU Archives.</p>
-
-        <p>Dianne Appleby recalls growing up in the home on the left of this image.</p>
-    </SideCaption>
-
+	<p>Dianne Appleby recalls growing up in the home on the left of this image.</p>
+</SideCaption>
 
 <GenericContent>
 	<InlineQuote credit="Thomas 'Unda' Edgar">
@@ -712,6 +848,7 @@
 <MediaFullWidth
 	image={image_susan_father}
 	caption="Susan Edgar's father, carrying fish, at Karnin. Photo provided by Susan Edgar."
+	alt="An old black and white photograph showing four people next to a flat-bed truck underneath a tree at Karnin. The photograph is sepia coloured and has some creases. The main focus of the phorograph is Susan Edgar's farther, he is holding two large catches of fish. He is lookingat the camera. The other men are standing around the back of the truck. "
 />
 
 <GenericContent>
@@ -770,7 +907,10 @@
 	</p>
 
 	<figure>
-		<img src={image_gate} alt="" />
+		<img
+			src={image_gate}
+			alt="The fence next to the gate to Thangoo Station has two hand-painted signs attached to it. The biggest sign is at the top of the gate and reads: 'PRIVATE ROAD: STATION BUSINESS ONLY.' The second sign is smaller and reads 'NO ACCESS TO COAST THANGOO PTY LTD.'"
+		/>
 		<figcaption>The entrance to Thangoo Station in 2022. Photo: Ben Silverstein.</figcaption>
 	</figure>
 
@@ -858,7 +998,10 @@
 	<AudioFullWidth audio={audio_dianne_2021} credit="Dianne Appleby, 2021" />
 
 	<figure>
-		<img src={image_jack_edgar} alt="" />
+		<img
+			src={image_jack_edgar}
+			alt="Bulan/Jack Edgar back home at Jangu. This is a colour still (taped onto a piece of cardboard) of Jack Edgar sitting down and playing cards. There are other people sitting close by but their faces are not in frame."
+		/>
 		<figcaption>
 			Bulan/Jack Edgar back home at Jangu (date unknown). Photo provided by Susan Edgar.
 		</figcaption>
@@ -878,8 +1021,14 @@
 
 <figure class="image-duo">
 	<div>
-		<img src={image_lloyd_unda} alt="" />
-		<img src={image_unda} alt="" />
+		<img
+			src={image_lloyd_unda}
+			alt="Llyod is wearing sunglasses, shorts and thongs and holding a water bottle, Thomas is weating shorts and a t-shirt. It is sunny and looks hot. There are some bags in front of them on the sandy ground and mangroves behind them. "
+		/>
+		<img
+			src={image_unda}
+			alt="There is a bed of black coals and some read coals beside it, in the shade of  a tree. Thomas is moving the black colas with a long stick. "
+		/>
 	</div>
 	<figcaption>
 		Lloyd Pigram and Thomas 'Unda' Edgar at Urlugurranan (the old jetty at Thangoo Station); and
@@ -944,7 +1093,7 @@
 	</InlineQuote>
 </GenericContent>
 
-        <YawuruCoastMap />
+<YawuruCoastMap />
 
 <GenericContent>
 	<h2>Making Jangu yirr Janyjagurdiny</h2>

@@ -125,7 +125,7 @@
 <Header
 	image={image_header}
 	name="yalanji"
-	alt=""
+	alt="An organse rock wall covered with art, mostly painted in dark red and white, inclduing animals and human-like figures."
 	heading="Lands of the Western Yalanji"
 	subheading="Quinkan Country"
 />
@@ -142,7 +142,7 @@
 	<h2>Quinkan Country</h2>
 
 	<figure>
-		<img src={image_boundary} alt="" />
+		<img src={image_boundary} alt="A cartographical map showing the boundaries of Quinkan Country." />
 	</figure>
 
 	<p>
@@ -208,7 +208,7 @@
 	<TwoColumnContent>
 		<div>
 			<figure>
-				<img src={image_quinkans} alt="" />
+				<img src={image_quinkans} alt="Two 'Quinkan' figures paintings on a rock wall." />
 				<figcaption>Quinkans. Photo: Mike Jones, 2021.</figcaption>
 			</figure>
 		</div>
@@ -248,7 +248,7 @@
 	</p>
 
 	<figure>
-		<img src={image_time_scale} alt="" />
+		<img src={image_time_scale} alt="Table showing geological time scales." />
 		<figcaption>
 			The geological time scale. Image by Jonathan R. Hendricks. <a
 				href="https://creativecommons.org/licenses/by-sa/4.0/"
@@ -286,7 +286,7 @@
 	</p>
 
 	<figure>
-		<img src={image_coastlines} alt="" />
+		<img src={image_coastlines} alt="Animated map showing the changing coastline of Sahul from today to 21,000 years ago." />
 
 		<figcaption>
 			Changing coastlines of Sahul. Created by Mike Jones, based on data provided by CartoGIS
@@ -487,7 +487,7 @@
 		</div>
 		<div>
 			<figure>
-				<img src={image_ochre} alt="" />
+				<img src={image_ochre} alt="A flat, dish-shaped rock with a smaller stone that looks to have been used to grind red ochre." />
 				<figcaption>Ochre at the Magnificent Gallery. Photo: Mike Jones (2021).</figcaption>
 			</figure>
 		</div>
@@ -539,7 +539,7 @@
 <MediaFullWidth
 	image={image_laura}
 	caption="Native Police troopers at Laura River Native Police camp. 1881. PM3691. Queensland Police Museum. Creative Commons Attribution-NonCommercial-ShareAlike."
-	alt=""
+	alt="This old  black and white photograph shows thirteen people: there are eight adults and one child sitting down, and four peple are standing behind them. There are three bark slab huts behind them, and an open shelter, with trees and scrub in the background."
 />
 
 <GenericContent>
@@ -613,7 +613,7 @@
 
 		<div>
 			<figure>
-				<img src={image_opium_act} alt="" />
+				<img src={image_opium_act} alt="A scan of the Aboriginals Protection and Restriction of the Sale of Opium Act 1897. The paper is slightly yellowed, and has a red wax seal and is bound with a green ribbon." />
 				<figcaption>
 					Aboriginals Protection and Restriction of the Sale of Opium Act 1897 (Qld). <a
 						href="https://www.foundingdocs.gov.au/item-sdid-54.html"

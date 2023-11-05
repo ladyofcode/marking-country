@@ -84,12 +84,12 @@
 	<div class="container full-section centre-section">
 		<div class="content links">
 			<a href="{base}/woddordda/">
-				<img src={ngamardalee} alt="" />
+				<img src={ngamardalee} alt="Map showing the changes to the coastline of Woddordda Country, and includes symbols painted by Leah Umbagai, such as fireplace with red flames and a hand outstretched over the fire; the head and face of a baby; as well as animals, including a brolga, a kangaroo, a quoll, and a snake." />
 				Woddordda »
 			</a>
 
 			<a href="{base}/ngarinyin">
-				<img src={marardda} alt="" />
+				<img src={marardda} alt="Satellite photograph of Ngainyin Country with hand painted images of three catfish, a dingo and an eagle." />
 				Ngarinyin »
 			</a>
 		</div>

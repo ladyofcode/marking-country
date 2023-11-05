@@ -15,7 +15,7 @@
 
 	<div class="container-left">
 		<figure>
-			<img src={image_ANU6915} alt="" />
+			<img src={image_ANU6915} alt="Uncle Fred leaning on his walking stick, surrounded by the lush greenery of the gorge." />
 			<figcaption>
 				Uncle Fred Conway resting and talking, Carnarvon Gorge, QLD, 22 March 2022. Photo: Amy Way.
 			</figcaption>
@@ -51,7 +51,7 @@
 		</InlineQuote>
 
 		<figure>
-			<img src={image_ANU6921} alt="" />
+			<img src={image_ANU6921} alt="Uncle Fred with his hand outstretched reaching on the trunk of a tree." />
 			<figcaption>
 				Uncle Fred Conway talking about Bijara boiling techniques. Carnarvon Gorge, QLD 22 March
 				2022. Photo: Amy Way.
@@ -76,7 +76,7 @@
 
 		<p>
 			Bidjara people used many of the gorge plants in their everyday life. Some, like the grass
-			tree, had multiple uses across its life cycle. Bidjara women used its fronds to make{' '}
+			tree, had multiple uses across its life cycle. Bidjara women used its fronds to make 
 			<strong>dilly bags</strong>. Burning the base of the plant produced a resin as strong as
 			<strong>super glue</strong>. When the leaves at the base are green and flexible, the tree
 			flowers and produces <strong>sweet honey</strong>. When the plant has finished flowering, the
@@ -96,12 +96,11 @@
 
 		<p>
 			Uncle Fred's deep history will in time be taught to his nephews, who can pass it down to their
-			family, to{' '}
-			<em>all the other family.</em>
+			family, to <em>all the other family.</em>
 		</p>
 
 		<figure>
-			<img src={image_ANU6976} alt="" />
+			<img src={image_ANU6976} alt="Uncle Fred standing on the track, looking at the rocks and grass and gesturing with his hand." />
 			<figcaption>
 				Uncle Fred Conway 'rock talking' in Carnarvon Gorge, QLD, 22 March 2022. Photo: Amy Way.
 			</figcaption>

@@ -1,174 +1,165 @@
 <script>
-    import { base } from "$app/paths";
-    import { goto } from "$app/navigation";
-    import Map from "$lib/components/Map.svelte";
-    import ModalHome from "$lib/layout/ModalHome.svelte";
+	import { base } from '$app/paths';
+	import { goto } from '$app/navigation';
+	import Map from '$lib/components/Map.svelte';
+	import ModalHome from '$lib/layout/ModalHome.svelte';
 
-    let video = `${base}/videos/Introduction.webm`;
+	let video = `${base}/videos/Introduction.webm`;
 
-    let showModal = false;
+	let showModal = false;
 </script>
 
 <section class="header">
-    <h1>
-      Marking Country
-    </h1>
-    <h2>Mapping deep histories</h2>
-    <p>Click icons to navigate.</p>
-    <div class="map">
-      <Map />
-    </div>
-  </section>
+	<h1>Marking Country</h1>
+	<h2>Mapping deep histories</h2>
+	<p>Click icons to navigate.</p>
+	<div class="map">
+		<Map />
+	</div>
+</section>
 
-  <section class="content marking-country">
-    <p>
-      Every part of Australia has its deep history stories. This is a place
-      where you can experience some of them, told from the perspectives and
-      in the voices of the land's sovereign peoples, its Indigenous
-      custodians. These are living histories that continue to be enacted,
-      revived, performed and depicted on the lands and waterways of
-      Australia today.
-    </p>
+<section class="content marking-country">
+	<p>
+		Every part of Australia has its deep history stories. This is a place where you can experience
+		some of them, told from the perspectives and in the voices of the land's sovereign peoples, its
+		Indigenous custodians. These are living histories that continue to be enacted, revived,
+		performed and depicted on the lands and waterways of Australia today.
+	</p>
 
-    <div class="home-buttons">
-      <button on:click={() => (showModal = true)}>Watch introduction</button>
-      <button
-        on:click={() => {
-          goto(`${base}/about/`);
-        }}
-      >About Marking Country</button>
-      <ModalHome bind:showModal>
-        <h2 slot="header">
-          <video controls>
-            <source src={video} />
-          </video>
-        </h2>
-      </ModalHome>
-    </div>
-  </section>
+	<div class="home-buttons">
+		<button on:click={() => (showModal = true)}>Watch introduction</button>
+		<button
+			on:click={() => {
+				goto(`${base}/about/`);
+			}}>About Marking Country</button
+		>
+		<ModalHome bind:showModal>
+			<h2 slot="header">
+				<video controls>
+					<source src={video} />
+				</video>
+			</h2>
+		</ModalHome>
+	</div>
+</section>
 
-  <style>
-    .header {
-  max-width: 800px;
-  margin: 0 auto;
-  margin-bottom: 12px;
-  padding: 2rem 2rem 2rem 2rem;
-  }
+<style>
+	.header {
+		max-width: 800px;
+		margin: 0 auto;
+		margin-bottom: 12px;
+		padding: 2rem 2rem 2rem 2rem;
+	}
 
-  h1 {
-    font-size: 2.4rem;
-    line-height: 2.4rem;
-    margin-top: 2.4rem;
-    margin-bottom: 0rem;
+	h1 {
+		font-size: 2.4rem;
+		line-height: 2.4rem;
+		margin-top: 2.4rem;
+		margin-bottom: 0rem;
+	}
 
-  }
+	h2 {
+		font-size: 1.6rem;
+		line-height: 1.6rem;
+		margin-top: 0rem;
+		margin-bottom: 1.6rem;
+	}
 
-  h2 {
-    font-size: 1.6rem;
-    line-height: 1.6rem;
-    margin-top: 0rem;
-    margin-bottom: 1.6rem;
-  }
+	.header p {
+		font-size: 1rem;
+		position: absolute;
+		margin-top: -14px;
+	}
+	.map {
+		margin: 0 auto;
+		margin-top: 2.4rem;
+	}
 
-  .header p {
-    font-size: 1rem;
-    position: absolute;
-    margin-top: -14px;
+	.marking-country {
+		padding: 1.6rem;
 
-  }
-    .map {
-      margin: 0 auto;
-      margin-top: 2.4rem;  
-    }
+		width: 100%;
+		max-width: 800px;
+		margin: 0 auto;
+	}
 
-    .marking-country {
+	.home-buttons {
+		display: flex;
+		flex-direction: column;
+	}
 
-padding: 1.6rem;
+	.home-buttons button:first-of-type {
+		background-color: var(--color-terracotta);
+		margin-right: 2rem;
+		color: #ffffff;
+	}
 
-width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    }
+	.home-buttons button:last-of-type {
+		background-color: transparent !important;
+		color: var(--color-terracotta) !important;
+	}
 
-.home-buttons {
-  display: flex;
-  flex-direction: column;
-}
+	.home-buttons button:last-of-type:hover {
+		color: #ffffff;
+	}
 
-.home-buttons button:first-of-type{
-    background-color: var(--color-terracotta);
-    margin-right: 2rem;
-    color: #ffffff;
-  }
+	button {
+		font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+		width: 100%;
+		border: 2px solid var(--color-terracotta);
+		border-radius: 4px;
+		margin: 1rem 0;
+		padding: 1rem 2rem;
+		font-size: 1rem;
+	}
+	button:hover {
+		border: 2px solid var(--color-fg-dark);
+		background-color: var(--color-fg-dark);
+		color: #ffffff !important;
+		cursor: pointer;
+	}
 
-  .home-buttons button:last-of-type {
-    background-color: transparent !important;
-    color: var(--color-terracotta) !important;
-  }
+	@media (min-width: 600px) {
+		.map {
+			margin-top: 0;
+		}
+	}
 
-  .home-buttons button:last-of-type:hover {
-    color: #ffffff;
-  }
-  
-  button {
-    font-family: 'Work Sans', Arial, Helvetica, sans-serif;
-    width: 100%;
-    border: 2px solid var(--color-terracotta);
-    border-radius: 4px;
-    margin: 1rem 0;
-    padding: 1rem 2rem;
-    font-size: 1rem;
+	@media (min-width: 900px) {
+		.header {
+			padding: 0;
+			padding-top: 4rem;
+			padding-bottom: 4rem;
+		}
 
-  }
-  button:hover {
-      border: 2px solid var(--color-fg-dark);
-      background-color: var(--color-fg-dark);
-      color: #ffffff !important;
-      cursor: pointer;
-    }
+		.header h1 {
+			font-size: 2.4rem;
+			line-height: 2.4rem;
+			margin-bottom: 0;
+		}
 
-@media (min-width: 600px) {
-  .map {
-    margin-top: 0;
-  }
-}
+		.header h2 {
+			font-size: 1.6rem;
+			line-height: 1.6rem;
+			margin-bottom: -40px;
+		}
 
-@media (min-width: 900px) {
-  .header {
-    padding: 0;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
+		.header p {
+			max-width: 200px;
+			margin-top: 80px;
+		}
 
-  .header h1 {
-    font-size: 2.4rem;
-      line-height: 2.4rem;
-      margin-bottom: 0
-  }
+		.marking-country {
+			padding: 0;
+		}
 
-  .header h2 {
-    font-size: 1.6rem;
-      line-height: 1.6rem;
-      margin-bottom: -40px;
-  }
+		.home-buttons {
+			flex-direction: row;
+			justify-content: flex-start;
+		}
 
- .header p {
-    max-width: 200px;
-      margin-top: 80px;
-  }
-
-  .marking-country {
-    padding: 0;
-  }
-
-  .home-buttons {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-
-  button {
-    margin: 2rem 0;
-  }
-}
-
-  </style>
+		button {
+			margin: 2rem 0;
+		}
+	}
+</style>

@@ -20,6 +20,7 @@
 	import YawuruCoastMap from '$lib/components/leaflet/YawuruCoastMap.svelte';
 
 	let image_header = `${base}/stories/yawuru/images/Header_MG_0337.jpg`;
+	let image_elsie = `${base}/stories/yawuru/images/elsie_edgar.jpg`;
 	let image_calendar = `${base}/stories/yawuru/images/YawuruSeasonalCalendar.png`;
 	let image_gate = `${base}/stories/yawuru/images/Gate_cropped.jpg`;
 	let image_jack_edgar = `${base}/stories/yawuru/images/JackEdgarThangoo.jpg`;
@@ -150,7 +151,8 @@
 		},
 		{
 			url: slide_making_15,
-			caption: 'Janet Cox, Jimmy edgar, Andy James Jr., Thomas Edgar and Ben Silverstein at NBY Ltd.',
+			caption:
+				'Janet Cox, Jimmy edgar, Andy James Jr., Thomas Edgar and Ben Silverstein at NBY Ltd.',
 			alt: 'Janet Cox, Jimmy edgar, Andy James Jr., Thomas Edgar and Ben Silverstein are sitting around a square table, all looking in the same direction. There are some drinks and food on the table, as well as a voice recorder. Ben has a notepad and pen in his lap.'
 		},
 		{
@@ -737,8 +739,10 @@
 	</p>
 
 	<figure>
-		<!--image here -->
-		<img src="" alt="An old black and white photograph of a car with a group of four adults and two children standing next to it.">
+		<img
+			src={image_elsie}
+			alt="An old black and white photograph of a car with a group of four adults and two children standing next to it."
+		/>
 		<figcaption>
 			Elsie Edgar arriving at the Common Gate, where people crossed the municipal boundary into
 			Broome.
@@ -1039,7 +1043,7 @@
 <GenericContent>
 	<p>Lloyd Pigram talks about the feeling of travelling over from Broome to Jangu.</p>
 
-	<AudioFullWidth audio={audio_lloyd} credit="Janet Cox, 2022." />
+	<AudioFullWidth audio={audio_lloyd} credit="Lloyd Pigram, 2022." />
 
 	<p>
 		On return to Broome, it is customary for Yawuru and other Aboriginal people who access Jangu
@@ -1169,32 +1173,32 @@
 			{
 				insert: 'this page',
 				authors:
-					'Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Mike Jones and Ben Silverstein (2022)'
+					'Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
 			},
 			{
 				insert: 'direct quotes from Janet Cox',
 				authors:
-					'Janet Cox cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan Edgar, Mike Jones and Ben Silverstein (2022)'
+					'Janet Cox cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan Edgar, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
 			},
 			{
 				insert: 'direct quotes from Jimmy Edgar',
 				authors:
-					'Jimmy Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Mike Jones and Ben Silverstein (2022)'
+					'Jimmy Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
 			},
 			{
 				insert: 'direct quotes from Thomas ‘Unda’ Edgar',
 				authors:
-					'Thomas ‘Unda’ Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Mike Jones and Ben Silverstein (2022)'
+					'Thomas ‘Unda’ Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
 			},
 			{
 				insert: 'direct quotes from Dianne Appleby',
 				authors:
-					'Dianne Appleby cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Mike Jones and Ben Silverstein (2022)'
+					'Dianne Appleby cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
 			},
 			{
 				insert: 'direct quotes from Susan ‘Marjadee’ Edgar',
 				authors:
-					'Susan Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Mike Jones and Ben Silverstein (2022)'
+					'Susan Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
 			}
 		]}
 		location={$page.url.href}

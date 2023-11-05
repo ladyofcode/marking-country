@@ -18,7 +18,10 @@
 			throw new Error('Must set either bounds, or view and zoom.');
 		}
 
-		map = L.map(mapElement).on('zoom', (e) => dispatch('zoom', e));
+		map = L.map(mapElement, {
+			scrollWheelZoom: false,
+			zoomControl: false
+		}).on('zoom', (e) => dispatch('zoom', e));
 
 		L.tileLayer(
 			'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
@@ -50,9 +53,9 @@
 
 <style>
 	.coast-container {
-    position: relative;
-    min-height: 100vh;
-    height: 100vh;
-    width: 100%;
-}
+		position: relative;
+		min-height: 100vh;
+		height: 100vh;
+		width: 100%;
+	}
 </style>

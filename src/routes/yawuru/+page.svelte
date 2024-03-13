@@ -185,7 +185,6 @@
 
 <Intro intro="yawuru">
 	<p>Co-created by Yawuru storytellers and the Research Centre for Deep History</p>
-	<p>November 20, 2022</p>
 
 	<p>
 		This is a digital story about the history of Yawuru Country around the area known as Jangu and

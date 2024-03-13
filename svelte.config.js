@@ -18,9 +18,6 @@ const config = {
 			precompress: false,
 			strict: true
 		}),
-		paths: {
-			base: dev ? '' : '/marking-country'
-		},
 		alias: {
 			'@stories': 'static/stories',
 		}

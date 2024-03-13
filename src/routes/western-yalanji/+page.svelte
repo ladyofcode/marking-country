@@ -755,6 +755,8 @@
         { insert: "this page", authors: "Ann McGrath and Mike Jones (2023)" },
         { insert: "Charlie Lee Cheu", authors: "Charlie Lee Cheu in Ann McGrath and Mike Jones (2023)" },
         { insert: "Danny Lee Cheu", authors: "Danny Lee Cheu in Ann McGrath and Mike Jones (2023)" },
+        { insert: "Danny O'Shane", authors: "Danny O'Shane in Ann McGrath and Mike Jones (2023)" },
+        { insert: "Glenis Grogan", authors: "Glenis Grogan in Ann McGrath and Mike Jones (2023)" },
         { insert: "Aileen Meldrum", authors: "Aileen Meldrum in Ann McGrath and Mike Jones (2023)" },
         { insert: "Betty Knowles", authors: "Betty Knowles in Ann McGrath and Mike Jones (2023)" }
       ]}

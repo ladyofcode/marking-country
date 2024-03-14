@@ -83,8 +83,10 @@
 		width: 100%;
 	} */
 	figure {
-		width: fit-content;
-		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 	img {
 		max-height: 80vh;

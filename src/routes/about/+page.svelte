@@ -8,6 +8,7 @@
 	import LearnMoreBox from '$lib/components/LearnMoreBox.svelte';
 	// import HorizontalScroller from '$lib/components/HorizontalScroller.svelte';
 	import ImageSliderFullscreen from '$lib/components/ImageSliderFullscreen.svelte';
+	import ImageSingle from '$lib/components/ImageSingle.svelte';
 	import Credits from '$lib/components/Credits.svelte';
 
 	let dualMaps = `${base}/about/images/dualMap.jpg`;
@@ -43,7 +44,7 @@
 		{
 			url: slideshowOne3,
 			caption:
-				"<em>Australia</em>, 1890. Map by George Philip & Son. Shows routes of explorers, railways, and submarine cables.",
+				'<em>Australia</em>, 1890. Map by George Philip & Son. Shows routes of explorers, railways, and submarine cables.',
 			source: 'National Library of Australia, Canberra',
 			link: 'https://catalogue.nla.gov.au/Record/6856866'
 		},
@@ -113,17 +114,15 @@
 		<GenericContent>
 			<h2>Deep History's changing coasts</h2>
 
-			<figure>
-				<img
-					src={coastlines}
-					alt="Animated map showing the changing coastline of Sahul from today to 21,000 years ago."
-				/>
-				<figcaption>
-					Sahul animation by Mike Jones. Shapefiles provided by CartoGIS Services, Australian
-					National University.
-				</figcaption>
-			</figure>
-
+			<ImageSingle
+				source={coastlines}
+				width="1107"
+				height="949"
+				caption="Sahul animation by Mike Jones. Shapefiles provided by CartoGIS Services, Australian
+				National University."
+				alt="Animated map showing the changing coastline of Sahul from today to 21,000 years ago."
+				galleryId="coastlines"
+			/>
 			<p>
 				Aboriginal people lived through a time when the coastlines were much further out than they
 				are today.
@@ -148,14 +147,16 @@
 				so descendants take special care when in the waters nearby.
 			</p>
 
-			<figure>
-				<img src={fitzeroy} alt="Black and white aerial photograph of Fitzroy Island." />
-				<figcaption>
-					<em>Fitzroy Island</em>, 1943. Commonwealth of Australia. (<a
-						href="https://nla.gov.au/nla.obj-234023015/view">National Library of Australia</a
-					>).
-				</figcaption>
-			</figure>
+			<ImageSingle
+				source={fitzeroy}
+				width="2048"
+				height="2200"
+				caption="<em>Fitzroy Island</em>, 1943. Commonwealth of Australia. (<a
+			href='https://nla.gov.au/nla.obj-234023015/view'>National Library of Australia</a
+		>)."
+				alt="Black and white aerial photograph of Fitzroy Island."
+				galleryId="fitzeroy"
+				/>
 
 			<p>
 				In preliminary dives off the coast, archaeologists in Western Australia have found stone
@@ -174,15 +175,15 @@
 				inland. This created an Australia of a different shape and scale.
 			</p>
 
-			<figure>
-				<img
-					src={david}
-					alt="Black and white photograph of David Ngunaitoponi, in the sytle of a formal portrait, taken in 1924."
-				/>
-				<figcaption>
-					Portrait of David Ngunaitponi (Unaipon), 1924. Public domain, via Wikimedia Commons.
-				</figcaption>
-			</figure>
+			<ImageSingle
+				source={david}
+				alt="Black and white photograph of David Ngunaitoponi, in the sytle of a formal portrait, taken in 1924."
+				width="400"
+				height="504"
+				caption="Portrait of David Ngunaitponi (Unaipon), 1924. Public domain, via Wikimedia Commons."
+				galleryId="david"
+			
+			/>
 
 			<p>
 				David Ngunaitponi, the genius inventor and scientist known as David Unaipon, gave numerous
@@ -192,20 +193,20 @@
 				out of the mouths of humans of various moods and personalities).
 			</p>
 
-			<figure>
-				<img
-					src={durerMap}
-					alt="Woodcut black and white map of the world from 1515. Around the margins of the globe are pictures of human-style heads blowing 'winds'."
-				/>
-				<figcaption>
-					World map, 1515. Print made by Albrecht Dürer from woodcut.(<a
-						href="https://www.britishmuseum.org/collection/object/P_1848-1111-7-8"
-					>
-						British Museum, London
-					</a>
-					).
-				</figcaption>
-			</figure>
+			<ImageSingle
+				source={durerMap}
+				alt="Woodcut black and white map of the world from 1515. Around the margins of the globe are pictures of human-style heads blowing 'winds'."
+				width="2200"
+				height="1750"
+				caption="World map, 1515. Print made by Albrecht Dürer from woodcut.(<a
+				href='https://www.britishmuseum.org/collection/object/P_1848-1111-7-8'
+			>
+				British Museum, London
+			</a>
+			)."
+				galleryId="durerMap"
+			
+			/>
 
 			<p>He spoke of a continent linked to other lands in the north.</p>
 
@@ -259,18 +260,19 @@
 		<GenericContent>
 			<h2>Why?</h2>
 
-			<figure>
-				<img
-					src={schoolMap}
-					alt="Map of the Australian continent featuring the routes taken by the so-called explorers and discoverers of Australia. It was created by Charles Long, around 1912, and was intended to be used as an educational resource."
-				/>
-				<figcaption>
-					<em>Exploration map of the Commonwealth of Australia</em>, 1913. Map by Charles R Long. (<a
-						href="https://catalogue.nla.gov.au/catalog/1973344"
-						>National Library of Australia, Canberra</a
-					>).
-				</figcaption>
-			</figure>
+			<ImageSingle
+				source={schoolMap}
+				alt="Map of the Australian continent featuring the routes taken by the so-called explorers and discoverers of Australia. It was created by Charles Long, around 1912, and was intended to be used as an educational resource."
+				width="500"
+				height="373"
+				caption="<em>Exploration map of the Commonwealth of Australia</em>, 1913. Map by Charles R Long. (<a
+				href='https://catalogue.nla.gov.au/catalog/1973344'
+				>National Library of Australia, Canberra</a
+			>)."
+				galleryId="schoolMap"
+			
+			/>
+
 
 			<h3>Mapping Australia: visualizing British sovereignty</h3>
 			<p>Maps are a powerful tool for representing national histories.</p>
@@ -355,13 +357,16 @@
 	<section class="">
 		<GenericContent>
 			<h2>Co-creating with communities</h2>
-			<figure>
-				<img
-					src={collage}
-					alt="Collage of numerous participants and researchers in the Marking Country project."
-				/>
-				<figcaption>Photos: Amy Way.</figcaption>
-			</figure>
+
+			<ImageSingle
+				source={collage}
+				alt="Collage of numerous participants and researchers in the Marking Country project."
+				width="1024"
+				height="700"
+				caption="Photos: Amy Way."
+				galleryId="collage"
+			
+			/>
 
 			<p>
 				Co-curating deep histories with communities is at the core of

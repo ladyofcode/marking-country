@@ -35,8 +35,9 @@
 		"gsap": "^3.12.2",
 		"leaflet": "^1.9.4",
 		"leaflet.fullscreen": "^2.4.0",
-		"screenfull": "^6.0.2",
 		"photoswipe": "^5.4.1",
+		"photoswipe-dynamic-caption-plugin": "^1.2.7",
+		"screenfull": "^6.0.2",
 		"sveltekit-embed": "^0.0.12"
 	}
 }

@@ -9,12 +9,9 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 * [x] A's feedback
 * [x] J's feedback
 * [x] Add Analytics
-* [] Add Lightbox feature for all images
-* [] Western Yalanji: Add citation Danny O’Shane and Glenis Grogan
-* [] Carnarvon: Add aerial map to Carnarvon
-* [] Carnarvon: Check Baloon video - Jackie's welcome (file C0022)
-* [] Yawuru: Remove date at top
-* [] Yawuru: Uncrop Susan Edgar's father, carrying fish, at Karnin (in downloads)
+* [x] Add Lightbox feature for all images
+* [x] Western Yalanji: Add citation Danny O’Shane and Glenis Grogan
+* [x] Yawuru: Remove date at top
 ---  
 * [] Rebuild Galleries with Leaflet/zoom function (will confirm)
 ---
@@ -34,7 +31,11 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 * [] Yawuru - rotate calendar on scroll
 * [] Forced stops on welcomes (Carnarvon)
 * [] Carnarvon - scrolling gallery fullheight of burnt damage
+* [] Carnarvon: Add aerial map to Carnarvon
 * [] Carnarvon - aerial map reveal, then disappear, then show again
+* [] Yawuru: Uncrop Susan Edgar's father, carrying fish, at Karnin (in downloads)
+* [] Carnarvon: Check Baloon video - Jackie's welcome (file C0022) (Scroll/full stop)
+
 ---
 * [] Add numbers to side-scroll slider & **standard** slider
 *  [] Make images more responsive; captions should fit within the visible part of the browser when scrolling 

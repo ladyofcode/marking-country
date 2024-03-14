@@ -22,7 +22,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-img,
+/* img, */
 picture,
 video,
 canvas,
@@ -95,6 +95,7 @@ body {
 
 }
 
+
 h1,
 h2,
 h3,
@@ -134,7 +135,7 @@ label {
 
 
 p,
-div>figure {
+div > figure {
     margin-top: 0.4rem;
     padding-bottom: 0.4rem;
     margin-bottom: 0.4rem;
@@ -178,6 +179,9 @@ summary {
     text-transform: uppercase;
 }
 
+.pswp__dynamic-caption {
+    font-family: var(--font-body-copy);
+}
 @media (min-width: 600px) {
     h1 {
         font-size: 4rem;
@@ -189,6 +193,7 @@ summary {
         font-size: 2.4rem;
     }
 }
+
 /*Map*/
 
 .fish,

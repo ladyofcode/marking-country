@@ -3,6 +3,8 @@
 
 	import Navigation from '$lib/layout/Navigation.svelte';
 	import Footer from '$lib/layout/Footer.svelte';
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
@@ -11,12 +13,15 @@
 
 	let showModal = false;
 
+	gsap.registerPlugin(ScrollTrigger);
+
 	onMount(() => {
 		const data = window.localStorage.getItem('ACKNOWLEDGEMENT_MODAL');
 
 		if (data === null) {
 			showModal = true;
 		}
+
 	});
 </script>
 

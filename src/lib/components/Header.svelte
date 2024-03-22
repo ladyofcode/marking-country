@@ -50,7 +50,6 @@
 			trigger: header,
 			start: 'top top',
 			end: 'bottom 10%',
-			markers: true,
 			onEnterBack: () => {
 				console.log("hello")
 				console.log(header.offsetTop)

@@ -1,15 +1,19 @@
 <script>
 	import { base } from '$app/paths';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
+	import Header from '$lib/components/Header.svelte';
 	import GenericContent from '$lib/layout/GenericContent.svelte';
 	import Collapsible from '$lib/components/Collapsible.svelte';
 	import InlineQuote from '$lib/components/InlineQuote.svelte';
+	import Intro from '$lib/components/Intro.svelte';
 	import LearnMoreBox from '$lib/components/LearnMoreBox.svelte';
 	// import HorizontalScroller from '$lib/components/HorizontalScroller.svelte';
 	import ImageSliderFullscreen from '$lib/components/ImageSliderFullscreen.svelte';
 	import ImageSingle from '$lib/components/ImageSingle.svelte';
 	import Credits from '$lib/components/Credits.svelte';
+
+	let image_ngarinyin_header = `${base}/stories/ngarinyin/images/ngarinyin_header.jpg`;
 
 	let dualMaps = `${base}/about/images/dualMap.jpg`;
 	let collage = `${base}/about/images/collage.jpg`;
@@ -25,7 +29,7 @@
 	let slideshowOne5 = `${base}/about/images/slideshow_one/SlideshowOne05.jpg`;
 
 	import { gsap } from 'gsap/dist/gsap';
-	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	import GenericContentPane from '$lib/components/GenericContentPane.svelte';
 
 	const slideshowOne = [
 		{
@@ -64,52 +68,40 @@
 		}
 	];
 
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	gsap.registerPlugin(ScrollTrigger);
 
-	onMount(() => {
-		// let panels = gsap.utils.toArray('.panel');
-		// let tops = panels.map((panel) => ScrollTrigger.create({ trigger: panel, start: 'top top' }));
-		// panels.forEach((panel, i) => {
-		// 	ScrollTrigger.create({
-		// 		trigger: panel,
-		// 		start: () => (panel.offsetHeight < window.innerHeight ? 'top top' : 'bottom bottom'),
-		// 		pin: true,
-		// 		pinSpacing: false
-		// 	});
-		// });
-		// ScrollTrigger.create({
-		// 	snap: {
-		// 		snapTo: (progress, self) => {
-		// 			let panelStarts = tops.map((st) => st.start),
-		// 				snapScroll = gsap.utils.snap(panelStarts, self.scroll()); // find the closest one
-		// 			return gsap.utils.normalize(0, ScrollTrigger.maxScroll(window), snapScroll);
-		// 		},
-		// 		duration: 0.5
-		// 	}
-		// });
-	});
+
 </script>
 
 <main class="regular-page">
-	<section>
-		<GenericContent>
-			<h1>About <em>Marking Country</em></h1>
+		<Header
+			id="intro"
+			image={image_ngarinyin_header}
+			name="ngarinyin"
+			alt="A water hold, seen through paper bark trees, with a bright blue sky in the background."
+			heading="About <em>Marking Country</em>"
+			gradientColor="#4e4848"
+		/>
 
+		<Intro>
 			<p>
 				<em>Marking Country</em> visualises Australia's deep history.
 			</p>
-
+	
 			<p>
 				This is a history that extends far beyond the two and a half centuries since the arrival of
 				British ships from the northern hemisphere.
 			</p>
-
+	
 			<p>
 				Indigenous ways of knowing Country have been practiced for millennia—by some estimates at
 				least 65,000 years. This everywhen is alive and lived today.
 			</p>
+		</Intro>
+
+		<GenericContent class="panel">
 		</GenericContent>
-	</section>
 	<section class="">
 		<GenericContent>
 			<h2>Deep History's changing coasts</h2>
@@ -156,7 +148,7 @@
 		>)."
 				alt="Black and white aerial photograph of Fitzroy Island."
 				galleryId="fitzeroy"
-				/>
+			/>
 
 			<p>
 				In preliminary dives off the coast, archaeologists in Western Australia have found stone
@@ -182,7 +174,6 @@
 				height="504"
 				caption="Portrait of David Ngunaitponi (Unaipon), 1924. Public domain, via Wikimedia Commons."
 				galleryId="david"
-			
 			/>
 
 			<p>
@@ -205,7 +196,6 @@
 			</a>
 			)."
 				galleryId="durerMap"
-			
 			/>
 
 			<p>He spoke of a continent linked to other lands in the north.</p>
@@ -270,9 +260,7 @@
 				>National Library of Australia, Canberra</a
 			>)."
 				galleryId="schoolMap"
-			
 			/>
-
 
 			<h3>Mapping Australia: visualizing British sovereignty</h3>
 			<p>Maps are a powerful tool for representing national histories.</p>
@@ -365,7 +353,6 @@
 				height="700"
 				caption="Photos: Amy Way."
 				galleryId="collage"
-			
 			/>
 
 			<p>
@@ -495,8 +482,5 @@
 </main>
 
 <style>
-	.panel {
-		background-color: var(--color-dark-charcoal);
-		padding-top: 2.4rem;
-	}
+
 </style>

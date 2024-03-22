@@ -15,8 +15,8 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 ---  
 * [] Rebuild Galleries with Leaflet/zoom function (will confirm)
 ---
-* [] Convert to Tailwind
 * [] Add dark/light mode
+* [] Convert hexcodes to use color()
 ---
 * [] Rebuild the menu: make it fullscreen, add transitions and animations, dim background
 * [] Convert all audio to components
@@ -38,7 +38,7 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 
 ---
 * [] Add numbers to side-scroll slider & **standard** slider
-*  [] Make images more responsive; captions should fit within the visible part of the browser when scrolling 
+* [] Make images more responsive; captions should fit within the visible part of the browser when scrolling 
 
 
 

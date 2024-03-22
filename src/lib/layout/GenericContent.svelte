@@ -6,7 +6,7 @@
 	.generic-container {
 		max-width: 800px;
 		margin: 6.4rem auto;
-
+		background-color: var(--clr-bg-main);
 		padding: 0 1.6rem;
 	}
 

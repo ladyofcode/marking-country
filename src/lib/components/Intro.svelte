@@ -1,6 +1,4 @@
 <script>
-	export let intro;
-
 	import { onDestroy, onMount } from 'svelte';
 	import { gsap } from 'gsap';
 	import ScrollTrigger from 'gsap/ScrollTrigger';

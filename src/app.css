@@ -74,9 +74,16 @@ h6 {
 	--paragraph-padding: 1em;
 
 	--clr-black-red: #110e0e;
+	--clr-charcoal: #212121;
+	--clr-dark-charcoal: #141414;
     --clr-light: #ececec;
     --clr-terracotta-light: #c26f67;
     --clr-terracotta-dark: #d85245;
+
+	--height-menu: 64px;
+	--height-viewable: calc(100vh - var(--height-menu));
+	
+	--width-content: 700px;
 
 	--color-terracotta: #c26f67;
 	--color-dark-charcoal: #101010;
@@ -119,6 +126,7 @@ body {
 body {
 	max-width: 2048px;
 	margin: 0 auto;
+	overflow-x: hidden;
 }
 
 body::before {

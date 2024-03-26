@@ -5,14 +5,7 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 ## To-do
 
 ### General
-* [x] M's feedback
-* [x] A's feedback
-* [x] J's feedback
-* [x] Add Analytics
-* [x] Add Lightbox feature for all images
-* [x] Western Yalanji: Add citation Danny O’Shane and Glenis Grogan
-* [x] Yawuru: Remove date at top
----  
+  
 * [] Rebuild Galleries with Leaflet/zoom function (will confirm)
 ---
 * [] Add dark/light mode
@@ -24,6 +17,10 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 
 
 ### Scrollytelling
+* [] MediaFullWidth: Amend to accomodate video
+* [] Collapsible: animate on open
+* [] Citations: animate
+* [] Intro: Add minimum padding/margin to top
 * [] Build quick switcher; add to each page
 * [] Zoom effect on homepage after clicking an icon
 * [] On Story load, fade in
@@ -41,7 +38,6 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 * [] Make images more responsive; captions should fit within the visible part of the browser when scrolling 
 
 
-
 ### Design-based
 * [] Convert home page icons to bouncing location markers, remove instructional text
 * [] Redesign headers
@@ -51,5 +47,4 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 * [] Sort out intro text colours
 * [] Accessibility audit
 * [] Add transcripts to tracks for captions 
-* [] Make about/mapping maps easier to read (higher contrast) 
 * [] Add reduced motion to CSS and relevant sections

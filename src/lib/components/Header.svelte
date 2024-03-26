@@ -51,8 +51,6 @@
 			start: 'top top',
 			end: 'bottom 10%',
 			onEnterBack: () => {
-				console.log("hello")
-				console.log(header.offsetTop)
 				gsap.to(window, { duration: 0.5, scrollTo: { y: header.offsetTop, autoKill: false } });
 			}
 		});

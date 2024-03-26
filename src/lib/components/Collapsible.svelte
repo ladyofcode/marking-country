@@ -1,10 +1,8 @@
 <script>
-	export let name = '';
-	export let label = '';
-	export let checked;
+	export let name = '', label = '', checked, type='';
 </script>
 
-<div class="wrap-collapsible">
+<div class="wrap-collapsible {type ? type : null}">
 	<input checked={checked ? true : null} id={name} class="toggle" type="checkbox" />
 	<label for={name} class="label-toggle">
 		{label}
@@ -19,10 +17,17 @@
 	input[type='checkbox'] {
 		display: none;
 	}
+
+
 	.wrap-collapsible {
 		margin: 0 auto;
 		margin-bottom: 1.2rem;
 		max-width: 800px;
+	}
+
+	.wide {
+		margin-bottom: 4rem;
+		margin-top: 4rem
 	}
 
 	.wrap-collapsible :global(img),
@@ -108,15 +113,17 @@
 
 	@media (min-width: 900px) {
 		.label-toggle {
-			margin: 4rem 0px auto 0px;
+			margin: auto 0px auto 0px;
 		}
 
         .collapsible-container {
             margin: 0 auto;
 
         }
-/* 
-		.collapsible-content {
-		} */
+
+		.wide {
+		margin-bottom: 8rem;
+		margin-top: 8rem
+	}
 	}
 </style>

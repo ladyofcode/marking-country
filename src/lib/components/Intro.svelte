@@ -1,53 +1,115 @@
 <script>
 	export let intro;
+
+	import { onDestroy, onMount } from 'svelte';
+	import { gsap } from 'gsap';
+	import ScrollTrigger from 'gsap/ScrollTrigger';
+
+	let content, line, wrapper;
+	let triggers = [];
+
+	onMount(() => {
+		gsap.registerPlugin(ScrollTrigger);
+
+		const scrollDownTo = gsap.to(wrapper, {
+			scrollTrigger: {
+				trigger: wrapper,
+				start: 'top 60%',
+				end: 'bottom bottom',
+				scrub: true,
+				snap: {
+					snapTo: 1, // snaps to the end (100% scroll position)
+					duration: { min: 0.2, max: 0.3 },
+					delay: 0.2,
+					ease: 'power1.inOut'
+				}
+			}
+		});
+
+		const lineAnimation = gsap.from(
+			line,
+			{
+				width: 0,
+				duration: 4,
+				scrollTrigger: {
+					trigger: wrapper,
+					start: '-1% top',
+					once: true
+				}
+			},
+			'>'
+		);
+
+		const fadeIn = gsap.from(
+			content,
+			{
+				opacity: 0,
+				y: 20,
+				duration: 1,
+				scrollTrigger: {
+					trigger: '.wrapper',
+					start: '-1% top',
+					once: true
+				}
+			},
+			'>'
+		);
+
+		triggers.push(scrollDownTo, lineAnimation, fadeIn);
+	});
+
+	onDestroy(() => {
+		triggers.forEach((trigger) => {
+			if (trigger.scrollTrigger) {
+				trigger.scrollTrigger.kill();
+			}
+			trigger.kill();
+		});
+	});
 </script>
 
-<div class="container {intro}">
-	<div>
-		<slot />
+<div class="wrapper" bind:this={wrapper}>
+	<div class="container">
+		<div bind:this={line} class="line" aria-hidden="true" />
+		<div bind:this={content} class="content">
+			<slot />
+		</div>
 	</div>
 </div>
 
 <style>
-	.container {
+	.wrapper {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 		width: 100%;
+		max-width: 1024px;
+		margin: 0 auto;
 		height: 100%;
-		overflow: auto;
 	}
-    
-	.container > div {
+
+	.container {
+		position: relative;
 		margin: 6.4rem auto;
-		padding: 0 1.6rem;
+		padding: 2.4rem;
+		width: 100%;
 		max-width: 800px;
-		height: 100%;
 	}
 
-	.carnarvon {
-		background-color: rgb(21, 21, 11);
-	}
-
-	.willandra {
-		background: rgb(129, 107, 94);
-	}
-
-	.woddordda {
-		background-color: rgb(64, 100, 103);
-	}
-
-	.ngarinyin {
-		background-color: rgb(54, 46, 43);
-	}
-
-	.yawuru {
-		background-color: rgb(27, 25, 26);
-	}
-
-	.yalanji {
-		background-color: rgb(147, 120, 99);
+	.line {
+		width: 100%;
+		height: 3px;
+		border-radius: 4px;
+		background-color: var(--clr-terracotta-dark);
+		position: absolute;
+		left: 0;
+		top: -4rem;
 	}
 
 	@media (min-width: 900px) {
-		.container > div {
+		.wrapper > div:first-of-type {
 			padding: 0;
 			margin: 8rem auto;
 		}

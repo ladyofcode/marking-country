@@ -1,5 +1,5 @@
 <script>
-	export let image, video, poster, alt, caption, autoplay, youTubeId;
+	export let image='', video='', poster='', alt='', caption='', autoplay='', youTubeId='';
 
 	import { YouTube } from "sveltekit-embed";
 </script>
@@ -29,8 +29,13 @@
 </figure>
 
 <style>
+	:global(iframe) {
+		height: 100%;
+		max-height: calc(var(--height-viewable) - 80px);
+	}
 	figure {
 		height: 100%;
+		max-height: calc(var(--height-viewable) - 80px);
 	}
 
 	img,
@@ -50,9 +55,6 @@
 	}
 
 	@media (min-width: 900px) {
-		figure {
-			max-height: 100vh;
-		}
 
 		img,
 		video {

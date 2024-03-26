@@ -2,6 +2,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { gsap } from 'gsap';
 	import ScrollTrigger from 'gsap/ScrollTrigger';
+	import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 	let content, line, wrapper;
 	let triggers = [];
@@ -14,12 +15,11 @@
 				trigger: wrapper,
 				start: 'top 60%',
 				end: 'bottom bottom',
-				scrub: true,
-				snap: {
-					snapTo: 1, // snaps to the end (100% scroll position)
-					duration: { min: 0.2, max: 0.3 },
-					delay: 0.2,
-					ease: 'power1.inOut'
+				onEnter: () => {
+					gsap.to(window, {
+						scrollTo: { y: wrapper, offsetY: 50 },
+						duration: 1.5
+					});
 				}
 			}
 		});
@@ -31,7 +31,7 @@
 				duration: 4,
 				scrollTrigger: {
 					trigger: wrapper,
-					start: '-1% top',
+					start: '-80 top',
 					once: true
 				}
 			},
@@ -46,7 +46,7 @@
 				duration: 1,
 				scrollTrigger: {
 					trigger: '.wrapper',
-					start: '-1% top',
+					start: 'top top',
 					once: true
 				}
 			},
@@ -77,7 +77,7 @@
 
 <style>
 	.wrapper {
-		min-height: 100vh;
+		min-height: 110vh;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -94,6 +94,11 @@
 		padding: 2.4rem;
 		width: 100%;
 		max-width: 800px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 100vh;
+		padding-top: 20vh;
 	}
 
 	.line {
@@ -101,14 +106,12 @@
 		height: 3px;
 		border-radius: 4px;
 		background-color: var(--clr-terracotta-dark);
-		position: absolute;
-		left: 0;
-		top: -4rem;
+		margin-bottom: 4rem;
 	}
 
 	@media (min-width: 900px) {
 		.wrapper > div:first-of-type {
-			padding: 0;
+			padding: 20vh 0 0 0;
 			margin: 8rem auto;
 		}
 	}

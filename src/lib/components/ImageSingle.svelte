@@ -1,5 +1,5 @@
 <script>
-	export let caption,
+	export let caption='',
 		source,
 		height,
 		width,

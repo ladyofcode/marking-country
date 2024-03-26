@@ -82,6 +82,13 @@
 	/* div {
 		width: 100%;
 	} */
+	div {
+		background: #110e0e;
+		box-shadow: inset 8px 8px 16px #070606, inset -8px -8px 16px #1b1616;		
+		border-radius: 24px;
+		padding: 2.4rem;
+		margin: 2.4rem 0;
+	}
 	figure {
 		display: flex;
 		flex-direction: column;
@@ -90,6 +97,8 @@
 	}
 	img {
 		max-height: 80vh;
+		max-width: 100%;
+		border-radius: 24px;
 	}
 	.pswp-caption-content {
 		display: block;

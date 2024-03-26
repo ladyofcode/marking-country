@@ -14,8 +14,6 @@
 	let mitchellLawsonJohnsonMap = `${base}/stories/willandra/map/mitchell_lawson_johnson.svg`;
 	let taylorKingMap = `${base}/stories/willandra/map/taylor_king.svg`;
 
-	console.log(baseMap1);
-
 	const bounds = [
 		[0, 0],
 		[1388, 1344]

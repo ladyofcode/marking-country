@@ -1,17 +1,16 @@
 <script>
 	import { base } from '$app/paths';
 
-	import AiatsisMap from '$lib/components/leaflet/AiatsisMap.svelte';
-	import Credits from '$lib/components/Credits.svelte';
-	import GenericContent from '$lib/layout/GenericContent.svelte';
-	import Header from '$lib/components/Header.svelte';
-	import HorizontalScroller from '$lib/components/HorizontalScroller.svelte';
-	import ImageSliderFullscreen from '$lib/components/ImageSliderFullscreen.svelte';
-	import ImageSingle from '$lib/components/ImageSingle.svelte';
-	import Intro from '$lib/components/Intro.svelte';
-	import TwoColumnContent from '$lib/layout/TwoColumnContent.svelte';
-	import GenericContentPane from '$lib/components/GenericContentPane.svelte';
-	import SideScroller from '$lib/components/SideScroller.svelte';
+	import {
+		AiatsisMap,
+		Credits,
+		GenericContent,
+		Header,
+		HorizontalScroller,
+		ImageSingle,
+		Intro,
+		SideScroller
+	} from '$lib';
 
 	import { gsap } from 'gsap/dist/gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -259,10 +258,9 @@
 					alt: 'Cover of Everywhen (book).',
 					caption:
 						"The Ngarigo artist Gail Neuss painted the image for the cover of Everywhen, titled Nura Nganymitung (Grandmother's Country), depicting intimate links with kin and land and the significance of Indigenous people's deep history.",
-					width: "400",
-					height: "612",
-					galleryId: "everywhen_cover"
-
+					width: '400',
+					height: '612',
+					galleryId: 'everywhen_cover'
 				}
 			}
 		}
@@ -488,13 +486,12 @@
 	galleryId="matthew"
 />
 
-
 <GenericContent>
 	<p>
 		<strong>Listen to</strong> Ngarinyin man Matthew Martin discussing message sticks with Mary Anne
 		Jebb.
 	</p>
-	
+
 	<figure class="fullwidth-audio fullwidth-audio-padding">
 		<audio controls>
 			<source src={matthewMartinMessage} type="audio/mp3" />
@@ -504,7 +501,6 @@
 </GenericContent>
 
 <SideScroller content={sectionTwoContent} />
-
 
 <GenericContent>
 	<p>

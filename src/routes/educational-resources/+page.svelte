@@ -1,14 +1,11 @@
 <script>
 	import { base } from '$app/paths';
-	import {generateSubfolderImages} from '$lib/imagePaths';
+	import { generateSubfolderImages } from '$lib/imagePaths';
 
-	import GenericContent from '$lib/layout/GenericContent.svelte';
-	import Header from '$lib/components/Header.svelte';
-	import ImageSingle from '$lib/components/ImageSingle.svelte';
-	import SideScroller from '$lib/components/SideScroller.svelte';
+	import { GenericContent, Header, ImageSingle, SideScroller } from '$lib';
 
-	const folderPath = `/education/images/`
-	
+	const folderPath = `/education/images/`;
+
 	const uncleFredFilenames = [
 		'IMG_2552.jpg',
 		'IMG_2553.jpg',
@@ -17,7 +14,7 @@
 		'IMG_2559.jpg',
 		'IMG_2560.jpg'
 	];
-	
+
 	const willandraFilenames = [
 		'IMG_0372.jpg',
 		'IMG_0381.jpg',
@@ -25,10 +22,16 @@
 		'IMG_0406.jpg',
 		'IMG_0411.jpg'
 	];
-	
+
 	const image_education_header = `${base}${folderPath}book.jpg`;
-	const uncleFredSlides = generateSubfolderImages(`${folderPath}uncle_fred_slideshow`, uncleFredFilenames);
-	const willandraSlides = generateSubfolderImages(`${folderPath}willandra_slideshow`, willandraFilenames);
+	const uncleFredSlides = generateSubfolderImages(
+		`${folderPath}uncle_fred_slideshow`,
+		uncleFredFilenames
+	);
+	const willandraSlides = generateSubfolderImages(
+		`${folderPath}willandra_slideshow`,
+		willandraFilenames
+	);
 
 	let sectionOneContent = [
 		{

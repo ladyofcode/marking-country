@@ -1,9 +1,9 @@
 <script>
 	import { base } from '$app/paths';
-    import { goto } from '$app/navigation';
+	import { goto } from '$app/navigation';
 	import { YouTube } from 'sveltekit-embed';
 
-	import Warning from '$lib/components/Warning.svelte';
+	import { Warning } from '$lib';
 
 	let sound = `${base}/stories/woddorda-ngarinyin-intro/audio/sound-intro-wudoo_final.mp3`;
 	let marardda = `${base}/stories/woddorda-ngarinyin-intro/images/marardda_navTile.png`;
@@ -19,14 +19,12 @@
 		</video>
 	</div>
 
-	
 	<Warning>
 		<p>
-				Phillip Duckhole, Janet Oobagooma, and Yorna Woolagoodja have passed away since the making
-				of this website and the short films it includes. Their images, voices and names are
-				reproduced here in recognition of their tireless efforts to share their knowledge for future
-				generations.
-			</p>
+			Phillip Duckhole, Janet Oobagooma, and Yorna Woolagoodja have passed away since the making of
+			this website and the short films it includes. Their images, voices and names are reproduced
+			here in recognition of their tireless efforts to share their knowledge for future generations.
+		</p>
 	</Warning>
 
 	<div id="intro" class="title">
@@ -77,19 +75,24 @@
 			</p>
 
 			<YouTube youTubeId="HkKLuybg2p8" />
-
 		</div>
 	</div>
 
 	<div class="container full-section centre-section">
 		<div class="content links">
 			<a href="{base}/woddordda/">
-				<img src={ngamardalee} alt="Map showing the changes to the coastline of Woddordda Country, and includes symbols painted by Leah Umbagai, such as fireplace with red flames and a hand outstretched over the fire; the head and face of a baby; as well as animals, including a brolga, a kangaroo, a quoll, and a snake." />
+				<img
+					src={ngamardalee}
+					alt="Map showing the changes to the coastline of Woddordda Country, and includes symbols painted by Leah Umbagai, such as fireplace with red flames and a hand outstretched over the fire; the head and face of a baby; as well as animals, including a brolga, a kangaroo, a quoll, and a snake."
+				/>
 				Woddordda »
 			</a>
 
 			<a href="{base}/ngarinyin">
-				<img src={marardda} alt="Satellite photograph of Ngainyin Country with hand painted images of three catfish, a dingo and an eagle." />
+				<img
+					src={marardda}
+					alt="Satellite photograph of Ngainyin Country with hand painted images of three catfish, a dingo and an eagle."
+				/>
 				Ngarinyin »
 			</a>
 		</div>
@@ -98,7 +101,7 @@
 
 <style>
 	.content {
-        height: fit-content;
+		height: fit-content;
 		width: 100%;
 		max-width: 800px;
 		margin: 0 auto;

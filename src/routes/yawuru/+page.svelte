@@ -2,22 +2,23 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 
-	import Header from '$lib/components/Header.svelte';
-	import GenericContent from '$lib/layout/GenericContent.svelte';
-	import Citations from '$lib/components/Citations.svelte';
-	import Credits from '$lib/components/Credits.svelte';
-	import ImageSliderFullscreen from '$lib/components/ImageSliderFullscreen.svelte';
-	import InlineQuote from '$lib/components/InlineQuote.svelte';
-	import AudioFullWidth from '$lib/components/AudioFullWidth.svelte';
-	import MediaFullWidth from '$lib/components/MediaFullWidth.svelte';
-	import TwoColumnContent from '$lib/layout/TwoColumnContent.svelte';
-	import Intro from '$lib/components/Intro.svelte';
-	import SideCaption from '$lib/components/SideCaption.svelte';
-
-	import YawuruAustraliaMap from '$lib/components/leaflet/YawuruAustraliaMap.svelte';
-	import YawuruBroomeMap from '$lib/components/leaflet/YawuruBroomeMap.svelte';
-	import YawuruThangooMap from '$lib/components/leaflet/YawuruThangooMap.svelte';
-	import YawuruCoastMap from '$lib/components/leaflet/YawuruCoastMap.svelte';
+	import {
+		Header,
+		GenericContent,
+		Citations,
+		Credits,
+		ImageSliderFullscreen,
+		InlineQuote,
+		AudioFullWidth,
+		MediaFullWidth,
+		TwoColumnContent,
+		Intro,
+		SideCaption,
+		YawuruAustraliaMap,
+		YawuruBroomeMap,
+		YawuruThangooMap,
+		YawuruCoastMap
+	} from '$lib';
 
 	let image_header = `${base}/stories/yawuru/images/Header_MG_0337.jpg`;
 	let image_elsie = `${base}/stories/yawuru/images/elsie_edgar.jpg`;

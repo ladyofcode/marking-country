@@ -3,20 +3,22 @@
 	import { page } from '$app/stores';
 	import { Vimeo, YouTube } from 'sveltekit-embed';
 
-	import Header from '$lib/components/Header.svelte';
-	import GenericContent from '$lib/layout/GenericContent.svelte';
-	import Citations from '$lib/components/Citations.svelte';
-	import Credits from '$lib/components/Credits.svelte';
-	import Collapsible from '$lib/components/Collapsible.svelte';
-	import ImageSliderFullscreen from '$lib/components/ImageSliderFullscreen.svelte';
-	import LargeQuote from '$lib/components/LargeQuote.svelte';
-	import InlineQuote from '$lib/components/InlineQuote.svelte';
-	import MediaFullWidth from '$lib/components/MediaFullWidth.svelte';
-	import Intro from '$lib/components/Intro.svelte';
-	import TwoColumnContent from '$lib/layout/TwoColumnContent.svelte';
-	import Warning from '$lib/components/Warning.svelte';
-	import AudioFullWidth from '$lib/components/AudioFullWidth.svelte';
-	import WoddorddaMap from '$lib/components/leaflet/WoddorddaMap.svelte';
+	import {
+		Header,
+		GenericContent,
+		Citations,
+		Credits,
+		Collapsible,
+		ImageSliderFullscreen,
+		LargeQuote,
+		InlineQuote,
+		MediaFullWidth,
+		Intro,
+		TwoColumnContent,
+		Warning,
+		AudioFullWidth,
+		WoddorddaMap
+	} from '$lib';
 
 	let leahIntro = `${base}/stories/woddordda/audio/Leah-Umbagai-intro-clan-tribe-mowanjum-edit.mp3`;
 	let leahSymbols = `${base}/stories/woddordda/audio/Leah-Umbagai-map-language-symbols.mp3`;
@@ -120,7 +122,10 @@
 	<TwoColumnContent>
 		<figure>
 			<div>
-				<img src={yorna} alt=" Yorna Donny Wooldagoodja: he is smiling, he has red ochre in his hair, and there are some flecks of white paint on his face and shoulders." />
+				<img
+					src={yorna}
+					alt=" Yorna Donny Wooldagoodja: he is smiling, he has red ochre in his hair, and there are some flecks of white paint on his face and shoulders."
+				/>
 			</div>
 			<div>
 				<h3>
@@ -136,7 +141,10 @@
 	<TwoColumnContent>
 		<figure>
 			<div>
-				<img src={janet} alt="Eewaambood Janet Oobagooma. Janet is smiling, and looking away from the camera." />
+				<img
+					src={janet}
+					alt="Eewaambood Janet Oobagooma. Janet is smiling, and looking away from the camera."
+				/>
 			</div>
 			<div>
 				<h3>Eewaambood Janet Oobagooma, Woddordda elder, language and cultural adviser.</h3>
@@ -189,7 +197,10 @@
 	</p>
 
 	<figure>
-		<img src={namarali} alt="Ngarmadalee at the Sydney Olympics in 2002. It is a large strucutre of Ngarmadalee's white face, with two large dark eyes and headdress. In the background are a groups of people holding lights." />
+		<img
+			src={namarali}
+			alt="Ngarmadalee at the Sydney Olympics in 2002. It is a large strucutre of Ngarmadalee's white face, with two large dark eyes and headdress. In the background are a groups of people holding lights."
+		/>
 		<figcaption>
 			Ngamardalee at the Sydney Olympics, 2002. Photo: supplied by Tim Mummery/Yorna Woolagoodja.
 		</figcaption>
@@ -206,7 +217,10 @@
 	</InlineQuote>
 
 	<figure>
-		<img src={repaints} alt=" Yorna Woolagoodja is using his hands and paint to reach up and 'refresh' a rock painting of Ngarmadalee on an overhanging rock shelter." />
+		<img
+			src={repaints}
+			alt=" Yorna Woolagoodja is using his hands and paint to reach up and 'refresh' a rock painting of Ngarmadalee on an overhanging rock shelter."
+		/>
 		<figcaption>
 			Yorna Woolagoodja refreshing Ngamardarlee in 2002. Photo: Sahyma Lachman.
 		</figcaption>
@@ -215,7 +229,7 @@
 	<p>
 		Ngamardalee is a powerful Wandjina, the source of significant laws and customs for Woddordda
 		people. When Elders warm their hands with smoke and fire, and touch and talk to babies during
-		the Wudoo smoking ceremony, they are transmitting Ngamardalee's words, laws and purpose. 
+		the Wudoo smoking ceremony, they are transmitting Ngamardalee's words, laws and purpose.
 	</p>
 
 	<InlineQuote credit=" Yorna Woolagoodja 2020.">
@@ -281,7 +295,10 @@
 	</details>
 
 	<figure>
-		<img src={mudmapImage} alt="Map showing the changes to the coastline of Woddordda Country, and includes symbols painted by Leah Umbagai, such as fireplace with red flames and a hand outstretched over the fire; the head and face of a baby; as well as animals, including a brolga, a kangaroo, a quoll, a snake." />
+		<img
+			src={mudmapImage}
+			alt="Map showing the changes to the coastline of Woddordda Country, and includes symbols painted by Leah Umbagai, such as fireplace with red flames and a hand outstretched over the fire; the head and face of a baby; as well as animals, including a brolga, a kangaroo, a quoll, a snake."
+		/>
 		<figcaption>Map of Woddordda Country by Leah Umbagai.</figcaption>
 	</figure>
 
@@ -292,7 +309,7 @@
 		stories are carried by new generations. The contemporary actions, songs and events of Wandjina
 		people and their Country confirm and re-enact the events of Lalai when the land was soft and
 		taking the shape we experience today. The history of landscape formation and of the environment
-		resides in people who are responsible for their Country. 
+		resides in people who are responsible for their Country.
 	</p>
 
 	<p>
@@ -312,7 +329,10 @@
 	</p>
 
 	<figure>
-		<img src={langii} alt="Dark vertical rocks of different shapes and sizes, standing upright in sand along a beach. In the background is a small reddish cliff with a rise covered in trees on the top, and on the other side of the rise is another sandy beach, more rocks and more trees." />
+		<img
+			src={langii}
+			alt="Dark vertical rocks of different shapes and sizes, standing upright in sand along a beach. In the background is a small reddish cliff with a rise covered in trees on the top, and on the other side of the rise is another sandy beach, more rocks and more trees."
+		/>
 		<figcaption>
 			Langgee, the rocks that are evidence of the Wandjina battle that killed Ngamardalee. Photo:
 			Sahyma Lachman.
@@ -325,7 +345,10 @@
 	</p>
 
 	<figure>
-		<img src={namaraliLangii} alt="Ngarmadalee on the  ceiling of his rock shelter. It shows his whole figure, from his feet to his headress around his head, that is painted white and is adorned with red dots and lines." />
+		<img
+			src={namaraliLangii}
+			alt="Ngarmadalee on the  ceiling of his rock shelter. It shows his whole figure, from his feet to his headress around his head, that is painted white and is adorned with red dots and lines."
+		/>
 		<figcaption>
 			Ngamardalee on the ceiling of of Kandirrim, his rock shelter on the Kimberley coast. Photo:
 			Mowanjum Aborginal Art & Culture Centre, courtesy WA Museum, Ian Crawford Collection.
@@ -346,7 +369,7 @@
 
 	<p>
 		It is a history told by generations that is carried by the new generations who inherit the place
-		names and the responsibility to remember the associated stories of creation. 
+		names and the responsibility to remember the associated stories of creation.
 	</p>
 
 	<Collapsible
@@ -371,7 +394,7 @@
 			Ngumbree, that Woman. That is why the hill is called Ngumbree.
 		</p>
 		<p>
-			Janet Oobagooma, in 
+			Janet Oobagooma, in
 			<em>
 				Barddabardda Wodjenangorddee: we're telling all of you: the creation, history and people of
 				Dambeemangaddee country
@@ -383,7 +406,10 @@
 	</Collapsible>
 
 	<figure>
-		<img src={raftPoint} alt="Rock art painted on a vertical rock wall and on a horizontal, overhanging rock shelter. The figures include fish and two figures with human-like faces. The outlines of the paintings are in a dark red colour." />
+		<img
+			src={raftPoint}
+			alt="Rock art painted on a vertical rock wall and on a horizontal, overhanging rock shelter. The figures include fish and two figures with human-like faces. The outlines of the paintings are in a dark red colour."
+		/>
 		<figcaption>
 			Raft Point Rock Art. A gallery of rock art on the coast that is associated with the story of
 			the woman who poked the eye of the sea. Photo: Sahyma Lachman.
@@ -570,13 +596,13 @@
 	<Collapsible name="referencesWoddorda" label="References and further reading">
 		<ul>
 			<li>
-				Blundell, V. and D. Woolagoodja. 2005. 
+				Blundell, V. and D. Woolagoodja. 2005.
 				<em> Keeping the Wanjinas Fresh: Sam Woolagoodja and the enduring power of Lalai </em>
 				. Fremantle: Fremantle Arts Centre Press.
 			</li>
 
 			<li>
-				Crawford, I.M. 1968. 
+				Crawford, I.M. 1968.
 				<em>
 					The Art of the Wandjina: Aboriginal Cave Paintings in Kimberley, Western Australia
 				</em>
@@ -584,30 +610,30 @@
 			</li>
 
 			<li>
-				Edols, Michael, with Sam Woolagoodja. 1975. 
+				Edols, Michael, with Sam Woolagoodja. 1975.
 				<em>Lailai Dreamtime</em>. North Sydney: Aboriginal Arts Board and the Australia Council.
 			</li>
 
 			<li>
-				Jebb, Mary Anne, ed. 2008. 
+				Jebb, Mary Anne, ed. 2008.
 				<em>Mowanjum: 50 Years Community History</em>. Derby: Mowanjum Aboriginal Community and
 				Mowanjum Artists Spirit of the Wandjina Aboriginal Corporation.
 			</li>
 
 			<li>
-				Lalbanda, Patsy and Daisy Utemorrah. 2000. 
+				Lalbanda, Patsy and Daisy Utemorrah. 2000.
 				<em> Wanjurna: The Wandjina and other stories from Worrorra folklore </em>
 				. Halls Creek: Kimberley Language Resource Centre.
 			</li>
 
 			<li>
-				Lalbanda, Patsy, Amy Peters and Daisy Utemorrah. 2000. 
+				Lalbanda, Patsy, Amy Peters and Daisy Utemorrah. 2000.
 				<em> Ngarlelwana Karnmanya: I was born at Kunmunya and other Worrorra stories </em>
 				. Halls Creek: Kimberley Language Resource Centre.
 			</li>
 
 			<li>
-				Love, J.R.B. 1936. 
+				Love, J.R.B. 1936.
 				<em>
 					Stone-age Bushmen of To-day: Life and Adventure among A Tribe of Savages in North-Western
 					Australia
@@ -626,13 +652,13 @@
 			</li>
 
 			<li>
-				Utemorrah, Daisy and Susan Wyatt (illustrator). 1993. 
+				Utemorrah, Daisy and Susan Wyatt (illustrator). 1993.
 				<em>Moonglue</em>. Broome: Magabala Books.
 			</li>
 
 			<li>
 				Utemorrah, Daisy, Elkin Umbagai, Buruwola Algarra, Jean Wungunyet and David Mowaljarlai.
-				1980. 
+				1980.
 				<em>Visions of Mowanjum. Aboriginal Writings from the Kimberley</em>
 				. Adelaide: Rigby.
 			</li>

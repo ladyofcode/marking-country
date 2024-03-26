@@ -4,17 +4,19 @@
 	import { goto } from '$app/navigation';
 	import { Vimeo } from 'sveltekit-embed';
 
-	import GenericContent from '$lib/layout/GenericContent.svelte';
-	import InlineQuote from '$lib/components/InlineQuote.svelte';
-	import Citations from '$lib/components/Citations.svelte';
-	import Credits from '$lib/components/Credits.svelte';
-	import Header from '$lib/components/Header.svelte';
-	import Intro from '$lib/components/Intro.svelte';
-	import Collapsible from '$lib/components/Collapsible.svelte';
-	import TwoColumnContent from '$lib/layout/TwoColumnContent.svelte';
-	import ImageSliderFullscreen from '$lib/components/ImageSliderFullscreen.svelte';
-	import Warning from '$lib/components/Warning.svelte';
-	import MararddaMap from '$lib/components/leaflet/MararddaMap.svelte';
+	import {
+		GenericContent,
+		InlineQuote,
+		Citations,
+		Credits,
+		Header,
+		Intro,
+		Collapsible,
+		TwoColumnContent,
+		ImageSliderFullscreen,
+		Warning,
+		MararddaMap
+	} from '$lib';
 
 	let davidMowaljarlai = `${base}/stories/ngarinyin/audio/David-Mowaljarlai-when-earth-soft-Edols-1974.mp3`;
 	let chloe = `${base}/stories/ngarinyin/images/Chloe-Nulgit_Collecting algae 02-Mummery-06062022.jpg`;
@@ -214,7 +216,10 @@
 	<TwoColumnContent>
 		<figure>
 			<div>
-				<img src={pansy} alt="Pansy Nulgit, wiht trees, grass and scrub in the background. Pansy is gesturing with her right hand." />
+				<img
+					src={pansy}
+					alt="Pansy Nulgit, wiht trees, grass and scrub in the background. Pansy is gesturing with her right hand."
+				/>
 			</div>
 			<div>
 				<h3>
@@ -229,7 +234,10 @@
 	<TwoColumnContent>
 		<figure>
 			<div>
-				<img src={matthew} alt="Matthew Dembal Martin. He is sitting on a chair, holding clap sticks and there are a group of women sitting close by on the ground." />
+				<img
+					src={matthew}
+					alt="Matthew Dembal Martin. He is sitting on a chair, holding clap sticks and there are a group of women sitting close by on the ground."
+				/>
 			</div>
 			<div>
 				<h3>
@@ -244,7 +252,10 @@
 	<TwoColumnContent>
 		<figure>
 			<div>
-				<img src={chloe} alt="Chloe Nulgit, sitting in a water hole. The water reaches the top of her arms and  her hands are floating on top of the water. She is in the water to collect Jalagu (algae) for Wurdu." />
+				<img
+					src={chloe}
+					alt="Chloe Nulgit, sitting in a water hole. The water reaches the top of her arms and  her hands are floating on top of the water. She is in the water to collect Jalagu (algae) for Wurdu."
+				/>
 			</div>
 			<div>
 				<h3>
@@ -355,7 +366,10 @@
 	</InlineQuote>
 
 	<figure>
-		<img src={jalala} alt="A Jalala standing upright as a marker among a collection of rocks surrounded by grass." />
+		<img
+			src={jalala}
+			alt="A Jalala standing upright as a marker among a collection of rocks surrounded by grass."
+		/>
 		<figcaption>Jalala—Mt. Hart Marking Stones. Photo: Tim Mummery, 2022.</figcaption>
 	</figure>
 

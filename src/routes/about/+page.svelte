@@ -5,20 +5,21 @@
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	gsap.registerPlugin(ScrollTrigger);
 
-	import SideScroller from '$lib/components/SideScroller.svelte';
-	import Header from '$lib/components/Header.svelte';
-	import GenericContent from '$lib/layout/GenericContent.svelte';
-	import Collapsible from '$lib/components/Collapsible.svelte';
-	import InlineQuote from '$lib/components/InlineQuote.svelte';
-	import Intro from '$lib/components/Intro.svelte';
-	import LearnMoreBox from '$lib/components/LearnMoreBox.svelte';
-	import HorizontalScroller from '$lib/components/HorizontalScroller.svelte';
-	import ImageSingle from '$lib/components/ImageSingle.svelte';
-	import Credits from '$lib/components/Credits.svelte';
+	import {
+		SideScroller,
+		Header,
+		GenericContent,
+		Collapsible,
+		InlineQuote,
+		Intro,
+		LearnMoreBox,
+		HorizontalScroller,
+		ImageSingle,
+		Credits
+	} from '$lib';
 
-	
 	const folderPath = `/about/images/`;
-	
+
 	const singleImageFilenames = [
 		'dualMap.jpg',
 		'collage.jpg',
@@ -26,9 +27,10 @@
 		'sahul_animated.gif',
 		'David_Unaipon.jpg',
 		'FitzroyIsland.jpg',
-		'DurerMap.jpg'
+		'DurerMap.jpg',
+		'map_australia.jpg'
 	];
-	
+
 	const slideshowFilenames = [
 		'SlideshowOne01.jpg',
 		'SlideshowOne02.jpg',
@@ -36,8 +38,7 @@
 		'SlideshowOne04.jpg',
 		'SlideshowOne05.jpg'
 	];
-	
-	const image_about_header = `${base}/about/images/map_australia.jpg`;
+
 	const singleImages = generateSingleImages(`${folderPath}`, singleImageFilenames);
 	const slideshow = generateSubfolderImages(`${folderPath}slideshow_one`, slideshowFilenames);
 
@@ -367,7 +368,7 @@
 
 <Header
 	id="intro"
-	image={image_about_header}
+	image={singleImages.map_australia}
 	name="about"
 	alt="A satellite image map of australia taken from Esri map tiles"
 	heading="About <em>Marking Country</em>"

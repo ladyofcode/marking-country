@@ -2,18 +2,19 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { generateSingleImages } from '$lib/imagePaths';
-
-	import Header from '$lib/components/Header.svelte';
-	import Intro from '$lib/components/Intro.svelte';
-	import Credits from '$lib/components/Credits.svelte';
-	import Citations from '$lib/components/Citations.svelte';
-	import GenericContent from '$lib/layout/GenericContent.svelte';
-	import Collapsible from '$lib/components/Collapsible.svelte';
-	import WillandraMap from '$lib/components/leaflet/WillandraMap.svelte';
-	import MediaFullWidth from '$lib/components/MediaFullWidth.svelte';
-	import LearnMoreBox from '$lib/components/LearnMoreBox.svelte';
-	import ImageSingle from '$lib/components/ImageSingle.svelte';
-	import TwoColumns from '$lib/layout/TwoColumns.svelte';
+	import {
+		Header,
+		Intro,
+		Credits,
+		Citations,
+		GenericContent,
+		Collapsible,
+		WillandraMap,
+		MediaFullWidth,
+		LearnMoreBox,
+		ImageSingle,
+		TwoColumns
+	} from '$lib';
 
 	const folderPath = `/stories/willandra/images/`;
 
@@ -307,7 +308,10 @@
 	</p>
 
 	<LearnMoreBox>
-		<img src={singleImages.dvd} alt="Front cover of the DVD of the documentary 'Message from Mungo.'" />
+		<img
+			src={singleImages.dvd}
+			alt="Front cover of the DVD of the documentary 'Message from Mungo.'"
+		/>
 		<div>
 			<h3>Message from Mungo documentary</h3>
 			<ul>

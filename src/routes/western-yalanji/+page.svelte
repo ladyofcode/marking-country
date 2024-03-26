@@ -1,129 +1,141 @@
 <script>
 	import { base } from '$app/paths';
-    import { page } from '$app/stores';
+	import { page } from '$app/stores';
+	import { generateSingleImages, generateSubfolderImages } from '$lib/imagePaths';
 
 	import { YouTube } from 'sveltekit-embed';
 
-	import Header from '$lib/components/Header.svelte';
-    import Collapsible from '$lib/components/Collapsible.svelte';
-	import Intro from '$lib/components/Intro.svelte';
-	import GenericContent from '$lib/layout/GenericContent.svelte';
-	import InlineQuote from '$lib/components/InlineQuote.svelte';
-	import TwoColumnContent from '$lib/layout/TwoColumnContent.svelte';
-	import YalanjiMap from '$lib/components/leaflet/YalanjiMap.svelte';
-	import ImageSliderFullscreen from '$lib/components/ImageSliderFullscreen.svelte';
-	import ImageGrid from '$lib/components/ImageGrid.svelte';
-	import MediaFullWidth from '$lib/components/MediaFullWidth.svelte';
-    import Citations from '$lib/components/Citations.svelte';
-    import Credits from '$lib/components/Credits.svelte';
+	import {
+		Header,
+		Collapsible,
+		GenericContent,
+		Intro,
+		InlineQuote,
+		ImageSliderFullscreen,
+		ImageGrid,
+		MediaFullWidth,
+		Citations,
+		Credits,
+		TwoColumnContent,
+		YalanjiMap
+	} from '$lib';
 
-	let image_coastlines = `${base}/about/images/sahul_animated.gif`;
-	let image_opium_act = `${base}/stories/yalanji/images/AboriginalProtectionOpiumAct.jpg`;
-	let image_header = `${base}/stories/yalanji/images/BannerImage.jpg`;
-	let image_endeavour = `${base}/stories/yalanji/images/Endeavour.jpg`;
-	let image_laura = `${base}/stories/yalanji/images/NativePoliceLaura.jpg`;
-	let image_ochre = `${base}/stories/yalanji/images/Ochre.jpg`;
-	let image_river = `${base}/stories/yalanji/images/palmer-river-goldfields.jpg`;
-	let image_boundary = `${base}/stories/yalanji/images/quinkan-country-boundary-map.jpg`;
-	let image_quinkans = `${base}/stories/yalanji/images/Quinkans.jpg`;
-	let image_slnsw_map = `${base}/stories/yalanji/images/SLNSW_Map.jpg`;
-	let image_turramulli = `${base}/stories/yalanji/images/TurramulliThumbnail.jpg`;
-	let image_time_scale = `${base}/stories/yalanji/images/GeologicalTimeScale4.png`;
+	const singleImageFilenames = [
+		'sahul_animated.gif',
+		'AboriginalProtectionOpiumAct.jpg',
+		'BannerImage.jpg',
+		'NativePoliceLaura.jpg',
+		'Ochre.jpg',
+		'quinkan_country_boundary_map.jpg',
+		'Quinkans.jpg',
+		'TurramulliThumbnail.jpg',
+		'GeologicalTimeScale4.png'
+	];
 
-	let slide_gallery_1 = `${base}/stories/yalanji/images/magnificent_gallery_slideshow/Magnificent01.jpg`;
-	let slide_gallery_2 = `${base}/stories/yalanji/images/magnificent_gallery_slideshow/Magnificent02.jpg`;
-	let slide_gallery_3 = `${base}/stories/yalanji/images/magnificent_gallery_slideshow/Magnificent03.jpg`;
-	let slide_gallery_4 = `${base}/stories/yalanji/images/magnificent_gallery_slideshow/Magnificent04.jpg`;
-	let slide_gallery_5 = `${base}/stories/yalanji/images/magnificent_gallery_slideshow/Magnificent05.jpg`;
-	let slide_gallery_6 = `${base}/stories/yalanji/images/magnificent_gallery_slideshow/Magnificent06.jpg`;
-	let slide_gallery_7 = `${base}/stories/yalanji/images/magnificent_gallery_slideshow/Magnificent07.jpg`;
-	let slide_gallery_8 = `${base}/stories/yalanji/images/magnificent_gallery_slideshow/Magnificent08.jpg`;
-	let slide_gallery_9 = `${base}/stories/yalanji/images/magnificent_gallery_slideshow/Magnificent09.jpg`;
+	const slideGalleryFilenames = [
+		'Magnificent01.jpg',
+		'Magnificent02.jpg',
+		'Magnificent03.jpg',
+		'Magnificent04.jpg',
+		'Magnificent05.jpg',
+		'Magnificent06.jpg',
+		'Magnificent07.jpg',
+		'Magnificent08.jpg',
+		'Magnificent09.jpg'
+	];
 
-	let slide_rockart_1 = `${base}/stories/yalanji/images/general_rockart_gallery/IMG_7641.jpg`;
-	let slide_rockart_2 = `${base}/stories/yalanji/images/general_rockart_gallery/IMG_7651.jpg`;
-	let slide_rockart_3 = `${base}/stories/yalanji/images/general_rockart_gallery/IMG_7677.jpg`;
-	let slide_rockart_4 = `${base}/stories/yalanji/images/general_rockart_gallery/IMG_7861.jpg`;
-	let slide_rockart_5 = `${base}/stories/yalanji/images/general_rockart_gallery/IMG_7874.jpg`;
-	let slide_rockart_6 = `${base}/stories/yalanji/images/general_rockart_gallery/IMG_7876.jpg`;
-	let slide_rockart_7 = `${base}/stories/yalanji/images/general_rockart_gallery/IMG_7880.jpg`;
-	let slide_rockart_8 = `${base}/stories/yalanji/images/general_rockart_gallery/IMG_7891.jpg`;
-	let slide_rockart_9 = `${base}/stories/yalanji/images/general_rockart_gallery/IMG_7944.jpg`;
+	const slideRockArtFilenames = [
+		'IMG_7641.jpg',
+		'IMG_7651.jpg',
+		'IMG_7677.jpg',
+		'IMG_7861.jpg',
+		'IMG_7874.jpg',
+		'IMG_7876.jpg',
+		'IMG_7880.jpg',
+		'IMG_7891.jpg',
+		'IMG_7944.jpg'
+	];
 
-    let pageTitle = 'Western Yalanji';
+	const folderPath = `/stories/yalanji/images/`
+
+	const singleImages = generateSingleImages(`${folderPath}`, singleImageFilenames);
+	const slide_gallery = generateSubfolderImages(`${folderPath}magnificent_gallery_slideshow`, slideGalleryFilenames);
+	const slide_rockart = generateSubfolderImages(`${folderPath}general_rockart_gallery`, slideRockArtFilenames);
+
+	const pageTitle = 'Western Yalanji';
 
 	const slidesMagnificentGallery = [
 		{
-			url: slide_gallery_1,
+			url: slide_gallery[0],
 			caption: 'Mike Jones'
 		},
 		{
-			url: slide_gallery_2,
+			url: slide_gallery[1],
 			caption: 'Mike Jones'
 		},
 		{
-			url: slide_gallery_3,
+			url: slide_gallery[2],
 			caption: 'Mike Jones'
 		},
 		{
-			url: slide_gallery_4,
+			url: slide_gallery[3],
 			caption: 'Mike Jones'
 		},
 		{
-			url: slide_gallery_5,
+			url: slide_gallery[4],
 			caption: 'Mike Jones'
 		},
 		{
-			url: slide_gallery_6,
+			url: slide_gallery[5],
 			caption: 'Mike Jones'
 		},
 		{
-			url: slide_gallery_7,
+			url: slide_gallery[6],
 			caption: 'Mike Jones'
 		},
 		{
-			url: slide_gallery_8,
+			url: slide_gallery[7],
 			caption: 'Mike Jones'
 		},
 		{
-			url: slide_gallery_9,
+			url: slide_gallery[8],
 			caption: 'Mike Jones'
 		}
 	];
 
 	const imageGrid = [
 		{
-			url: slide_rockart_1
+			url: slide_rockart[0]
 		},
 		{
-			url: slide_rockart_2
+			url: slide_rockart[1]
 		},
 		{
-			url: slide_rockart_3
+			url: slide_rockart[2]
 		},
 		{
-			url: slide_rockart_4
+			url: slide_rockart[3]
 		},
 		{
-			url: slide_rockart_5
+			url: slide_rockart[4]
 		},
 		{
-			url: slide_rockart_6
+			url: slide_rockart[5]
 		},
 		{
-			url: slide_rockart_7
+			url: slide_rockart[6]
 		},
 		{
-			url: slide_rockart_8
+			url: slide_rockart[7]
 		},
 		{
-			url: slide_rockart_9
+			url: slide_rockart[8]
 		}
 	];
 </script>
 
 <Header
-	image={image_header}
+	image={singleImages.BannerImage}
 	name="yalanji"
 	alt="An organse rock wall covered with art, mostly painted in dark red and white, inclduing animals and human-like figures."
 	heading="Lands of the Western Yalanji"
@@ -143,7 +155,10 @@
 	<h2>Quinkan Country</h2>
 
 	<figure>
-		<img src={image_boundary} alt="A cartographical map showing the boundaries of Quinkan Country." />
+		<img
+			src={singleImages.quinkan_country_boundary_map}
+			alt="A cartographical map showing the boundaries of Quinkan Country."
+		/>
 	</figure>
 
 	<p>
@@ -209,7 +224,7 @@
 	<TwoColumnContent>
 		<div>
 			<figure>
-				<img src={image_quinkans} alt="Two 'Quinkan' figures paintings on a rock wall." />
+				<img src={singleImages.Quinkans} alt="Two 'Quinkan' figures paintings on a rock wall." />
 				<figcaption>Quinkans. Photo: Mike Jones, 2021.</figcaption>
 			</figure>
 		</div>
@@ -249,7 +264,7 @@
 	</p>
 
 	<figure>
-		<img src={image_time_scale} alt="Table showing geological time scales." />
+		<img src={singleImages.GeologicalTimeScale4} alt="Table showing geological time scales." />
 		<figcaption>
 			The geological time scale. Image by Jonathan R. Hendricks. <a
 				href="https://creativecommons.org/licenses/by-sa/4.0/"
@@ -287,7 +302,10 @@
 	</p>
 
 	<figure>
-		<img src={image_coastlines} alt="Animated map showing the changing coastline of Sahul from today to 21,000 years ago." />
+		<img
+			src={singleImages.coastlines}
+			alt="Animated map showing the changing coastline of Sahul from today to 21,000 years ago."
+		/>
 
 		<figcaption>
 			Changing coastlines of Sahul. Created by Mike Jones, based on data provided by CartoGIS
@@ -425,7 +443,7 @@
 
 	<figure>
 		<YouTube youTubeId="BIoSyyNXhTA" />
-      <figcaption>Danny O'Shane. Courtesy Western Yalanji Aboriginal Corporation.</figcaption>
+		<figcaption>Danny O'Shane. Courtesy Western Yalanji Aboriginal Corporation.</figcaption>
 	</figure>
 
 	<p>
@@ -488,7 +506,10 @@
 		</div>
 		<div>
 			<figure>
-				<img src={image_ochre} alt="A flat, dish-shaped rock with a smaller stone that looks to have been used to grind red ochre." />
+				<img
+					src={singleImages.Ochre}
+					alt="A flat, dish-shaped rock with a smaller stone that looks to have been used to grind red ochre."
+				/>
 				<figcaption>Ochre at the Magnificent Gallery. Photo: Mike Jones (2021).</figcaption>
 			</figure>
 		</div>
@@ -538,7 +559,7 @@
 </GenericContent>
 
 <MediaFullWidth
-	image={image_laura}
+	image={singleImages.NativePoliceLaura}
 	caption="Native Police troopers at Laura River Native Police camp. 1881. PM3691. Queensland Police Museum. Creative Commons Attribution-NonCommercial-ShareAlike."
 	alt="This old  black and white photograph shows thirteen people: there are eight adults and one child sitting down, and four peple are standing behind them. There are three bark slab huts behind them, and an open shelter, with trees and scrub in the background."
 />
@@ -614,7 +635,10 @@
 
 		<div>
 			<figure>
-				<img src={image_opium_act} alt="A scan of the Aboriginals Protection and Restriction of the Sale of Opium Act 1897. The paper is slightly yellowed, and has a red wax seal and is bound with a green ribbon." />
+				<img
+					src={singleImages.AboriginalProtectionOpiumAct}
+					alt="A scan of the Aboriginals Protection and Restriction of the Sale of Opium Act 1897. The paper is slightly yellowed, and has a red wax seal and is bound with a green ribbon."
+				/>
 				<figcaption>
 					Aboriginals Protection and Restriction of the Sale of Opium Act 1897 (Qld). <a
 						href="https://www.foundingdocs.gov.au/item-sdid-54.html"
@@ -625,8 +649,7 @@
 		</div>
 	</TwoColumnContent>
 
-    <YouTube youTubeId="-uSSUNeida8" />
-
+	<YouTube youTubeId="-uSSUNeida8" />
 </GenericContent>
 
 <Collapsible name="percyWesternYalanji" label="Percy Tresize and Dick Roughsey">
@@ -679,7 +702,7 @@
 		</div>
 		<div>
 			<figure>
-				<img src={image_turramulli} alt="" />
+				<img src={singleImages.TurramulliThumbnail} alt="" />
 				<figcaption>
 					Aboriginals Protection and Restriction of the Sale of Opium Act 1897 (Qld). <a
 						href="https://www.foundingdocs.gov.au/item-sdid-54.html"
@@ -692,79 +715,130 @@
 </Collapsible>
 
 <GenericContent>
-    <p>Quinkan Country has been listed on the National Heritage Register. Today, the Western Yalanji Aboriginal Corporation plays a crucial role in keeping the Stories alive and the Country strong, including through the use of digital technologies. Glenis Grogan talks about the prospects of digital platforms and their relevance for the future of the Yalanji people and knowledge of Country.</p>
+	<p>
+		Quinkan Country has been listed on the National Heritage Register. Today, the Western Yalanji
+		Aboriginal Corporation plays a crucial role in keeping the Stories alive and the Country strong,
+		including through the use of digital technologies. Glenis Grogan talks about the prospects of
+		digital platforms and their relevance for the future of the Yalanji people and knowledge of
+		Country.
+	</p>
 
-    <figure>
-        <YouTube youTubeId="E9EhS-1RfQQ" />
-      <figcaption>Glenis Grogan. Courtesy Western Yalanji Aboriginal Corporation.</figcaption>
-    </figure>
-  </GenericContent>
+	<figure>
+		<YouTube youTubeId="E9EhS-1RfQQ" />
+		<figcaption>Glenis Grogan. Courtesy Western Yalanji Aboriginal Corporation.</figcaption>
+	</figure>
+</GenericContent>
 
-  <GenericContent>
-    <Collapsible
-      name="referencesQuinkan"
-      label="References and further reading">
-      <ul>
-        <li>Beaglehole, J.C., ed. (1968). <em>The Journals of Captain James Cook on His Voyages of Discovery, vol. I:The Voyage of the Endeavour 1768-1771</em>. Cambridge: Cambridge University Press.</li>
+<GenericContent>
+	<Collapsible name="referencesQuinkan" label="References and further reading">
+		<ul>
+			<li>
+				Beaglehole, J.C., ed. (1968). <em
+					>The Journals of Captain James Cook on His Voyages of Discovery, vol. I:The Voyage of the
+					Endeavour 1768-1771</em
+				>. Cambridge: Cambridge University Press.
+			</li>
 
-        <li>David, Bruno, and Harry Lourandos. “37,000 Years and More in Tropical Australia: Investigating Long-Term Archaeological Trends in Cape York Peninsula.” <em>Proceedings of the Prehistoric Society 63</em> (ed 1997): 1-23. https://doi.org/10.1017/S0079497X00002358.</li>
+			<li>
+				David, Bruno, and Harry Lourandos. “37,000 Years and More in Tropical Australia:
+				Investigating Long-Term Archaeological Trends in Cape York Peninsula.” <em
+					>Proceedings of the Prehistoric Society 63</em
+				> (ed 1997): 1-23. https://doi.org/10.1017/S0079497X00002358.
+			</li>
 
-        <li>Forsyth, J.W., 1984. “Janssen, Willem (?-?)”, In <em>Australian Dictionary of Biography</em>. Canberra: National Centre of Biography, Australian National University. Accessed 10 November 2021. https://adb.anu.edu.au/biography/janssen-willem-2270/text2911.</li>
+			<li>
+				Forsyth, J.W., 1984. “Janssen, Willem (?-?)”, In <em>Australian Dictionary of Biography</em
+				>. Canberra: National Centre of Biography, Australian National University. Accessed 10
+				November 2021. https://adb.anu.edu.au/biography/janssen-willem-2270/text2911.
+			</li>
 
-        <li>George, Tommy, and Tom Popp. Quinkan Rock Art: <em>Images on Rock from the Laura Area</em>. Laura, Qld: Ang-Gnarra Aboriginal Corporation, 1996.</li>
+			<li>
+				George, Tommy, and Tom Popp. Quinkan Rock Art: <em>Images on Rock from the Laura Area</em>.
+				Laura, Qld: Ang-Gnarra Aboriginal Corporation, 1996.
+			</li>
 
-        <li>Kirkman, Noreen. 1984. “The Palmer Goldfield, 1873-1883”, Honours Thesis, James Cook University of North Queensland. Accessed November 7 2021. https://researchonline.jcu.edu.au/57117/.</li>
+			<li>
+				Kirkman, Noreen. 1984. “The Palmer Goldfield, 1873-1883”, Honours Thesis, James Cook
+				University of North Queensland. Accessed November 7 2021.
+				https://researchonline.jcu.edu.au/57117/.
+			</li>
 
-        <li>Memmott, Paul. 2012. “Roughsey, Dick (Goobalathaldin) (1920-1985).” In <em>Australian Dictionary of Biography</em>. Canberra: National Centre of Biography, Australian National University. Accessed November 7, 2021. https://adb.anu.edu.au/biography/roughsey-dick-goobalathaldin-14193.</li>
+			<li>
+				Memmott, Paul. 2012. “Roughsey, Dick (Goobalathaldin) (1920-1985).” In <em
+					>Australian Dictionary of Biography</em
+				>. Canberra: National Centre of Biography, Australian National University. Accessed November
+				7, 2021. https://adb.anu.edu.au/biography/roughsey-dick-goobalathaldin-14193.
+			</li>
 
-        <li>Morwood, M. J., and D. R. Hobbs, eds. 1995. <em>Quinkan Prehistory: The Archaeology of Aboriginal Art in S.E. Cape York Peninsula</em>, Australia. Tempus / St. Lucia, Qld, v. 3. St. Lucia, Qld: Anthropology Museum, University of Queensland.</li>
+			<li>
+				Morwood, M. J., and D. R. Hobbs, eds. 1995. <em
+					>Quinkan Prehistory: The Archaeology of Aboriginal Art in S.E. Cape York Peninsula</em
+				>, Australia. Tempus / St. Lucia, Qld, v. 3. St. Lucia, Qld: Anthropology Museum, University
+				of Queensland.
+			</li>
 
-        <li>“National Heritage List - Quinkan Country,” 2018. Accessed 7 November 2021. https://environment.gov.au/cgi-bin/ahdb/search.pl?mode=place_detail;place_id=106262.</li>
+			<li>
+				“National Heritage List - Quinkan Country,” 2018. Accessed 7 November 2021.
+				https://environment.gov.au/cgi-bin/ahdb/search.pl?mode=place_detail;place_id=106262.
+			</li>
 
-        <li>Queensland Art Gallery, ed. <em>Story Place: Indigenous Art of Cape York and the Rainforest</em>. South Brisbane, Qld: Queensland Art Gallery, 2003.</li>
+			<li>
+				Queensland Art Gallery, ed. <em
+					>Story Place: Indigenous Art of Cape York and the Rainforest</em
+				>. South Brisbane, Qld: Queensland Art Gallery, 2003.
+			</li>
 
-        <li>Trezise, Percy. 1969. <em>Quinkan Country: Adventures in Search of Aboriginal Cave Paintings</em> in Cape York. Sydney: Reed.</li>
+			<li>
+				Trezise, Percy. 1969. <em
+					>Quinkan Country: Adventures in Search of Aboriginal Cave Paintings</em
+				> in Cape York. Sydney: Reed.
+			</li>
 
-        <li>Trezise, Percy and Dick Roughsey. 1978. The Quinkins. Sydney: Collins.</li>
-      </ul>
-    </Collapsible>
-  </GenericContent>
+			<li>Trezise, Percy and Dick Roughsey. 1978. The Quinkins. Sydney: Collins.</li>
+		</ul>
+	</Collapsible>
+</GenericContent>
 
-  <GenericContent>
+<GenericContent>
+	<h2>Credits</h2>
 
-    <h2>Credits</h2>
+	<p>Thank you to Brad Grogan and the Western Yalanji Aboriginal Corporation.</p>
 
-    <p>Thank you to Brad Grogan and the Western Yalanji Aboriginal Corporation.</p>
+	<Credits
+		credits={[
+			{ title: 'Cultural Adviser and Permissions', names: 'Brad Grogan' },
+			{
+				title: 'Knowledge Holders',
+				names:
+					"Charlie Lee Cheu, Danny Lee Cheu, Aileen Meldrum, Betty Knowles, Danny O'Shane, Glenis Grogan"
+			},
+			{ title: 'Written by', names: 'Ann McGrath' },
+			{ title: 'Digital story created by', names: 'Mike Jones' },
+			{ title: 'Research Assistant', names: 'Bethany Phillips-Peddlesden' }
+		]}
+	/>
+</GenericContent>
 
-    <Credits
-      credits={[
-        { title: "Cultural Adviser and Permissions", names: "Brad Grogan" },
-        { title: "Knowledge Holders", names: "Charlie Lee Cheu, Danny Lee Cheu, Aileen Meldrum, Betty Knowles, Danny O'Shane, Glenis Grogan" },
-        { title: "Written by", names: "Ann McGrath" },
-        { title: "Digital story created by", names: "Mike Jones" },
-        { title: "Research Assistant", names: "Bethany Phillips-Peddlesden" }
-      ]}
-    />
+<GenericContent>
+	<h2>Citations</h2>
 
-  </GenericContent>
-
-  <GenericContent>
-    <h2>Citations</h2>
-
-    <Citations
-      citations={[
-        { insert: "this page", authors: "Ann McGrath and Mike Jones (2023)" },
-        { insert: "Charlie Lee Cheu", authors: "Charlie Lee Cheu in Ann McGrath and Mike Jones (2023)" },
-        { insert: "Danny Lee Cheu", authors: "Danny Lee Cheu in Ann McGrath and Mike Jones (2023)" },
-        { insert: "Danny O'Shane", authors: "Danny O'Shane in Ann McGrath and Mike Jones (2023)" },
-        { insert: "Glenis Grogan", authors: "Glenis Grogan in Ann McGrath and Mike Jones (2023)" },
-        { insert: "Aileen Meldrum", authors: "Aileen Meldrum in Ann McGrath and Mike Jones (2023)" },
-        { insert: "Betty Knowles", authors: "Betty Knowles in Ann McGrath and Mike Jones (2023)" }
-      ]}
-      location={$page.url.href}
-      page={pageTitle}
-    />
-  </GenericContent>
+	<Citations
+		citations={[
+			{ insert: 'this page', authors: 'Ann McGrath and Mike Jones (2023)' },
+			{
+				insert: 'Charlie Lee Cheu',
+				authors: 'Charlie Lee Cheu in Ann McGrath and Mike Jones (2023)'
+			},
+			{ insert: 'Danny Lee Cheu', authors: 'Danny Lee Cheu in Ann McGrath and Mike Jones (2023)' },
+			{ insert: "Danny O'Shane", authors: "Danny O'Shane in Ann McGrath and Mike Jones (2023)" },
+			{ insert: 'Glenis Grogan', authors: 'Glenis Grogan in Ann McGrath and Mike Jones (2023)' },
+			{ insert: 'Aileen Meldrum', authors: 'Aileen Meldrum in Ann McGrath and Mike Jones (2023)' },
+			{ insert: 'Betty Knowles', authors: 'Betty Knowles in Ann McGrath and Mike Jones (2023)' }
+		]}
+		location={$page.url.href}
+		page={pageTitle}
+	/>
+</GenericContent>
 
 <style>
 </style>

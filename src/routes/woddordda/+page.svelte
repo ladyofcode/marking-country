@@ -104,6 +104,7 @@
 	heading="Woddordda"
 	subheading="Ngamardalee and Wudoo"
 	id="intro"
+	gradientColor="#406467"
 />
 
 <Intro intro="woddordda">

@@ -181,6 +181,7 @@
 	alt="An expansive flat of red soil, covered with some green shrubs and grass. There is flat horizon and a light blue sky with some light clouds."
 	heading="Jangu yirr Janyjagurdiny: murra mala nyurdany"
 	subheading="Holding Yawuru history on Country at Thangoo Station"
+	gradientColor="#1b191a"
 />
 
 <Intro intro="yawuru">

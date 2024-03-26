@@ -128,6 +128,7 @@
 	alt="An organse rock wall covered with art, mostly painted in dark red and white, inclduing animals and human-like figures."
 	heading="Lands of the Western Yalanji"
 	subheading="Quinkan Country"
+	gradientColor="#937863"
 />
 
 <Intro intro="yalanji">

@@ -197,6 +197,7 @@
 	alt="A water hold, seen through paper bark trees, with a bright blue sky in the background."
 	heading="Marardda"
 	subheading="Stories from Ngarinyin Country"
+	gradientColor="#362e2b"
 />
 
 <Intro intro="ngarinyin">

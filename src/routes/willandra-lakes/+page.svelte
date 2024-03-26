@@ -42,6 +42,7 @@
 	alt="Sand and rock formations at Willandra Lakes."
 	heading="Willandra Lakes map"
 	subheading="Ancestral stories"
+	gradientColor="#816b5e"
 />
 
 <Intro intro="willandra">

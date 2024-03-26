@@ -126,6 +126,7 @@
       deep history"
 	subheading="Carnarvon
       Gorge"
+	  gradientColor="#15150b"
 />
 
 <Intro intro="carnarvon">

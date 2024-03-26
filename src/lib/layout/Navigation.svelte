@@ -6,17 +6,9 @@
 	let menuChecked = false;
 	let isLargeScreen = false;
 	let ariaHidden = false;
-	let hasInteracted = false;
 	let handleSubNav;
 	let currentOpenSubnav = null;
 	const largeScreen = window.matchMedia('(min-width: 900px)');
-
-	function closeNav(event) {
-		if (event && event.target.getAttribute('href') !== '#') {
-			menuChecked = false;
-			currentOpenSubnav = null;
-		}
-	}
 
 	$: $page.path, closeNav();
 
@@ -25,6 +17,13 @@
 			document.body.style.overflow = 'hidden';
 		} else {
 			document.body.style.overflow = '';
+		}
+	}
+
+	function closeNav(event) {
+		if (event && event.target.getAttribute('href') !== '#') {
+			menuChecked = false;
+			currentOpenSubnav = null;
 		}
 	}
 
@@ -54,7 +53,6 @@
 		}
 	];
 
-	// Initial check
 	let handleMatchMedia = (event = largeScreen) => {
 		if (event.matches) {
 			isLargeScreen = true;
@@ -68,7 +66,6 @@
 	};
 
 	onMount(() => {
-		// Add listener for changes
 		handleMatchMedia();
 		largeScreen.onchange = (event) => {
 			handleMatchMedia(event);
@@ -339,10 +336,6 @@
 			transform: translateX(0%);
 		}
 		
-		/* .wrapper:hover, nav:hover {
-			height: 100%;
-		} */
-
 		nav > ul {
 			height: fit-content;
 			width: 100%;
@@ -384,8 +377,5 @@
 			display: block;
 		}
 
-		.subnav-content.close {
-			display: none;
-		}
 	}
 </style>

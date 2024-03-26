@@ -1,98 +1,34 @@
 <script>
 	import { base } from '$app/paths';
+	import {generateSubfolderImages} from '$lib/imagePaths';
 
 	import GenericContent from '$lib/layout/GenericContent.svelte';
 	import Header from '$lib/components/Header.svelte';
-	import ImageSliderFullscreen from '$lib/components/ImageSliderFullscreen.svelte';
 	import ImageSingle from '$lib/components/ImageSingle.svelte';
 	import SideScroller from '$lib/components/SideScroller.svelte';
 
-	let uncleFredSlide1 = `${base}/education/images/uncle_fred_slideshow/IMG_2552.jpg`;
-	let uncleFredSlide2 = `${base}/education/images/uncle_fred_slideshow/IMG_2553.jpg`;
-	let uncleFredSlide3 = `${base}/education/images/uncle_fred_slideshow/IMG_2554.jpg`;
-	let uncleFredSlide4 = `${base}/education/images/uncle_fred_slideshow/IMG_2557.jpg`;
-	let uncleFredSlide5 = `${base}/education/images/uncle_fred_slideshow/IMG_2559.jpg`;
-	let uncleFredSlide6 = `${base}/education/images/uncle_fred_slideshow/IMG_2560.jpg`;
-
-	let willandraSlide1 = `${base}/education/images/willandra_slideshow/IMG_0372.jpg`;
-	let willandraSlide2 = `${base}/education/images/willandra_slideshow/IMG_0381.jpg`;
-	let willandraSlide3 = `${base}/education/images/willandra_slideshow/IMG_0400.jpg`;
-	let willandraSlide4 = `${base}/education/images/willandra_slideshow/IMG_0406.jpg`;
-	let willandraSlide5 = `${base}/education/images/willandra_slideshow/IMG_0411.jpg`;
-
-	const uncleFredSlides = [
-		{
-			url: uncleFredSlide1,
-			caption: 'Uncle Fred Conway, Carnarvon Gorge. Photo by Ann McGrath, 2022.',
-			source: '',
-			link: ''
-		},
-		{
-			url: uncleFredSlide2,
-			caption: 'Uncle Fred Conway, Carnarvon Gorge. Photo by Ann McGrath, 2022.',
-			source: '',
-			link: ''
-		},
-		{
-			url: uncleFredSlide3,
-			caption: 'Uncle Fred Conway, Carnarvon Gorge. Photo by Ann McGrath, 2022.',
-			source: '',
-			link: ''
-		},
-		{
-			url: uncleFredSlide4,
-			caption: 'Uncle Fred Conway, Carnarvon Gorge. Photo by Ann McGrath, 2022.',
-			source: '',
-			link: ''
-		},
-		{
-			url: uncleFredSlide5,
-			caption: 'Uncle Fred Conway, Carnarvon Gorge. Photo by Ann McGrath, 2022.',
-			source: '',
-			link: ''
-		},
-		{
-			url: uncleFredSlide6,
-			caption: 'Uncle Fred Conway, Carnarvon Gorge. Photo by Ann McGrath, 2022.',
-			source: '',
-			link: ''
-		}
+	const folderPath = `/education/images/`
+	
+	const uncleFredFilenames = [
+		'IMG_2552.jpg',
+		'IMG_2553.jpg',
+		'IMG_2554.jpg',
+		'IMG_2557.jpg',
+		'IMG_2559.jpg',
+		'IMG_2560.jpg'
 	];
-
-	const willandraSlides = [
-		{
-			url: willandraSlide1,
-			caption: 'Willandra Lakes. Photo by Ann McGrath, 2018.',
-			source: '',
-			link: ''
-		},
-		{
-			url: willandraSlide2,
-			caption: 'Willandra Lakes. Photo by Ann McGrath, 2018.',
-			source: '',
-			link: ''
-		},
-		{
-			url: willandraSlide3,
-			caption: 'Willandra Lakes. Photo by Ann McGrath, 2018.',
-			source: '',
-			link: ''
-		},
-		{
-			url: willandraSlide4,
-			caption: 'Willandra Lakes. Photo by Ann McGrath, 2018.',
-			source: '',
-			link: ''
-		},
-		{
-			url: willandraSlide5,
-			caption: 'Willandra Lakes. Photo by Ann McGrath, 2018.',
-			source: '',
-			link: ''
-		}
+	
+	const willandraFilenames = [
+		'IMG_0372.jpg',
+		'IMG_0381.jpg',
+		'IMG_0400.jpg',
+		'IMG_0406.jpg',
+		'IMG_0411.jpg'
 	];
-
-	let image_ngarinyin_header = `${base}/stories/ngarinyin/images/ngarinyin_header.jpg`;
+	
+	const image_education_header = `${base}${folderPath}book.jpg`;
+	const uncleFredSlides = generateSubfolderImages(`${folderPath}uncle_fred_slideshow`, uncleFredFilenames);
+	const willandraSlides = generateSubfolderImages(`${folderPath}willandra_slideshow`, willandraFilenames);
 
 	let sectionOneContent = [
 		{
@@ -113,7 +49,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: willandraSlide1,
+					source: willandraSlides[0],
 					alt: '',
 					width: '3456',
 					height: '2304',
@@ -138,7 +74,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: willandraSlide2,
+					source: willandraSlides[1],
 					alt: '',
 					width: '3456',
 					height: '2304',
@@ -165,7 +101,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: willandraSlide3,
+					source: willandraSlides[2],
 					alt: '',
 					width: '3456',
 					height: '2304',
@@ -189,7 +125,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: willandraSlide4,
+					source: willandraSlides[3],
 					alt: '',
 					width: '3456',
 					height: '2304',
@@ -210,7 +146,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: willandraSlide5,
+					source: willandraSlides[4],
 					alt: '',
 					width: '3456',
 					height: '2304',
@@ -244,7 +180,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: uncleFredSlide1,
+					source: uncleFredSlides[0],
 					alt: '',
 					width: '3024',
 					height: '4032',
@@ -277,7 +213,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: uncleFredSlide2,
+					source: uncleFredSlides[1],
 					alt: '',
 					width: '4032',
 					height: '3024',
@@ -310,7 +246,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: uncleFredSlide3,
+					source: uncleFredSlides[2],
 					alt: '',
 					width: '4032',
 					height: '3024',
@@ -361,7 +297,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: uncleFredSlide4,
+					source: uncleFredSlides[3],
 					alt: '',
 					width: '4032',
 					height: '3024',
@@ -402,7 +338,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: uncleFredSlide5,
+					source: uncleFredSlides[4],
 					alt: '',
 					width: '3024',
 					height: '4032',
@@ -447,7 +383,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: uncleFredSlide6,
+					source: uncleFredSlides[6],
 					alt: '',
 					width: '4032',
 					height: '3024',
@@ -461,11 +397,11 @@
 
 <Header
 	id="intro"
-	image={image_ngarinyin_header}
+	image={image_education_header}
 	name="ngarinyin"
 	alt="A water hold, seen through paper bark trees, with a bright blue sky in the background."
 	heading="Educational resources"
-	gradientColor="#4e4848"
+	gradientColor="#364840"
 />
 
 <SideScroller content={sectionOneContent} />

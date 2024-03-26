@@ -80,7 +80,7 @@ h6 {
     --clr-terracotta-light: #c26f67;
     --clr-terracotta-dark: #d85245;
 
-	--height-menu: 64px;
+	--height-menu: 72px;
 	--height-viewable: calc(100vh - var(--height-menu));
 	
 	--width-content: 700px;

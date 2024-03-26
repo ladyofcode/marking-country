@@ -1,43 +1,40 @@
 <script>
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import { YouTube } from 'sveltekit-embed';
+	import { generateSingleImages } from '$lib/imagePaths';
 
 	import Header from '$lib/components/Header.svelte';
 	import Intro from '$lib/components/Intro.svelte';
 	import Credits from '$lib/components/Credits.svelte';
 	import Citations from '$lib/components/Citations.svelte';
 	import GenericContent from '$lib/layout/GenericContent.svelte';
-	import PhotoswipeSimple from '$lib/components/PhotoswipeSimple.svelte';
 	import Collapsible from '$lib/components/Collapsible.svelte';
 	import WillandraMap from '$lib/components/leaflet/WillandraMap.svelte';
 	import MediaFullWidth from '$lib/components/MediaFullWidth.svelte';
 	import LearnMoreBox from '$lib/components/LearnMoreBox.svelte';
+	import ImageSingle from '$lib/components/ImageSingle.svelte';
+	import TwoColumns from '$lib/layout/TwoColumns.svelte';
 
-	let maryPappin = `${base}/stories/willandra/images/MaryPappin.png`;
-	let dvd = `${base}/stories/willandra/images/Message-From-Mungo-DVD-slick-hi-res.jpg`;
-	let mungoReturnCropped = `${base}/stories/willandra/images/MungoReturn_cropped.jpg`;
-	let nlaVisit = `${base}/stories/willandra/images/NLAVisit.jpg`;
-	let visitingANU = `${base}/stories/willandra/images/VisitingANU_3000px.jpg`;
-	let willandraLakesMap = `${base}/stories/willandra/images/WillandraLakes_4000px.jpg`;
-	let duneTree = `${base}/stories/willandra/images/dune_tree.jpg`;
-	let image_header = `${base}/stories/willandra/images/willandra_header.jpg`;
+	const folderPath = `/stories/willandra/images/`;
+
+	const singleImageFilenames = [
+		'MaryPappin.png',
+		'dvd.jpg',
+		'MungoReturn_cropped.jpg',
+		'NLAVisit.jpg',
+		'VisitingANU_3000px.jpg',
+		'WillandraLakes_4000px.jpg',
+		'dune_tree.jpg',
+		'willandra_header.jpg'
+	];
+
+	const singleImages = generateSingleImages(`${folderPath}`, singleImageFilenames);
 
 	const pageTitle = 'Willandra Lakes';
-
-	const willandraImage = [
-		{
-			largeURL: willandraLakesMap,
-			thumbnailURL: willandraLakesMap,
-			width: 3804,
-			height: 4000,
-			alt: "The Willandra Lakes created by the project, showing where the families of the participants who created the map lived and moved."
-		}
-	];
 </script>
 
 <Header
-	image={image_header}
+	image={singleImages.willandra_header}
 	name="willandra"
 	alt="Sand and rock formations at Willandra Lakes."
 	heading="Willandra Lakes map"
@@ -60,15 +57,15 @@
 
 	<p>Click on the map to zoom in.</p>
 
-	<figure id="map">
-		<PhotoswipeSimple galleryId="willandra-image" images={willandraImage} />
-
-		<figcaption>
-			Willandra Lakes Map. Created by Kim Mahood in consultation with Indigenous collaborators on
+	<ImageSingle
+		source={singleImages.WillandraLakes_4000px}
+		width="3804"
+		height="4000"
+		caption="Willandra Lakes Map. Created by Kim Mahood in consultation with Indigenous collaborators on
 			behalf of ANU projects Deepening Histories of Place and Rediscovering the Deep Human Past.
-			Digitisation: National Library of Australia.
-		</figcaption>
-	</figure>
+			Digitisation: National Library of Australia."
+		galleryId="willandra-image"
+	/>
 </Intro>
 
 <GenericContent>
@@ -102,7 +99,7 @@
 		got a story, got a connection to this land here that we are talking about."
 	</p>
 </GenericContent>
-<Collapsible name="collapsibleProcess" label="Learn more about the mapping process">
+<Collapsible type="wide" name="collapsibleProcess" label="Learn more about the mapping process">
 	<p>
 		Indigenous representatives involved in the Willandra Lakes World heritage region had helped us
 		understand the 'deep histories' of the Pleistocene Lakes, but they pointed out that there was a
@@ -146,7 +143,7 @@
 	</p>
 
 	<figure class="portrait-image">
-		<img src={maryPappin} alt="Mary Pappin standing in front of the map." />
+		<img src={singleImages.MaryPappin} alt="Mary Pappin standing in front of the map." />
 		<figcaption>
 			Mary Pappin with the Willandra Lakes Map, March 2021. Photo: Ann McGrath.
 		</figcaption>
@@ -226,33 +223,41 @@
 	</p>
 </Collapsible>
 
+<TwoColumns>
+	<div slot="column1">
+		<p>
+			In August 2021, the Research Centre worked with the National Library of Australia's Trove
+			Collaborative Services to digitise the Willandra Map.
+		</p>
+
+		<p>
+			Following this, and an initial image-capture process conducted by an external consultant, Mike
+			Jones developed a layered digital version of the map, working with Kim Mahood to check the
+			text and layers.
+		</p>
+	</div>
+	<div slot="column2">
+		<ImageSingle
+			source={singleImages.NLAVisit}
+			width=""
+			height=""
+			alt="Six people standing the Willandra Map on the table at ANU."
+			caption="National Library of Australia staff visiting the Research Centre for Deep History at the
+		Australian National University to see the Willandra Lakes Map, June 2021. Photo: Mike Jones."
+		/>
+	</div>
+</TwoColumns>
+
 <GenericContent>
-	<p>
-		In August 2021, the Research Centre worked with the National Library of Australia's Trove
-		Collaborative Services to digitise the Willandra Map.
-	</p>
-
-	<figure>
-		<img src={nlaVisit} alt="Six people standing the Willandra Map on the table at ANU." />
-		<figcaption>
-			National Library of Australia staff visiting the Research Centre for Deep History at the
-			Australian National University to see the Willandra Lakes Map, June 2021. Photo: Mike Jones.
-		</figcaption>
-	</figure>
-
-	<p>
-		Following this, and an initial image-capture process conducted by an external consultant, Mike
-		Jones developed a layered digital version of the map, working with Kim Mahood to check the text
-		and layers.
-	</p>
-
 	<p>
 		This digital map allows people to explore individual families, and helps them navigate the many
 		complex stories that mark this Country.
 	</p>
+</GenericContent>
 
-	<WillandraMap />
+<WillandraMap />
 
+<GenericContent>
 	<p>
 		The Research Centre for Deep History is continuing to work with families in the region to
 		develop the interactive map, including the potential to incorporate digital archival materials
@@ -262,11 +267,13 @@
 	<p>
 		In doing so, they continue to build on relationships between historians from the Australian
 		National University and the Mutthi Mutthi, Barkintji, and Nyaampa people that date back nearly
-		20 years. 
+		20 years.
 	</p>
-
-	<YouTube youTubeId="iWfvzgN5jIU" />
 </GenericContent>
+
+<MediaFullWidth youTubeId="iWfvzgN5jIU" />
+
+<!-- <YouTube youTubeId="iWfvzgN5jIU" /> -->
 
 <GenericContent>
 	<h2>The Mungo Project</h2>
@@ -298,11 +305,9 @@
 		were active and formative; they made the present - an animated landscape. People living today
 		had a duty to them.
 	</p>
-</GenericContent>
 
-<GenericContent>
 	<LearnMoreBox>
-		<img src={dvd} alt="Front cover of the DVD of the documentary 'Message from Mungo.'" />
+		<img src={singleImages.dvd} alt="Front cover of the DVD of the documentary 'Message from Mungo.'" />
 		<div>
 			<h3>Message from Mungo documentary</h3>
 			<ul>
@@ -322,7 +327,7 @@
 </GenericContent>
 
 <MediaFullWidth
-	image={duneTree}
+	image={singleImages.dune_tree}
 	alt="A typical Willandra Lakes scene, with a sandy dune, some scrubs and a small tree, and a vast blue sky in the background."
 	caption="Willandra Lakes—a Pleistocene Dry Lake Landscape. Photo: Ann
         McGrath, 2018."
@@ -359,7 +364,7 @@
 		Lady Mungo is a revered relative. It was as if she is a close aunty who only died yesterday. The
 		deep past continues ever-present. Lady Mungo is an agent in people's lives and in the
 		landscape—a powerful creative force that affects the everyday—from the weather to the happiness
-		or unhappiness of people who venture on their ground. 
+		or unhappiness of people who venture on their ground.
 	</p>
 </GenericContent>
 
@@ -391,7 +396,10 @@
 	<p>But their rightful place and role continues to be a point of controversy.</p>
 
 	<figure>
-		<img src={mungoReturnCropped} alt="The return of Mungo Man's remains to Lake Mungo in 2017 in a 1970s blarge black hearse  with an Aboriginal flag on the door. A group of people are standing and sitting on chairs nearby." />
+		<img
+			src={singleImages.MungoReturn_cropped}
+			alt="The return of Mungo Man's remains to Lake Mungo in 2017 in a 1970s blarge black hearse  with an Aboriginal flag on the door. A group of people are standing and sitting on chairs nearby."
+		/>
 		<figcaption>
 			Return and reburial of Mungo Man's remains, 17 November 2017, Lake Mungo. Photo: Ann McGrath.
 		</figcaption>
@@ -422,7 +430,7 @@
 </GenericContent>
 
 <MediaFullWidth
-	image={visitingANU}
+	image={singleImages.VisitingANU_3000px}
 	alt="Participants from the Willandra Lakes map project standing in front of a min-bus at ANU."
 	caption="Visitors and friends from the Willandra Lakes World Heritage region
             at The Australian National University in June 2013. From left to
@@ -450,7 +458,7 @@
 	<p>
 		People had expressed an interest in telling the story through cultural mapping techniques - but
 		this would be a different kind of 'history map': a visual depiction of their lives as
-		historically experienced in their beloved lands, their ancestral Country. 
+		historically experienced in their beloved lands, their ancestral Country.
 	</p>
 
 	<p>
@@ -461,13 +469,10 @@
 	</p>
 
 	<p>Many have likened the result to a treasure map.</p>
-</GenericContent>
-
-<GenericContent>
 	<Collapsible name="referencesWillandra" label="References and further reading">
 		<ul>
 			<li>
-				Allbrook, M. and McGrath, A., "Collaborative Histories of the Willandra Lakes". In 
+				Allbrook, M. and McGrath, A., "Collaborative Histories of the Willandra Lakes". In
 				<em>Long history, deep time: deepening histories of place</em>, edited by McGrath, A. and
 				Jebb, M, 241-252. Canberra: ANU Press, 2015.
 			</li>
@@ -475,8 +480,8 @@
 			<li>
 				Barrows, Timothy T., Kathryn E. Fitzsimmons, Stephanie C. Mills, Jacqui Tumney, Daryl
 				Pappin, and Nicola Stern. 2020. “Late Pleistocene Lake Level History of Lake Mungo,
-				Australia.” 
-				<em>Quaternary Science Reviews</em> 238 (June): 106338. 
+				Australia.”
+				<em>Quaternary Science Reviews</em> 238 (June): 106338.
 				<a href="https://doi.org/10.1016/j.quascirev.2020.106338">
 					https://doi.org/10.1016/j.quascirev.2020.106338
 				</a>
@@ -485,12 +490,12 @@
 
 			<li>
 				Bowler, J. M., Rhys Jones, Harry Allen, and A. G. Thorne. 1970. "Pleistocene Human Remains
-				from Australia: A Living Site and Human Cremation from Lake Mungo, Western New South Wales." 
+				from Australia: A Living Site and Human Cremation from Lake Mungo, Western New South Wales."
 				<em>World Archaeology</em> 2 (1): 39-60.
 			</li>
 
 			<li>
-				McGrath, Ann. 2018. "Lady Mungo and the New and Old Discovery Narrative.” In 
+				McGrath, Ann. 2018. "Lady Mungo and the New and Old Discovery Narrative.” In
 				<em>
 					Unmasking Ideology in Imperial and Colonial Archeology: Vocabulary, Symbols, and Legacy
 				</em>
@@ -499,7 +504,7 @@
 			</li>
 
 			<li>
-				McGrath, Ann, Laura Rademaker, and Jakelin Troy, eds. 2023. 
+				McGrath, Ann, Laura Rademaker, and Jakelin Troy, eds. 2023.
 				<em>Everywhen: Australia and the Language of Deep History</em>. Lincoln: University of
 				Nebraska Press. Sydney: UNSW Press.
 			</li>
@@ -557,7 +562,7 @@
 		Services team. Thank you to National Library staff and representatives who engaged with the
 		project throughout, including Catherine Aldersey, Rochelle Armstrong, Rebecca Bateman, Lisa
 		Jong-Reuss, Nicola Mackay-Sim, Craig Mackenzie, Elizabeth MacKenzie, Sue McFadden, Aleara
-		Pearce, Shirleene Robinson, and Kathryn Ross. 
+		Pearce, Shirleene Robinson, and Kathryn Ross.
 	</p>
 </GenericContent>
 

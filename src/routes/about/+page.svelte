@@ -1,6 +1,9 @@
 <script>
 	import { base } from '$app/paths';
-	import { onMount, onDestroy } from 'svelte';
+	import { generateSubfolderImages, generateSingleImages } from '$lib/imagePaths';
+	import { gsap } from 'gsap/dist/gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
 
 	import SideScroller from '$lib/components/SideScroller.svelte';
 	import Header from '$lib/components/Header.svelte';
@@ -10,60 +13,64 @@
 	import Intro from '$lib/components/Intro.svelte';
 	import LearnMoreBox from '$lib/components/LearnMoreBox.svelte';
 	import HorizontalScroller from '$lib/components/HorizontalScroller.svelte';
-	import ImageSliderFullscreen from '$lib/components/ImageSliderFullscreen.svelte';
 	import ImageSingle from '$lib/components/ImageSingle.svelte';
 	import Credits from '$lib/components/Credits.svelte';
 
-	let image_ngarinyin_header = `${base}/stories/ngarinyin/images/ngarinyin_header.jpg`;
-
-	let dualMaps = `${base}/about/images/dualMap.jpg`;
-	let collage = `${base}/about/images/collage.jpg`;
-	let schoolMap = `${base}/about/images/1913_School_Exploration_Map.jpg`;
-	let coastlines = `${base}/about/images/sahul_animated.gif`;
-	let david = `${base}/about/images/David_Unaipon.jpg`;
-	let fitzeroy = `${base}/about/images/FitzroyIsland.jpg`;
-	let durerMap = `${base}/about/images/DurerMap.jpg`;
-	let slideshowOne1 = `${base}/about/images/slideshow_one/SlideshowOne01.jpg`;
-	let slideshowOne2 = `${base}/about/images/slideshow_one/SlideshowOne02.jpg`;
-	let slideshowOne3 = `${base}/about/images/slideshow_one/SlideshowOne03.jpg`;
-	let slideshowOne4 = `${base}/about/images/slideshow_one/SlideshowOne04.jpg`;
-	let slideshowOne5 = `${base}/about/images/slideshow_one/SlideshowOne05.jpg`;
-
-	import { gsap } from 'gsap/dist/gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-	gsap.registerPlugin(ScrollTrigger);
-	import GenericContentPane from '$lib/components/GenericContentPane.svelte';
+	
+	const folderPath = `/about/images/`;
+	
+	const singleImageFilenames = [
+		'dualMap.jpg',
+		'collage.jpg',
+		'School_Exploration_Map.jpg',
+		'sahul_animated.gif',
+		'David_Unaipon.jpg',
+		'FitzroyIsland.jpg',
+		'DurerMap.jpg'
+	];
+	
+	const slideshowFilenames = [
+		'SlideshowOne01.jpg',
+		'SlideshowOne02.jpg',
+		'SlideshowOne03.jpg',
+		'SlideshowOne04.jpg',
+		'SlideshowOne05.jpg'
+	];
+	
+	const image_about_header = `${base}/about/images/map_australia.jpg`;
+	const singleImages = generateSingleImages(`${folderPath}`, singleImageFilenames);
+	const slideshow = generateSubfolderImages(`${folderPath}slideshow_one`, slideshowFilenames);
 
 	const slideshowOne = [
 		{
-			url: slideshowOne1,
+			url: slideshow[0],
 			caption:
 				'<em>Map of Australia</em>, 1876. Gordon and Gotch. Shows routes of explorers, lighthouses and the route of steamers along the coast of Australia.',
 			source: 'National Library of Australia, Canberra',
 			link: 'https://catalogue.nla.gov.au/Record/1017669'
 		},
 		{
-			url: slideshowOne2,
+			url: slideshow[1],
 			caption: '<em>Exploration map of Australia</em>, 1890. Map by John G Bartholomew.',
 			source: 'National Library of Australia, Canberra',
 			link: 'https://catalogue.nla.gov.au/catalog/3989570'
 		},
 		{
-			url: slideshowOne3,
+			url: slideshow[2],
 			caption:
 				'<em>Australia</em>, 1890. Map by George Philip & Son. Shows routes of explorers, railways, and submarine cables.',
 			source: 'National Library of Australia, Canberra',
 			link: 'https://catalogue.nla.gov.au/Record/6856866'
 		},
 		{
-			url: slideshowOne4,
+			url: slideshow[3],
 			caption:
 				"<em>Sketch map of Captain Sturt's tracks & discoveries on his various expeditions into south eastern central Australia</em>, 1849. Map by John Arrowsmith.",
 			source: 'National Library of Australia, Canberra',
 			link: 'https://catalogue.nla.gov.au/Record/412739'
 		},
 		{
-			url: slideshowOne5,
+			url: slideshow[4],
 			caption:
 				'<em>TAA map of the Commonwealth of Australia</em>, 1948. Trans Australia Airlines and Commonwealth Surveyor General. Shows air routes, principal explorers routes, railways, primary industries, state boundaries, cities, towns, minor settlements and homesteads',
 			source: 'National Library of Australia, Canberra',
@@ -94,7 +101,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: coastlines,
+					source: singleImages.sahul_animated,
 					width: '1107',
 					height: '949',
 					caption:
@@ -133,7 +140,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: fitzeroy,
+					source: singleImages.FitzroyIsland,
 					width: '2048',
 					height: '2200',
 					caption: `<em>Fitzroy Island</em>, 1943. Commonwealth of Australia. (<a href='https://nla.gov.au/nla.obj-234023015/view'>National Library of Australia</a>).`,
@@ -169,7 +176,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: david,
+					source: singleImages.David_Unaipon,
 					alt: 'Black and white photograph of David Ngunaitoponi, in the style of a formal portrait, taken in 1924.',
 					width: '400',
 					height: '504',
@@ -201,7 +208,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: durerMap,
+					source: singleImages.durerMap,
 					alt: "Woodcut black and white map of the world from 1515. Around the margins of the globe are pictures of human-style heads blowing 'winds'.",
 					width: '2200',
 					height: '1750',
@@ -251,7 +258,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: schoolMap,
+					source: singleImages.School_Exploration_Map,
 					alt: 'Map of the Australian continent featuring the routes taken by the so-called explorers and discoverers of Australia. It was created by Charles Long, around 1912, and was intended to be used as an educational resource.',
 					width: '500',
 					height: '373',
@@ -346,7 +353,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: collage,
+					source: singleImages.collage,
 					alt: 'Collage of numerous participants and researchers in the Marking Country project.',
 					width: '1024',
 					height: '700',
@@ -356,17 +363,15 @@
 			}
 		}
 	];
-
 </script>
 
-<!-- <main class="regular-page"> -->
 <Header
 	id="intro"
-	image={image_ngarinyin_header}
-	name="ngarinyin"
-	alt="A water hold, seen through paper bark trees, with a bright blue sky in the background."
+	image={image_about_header}
+	name="about"
+	alt="A satellite image map of australia taken from Esri map tiles"
 	heading="About <em>Marking Country</em>"
-	gradientColor="#4e4848"
+	gradientColor="#012a40"
 />
 
 <Intro>
@@ -394,7 +399,7 @@
 	</p>
 
 	<LearnMoreBox>
-		<img src={dualMaps} alt="" />
+		<img src={singleImages.dualMap} alt="" />
 		<a href="{base}/mapping"> » Learn more about the history of mapping </a>
 	</LearnMoreBox>
 
@@ -410,7 +415,6 @@
 <HorizontalScroller slides={slideshowOne} />
 
 <GenericContent>
-
 	<h2>Research Centre for Deep History</h2>
 
 	<p>

@@ -1,8 +1,11 @@
 <script>
-	import { base } from "$app/paths";
+	import { base } from '$app/paths';
 
-	import GenericContent from "$lib/layout/GenericContent.svelte";
-    import ImageSliderFullscreen from "$lib/components/ImageSliderFullscreen.svelte";
+	import GenericContent from '$lib/layout/GenericContent.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import ImageSliderFullscreen from '$lib/components/ImageSliderFullscreen.svelte';
+	import ImageSingle from '$lib/components/ImageSingle.svelte';
+	import SideScroller from '$lib/components/SideScroller.svelte';
 
 	let uncleFredSlide1 = `${base}/education/images/uncle_fred_slideshow/IMG_2552.jpg`;
 	let uncleFredSlide2 = `${base}/education/images/uncle_fred_slideshow/IMG_2553.jpg`;
@@ -88,13 +91,14 @@
 			link: ''
 		}
 	];
-</script>
 
-<section>
-	<GenericContent>
-		<h1>Educational resources</h1>
+	let image_ngarinyin_header = `${base}/stories/ngarinyin/images/ngarinyin_header.jpg`;
 
-		<h2>Resources for teachers</h2>
+	let sectionOneContent = [
+		{
+			markup: [
+				`
+			<h2>Resources for teachers</h2>
 
 		<p>
 			<strong
@@ -104,9 +108,24 @@
 		</p>
 
 		<h3>What is 'deep history'?</h3>
-		<h4>Ann McGrath, Australian National University</h4>
-
-		<p>
+		<h4>Ann McGrath, Australian National University</h4>`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: willandraSlide1,
+					alt: '',
+					width: '3456',
+					height: '2304',
+					caption: 'Willandra Lakes. Photo by Ann McGrath, 2018.',
+					galleryId: 'willandra1'
+				}
+			}
+		},
+		{
+			markup: [
+				`
+				<p>
 			Deep history aims to address the long time-span of human history that extends beyond the
 			modern, the pre-modern, the mediaeval and the ancient - or at least that which is usually
 			defined as such. This makes deep history especially important for any study of Australian
@@ -114,8 +133,23 @@
 			periodization. This new 'historical turn' reflects an effort to shift the discipline's
 			framings.
 		</p>
-
-		<p>
+			`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: willandraSlide2,
+					alt: '',
+					width: '3456',
+					height: '2304',
+					caption: 'Willandra Lakes. Photo by Ann McGrath, 2018.',
+					galleryId: 'willandra2'
+				}
+			}
+		},
+		{
+			markup: [
+				`<p>
 			Deep history encompasses a kind of history that is more inclusive of epochs of time, of
 			places, people and perspectives. As an evolving field, historians are exploring ways to engage
 			with new kinds of historical evidence, and above all, with multiple perspectives on what
@@ -126,25 +160,68 @@
 			long been perceived as history's outsiders, as not being players in global history, and as
 			somehow not having a history of their own.
 		</p>
-
-		<p>
+			`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: willandraSlide3,
+					alt: '',
+					width: '3456',
+					height: '2304',
+					caption: 'Willandra Lakes. Photo by Ann McGrath, 2018.',
+					galleryId: 'willandra3'
+				}
+			}
+		},
+		{
+			markup: [
+				`
+			<p>
 			In the late 1960s, prominent Australian archaeologist John Mulvaney tried to do something
 			about this, entitling his book The Prehistory of Australia. He intended the term 'prehistory'
 			to gesture towards inclusion - for Indigenous Australians to be thought of as having
 			'history', but over a span of human time prior to the advent of writing. Unfortunately, the
 			term only reinforced the notion of the 'pre', as if implying that history proper had not yet
 			begun. An alternative term was required.
-		</p>
-
-		<p>
+		</p>`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: willandraSlide4,
+					alt: '',
+					width: '3456',
+					height: '2304',
+					caption: 'Willandra Lakes. Photo by Ann McGrath, 2018.',
+					galleryId: 'willandra4'
+				}
+			}
+		},
+		{
+			markup: [
+				`<p>
 			The concept of 'deep history' can actively deconstruct the framing of history as one that
 			essentially took place only after European arrival. The exact dates for Indigenous occupation
 			of North America or Australia may not be known, but they predated European arrivals by many
 			thousands of years.
-		</p>
-
-		<ImageSliderFullscreen slides={willandraSlides} />
-
+		</p>`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: willandraSlide5,
+					alt: '',
+					width: '3456',
+					height: '2304',
+					caption: 'Willandra Lakes. Photo by Ann McGrath, 2018.',
+					galleryId: 'willandra5'
+				}
+			}
+		},
+		{
+			markup: [
+				`
 		<p>
 			Various fields of study have specialised in the study deep time. Archaeologists meticulously
 			unearth ancient occupation sites, developing expertise in the analysis of various kinds of
@@ -162,8 +239,23 @@
 			important factual information, but theirs is a different enterprise to that of the historian -
 			their aim is not necessarily to narrate stories of living, breathing people.
 		</p>
-
-		<p>
+				`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: uncleFredSlide1,
+					alt: '',
+					width: '3024',
+					height: '4032',
+					caption: 'Uncle Fred Conway, Carnarvon Gorge. Photo by Ann McGrath, 2022.',
+					galleryId: 'uncleFredSlide1'
+				}
+			}
+		},
+		{
+			markup: [
+				`<p>
 			Historian Dipesh Chakrabarty argued that the discipline of history should develop an expanded
 			framework that takes geological time into account—a shift he saw as necessary to understanding
 			the Anthropocene era of human-induced climate change. Environmental historians and others now
@@ -180,9 +272,23 @@
 			book, but it did not seek to take Indigenous or multiple cultural perspectives into account,
 			and it did not pause to consider the unique history that took place on the Australian
 			continent throughout the Holocene and the Pleistocene.
-		</p>
-
-		<p>
+		</p>`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: uncleFredSlide2,
+					alt: '',
+					width: '4032',
+					height: '3024',
+					caption: 'Uncle Fred Conway, Carnarvon Gorge. Photo by Ann McGrath, 2022.',
+					galleryId: 'uncleFredSlide2'
+				}
+			}
+		},
+		{
+			markup: [
+				`	<p>
 			Nonetheless theirs was a radical move, for the great span of human history beyond about 4,000
 			years has rarely been included in historical accounts, being considered the realm of
 			evolutionary scientists and archaeologists. Sure, life was certainly different than today, but
@@ -199,9 +305,23 @@
 			knowledge and arts; they made history too. And they were interested in how things came to be
 			as they are. This shared humanity, in my view, is one of the most telling arguments for the
 			study of deep history.
-		</p>
-
-		<p>
+		</p>`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: uncleFredSlide3,
+					alt: '',
+					width: '4032',
+					height: '3024',
+					caption: 'Uncle Fred Conway, Carnarvon Gorge. Photo by Ann McGrath, 2022.',
+					galleryId: 'uncleFredSlide3'
+				}
+			}
+		},
+		{
+			markup: [
+				`	<p>
 			Yet, in the Australian case, even after the great surge in Aboriginal history writing since
 			the 1980s, the key dates of history still feature 1770 and 1788. Even studies of 'Aboriginal
 			history' only commenced their accounts after the arrival of European colonizers. It was as if
@@ -236,8 +356,24 @@
 			naivety of European race assumptions. Their civilizations were under-estimated, as if they
 			awaited the coming of Europeans before they could 'make history' and approach modernity.
 		</p>
-
-		<p>
+			`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: uncleFredSlide4,
+					alt: '',
+					width: '4032',
+					height: '3024',
+					caption: 'Uncle Fred Conway, Carnarvon Gorge. Photo by Ann McGrath, 2022.',
+					galleryId: 'uncleFredSlide4'
+				}
+			}
+		},
+		{
+			markup: [
+				`
+			<p>
 			The concept of 'deep time' attempts to actively deconstruct the framing of history as 'before
 			or after European arrival.' We may not know exact dates for Indigenous occupation in North
 			America or Australia, but we know that they predate European occupation by many thousands of
@@ -261,9 +397,24 @@
 			'Australia', and its peoples, were not 'discovered' until Europeans arrived. We need to
 			overturn the whole concept of 'discovery' - whether in ocean navigation or science - as
 			exclusively European.
-		</p>
-
-		<p>
+		</p>`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: uncleFredSlide5,
+					alt: '',
+					width: '3024',
+					height: '4032',
+					caption: 'Uncle Fred Conway, Carnarvon Gorge. Photo by Ann McGrath, 2022.',
+					galleryId: 'uncleFredSlide5'
+				}
+			}
+		},
+		{
+			markup: [
+				`
+			<p>
 			The Australian continent has long been the land of hundreds of Indigenous nations. At Lake
 			Mungo in south western New South Wales, communities of people lived and died alongside a large
 			lake system. The Mutthi Mutthi, Nyaampa and Barkintji peoples are custodians of these sites.
@@ -291,111 +442,131 @@
 			Aboriginal elders often describe 'Country' itself as an archive or as a history book. Works by
 			the Gay'Wu group of women and Yornadaiyn Woolagoodja of Broome and many others provide first
 			person insights.
-		</p>
+		</p>`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: uncleFredSlide6,
+					alt: '',
+					width: '4032',
+					height: '3024',
+					caption: 'Uncle Fred Conway, Carnarvon Gorge. Photo by Ann McGrath, 2022.',
+					galleryId: 'uncleFredSlide6'
+				}
+			}
+		}
+	];
+</script>
 
-		<ImageSliderFullscreen slides={uncleFredSlides} />
+<Header
+	id="intro"
+	image={image_ngarinyin_header}
+	name="ngarinyin"
+	alt="A water hold, seen through paper bark trees, with a bright blue sky in the background."
+	heading="Educational resources"
+	gradientColor="#4e4848"
+/>
 
-		<p>
-			Deep history must engage with different kinds of history tellings, and consider distinctive
-			ways of thinking about time or temporality. Many Indigenous cultures do not give primacy to
-			notions of linear time. We should be aware that counting the years as we do today has its own
-			history. Our '2022' is based upon the Gregorian calendar after Pope Gregory, with this way of
-			measuring time itself borrowed from Roman societies via the Julian calendar. 'Time' as we
-			measure it today only became uniform in recent centuries. In contrast, Aboriginal Australians
-			have often thought about time as a multi-layered present, a kind of non-linear 'everywhen'
-			with things happening on Country. The challenge of deep history is to develop methodologies
-			that use different kinds of clues and different approaches to historical evidence and its
-			periodizations.
-		</p>
+<SideScroller content={sectionOneContent} />
 
-		<p>
-			Deep history can extend 'the time of history', but it might also challenge the emphasis of one
-			of the history discipline's defining features - western notions of time and chronological
-			thinking in historical storytelling. Deep history offers potential globally, to be more
-			inclusive of all the peoples and the places in the world.
-		</p>
+<GenericContent>
+	<p>
+		Deep history must engage with different kinds of history tellings, and consider distinctive ways
+		of thinking about time or temporality. Many Indigenous cultures do not give primacy to notions
+		of linear time. We should be aware that counting the years as we do today has its own history.
+		Our '2022' is based upon the Gregorian calendar after Pope Gregory, with this way of measuring
+		time itself borrowed from Roman societies via the Julian calendar. 'Time' as we measure it today
+		only became uniform in recent centuries. In contrast, Aboriginal Australians have often thought
+		about time as a multi-layered present, a kind of non-linear 'everywhen' with things happening on
+		Country. The challenge of deep history is to develop methodologies that use different kinds of
+		clues and different approaches to historical evidence and its periodizations.
+	</p>
 
-		<strong>Tips for approaching and writing about deep history:</strong>
-		<ul>
-			<li>
-				<em>Respect different historical and narrative traditions</em>. These require consideration
-				in their own right; they may reveal something of what happened in the past, but are
-				especially valuable in revealing how people think about the past. How does the past explain
-				the present? And has the past really passed at all?
-			</li>
+	<p>
+		Deep history can extend 'the time of history', but it might also challenge the emphasis of one
+		of the history discipline's defining features - western notions of time and chronological
+		thinking in historical storytelling. Deep history offers potential globally, to be more
+		inclusive of all the peoples and the places in the world.
+	</p>
 
-			<li>
-				<em
-					>Listen to diverse Indigenous voices, through their earlier records, their recent writings</em
-				>. History doesn't have to be a story told only through the eyes of European discoverers or
-				researchers.
-			</li>
+	<strong>Tips for approaching and writing about deep history:</strong>
+	<ul>
+		<li>
+			<em>Respect different historical and narrative traditions</em>. These require consideration in
+			their own right; they may reveal something of what happened in the past, but are especially
+			valuable in revealing how people think about the past. How does the past explain the present?
+			And has the past really passed at all?
+		</li>
 
-			<li>
-				<em>Explore a wide array of evidence</em>. Rock art, song cycles, ancient narratives,
-				multi-sensory performances of historical stories. Reflect upon how many Indigenous people
-				may not see their Country as holding 'evidence' but rather as offering revelations: the past
-				can 'break through' into the present, carefully showing itself to its current-day people.
-			</li>
+		<li>
+			<em
+				>Listen to diverse Indigenous voices, through their earlier records, their recent writings</em
+			>. History doesn't have to be a story told only through the eyes of European discoverers or
+			researchers.
+		</li>
 
-			<li>
-				<em>The significance of stories of continuity and the everyday</em>. Dates, dating and the
-				practice of history as a study of change and turning points may be important, but students
-				also need to understand how people also lived their everyday lives in patterns of
-				continuity.
-			</li>
+		<li>
+			<em>Explore a wide array of evidence</em>. Rock art, song cycles, ancient narratives,
+			multi-sensory performances of historical stories. Reflect upon how many Indigenous people may
+			not see their Country as holding 'evidence' but rather as offering revelations: the past can
+			'break through' into the present, carefully showing itself to its current-day people.
+		</li>
 
-			<li>
-				<em>Avoid passive voice and passive depictions</em>. In sites where deep history took place,
-				you will often hear of how something was 'discovered', dated or chemically analysed. Think
-				about the people who wielded the brushes in rock art. Think about the people who did things,
-				of actors and agency.
-			</li>
+		<li>
+			<em>The significance of stories of continuity and the everyday</em>. Dates, dating and the
+			practice of history as a study of change and turning points may be important, but students
+			also need to understand how people also lived their everyday lives in patterns of continuity.
+		</li>
 
-			<li>
-				<em>Think about gender</em>. Due to the longevity of stone tools and the historical nature
-				of the academy, hunting economies are often assumed to be male domains - sites of 'man the
-				hunter'. Think beyond these assumptions to consider how people negotiated gender roles and
-				identities to create sustainable, flexible societies.
-			</li>
-		</ul>
-	</GenericContent>
-</section>
+		<li>
+			<em>Avoid passive voice and passive depictions</em>. In sites where deep history took place,
+			you will often hear of how something was 'discovered', dated or chemically analysed. Think
+			about the people who wielded the brushes in rock art. Think about the people who did things,
+			of actors and agency.
+		</li>
 
-<section>
-	<GenericContent>
-		<h2>Additional Reading - works by author and team</h2>
+		<li>
+			<em>Think about gender</em>. Due to the longevity of stone tools and the historical nature of
+			the academy, hunting economies are often assumed to be male domains - sites of 'man the
+			hunter'. Think beyond these assumptions to consider how people negotiated gender roles and
+			identities to create sustainable, flexible societies.
+		</li>
+	</ul>
+</GenericContent>
 
-		<p>
-			McGrath, A., Rademaker, L. and Troy, J. (eds). Everywhen: Australia and the Language of Deep
-			History. Lincoln: University of Nebraska, 2022 and New South, 2022.
-		</p>
+<GenericContent>
+	<h2>Additional Reading - works by author and team</h2>
 
-		<p>
-			McGrath, A., Rademaker, L., Silverstein, B. 'Deep history and deep listening: Indigenous
-			knowledges and the narration of deep pasts' in Rethinking History, 2021 DOI:
-			10.1080/13642529.2021.1966201
-		</p>
+	<p>
+		McGrath, A., Rademaker, L. and Troy, J. (eds). Everywhen: Australia and the Language of Deep
+		History. Lincoln: University of Nebraska, 2022 and New South, 2022.
+	</p>
 
-		<p>
-			McGrath, A. 'People of the Footprints: Rediscovery, Indigenous Historicities and the Science
-			of Deep Time', Interventions, 2021, DOI: 10.1080/1369801X.2021.1972822
-		</p>
+	<p>
+		McGrath, A., Rademaker, L., Silverstein, B. 'Deep history and deep listening: Indigenous
+		knowledges and the narration of deep pasts' in Rethinking History, 2021 DOI:
+		10.1080/13642529.2021.1966201
+	</p>
 
-		<p>
-			McGrath, A. and Russell, L. eds., The Routledge Companion to Global Indigenous History.
-			London: Routledge, 2021.ISBN 978-1-138-74310-6
-		</p>
+	<p>
+		McGrath, A. 'People of the Footprints: Rediscovery, Indigenous Historicities and the Science of
+		Deep Time', Interventions, 2021, DOI: 10.1080/1369801X.2021.1972822
+	</p>
 
-		<p>
-			McGrath, A. and Jebb, M. (eds). Long history, deep time: deepening histories of place. Canb:
-			ANU, 2015.
-		</p>
+	<p>
+		McGrath, A. and Russell, L. eds., The Routledge Companion to Global Indigenous History. London:
+		Routledge, 2021.ISBN 978-1-138-74310-6
+	</p>
 
-		<p>
-			NOTE: This article was commissioned by and published in Teaching History, the Journal of the
-			History Teachers' Association of NSW, March 2022. Permission to Republish is greatly
-			appreciated.
-		</p>
-	</GenericContent>
-</section>
+	<p>
+		McGrath, A. and Jebb, M. (eds). Long history, deep time: deepening histories of place. Canb:
+		ANU, 2015.
+	</p>
+
+	<p>
+		NOTE: This article was commissioned by and published in Teaching History, the Journal of the
+		History Teachers' Association of NSW, March 2022. Permission to Republish is greatly
+		appreciated.
+	</p>
+</GenericContent>

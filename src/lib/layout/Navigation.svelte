@@ -321,9 +321,9 @@
 			display: none;
 		}
 
-		.top-bar {
+		.top-bar, .top-bar.open {
 			background-color: var(--clr-dark-charcoal);
-			width: 100px;
+			width: 100%;
 			position: fixed;
 		}
 

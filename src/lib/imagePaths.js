@@ -1,10 +1,10 @@
 import { base } from '$app/paths';
 
-export const generateSubfolderImages = (folderPath, filenames) => {
+export const generateSubfolderMedia = (folderPath, filenames) => {
     return filenames.map(filename => `${base}${folderPath}/${filename}`);
 };
 
-export const generateSingleImages = (folderPath, filenames) => {
+export const generateSingleMedia = (folderPath, filenames) => {
     const images = {};
     filenames.forEach(filename => {
         const key = filename.split('.')[0];

@@ -17,6 +17,13 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 
 
 ### Scrollytelling
+IMAGES
+* [] All enlargeable images need a little enlarge icon or somethig
+* [] AudioBlock - smaller contained block that doens't break out of the width too much, - can be wider, but thinner!
+* [] Load full page of images before starting animations and sequences
+* [] Animate the quotes
+* [] Rewrite MediaSingle to take 1 image or video, caption optional, border optional
+* [] 2 quote types: inline, long
 * [] MediaFullWidth: Amend to accomodate video
 * [] Collapsible: animate on open
 * [] Citations: animate

@@ -1,7 +1,7 @@
 <script>
-	export let image='', video='', poster='', alt='', caption='', autoplay='', youTubeId='';
+	export let image='', video='', poster='', alt='', caption='', autoplay='', youTubeId='', vimeoId='';
 
-	import { YouTube } from "sveltekit-embed";
+	import { Vimeo, YouTube } from "sveltekit-embed";
 </script>
 
 <figure>
@@ -17,6 +17,10 @@
 	{/if}
 	{#if youTubeId}
 	  <YouTube youTubeId={youTubeId} />
+	{/if}
+
+	{#if vimeoId}
+	  <Vimeo vimeoId={vimeoId} />
 	{/if}
 
 	{#if image}

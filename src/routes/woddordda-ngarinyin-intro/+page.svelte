@@ -1,14 +1,13 @@
 <script>
 	import { base } from '$app/paths';
-	import { goto } from '$app/navigation';
 	import { YouTube } from 'sveltekit-embed';
 
 	import { Warning } from '$lib';
 
-	let sound = `${base}/stories/woddorda-ngarinyin-intro/audio/sound-intro-wudoo_final.mp3`;
-	let marardda = `${base}/stories/woddorda-ngarinyin-intro/images/marardda_navTile.png`;
-	let ngamardalee = `${base}/stories/woddorda-ngarinyin-intro/images/ngamardalee_navTile.png`;
-	let smoke = `${base}/stories/woddorda-ngarinyin-intro/video/iStock_smoke_fades.mp4`;
+	const sound = `${base}/stories/woddorda-ngarinyin-intro/audio/sound-intro-wudoo_final.mp3`;
+	const marardda = `${base}/stories/woddorda-ngarinyin-intro/images/marardda_navTile.png`;
+	const ngamardalee = `${base}/stories/woddorda-ngarinyin-intro/images/ngamardalee_navTile.png`;
+	const smoke = `${base}/stories/woddorda-ngarinyin-intro/video/iStock_smoke_fades.mp4`;
 </script>
 
 <div class="main-container">
@@ -108,9 +107,6 @@
 	}
 	.main-container {
 		min-height: 100vh;
-	}
-	.main-container header {
-		position: relative;
 	}
 	.main-container .title,
 	.main-container .full-section {
@@ -242,42 +238,6 @@
 		max-width: 340px;
 	}
 
-	.warning-buttons {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.warning-buttons button:first-child {
-		background-color: transparent;
-		margin-right: 2rem;
-	}
-	.warning-buttons button:last-child {
-		background-color: #fff 1c;
-		color: #fff;
-	}
-	.warning-buttons button:last-child:hover a {
-		color: #fff;
-	}
-	.warning-buttons button {
-		font-family: 'Work Sans', Arial, Helvetica, sans-serif;
-		width: 100%;
-		border: 2px solid #fff;
-		border-radius: 4px;
-		margin: 1rem 0;
-		padding: 1rem 2rem;
-		font-size: 1rem;
-	}
-	.warning-buttons button a {
-		color: #fff;
-	}
-
-	.warning-buttons button:hover {
-		border: 2px solid var(--color-fg-dark);
-		background-color: var(--color-fg-dark);
-		color: #fff !important;
-		cursor: pointer;
-	}
-
 	@media (min-width: 900px) {
 		.pane {
 			max-height: 400px;
@@ -301,15 +261,6 @@
 
 		.links a {
 			margin-bottom: 0;
-		}
-
-		.warning-buttons {
-			flex-direction: row;
-			justify-content: flex-start;
-		}
-
-		.warning-buttons button {
-			margin: 2rem 0;
 		}
 	}
 </style>

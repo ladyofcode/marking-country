@@ -3,16 +3,17 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { gsap } from 'gsap/dist/gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
 
 	import ImageSingle from './ImageSingle.svelte';
 	import InlineQuote from './InlineQuote.svelte';
 	import LearnMoreBox from './LearnMoreBox.svelte';
+	import { YouTube } from 'sveltekit-embed';
 
 	let markupContent = [],
 		imageContent = [];
 	let gallery;
 
-	gsap.registerPlugin(ScrollTrigger);
 
 	onMount(() => {
 		const photos = gsap.utils.toArray('.desktopPhoto:not(:first-child)');
@@ -157,14 +158,20 @@
 		<!-- desktop content -->
 
 		<div class="desktopPhotos">
-			{#each content as { image }, i}
+			{#each content as { image, youtube }, i}
 				<div class="desktopPhoto" bind:this={imageContent[i]}>
 					<!-- {#if i == 0}
 						<div class="desktopPhoto red" />
 					{:else}
 						<div class="desktopPhoto green" />
 					{/if} -->
-					<svelte:component this={image.component} {...image.props} />
+					{#if image}
+						<svelte:component this={image.component} {...image.props} />
+					{/if}
+
+					{#if youtube}
+						<svelte:component this={youtube.component} {...youtube.props} />
+					{/if}
 				</div>
 			{/each}
 			<!-- <div class="desktopPhoto red" />

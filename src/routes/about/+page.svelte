@@ -1,6 +1,6 @@
 <script>
 	import { base } from '$app/paths';
-	import { generateSubfolderImages, generateSingleImages } from '$lib/imagePaths';
+	import { generateSubfolderMedia, generateSingleMedia } from '$lib/imagePaths';
 	import { gsap } from 'gsap/dist/gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	gsap.registerPlugin(ScrollTrigger);
@@ -18,8 +18,7 @@
 		Credits
 	} from '$lib';
 
-	const folderPath = `/about/images/`;
-
+	
 	const singleImageFilenames = [
 		'dualMap.jpg',
 		'collage.jpg',
@@ -30,7 +29,7 @@
 		'DurerMap.jpg',
 		'map_australia.jpg'
 	];
-
+	
 	const slideshowFilenames = [
 		'SlideshowOne01.jpg',
 		'SlideshowOne02.jpg',
@@ -38,9 +37,10 @@
 		'SlideshowOne04.jpg',
 		'SlideshowOne05.jpg'
 	];
-
-	const singleImages = generateSingleImages(`${folderPath}`, singleImageFilenames);
-	const slideshow = generateSubfolderImages(`${folderPath}slideshow_one`, slideshowFilenames);
+	
+	const folderPath = `/about/images/`;
+	const singleImages = generateSingleMedia(`${folderPath}`, singleImageFilenames);
+	const slideshow = generateSubfolderMedia(`${folderPath}slideshow_one`, slideshowFilenames);
 
 	const slideshowOne = [
 		{

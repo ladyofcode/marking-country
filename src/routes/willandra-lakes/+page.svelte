@@ -1,7 +1,6 @@
 <script>
-	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import { generateSingleImages } from '$lib/imagePaths';
+	import { generateSingleMedia } from '$lib/imagePaths';
 	import {
 		Header,
 		Intro,
@@ -16,8 +15,7 @@
 		TwoColumns
 	} from '$lib';
 
-	const folderPath = `/stories/willandra/images/`;
-
+	
 	const singleImageFilenames = [
 		'MaryPappin.png',
 		'dvd.jpg',
@@ -28,8 +26,9 @@
 		'dune_tree.jpg',
 		'willandra_header.jpg'
 	];
-
-	const singleImages = generateSingleImages(`${folderPath}`, singleImageFilenames);
+	
+	const folderPath = `/stories/willandra/images/`;
+	const singleImages = generateSingleMedia(`${folderPath}`, singleImageFilenames);
 
 	const pageTitle = 'Willandra Lakes';
 </script>

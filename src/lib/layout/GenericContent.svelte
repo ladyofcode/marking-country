@@ -2,6 +2,7 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	import { killScrollTriggers } from '$lib/utils';
 
 	gsap.registerPlugin(ScrollTrigger);
 
@@ -41,12 +42,7 @@
 	});
 
 	onDestroy(() => {
-		triggers.forEach((trigger) => {
-			if (trigger.scrollTrigger) {
-				trigger.scrollTrigger.kill();
-			}
-			trigger.kill();
-		});
+		killScrollTriggers(triggers);
 	});
 </script>
 

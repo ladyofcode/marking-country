@@ -1,5 +1,6 @@
 <script>
 	import { base } from '$app/paths';
+	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
 
 	import {
 		AiatsisMap,
@@ -16,53 +17,74 @@
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	gsap.registerPlugin(ScrollTrigger);
 
-	let matthewMartinMessage = `${base}/mapping/audio/Matthew-Martin-message-sticks.mp3`;
-	let worldMap1500 = `${base}/mapping/images/1500_map_of_world.jpg`;
-	let magnificentGallery1 = `${base}/mapping/images/MagnificentGallery1.jpg`;
-	let magnificentGallery2 = `${base}/mapping/images/MagnificentGallery2.jpg`;
-	let tindaleMap = `${base}/mapping/images/TindaleMap.jpg`;
-	let everywhen_cover = `${base}/mapping/images/everywhen_cover.jpg`;
-	let slideshowFour1 = `${base}/mapping/images/slideshow_four/SlideshowFour01.jpg`;
-	let slideshowFour2 = `${base}/mapping/images/slideshow_four/SlideshowFour02.jpg`;
-	let slideshowFour3 = `${base}/mapping/images/slideshow_four/SlideshowFour03.jpg`;
-	let slideshowOne1 = `${base}/mapping/images/slideshow_one/SlideshowOne01.jpg`;
-	let slideshowOne2 = `${base}/mapping/images/slideshow_one/SlideshowOne02.jpg`;
-	let slideshowOne3 = `${base}/mapping/images/slideshow_one/SlideshowOne03.jpg`;
-	let slideshowOne4 = `${base}/mapping/images/slideshow_one/SlideshowOne04.jpg`;
-	let slideshowOne5 = `${base}/mapping/images/slideshow_one/SlideshowOne05.jpg`;
-	let slideshowThree1 = `${base}/mapping/images/slideshow_three/SlideshowThree01.jpg`;
-	let slideshowThree2 = `${base}/mapping/images/slideshow_three/SlideshowThree02.jpg`;
-	let slideshowThree3 = `${base}/mapping/images/slideshow_three/SlideshowThree03.jpg`;
-	let slideshowTwo1 = `${base}/mapping/images/slideshow_two/SlideshowTwo01.jpg`;
-	let slideshowTwo2 = `${base}/mapping/images/slideshow_two/SlideshowTwo02.jpg`;
-	let slideshowTwo3 = `${base}/mapping/images/slideshow_two/SlideshowTwo03.jpg`;
-	let slideshowTwo4 = `${base}/mapping/images/slideshow_two/SlideshowTwo04.jpg`;
-	let matthew = `${base}/stories/ngarinyin/images/Matthew-Dembal-Martin_sings-06062022_RCDH.jpg`;
-	let mudMap = `${base}/stories/woddordda/images/Mudmap_01.jpg`;
+	const singleImagesFilenames = [
+		'map_of_world.jpg',
+		'MagnificentGallery1.jpg',
+		'MagnificentGallery2.jpg',
+		'TindaleMap.jpg',
+		'everywhen_cover.jpg'
+	];
+
+	const slideshowFourFilenames = [
+		'SlideshowFour01.jpg',
+		'SlideshowFour02.jpg',
+		'SlideshowFour03.jpg'
+	];
+
+	const slideshowThreeFilenames = [
+		'SlideshowThree01.jpg',
+		'SlideshowThree02.jpg',
+		'SlideshowThree03.jpg'
+	];
+
+	const slideshowTwoFilenames = [
+		'SlideshowTwo01.jpg',
+		'SlideshowTwo02.jpg',
+		'SlideshowTwo03.jpg',
+		'SlideshowTwo04.jpg'
+	];
+
+	const folderPath = `/mapping/images/`;
+	const singleImages = generateSingleMedia(`${folderPath}`, singleImagesFilenames);
+	const slideshowTwoImages = generateSubfolderMedia(
+		`${folderPath}slideshow_two`,
+		slideshowTwoFilenames
+	);
+	const slideshowThreeImages = generateSubfolderMedia(
+		`${folderPath}slideshow_three`,
+		slideshowThreeFilenames
+	);
+	const slideshowFourImages = generateSubfolderMedia(
+		`${folderPath}slideshow_four`,
+		slideshowFourFilenames
+	);
+	const matthew = `${base}/stories/ngarinyin/images/Matthew-Dembal-Martin_sings-06062022_RCDH.jpg`;
+	const mudMap = `${base}/stories/woddordda/images/Mudmap_01.jpg`;
+	const matthewMartinMessage = `${base}/mapping/audio/Matthew-Martin-message-sticks.mp3`;
 
 	const slideshowTwo = [
 		{
-			url: slideshowTwo1,
+			url: slideshowTwoImages[0],
 			caption:
 				'Ulm Ptolemy world map, Author: Ptolemy, active 2nd century cartographer, facsimile reproduction by Johann Schnitzer, engraver, Date: 1482. National Library of Australia.',
 			source: '',
 			link: 'https://catalogue.nla.gov.au/Record/6729808'
 		},
 		{
-			url: slideshowTwo2,
+			url: slideshowTwoImages[1],
 			caption:
 				'World Map 1515, Author: Albrecht Dürer, woodcut, Date: 1515. British Museum. CC BY-NC-SA.',
 			link: 'https://www.britishmuseum.org/collection/object/P_1848-1111-7-8'
 		},
 		{
-			url: slideshowTwo3,
+			url: slideshowTwoImages[2],
 			caption:
 				'World Map, 1566, Author: Nicolas Desliens, cartographer, Date: 1566. Library of Congress.',
 			source: '',
 			link: 'https://www.loc.gov/item/2021668638'
 		},
 		{
-			url: slideshowTwo4,
+			url: slideshowTwoImages[3],
 			caption:
 				'Nova totivs terrarvm orbis geographica ac hydrographica tabvla, Author: Jodocus Hondius, cartographer, Jan Jansson, Date: 1641. Library of Congress.',
 			source: '',
@@ -72,19 +94,19 @@
 
 	const slideshowThree = [
 		{
-			url: slideshowThree1,
+			url: slideshowThreeImages[0],
 			caption:
 				'Kaart van de reizen van Abel Jansz. Tasman gedaan in 1642 en 1644, Author: Abel Janszoon Tasman, facsimile by Jacob Swart, Date: 1860. State Library of New South Wales.',
 			link: 'https://collection.sl.nsw.gov.au/record/74Vvz7JygQXM'
 		},
 		{
-			url: slideshowThree2,
+			url: slideshowThreeImages[1],
 			caption:
 				'Oost Indien, Author: Pieter Goos, Johannes van Keulen, Date: 1690. National Library of Australia.',
 			link: 'https://catalogue.nla.gov.au/Record/2661562'
 		},
 		{
-			url: slideshowThree3,
+			url: slideshowThreeImages[2],
 			caption:
 				'Carte reduite des terres Australes, Author: Jacques Nicolas Bellin, Jacobus van der Schley, Date: 1753. National Library of Australia.',
 			link: 'https://catalogue.nla.gov.au/Record/1694959'
@@ -93,19 +115,19 @@
 
 	const slideshowFour = [
 		{
-			url: slideshowFour1,
+			url: slideshowFourImages[0],
 			caption:
 				'Chart of part of the South Sea shewing the tracts & discoveries made by His Majestys ships Dolphin, Author: William Whitchurch,  John Hawkesworth, Date: 1773. National Library of Australia.',
 			link: 'https://catalogue.nla.gov.au/Record/2825618'
 		},
 		{
-			url: slideshowFour2,
+			url: slideshowFourImages[1],
 			caption:
 				"A new map of the world, with Captain Cook's tracks, his discoveries and those of the other circumnavigators, Author: William Palmer, Date: 1812. National Library of Australia.",
 			link: 'https://catalogue.nla.gov.au/Record/3259928'
 		},
 		{
-			url: slideshowFour3,
+			url: slideshowFourImages[2],
 			caption:
 				'General chart of Terra Australis or Australia: showing the parts explored between 1798 and 1803 by M. Flinders Commr. of H.M.S. Investigator, Author: Matthew Flinders, Date: 1814. National Library of Australia.',
 			link: 'https://catalogue.nla.gov.au/Record/588521'
@@ -132,7 +154,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: magnificentGallery1,
+					source: singleImages.MagnificentGallery1,
 					alt: 'Colour photograph of rock art, showing layers of images painted over the top of each other.',
 					width: '2200',
 					height: '2933',
@@ -217,7 +239,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: worldMap1500,
+					source: singleImages.map_of_world,
 					alt: 'Map from c. 1500, demonstrating what Europeans knew about the world.',
 					width: '2048', // Specify the width
 					height: '1442', // Specify the height
@@ -254,7 +276,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: everywhen_cover,
+					source: singleImages.everywhen_cover,
 					alt: 'Cover of Everywhen (book).',
 					caption:
 						"The Ngarigo artist Gail Neuss painted the image for the cover of Everywhen, titled Nura Nganymitung (Grandmother's Country), depicting intimate links with kin and land and the significance of Indigenous people's deep history.",
@@ -407,7 +429,7 @@
 </GenericContent>
 
 <ImageSingle
-	source={tindaleMap}
+	source={singleImages.TindaleMap}
 	alt="A black and white print map created by Norman Tindale in 1940, showing his view of the distribution of Aboriginal groups in Australia."
 	caption="Map showing the distribution of the Aboriginal tribes of Australia, Author: Norman B.
 	Tindale, Date: 1940. National Library of Australia, Canberra.
@@ -444,7 +466,7 @@
 </GenericContent>
 
 <ImageSingle
-	source={magnificentGallery2}
+	source={singleImages.MagnificentGallery2}
 	alt="The Magnificent Gallery, showing paintings of animal and human-like figures."
 	caption={`<em>Magnificent Gallery</em>. Photo: Brad Grogan, Western Yalanji Corporation.`}
 	width="2048"

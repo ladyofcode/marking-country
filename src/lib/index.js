@@ -2,6 +2,8 @@
 
 export { default as AiatsisMap } from './components/leaflet/AiatsisMap.svelte';
 export { default as AudioFullWidth } from './components/AudioFullWidth.svelte';
+export { default as AudioBlock } from './components/AudioBlock.svelte';
+export { default as Bios } from './components/Bios.svelte';
 export { default as Citations } from './components/Citations.svelte';
 export { default as Collapsible } from './components/Collapsible.svelte';
 export { default as Credits } from './components/Credits.svelte';
@@ -25,6 +27,7 @@ export { default as ScrollStop } from './components/ScrollStop.svelte';
 export { default as SideCaption } from './components/SideCaption.svelte';
 export { default as SideScroller } from './components/SideScroller.svelte';
 export { default as TwoColumnContent } from './layout/TwoColumnContent.svelte';
+export { default as TwoColumns } from './layout/TwoColumns.svelte';
 export { default as WalkOne } from './components/carnarvon/WalkOne.svelte';
 export { default as WalkTwo } from './components/carnarvon/WalkTwo.svelte';
 export { default as Warning } from './components/Warning.svelte';

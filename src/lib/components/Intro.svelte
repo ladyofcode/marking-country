@@ -3,6 +3,7 @@
 	import { gsap } from 'gsap';
 	import ScrollTrigger from 'gsap/ScrollTrigger';
 	import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+	import { killScrollTriggers } from '$lib/utils';
 
 	let content, line, wrapper;
 	let triggers = [];
@@ -57,12 +58,7 @@
 	});
 
 	onDestroy(() => {
-		triggers.forEach((trigger) => {
-			if (trigger.scrollTrigger) {
-				trigger.scrollTrigger.kill();
-			}
-			trigger.kill();
-		});
+		killScrollTriggers(triggers);
 	});
 </script>
 

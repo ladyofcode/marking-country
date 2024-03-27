@@ -1,10 +1,8 @@
 <script>
 	import { base } from '$app/paths';
-	import { generateSubfolderImages } from '$lib/imagePaths';
+	import { generateSubfolderMedia } from '$lib/imagePaths';
 
 	import { GenericContent, Header, ImageSingle, SideScroller } from '$lib';
-
-	const folderPath = `/education/images/`;
 
 	const uncleFredFilenames = [
 		'IMG_2552.jpg',
@@ -23,31 +21,32 @@
 		'IMG_0411.jpg'
 	];
 
+	const folderPath = `/education/images/`;
 	const image_education_header = `${base}${folderPath}book.jpg`;
-	const uncleFredSlides = generateSubfolderImages(
+	const uncleFredSlides = generateSubfolderMedia(
 		`${folderPath}uncle_fred_slideshow`,
 		uncleFredFilenames
 	);
-	const willandraSlides = generateSubfolderImages(
+	const willandraSlides = generateSubfolderMedia(
 		`${folderPath}willandra_slideshow`,
 		willandraFilenames
 	);
 
-	let sectionOneContent = [
+	const sectionOneContent = [
 		{
 			markup: [
 				`
-			<h2>Resources for teachers</h2>
-
-		<p>
-			<strong
-				>Please note: A Teacher's Guide, which addresses the aims of the National Curriculum is
-				currently being prepared and will be posted in the coming months.</strong
-			>
-		</p>
-
-		<h3>What is 'deep history'?</h3>
-		<h4>Ann McGrath, Australian National University</h4>`
+						<h2>Resources for teachers</h2>
+						
+						<p>
+							<strong
+							>Please note: A Teacher's Guide, which addresses the aims of the National Curriculum is
+							currently being prepared and will be posted in the coming months.</strong
+							>
+							</p>
+							
+							<h3>What is 'deep history'?</h3>
+							<h4>Ann McGrath, Australian National University</h4>`
 			],
 			image: {
 				component: ImageSingle,
@@ -65,11 +64,11 @@
 			markup: [
 				`
 				<p>
-			Deep history aims to address the long time-span of human history that extends beyond the
-			modern, the pre-modern, the mediaeval and the ancient - or at least that which is usually
-			defined as such. This makes deep history especially important for any study of Australian
-			history, a story that cannot be fully told without expanding our thinking about history's
-			periodization. This new 'historical turn' reflects an effort to shift the discipline's
+					Deep history aims to address the long time-span of human history that extends beyond the
+					modern, the pre-modern, the mediaeval and the ancient - or at least that which is usually
+					defined as such. This makes deep history especially important for any study of Australian
+					history, a story that cannot be fully told without expanding our thinking about history's
+					periodization. This new 'historical turn' reflects an effort to shift the discipline's
 			framings.
 		</p>
 			`

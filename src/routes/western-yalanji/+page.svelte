@@ -1,7 +1,6 @@
 <script>
-	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import { generateSingleImages, generateSubfolderImages } from '$lib/imagePaths';
+	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
 
 	import { YouTube } from 'sveltekit-embed';
 
@@ -9,14 +8,16 @@
 		Header,
 		Collapsible,
 		GenericContent,
-		Intro,
-		InlineQuote,
-		ImageSliderFullscreen,
 		ImageGrid,
+		ImageSingle,
+		InlineQuote,
+		Intro,
 		MediaFullWidth,
 		Citations,
 		Credits,
+		SideScroller,
 		TwoColumnContent,
+		TwoColumns,
 		YalanjiMap
 	} from '$lib';
 
@@ -56,80 +57,158 @@
 		'IMG_7944.jpg'
 	];
 
-	const folderPath = `/stories/yalanji/images/`
-
-	const singleImages = generateSingleImages(`${folderPath}`, singleImageFilenames);
-	const slide_gallery = generateSubfolderImages(`${folderPath}magnificent_gallery_slideshow`, slideGalleryFilenames);
-	const slide_rockart = generateSubfolderImages(`${folderPath}general_rockart_gallery`, slideRockArtFilenames);
+	const folderPath = `/stories/yalanji/images/`;
+	const singleImages = generateSingleMedia(`${folderPath}`, singleImageFilenames);
+	const slide_gallery = generateSubfolderMedia(
+		`${folderPath}magnificent_gallery_slideshow`,
+		slideGalleryFilenames
+	);
+	const slide_rockart = generateSubfolderMedia(
+		`${folderPath}general_rockart_gallery`,
+		slideRockArtFilenames
+	);
 
 	const pageTitle = 'Western Yalanji';
 
 	const slidesMagnificentGallery = [
-		{
-			url: slide_gallery[0],
-			caption: 'Mike Jones'
-		},
-		{
-			url: slide_gallery[1],
-			caption: 'Mike Jones'
-		},
-		{
-			url: slide_gallery[2],
-			caption: 'Mike Jones'
-		},
-		{
-			url: slide_gallery[3],
-			caption: 'Mike Jones'
-		},
-		{
-			url: slide_gallery[4],
-			caption: 'Mike Jones'
-		},
-		{
-			url: slide_gallery[5],
-			caption: 'Mike Jones'
-		},
-		{
-			url: slide_gallery[6],
-			caption: 'Mike Jones'
-		},
-		{
-			url: slide_gallery[7],
-			caption: 'Mike Jones'
-		},
-		{
-			url: slide_gallery[8],
-			caption: 'Mike Jones'
-		}
+		{ url: slide_gallery[0], caption: 'Mike Jones', type: 'image' },
+		{ url: slide_gallery[1], caption: 'Mike Jones', type: 'image' },
+		{ url: slide_gallery[2], caption: 'Mike Jones', type: 'image' },
+		{ url: slide_gallery[3], caption: 'Mike Jones', type: 'image' },
+		{ url: slide_gallery[4], caption: 'Mike Jones', type: 'image' },
+		{ url: slide_gallery[5], caption: 'Mike Jones', type: 'image' },
+		{ url: slide_gallery[6], caption: 'Mike Jones', type: 'image' },
+		{ url: slide_gallery[7], caption: 'Mike Jones', type: 'image' },
+		{ url: slide_gallery[8], caption: 'Mike Jones', type: 'image' }
 	];
 
 	const imageGrid = [
+		{ url: slide_rockart[0], type: 'image' },
+		{ url: slide_rockart[1], type: 'image' },
+		{ url: slide_rockart[2], type: 'image' },
+		{ url: slide_rockart[3], type: 'image' },
+		{ url: slide_rockart[4], type: 'image' },
+		{ url: slide_rockart[5], type: 'image' },
+		{ url: slide_rockart[6], type: 'image' },
+		{ url: slide_rockart[7], type: 'image' },
+		{ url: slide_rockart[8], type: 'image' }
+	];
+
+	const sideScrollerOne = [
 		{
-			url: slide_rockart[0]
+			markup: [
+				`<h2>Quinkan Country</h2>
+
+<p>
+	<a href="https://www.dcceew.gov.au/parks-heritage/heritage/places/national/quinkan-country"
+		>Quinkan Country</a
+	> is home to groups known as the Kuku-Thypan, Kuku Yalanji, Gugu-Yimithirr, Gugu-Warra, Gugu-Ballanji,
+	Gugu-Minni, or Olkola, as well as other names.
+</p>
+
+<p>
+	The Kuku Yalanji describe rock paintings as Stories. Storytime, a regional term similar to
+	Dreaming or Dreamtime, was Creation time, when Country and everything that dwelt here was made.
+</p>
+`,
+				{
+					component: InlineQuote,
+					children: `<p>
+			The epic narratives of the Storytime tell of the origins of the dramatic Cape York landscape
+			of rocky ridges, escarpments, plateaus, steep cliffs, rock falls, river gullies and valleys.
+		</p>`
+				}
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: singleImages.quinkan_country_boundary_map,
+					alt: 'A cartographical map showing the boundaries of Quinkan Country.',
+					width: '2400',
+					height: '1967',
+					caption: '',
+					galleryId: 'quinkan_country_boundary_map'
+				}
+			}
 		},
 		{
-			url: slide_rockart[1]
+			markup: [
+				`<p>
+		Different groups have their own special versions of Stories and interpretations, and key elders
+		hold cherished elements of the story - some can be told to the wider public, others are
+		restricted. Charlie Lee Cheu and Danny Lee Cheu talk about some of these Stories from Quinkan
+		Country.
+	</p> <p>
+		Many stories tell of a time when the Country was flat, without mountains. A summary of one
+		account is that Goorialla, the Great Rainbow Serpent, travelled across this unformed land. He
+		stopped and did his droppings, which were transformed into the mountain Ngarrabullgan (which
+		Europeans called Mt Mulligan, after an Irish prospector whose party found gold). On its summit,
+		Goorialla created a beautiful water lily lagoon, and made a campfire which left behind a mammoth
+		coal seam.
+	</p>
+
+	<p>
+		Later Goorialla came to where people were camping. Young brothers with nowhere else to stay were
+		seeking shelter, and Goorialla opened his giant mouth very wide so that they could retreat
+		there. But it was a trick and he swallowed them. When men reached the sleeping serpent, they
+		sliced him open to free the boys. When Goorialla woke, he was hungry and in a great rage. In his
+		fury, he broke the mountain into bits, and hurled it around the Country, which explains the many
+		rocky outcrops, boulders and eroded shelters that can be seen in the region today.
+	</p>
+
+	<p>One notable character appearing in the local rock shelters are the Quinkans.</p>`,
+				{
+					component: InlineQuote,
+					props: {
+						credit: 'Charlie Lee Cheu, Western Yalanji'
+					},
+					children: `<p>Down Laura there, you know, you see them mob Quinkan walking on the stone.</p>`
+				}
+			],
+			youtube: {
+				component: YouTube,
+				props: {
+					youTubeId: 'Rqa8qxFxwDE',
+					caption:
+						'Charlie Lee Cheu and Danny Lee Cheu. Courtesy of Western Yalanji Aboriginal Corporation.'
+				}
+			}
 		},
 		{
-			url: slide_rockart[2]
-		},
-		{
-			url: slide_rockart[3]
-		},
-		{
-			url: slide_rockart[4]
-		},
-		{
-			url: slide_rockart[5]
-		},
-		{
-			url: slide_rockart[6]
-		},
-		{
-			url: slide_rockart[7]
-		},
-		{
-			url: slide_rockart[8]
+			markup: [
+				`<p>
+				Quinkans could take many forms, including Imjin (Anurra) and Timara, and could deceive men
+				by transforming themselves into beautiful women or other creatures.
+			</p>
+
+			<p>
+				Artists painted certain Quinkans as huge male figures with strangely shaped heads, large
+				donkey-like ears, distended, stick-like bodies and enlarged genitals. The females had
+				rounded bodies, exaggerated and long pendulous breasts, often a high head adornment, and
+				often hands with a peculiar number of fingers.
+			</p>
+
+			<p>
+				This Quinkan style is a relatively recent art development, introduced about 4,000 years ago.
+				Unlike the famous early paintings of Lascaux and other sites in France and Europe, which
+				featured animals, Aboriginal people painted human figures for millennia; it was a favoured
+				subject. And these visualizations have astonishing longevity. They have endured far beyond
+				the 100s of years of the great European oil paintings by artists such Leonardo da Vinci.
+			</p>
+
+			<p>This long, long history contrasts dramatically to that of the Europeans in Australia.</p>`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: singleImages.Quinkans,
+					alt: "Two 'Quinkan' figures paintings on a rock wall.",
+					width: '2400',
+					height: '3200',
+					caption: 'Quinkans. Photo: Mike Jones, 2021.',
+					galleryId: 'Quinkans'
+				}
+			}
 		}
 	];
 </script>
@@ -151,108 +230,7 @@
 	</p>
 </Intro>
 
-<GenericContent>
-	<h2>Quinkan Country</h2>
-
-	<figure>
-		<img
-			src={singleImages.quinkan_country_boundary_map}
-			alt="A cartographical map showing the boundaries of Quinkan Country."
-		/>
-	</figure>
-
-	<p>
-		<a href="https://www.dcceew.gov.au/parks-heritage/heritage/places/national/quinkan-country"
-			>Quinkan Country</a
-		> is home to groups known as the Kuku-Thypan, Kuku Yalanji, Gugu-Yimithirr, Gugu-Warra, Gugu-Ballanji,
-		Gugu-Minni, or Olkola, as well as other names.
-	</p>
-
-	<p>
-		The Kuku Yalanji describe rock paintings as Stories. Storytime, a regional term similar to
-		Dreaming or Dreamtime, was Creation time, when Country and everything that dwelt here was made.
-	</p>
-
-	<InlineQuote>
-		<p>
-			The epic narratives of the Storytime tell of the origins of the dramatic Cape York landscape
-			of rocky ridges, escarpments, plateaus, steep cliffs, rock falls, river gullies and valleys.
-		</p>
-	</InlineQuote>
-
-	<p>
-		Different groups have their own special versions of Stories and interpretations, and key elders
-		hold cherished elements of the story - some can be told to the wider public, others are
-		restricted. Charlie Lee Cheu and Danny Lee Cheu talk about some of these Stories from Quinkan
-		Country.
-	</p>
-
-	<figure>
-		<YouTube youTubeId="Rqa8qxFxwDE" />
-
-		<figcaption>
-			Charlie Lee Cheu and Danny Lee Cheu. Courtesy of Western Yalanji Aboriginal Corporation.
-		</figcaption>
-	</figure>
-
-	<p>
-		Many stories tell of a time when the Country was flat, without mountains. A summary of one
-		account is that Goorialla, the Great Rainbow Serpent, travelled across this unformed land. He
-		stopped and did his droppings, which were transformed into the mountain Ngarrabullgan (which
-		Europeans called Mt Mulligan, after an Irish prospector whose party found gold). On its summit,
-		Goorialla created a beautiful water lily lagoon, and made a campfire which left behind a mammoth
-		coal seam.
-	</p>
-
-	<p>
-		Later Goorialla came to where people were camping. Young brothers with nowhere else to stay were
-		seeking shelter, and Goorialla opened his giant mouth very wide so that they could retreat
-		there. But it was a trick and he swallowed them. When men reached the sleeping serpent, they
-		sliced him open to free the boys. When Goorialla woke, he was hungry and in a great rage. In his
-		fury, he broke the mountain into bits, and hurled it around the Country, which explains the many
-		rocky outcrops, boulders and eroded shelters that can be seen in the region today.
-	</p>
-
-	<p>One notable character appearing in the local rock shelters are the Quinkans.</p>
-
-	<InlineQuote credit="Charlie Lee Cheu, Western Yalanji">
-		<p>Down Laura there, you know, you see them mob Quinkan walking on the stone.</p>
-	</InlineQuote>
-</GenericContent>
-
-<GenericContent>
-	<TwoColumnContent>
-		<div>
-			<figure>
-				<img src={singleImages.Quinkans} alt="Two 'Quinkan' figures paintings on a rock wall." />
-				<figcaption>Quinkans. Photo: Mike Jones, 2021.</figcaption>
-			</figure>
-		</div>
-		<div>
-			<p>
-				Quinkans could take many forms, including Imjin (Anurra) and Timara, and could deceive men
-				by transforming themselves into beautiful women or other creatures.
-			</p>
-
-			<p>
-				Artists painted certain Quinkans as huge male figures with strangely shaped heads, large
-				donkey-like ears, distended, stick-like bodies and enlarged genitals. The females had
-				rounded bodies, exaggerated and long pendulous breasts, often a high head adornment, and
-				often hands with a peculiar number of fingers.
-			</p>
-
-			<p>
-				This Quinkan style is a relatively recent art development, introduced about 4,000 years ago.
-				Unlike the famous early paintings of Lascaux and other sites in France and Europe, which
-				featured animals, Aboriginal people painted human figures for millennia; it was a favoured
-				subject. And these visualizations have astonishing longevity. They have endured far beyond
-				the 100s of years of the great European oil paintings by artists such Leonardo da Vinci.
-			</p>
-
-			<p>This long, long history contrasts dramatically to that of the Europeans in Australia.</p>
-		</div>
-	</TwoColumnContent>
-</GenericContent>
+<SideScroller content={sideScrollerOne} />
 
 <GenericContent>
 	<h2>Cape York Peninsula</h2>
@@ -262,18 +240,20 @@
 		Cape York landscape, its sandstone and river valley formations, as being formed on the cusp of
 		the Cretaceous and Jurassic epochs.
 	</p>
+</GenericContent>
 
-	<figure>
-		<img src={singleImages.GeologicalTimeScale4} alt="Table showing geological time scales." />
-		<figcaption>
-			The geological time scale. Image by Jonathan R. Hendricks. <a
-				href="https://creativecommons.org/licenses/by-sa/4.0/"
-				>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International
-				License</a
-			>.
-		</figcaption>
-	</figure>
+<MediaFullWidth
+	image={singleImages.GeologicalTimeScale4}
+	alt="Table showing geological time scales."
+	,
+	caption={`The geological time scale. Image by Jonathan R. Hendricks. <a
+href="https://creativecommons.org/licenses/by-sa/4.0/"
+>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International
+License</a
+>.`}
+/>
 
+<GenericContent>
 	<p>
 		Its rock shelters provided cool and welcoming campsites that eventually became outstandingly
 		rich in art. The paintings that can be seen today were made from around 27,000 years before the
@@ -300,19 +280,16 @@
 		floods. Despite such ordeals, they successfully sustained their societies and their home
 		environment for tens of thousands of years.
 	</p>
+</GenericContent>
+<MediaFullWidth
+	image={singleImages.coastlines}
+	alt="Animated map showing the changing coastline of Sahul from today to 21,000 years ago."
+	,
+	caption={`Changing coastlines of Sahul. Created by Mike Jones, based on data provided by CartoGIS
+		Services, Australian National University.`}
+/>
 
-	<figure>
-		<img
-			src={singleImages.coastlines}
-			alt="Animated map showing the changing coastline of Sahul from today to 21,000 years ago."
-		/>
-
-		<figcaption>
-			Changing coastlines of Sahul. Created by Mike Jones, based on data provided by CartoGIS
-			Services, Australian National University.
-		</figcaption>
-	</figure>
-
+<GenericContent>
 	<p>
 		On the walls of many Cape York rock shelters, successive generations of Aboriginal artists
 		painted layer upon layer of the Stories that connected ancestral characters with the present
@@ -334,15 +311,14 @@
 		only available at certain life stages, when a child or young adult had earnt the right to gain
 		knowledge of them. Some sites and stories were exclusive to girls or boys, men or women.
 	</p>
+</GenericContent>
+<MediaFullWidth
+	youTubeId="FjTcA4Ldato"
+	caption="Aileen Meldrum and Betty Knowles. Courtesy Western Yalanji Aboriginal Corporation.
+	"
+/>
 
-	<figure>
-		<YouTube youTubeId="FjTcA4Ldato" />
-
-		<figcaption>
-			Aileen Meldrum and Betty Knowles. Courtesy Western Yalanji Aboriginal Corporation.
-		</figcaption>
-	</figure>
-
+<GenericContent>
 	<p>
 		For hundreds of generations people have marked the places where they lived, gathered, ate,
 		played, and loved. Though countless paintings and carvings have been lost, taken, or destroyed,
@@ -374,18 +350,22 @@
 	</p>
 </GenericContent>
 
+<TwoColumns>
+	<div slot="column1">
+		<h2>Magnificent Gallery</h2>
+		<p>
+			The Magnificent Gallery presents a panoramic history of the Kuku Yulanji people, revealing a
+			rich local knowledge of their Country through deep time.
+		</p>
+	</div>
+	<div slot="column2">
+		<YalanjiMap />
+	</div>
+</TwoColumns>
+
+<ImageGrid media={slidesMagnificentGallery} />
+
 <GenericContent>
-	<h2>Magnificent Gallery</h2>
-
-	<YalanjiMap />
-
-	<p>
-		The Magnificent Gallery presents a panoramic history of the Kuku Yulanji people, revealing a
-		rich local knowledge of their Country through deep time.
-	</p>
-
-	<ImageSliderFullscreen slides={slidesMagnificentGallery} />
-
 	<p>Aboriginal family and clan groups visited this big Story Place over millennia.</p>
 
 	<p>
@@ -440,12 +420,14 @@
 		our digital clocks and calendars. They practiced a close study of the sights, sounds, smells and
 		seasons of the natural world in which they were, and still are, intimately entwined.
 	</p>
+</GenericContent>
 
-	<figure>
-		<YouTube youTubeId="BIoSyyNXhTA" />
-		<figcaption>Danny O'Shane. Courtesy Western Yalanji Aboriginal Corporation.</figcaption>
-	</figure>
+<MediaFullWidth
+	youTubeId="BIoSyyNXhTA"
+	caption="Danny O'Shane. Courtesy Western Yalanji Aboriginal Corporation."
+/>
 
+<GenericContent>
 	<p>
 		Artists made some of these paintings 15,000 years ago, during the the Upper Pleistocene, the
 		later epoch of the Ice Age. Other art at Magnificent Gallery was created 120 years ago—or even
@@ -483,38 +465,38 @@
 	</p>
 </GenericContent>
 
-<ImageGrid images={imageGrid} />
+<ImageGrid media={imageGrid} />
+
+<TwoColumns>
+	<div slot="column1">
+		<h2>Materials</h2>
+		<p>
+			Local Aboriginal people favoured ochres such as haematite as pigments, which later became
+			preserved by natural processes under a layer of white vitreous silica. When these pigments
+			were scientifically tested using carbon dating techniques, the researchers found dead
+			micro-organisms trapped on the surfaces, perhaps due to the brushes used.
+		</p>
+
+		<p>
+			Aboriginal artists around Australia used brushes made from bark or twigs: stringy bark, tree
+			orchid, pandanus, palm leaf, and the chewed stems of moghania parviflora and grewia
+			retusifolia. Local elder George Musgrave (1921-2006) explained that his people favoured the
+			native kapok bush, wallaby grass tied into bundles, and lawyer vine, which was traded around
+			the region.
+		</p>
+	</div>
+	<div slot="column2">
+		<ImageSingle
+			source={singleImages.Ochre}
+			width="2400"
+			height="2401"
+			alt="A flat, dish-shaped rock with a smaller stone that looks to have been used to grind red ochre."
+			caption="Ochre at the Magnificent Gallery. Photo: Mike Jones (2021)."
+		/>
+	</div>
+</TwoColumns>
 
 <GenericContent>
-	<TwoColumnContent>
-		<div>
-			<h2>Materials</h2>
-			<p>
-				Local Aboriginal people favoured ochres such as haematite as pigments, which later became
-				preserved by natural processes under a layer of white vitreous silica. When these pigments
-				were scientifically tested using carbon dating techniques, the researchers found dead
-				micro-organisms trapped on the surfaces, perhaps due to the brushes used.
-			</p>
-
-			<p>
-				Aboriginal artists around Australia used brushes made from bark or twigs: stringy bark, tree
-				orchid, pandanus, palm leaf, and the chewed stems of moghania parviflora and grewia
-				retusifolia. Local elder George Musgrave (1921-2006) explained that his people favoured the
-				native kapok bush, wallaby grass tied into bundles, and lawyer vine, which was traded around
-				the region.
-			</p>
-		</div>
-		<div>
-			<figure>
-				<img
-					src={singleImages.Ochre}
-					alt="A flat, dish-shaped rock with a smaller stone that looks to have been used to grind red ochre."
-				/>
-				<figcaption>Ochre at the Magnificent Gallery. Photo: Mike Jones (2021).</figcaption>
-			</figure>
-		</div>
-	</TwoColumnContent>
-
 	<p>
 		This was verified when scientists found twisted strands of kapok tree and local orchids on the
 		surfaces of paintings: the exact same fibres that George had said local artists used for their
@@ -599,58 +581,56 @@
 			>Painting the Police</a
 		>'.
 	</p>
-
-	<TwoColumnContent>
-		<div>
-			<p>
-				The terrible suffering of Aboriginal people, especially the extent of the violence,
-				attracted attention from humanitarians in Britain and around Australia.
-			</p>
-
-			<p>
-				Consequently, the Queensland government introduced new legislation in 1897, the Aboriginals
-				Protection and Restriction of the Sale of Opium Act. Ostensibly introduced to 'protect'
-				people from extreme violence, labour and sexual exploitation, drug addiction and disease, it
-				actually served as a powerful means of controlling and removing Aboriginal people from their
-				Country. This further disrupted their autonomy, language and culture.
-			</p>
-
-			<p>
-				Many Aboriginal people were moved to distant government or mission-run reserves, where they
-				were placed under surveillance and control, and prohibited from returning to their own
-				Country.
-			</p>
-
-			<p>
-				Government policy prevented them from using their own languages and conducting ceremonies.
-				Aspects of tribal authority and Law were broken down.
-			</p>
-
-			<p>
-				Other Aboriginal people maintained links with their Country through working in a range of
-				jobs. Ranger Danny Lee Cheu reflects on his life story and travels as a Ringer and working
-				in the cattle industry, mining and crocodile shooting through his Country.
-			</p>
-		</div>
-
-		<div>
-			<figure>
-				<img
-					src={singleImages.AboriginalProtectionOpiumAct}
-					alt="A scan of the Aboriginals Protection and Restriction of the Sale of Opium Act 1897. The paper is slightly yellowed, and has a red wax seal and is bound with a green ribbon."
-				/>
-				<figcaption>
-					Aboriginals Protection and Restriction of the Sale of Opium Act 1897 (Qld). <a
-						href="https://www.foundingdocs.gov.au/item-sdid-54.html"
-						>https://www.foundingdocs.gov.au/item-sdid-54.html</a
-					>
-				</figcaption>
-			</figure>
-		</div>
-	</TwoColumnContent>
-
-	<YouTube youTubeId="-uSSUNeida8" />
 </GenericContent>
+
+<TwoColumns>
+	<div slot="column1">
+		<p>
+			The terrible suffering of Aboriginal people, especially the extent of the violence, attracted
+			attention from humanitarians in Britain and around Australia.
+		</p>
+
+		<p>
+			Consequently, the Queensland government introduced new legislation in 1897, the Aboriginals
+			Protection and Restriction of the Sale of Opium Act. Ostensibly introduced to 'protect' people
+			from extreme violence, labour and sexual exploitation, drug addiction and disease, it actually
+			served as a powerful means of controlling and removing Aboriginal people from their Country.
+			This further disrupted their autonomy, language and culture.
+		</p>
+
+		<p>
+			Many Aboriginal people were moved to distant government or mission-run reserves, where they
+			were placed under surveillance and control, and prohibited from returning to their own
+			Country.
+		</p>
+
+		<p>
+			Government policy prevented them from using their own languages and conducting ceremonies.
+			Aspects of tribal authority and Law were broken down.
+		</p>
+
+		<p>
+			Other Aboriginal people maintained links with their Country through working in a range of
+			jobs. Ranger Danny Lee Cheu reflects on his life story and travels as a Ringer and working in
+			the cattle industry, mining and crocodile shooting through his Country.
+		</p>
+	</div>
+
+	<div slot="column2">
+		<ImageSingle
+			source={singleImages.AboriginalProtectionOpiumAct}
+			width="484"
+			height="822"
+			alt="A scan of the Aboriginals Protection and Restriction of the Sale of Opium Act 1897. The paper is slightly yellowed, and has a red wax seal and is bound with a green ribbon."
+			caption={`Aboriginals Protection and Restriction of the Sale of Opium Act 1897 (Qld). <a
+					href="https://www.foundingdocs.gov.au/item-sdid-54.html"
+					>https://www.foundingdocs.gov.au/item-sdid-54.html</a
+				>`}
+		/>
+	</div>
+</TwoColumns>
+
+<YouTube youTubeId="-uSSUNeida8" />
 
 <Collapsible name="percyWesternYalanji" label="Percy Tresize and Dick Roughsey">
 	<p>
@@ -722,82 +702,80 @@
 		digital platforms and their relevance for the future of the Yalanji people and knowledge of
 		Country.
 	</p>
-
-	<figure>
-		<YouTube youTubeId="E9EhS-1RfQQ" />
-		<figcaption>Glenis Grogan. Courtesy Western Yalanji Aboriginal Corporation.</figcaption>
-	</figure>
 </GenericContent>
 
-<GenericContent>
-	<Collapsible name="referencesQuinkan" label="References and further reading">
-		<ul>
-			<li>
-				Beaglehole, J.C., ed. (1968). <em
-					>The Journals of Captain James Cook on His Voyages of Discovery, vol. I:The Voyage of the
-					Endeavour 1768-1771</em
-				>. Cambridge: Cambridge University Press.
-			</li>
+<MediaFullWidth
+	youTubeId="E9EhS-1RfQQ"
+	caption="Glenis Grogan. Courtesy Western Yalanji Aboriginal Corporation."
+/>
 
-			<li>
-				David, Bruno, and Harry Lourandos. “37,000 Years and More in Tropical Australia:
-				Investigating Long-Term Archaeological Trends in Cape York Peninsula.” <em
-					>Proceedings of the Prehistoric Society 63</em
-				> (ed 1997): 1-23. https://doi.org/10.1017/S0079497X00002358.
-			</li>
+<Collapsible name="referencesQuinkan" label="References and further reading">
+	<ul>
+		<li>
+			Beaglehole, J.C., ed. (1968). <em
+				>The Journals of Captain James Cook on His Voyages of Discovery, vol. I:The Voyage of the
+				Endeavour 1768-1771</em
+			>. Cambridge: Cambridge University Press.
+		</li>
 
-			<li>
-				Forsyth, J.W., 1984. “Janssen, Willem (?-?)”, In <em>Australian Dictionary of Biography</em
-				>. Canberra: National Centre of Biography, Australian National University. Accessed 10
-				November 2021. https://adb.anu.edu.au/biography/janssen-willem-2270/text2911.
-			</li>
+		<li>
+			David, Bruno, and Harry Lourandos. “37,000 Years and More in Tropical Australia: Investigating
+			Long-Term Archaeological Trends in Cape York Peninsula.” <em
+				>Proceedings of the Prehistoric Society 63</em
+			> (ed 1997): 1-23. https://doi.org/10.1017/S0079497X00002358.
+		</li>
 
-			<li>
-				George, Tommy, and Tom Popp. Quinkan Rock Art: <em>Images on Rock from the Laura Area</em>.
-				Laura, Qld: Ang-Gnarra Aboriginal Corporation, 1996.
-			</li>
+		<li>
+			Forsyth, J.W., 1984. “Janssen, Willem (?-?)”, In <em>Australian Dictionary of Biography</em>.
+			Canberra: National Centre of Biography, Australian National University. Accessed 10 November
+			2021. https://adb.anu.edu.au/biography/janssen-willem-2270/text2911.
+		</li>
 
-			<li>
-				Kirkman, Noreen. 1984. “The Palmer Goldfield, 1873-1883”, Honours Thesis, James Cook
-				University of North Queensland. Accessed November 7 2021.
-				https://researchonline.jcu.edu.au/57117/.
-			</li>
+		<li>
+			George, Tommy, and Tom Popp. Quinkan Rock Art: <em>Images on Rock from the Laura Area</em>.
+			Laura, Qld: Ang-Gnarra Aboriginal Corporation, 1996.
+		</li>
 
-			<li>
-				Memmott, Paul. 2012. “Roughsey, Dick (Goobalathaldin) (1920-1985).” In <em
-					>Australian Dictionary of Biography</em
-				>. Canberra: National Centre of Biography, Australian National University. Accessed November
-				7, 2021. https://adb.anu.edu.au/biography/roughsey-dick-goobalathaldin-14193.
-			</li>
+		<li>
+			Kirkman, Noreen. 1984. “The Palmer Goldfield, 1873-1883”, Honours Thesis, James Cook
+			University of North Queensland. Accessed November 7 2021.
+			https://researchonline.jcu.edu.au/57117/.
+		</li>
 
-			<li>
-				Morwood, M. J., and D. R. Hobbs, eds. 1995. <em
-					>Quinkan Prehistory: The Archaeology of Aboriginal Art in S.E. Cape York Peninsula</em
-				>, Australia. Tempus / St. Lucia, Qld, v. 3. St. Lucia, Qld: Anthropology Museum, University
-				of Queensland.
-			</li>
+		<li>
+			Memmott, Paul. 2012. “Roughsey, Dick (Goobalathaldin) (1920-1985).” In <em
+				>Australian Dictionary of Biography</em
+			>. Canberra: National Centre of Biography, Australian National University. Accessed November
+			7, 2021. https://adb.anu.edu.au/biography/roughsey-dick-goobalathaldin-14193.
+		</li>
 
-			<li>
-				“National Heritage List - Quinkan Country,” 2018. Accessed 7 November 2021.
-				https://environment.gov.au/cgi-bin/ahdb/search.pl?mode=place_detail;place_id=106262.
-			</li>
+		<li>
+			Morwood, M. J., and D. R. Hobbs, eds. 1995. <em
+				>Quinkan Prehistory: The Archaeology of Aboriginal Art in S.E. Cape York Peninsula</em
+			>, Australia. Tempus / St. Lucia, Qld, v. 3. St. Lucia, Qld: Anthropology Museum, University
+			of Queensland.
+		</li>
 
-			<li>
-				Queensland Art Gallery, ed. <em
-					>Story Place: Indigenous Art of Cape York and the Rainforest</em
-				>. South Brisbane, Qld: Queensland Art Gallery, 2003.
-			</li>
+		<li>
+			“National Heritage List - Quinkan Country,” 2018. Accessed 7 November 2021.
+			https://environment.gov.au/cgi-bin/ahdb/search.pl?mode=place_detail;place_id=106262.
+		</li>
 
-			<li>
-				Trezise, Percy. 1969. <em
-					>Quinkan Country: Adventures in Search of Aboriginal Cave Paintings</em
-				> in Cape York. Sydney: Reed.
-			</li>
+		<li>
+			Queensland Art Gallery, ed. <em
+				>Story Place: Indigenous Art of Cape York and the Rainforest</em
+			>. South Brisbane, Qld: Queensland Art Gallery, 2003.
+		</li>
 
-			<li>Trezise, Percy and Dick Roughsey. 1978. The Quinkins. Sydney: Collins.</li>
-		</ul>
-	</Collapsible>
-</GenericContent>
+		<li>
+			Trezise, Percy. 1969. <em
+				>Quinkan Country: Adventures in Search of Aboriginal Cave Paintings</em
+			> in Cape York. Sydney: Reed.
+		</li>
+
+		<li>Trezise, Percy and Dick Roughsey. 1978. The Quinkins. Sydney: Collins.</li>
+	</ul>
+</Collapsible>
 
 <GenericContent>
 	<h2>Credits</h2>

@@ -1,6 +1,7 @@
 <script>
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
+	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
 
 	import {
 		Header,
@@ -20,154 +21,173 @@
 		YawuruCoastMap
 	} from '$lib';
 
-	let image_header = `${base}/stories/yawuru/images/Header_MG_0337.jpg`;
-	let image_elsie = `${base}/stories/yawuru/images/elsie_edgar.jpg`;
-	let image_calendar = `${base}/stories/yawuru/images/YawuruSeasonalCalendar.png`;
-	let image_gate = `${base}/stories/yawuru/images/Gate_cropped.jpg`;
-	let image_jack_edgar = `${base}/stories/yawuru/images/JackEdgarThangoo.jpg`;
-	let image_lloyd_unda = `${base}/stories/yawuru/images/Lloyd_Unda.jpg`;
-	let image_susan_father = `${base}/stories/yawuru/images/MarjadeeFather_cropped.jpg`;
-	let image_dispute = `${base}/stories/yawuru/images/NativesDisputeWestAustralian_cropped.jpg`;
-	let image_doris_edgar = `${base}/stories/yawuru/images/TommyDorisCanberra1969.jpg`;
-	let image_tommy_edgar = `${base}/stories/yawuru/images/TommyEdgar.jpg`;
-	let image_unda = `${base}/stories/yawuru/images/Unda.jpg`;
-	let image_thangoo_coast = `${base}/stories/yawuru/images/YawuruCountry.jpg`;
+	const singleImageFilenames = [
+		'Header_MG_0337.jpg',
+		'elsie_edgar.jpg',
+		'YawuruSeasonalCalendar.png',
+		'Gate_cropped.jpg',
+		'JackEdgarThangoo.jpg',
+		'Lloyd_Unda.jpg',
+		'MarjadeeFather_cropped.jpg',
+		'NativesDisputeWestAustralian_cropped.jpg',
+		'TommyDorisCanberra1969.jpg',
+		'TommyEdgar.jpg',
+		'Unda.jpg',
+		'YawuruCountry.jpg'
+	];
 
-	let slide_maps_1 = `${base}/stories/yawuru/images/historic_ maps_slideshow/01_1864-exploration-of-Robeuck-Bay-3423-012_detail.jpg`;
-	let slide_maps_2 = `${base}/stories/yawuru/images/historic_ maps_slideshow/02_1903-Figure-6-505395-4898_6K7-1903.jpg`;
-	let slide_maps_3 = `${base}/stories/yawuru/images/historic_ maps_slideshow/03_1945-nla.jpg`;
-	let slide_maps_4 = `${base}/stories/yawuru/images/historic_ maps_slideshow/04_1955-Figure-10-503215-Cons_4567_Item_127-4-1955.jpg`;
+	const slideMapsFilenames = [
+		'01_1864-exploration-of-Robeuck-Bay-3423-012_detail.jpg',
+		'02_1903-Figure-6-505395-4898_6K7-1903.jpg',
+		'03_1945-nla.jpg',
+		'04_1955-Figure-10-503215-Cons_4567_Item_127-4-1955.jpg'
+	];
 
-	let slide_kennedy_1 = `${base}/stories/yawuru/images/huts_on_kennedy_hill/01_KennedyHill.jpg`;
-	let slide_kennedy_2 = `${base}/stories/yawuru/images/huts_on_kennedy_hill/02_ANUA590-141-023.jpg`;
+	const slideKennedyFilenames = ['01_KennedyHill.jpg', '02_ANUA590-141-023.jpg'];
 
-	let slide_making_1 = `${base}/stories/yawuru/images/making_of_slideshow/01_IMG_7775.jpg`;
-	let slide_making_2 = `${base}/stories/yawuru/images/making_of_slideshow/02_IMG_7613.jpg`;
-	let slide_making_3 = `${base}/stories/yawuru/images/making_of_slideshow/03_IMG_1043.jpg`;
-	let slide_making_4 = `${base}/stories/yawuru/images/making_of_slideshow/04_20210601_0041.jpg`;
-	let slide_making_5 = `${base}/stories/yawuru/images/making_of_slideshow/05_20210601_0046.jpg`;
-	let slide_making_6 = `${base}/stories/yawuru/images/making_of_slideshow/06_IMG_2149.jpg`;
-	let slide_making_7 = `${base}/stories/yawuru/images/making_of_slideshow/07_ArrivingThangoo.mp4`;
-	let slide_making_8 = `${base}/stories/yawuru/images/making_of_slideshow/08_MG_0361_processed.jpg`;
-	let slide_making_9 = `${base}/stories/yawuru/images/making_of_slideshow/09_MG_0357_copy.jpg`;
-	let slide_making_10 = `${base}/stories/yawuru/images/making_of_slideshow/10_MG_0365_processed.jpg`;
-	let slide_making_11 = `${base}/stories/yawuru/images/making_of_slideshow/11_IMG_2178.jpg`;
-	let slide_making_12 = `${base}/stories/yawuru/images/making_of_slideshow/12_MG_0367_copy.jpg`;
-	let slide_making_13 = `${base}/stories/yawuru/images/making_of_slideshow/13_IMG_7995.jpg`;
-	let slide_making_14 = `${base}/stories/yawuru/images/making_of_slideshow/14_IMG_0811.jpg`;
-	let slide_making_15 = `${base}/stories/yawuru/images/making_of_slideshow/15_IMG_0814.jpg`;
-	let slide_making_16 = `${base}/stories/yawuru/images/making_of_slideshow/16_IMG_3011.jpg`;
-	let slide_making_17 = `${base}/stories/yawuru/images/making_of_slideshow/17_IMG_2983.jpg`;
-	let slide_making_18 = `${base}/stories/yawuru/images/making_of_slideshow/18_Storm.mp4`;
+	const slideMakingFilenames = [
+		'01_IMG_7775.jpg',
+		'02_IMG_7613.jpg',
+		'03_IMG_1043.jpg',
+		'04_20210601_0041.jpg',
+		'05_20210601_0046.jpg',
+		'06_IMG_2149.jpg',
+		'07_ArrivingThangoo.mp4',
+		'08_MG_0361_processed.jpg',
+		'09_MG_0357_copy.jpg',
+		'10_MG_0365_processed.jpg',
+		'11_IMG_2178.jpg',
+		'12_MG_0367_copy.jpg',
+		'13_IMG_7995.jpg',
+		'14_IMG_0811.jpg',
+		'15_IMG_0814.jpg',
+		'16_IMG_3011.jpg',
+		'17_IMG_2983.jpg',
+		'18_Storm.mp4'
+	];
 
-	let slide_station_1 = `${base}/stories/yawuru/images/station_life_slideshow/01_Thangoo_verandah.jpg`;
-	let slide_station_2 = `${base}/stories/yawuru/images/station_life_slideshow/02_FrankPilotEdgar_AnnieEdgarChildren.jpg`;
-	let slide_station_3 = `${base}/stories/yawuru/images/station_life_slideshow/03_JackEdgar.jpg`;
+	const slideStationFilenames = [
+		'01_Thangoo_verandah.jpg',
+		'02_FrankPilotEdgar_AnnieEdgarChildren.jpg',
+		'03_JackEdgar.jpg'
+	];
 
-	let slide_thangoo_1 = `${base}/stories/yawuru/images/thangoo_wells_slideshow/01_slwa_b3388392_1_master.jpg`;
-	let slide_thangoo_2 = `${base}/stories/yawuru/images/thangoo_wells_slideshow/02_31327713.jpg`;
+	const slideThangooFilenames = ['01_slwa_b3388392_1_master.jpg', '02_31327713.jpg'];
 
-	let audio_seasons = `${base}/stories/yawuru/audio/DiscussingSeasons_UndaDi.mp3`;
-	let audio_thangoo = `${base}/stories/yawuru/audio/DianneAppleby_ThangooCulturalIntelligence.mp3`;
-	let audio_dianne_thomas = `${base}/stories/yawuru/audio/ApplebyEdgar_2022.mp3`;
-	let audio_dianne_2021 = `${base}/stories/yawuru/audio/DianneAppleby_2021.mp3`;
-	let audio_dianne_2022 = `${base}/stories/yawuru/audio/DianneAppleby_2022.mp3`;
-	let audio_janet_2022 = `${base}/stories/yawuru/audio/JanetCox1_01.mp3`;
-	let audio_jimmy_country = `${base}/stories/yawuru/audio/JimmyEdgar2_01_amplified.mp3`;
-	let audio_lloyd = `${base}/stories/yawuru/audio/Lloyd_goingtoJangu.mp3`;
-	let audio_susan_karnin = `${base}/stories/yawuru/audio/SusanEdgar_Karnin.mp3`;
+	const singleAudioFilenames = [
+		'DiscussingSeasons_UndaDi.mp3',
+		'DianneAppleby_ThangooCulturalIntelligence.mp3',
+		'ApplebyEdgar_2022.mp3',
+		'DianneAppleby_2021.mp3',
+		'DianneAppleby_2022.mp3',
+		'JanetCox1_01.mp3',
+		'JimmyEdgar2_01_amplified.mp3',
+		'Lloyd_goingtoJangu.mp3',
+		'SusanEdgar_Karnin.mp3'
+	];
+
+	const folderPathAudio = `/stories/yawuru/audio`
+	const folderPathImages = `/stories/yawuru/images`
+	const singleAudio = generateSingleMedia(`${folderPathAudio}`, singleImageFilenames);
+	const singleImages = generateSingleMedia(`${folderPathImages}`, singleAudioFilenames);
+	const mapsImages = generateSubfolderMedia(`${folderPathImages}historic_ maps_slideshow`, slideMapsFilenames);
+	const kennedyImages = generateSubfolderMedia(`${folderPathImages}huts_on_kennedy_hill`, slideKennedyFilenames);
+	const makingImages = generateSubfolderMedia(`${folderPathImages}making_of_slideshow`, slideMakingFilenames);
+	const stationImages = generateSubfolderMedia(`${folderPathImages}station_life_slideshow`, slideStationFilenames);
+	const thangooImages = generateSubfolderMedia(`${folderPathImages}thangoo_wells_slideshow`, slideThangooFilenames);
+
 
 	const slider = [
 		{
-			url: slide_making_1,
+			url: makingImages[0],
 			caption:
 				'Naomi Appleby, Susan Yu, Ann McGrath and Shirleen Robinson out the front of NBY Ltd.',
 			alt: 'Naomi Appleby, Susan Yu, Ann McGrath and Shirleen Robinson out the front of NBY Ltd.'
 		},
 		{
-			url: slide_making_2,
+			url: makingImages[1],
 			caption: 'Jimmy Edgar and Ben Silverstein sitting inside at NBY Ltd.',
 			alt: 'Jimmy Edgar and Ben Silverstein sitting at a table inside at NBY. There is a recording device on the table between them, and Ben has his computer open and is looking at some printed text on paper.'
 		},
 		{
-			url: slide_making_3,
+			url: makingImages[2],
 			caption: 'Lloyd Pigram, Susan Edgar, Chad Sloan and Mike Jones.',
 			alt: 'Lloyd Pigram, Susan Edgar, Chad Sloan and Mike Jones, sitting at an outdoor table at the Magrove Hotel.'
 		},
 		{
-			url: slide_making_4,
+			url: makingImages[3],
 			caption: 'Lloyd Pigram and Ben Silverstein at the Roebuck Bay Lookout.',
 			alt: 'Lloyd Pigram and Ben Silverstein at the Roebuck Bay Lookout.'
 		},
 		{
-			url: slide_making_5,
+			url: makingImages[4],
 			caption: 'Thomas Edgar on Didirrgun, Kennedy Hill.',
 			alt: 'Thomas Edgar on Didirrgun, Kennedy Hill.'
 		},
 		{
-			url: slide_making_6,
+			url: makingImages[5],
 			caption: 'Thomas is holding the gate open as a white Toyota 4WD drives through.',
 			alt: 'Thomas is holding the gate open as a white Toyota 4WD drives through.'
 		},
 		{
-			url: slide_making_7,
+			url: makingImages[6],
 			caption: 'Video taken from inside the car of driving into Thangoo Station. ',
 			alt: 'It shows a group of brown Brahman cattle standing in the shade of some trees. At the end of the trees is a wide, freen plain. Another car can be seen driving slowly along the track in front.'
 		},
 		{
-			url: slide_making_8,
+			url: makingImages[7],
 			caption: 'Sarah Yu, Thomas Edgar, Ben Silverstein and Dianne Appleby at Janyagurdiny.',
 			alt: 'They are all standing next to a white Toyota 4WD. Sarah is writing something in a notebook. Dianne is pointing towards something and Ben and Thomas are looking at. Ben is holding a voice recorder. It has a face mask over the microphone. Diane, Ben and Sarah are wearing facemasks.'
 		},
 		{
-			url: slide_making_9,
+			url: makingImages[8],
 			caption: 'A jalangardu (goanna) watching us share stories at Janyjagurdiny.',
 			alt: 'A goanna in the shade undernearth a green bush.'
 		},
 		{
-			url: slide_making_10,
+			url: makingImages[9],
 			caption: 'Ben Silverstein, Dianne Appleby, and Thomas Edgar.',
 			alt: "Ben, Dianne and Thomas are standing together talking. There's an electric fence in the background with trees behind it. Dianne is gesturing. Thomas is looking at Ben. Ben is looking at Diane. Ben holds a sound recording with a facemask over the microphone."
 		},
 		{
-			url: slide_making_11,
+			url: makingImages[10],
 			caption: 'Thomas Edgar, Mike Hones abnd Diane Appleby',
 			alt: 'Thomas, Mike, and Diane standing the shade of a tree. Thomas has his hands on his hips and is looking at Diane, Diane is speaking, and Mike is holding a sound recorder that has a face mask over the microphone.'
 		},
 		{
-			url: slide_making_12,
+			url: makingImages[11],
 			caption: 'Thomas Edgar.',
 			alt: 'Close up photo of Thomas Edgar.'
 		},
 		{
-			url: slide_making_13,
+			url: makingImages[12],
 			caption:
 				'Thomas Edgar, Mike Jones, Diane Appleby and Ben Silverstein at the entrace to Thangoo Station.',
 			alt: "Thomas, Diane, Mike and Ben stand on in front of the white metal gate across the road into Thangoo station. The track is red sand and there are trees insude the gate. Thomas has his elbow resting on the top of the gate and Mike is holding a camera that is on a strap around his neck. On the right side of the gate, there are two signs on the fence. The biggest sign is at the top of the gate and reads: 'PRIVATE ROAD: STATION BUSINESS ONLY.' The second sign is smaller and reads 'NO ACCESS TO COAST THANGOO PTY LTD.'"
 		},
 		{
-			url: slide_making_14,
+			url: makingImages[13],
 			caption: 'Mike Jones, Lloyd Pigram, and Susan Edgar working on Jangu yirr Janyjadurdiny.',
 			alt: "Lloyd is pointing to a document projected onto a screen with the title 'Jangu yirr Janyjadurdingy: murra mala nyurdany, Holding Yawuru cultural knowledge on Country at Thangoo Station- WHY?'"
 		},
 		{
-			url: slide_making_15,
+			url: makingImages[14],
 			caption:
 				'Janet Cox, Jimmy edgar, Andy James Jr., Thomas Edgar and Ben Silverstein at NBY Ltd.',
 			alt: 'Janet Cox, Jimmy edgar, Andy James Jr., Thomas Edgar and Ben Silverstein are sitting around a square table, all looking in the same direction. There are some drinks and food on the table, as well as a voice recorder. Ben has a notepad and pen in his lap.'
 		},
 		{
-			url: slide_making_16,
+			url: makingImages[15],
 			caption: 'Mike Jones, Lloyd Pigram and Susan Edgar working on Jangu yirr Janyjadurdiny.',
 			alt: 'Mike Jones, Lloyd Pigram and Susan Edgar sit in chars arounbd an outdoor table. Mike is typing on his laptop, and Susan is writing on some paper. Llyod smiles at the camera. On the table are some food and drinks, documents,sunglasses, a packet of cigarettes and some old photographs in a frame.'
 		},
 		{
-			url: slide_making_17,
+			url: makingImages[16],
 			caption: 'Thomas Edgar and Leo Dehm at NBY Ltd.',
 			alt: 'Thomas and Leo are sitting on a concrete bench outside in the shade. They are looking at each other.'
 		},
 		{
-			url: slide_making_18,
+			url: makingImages[17],
 			caption: 'Short clip of the bay',
 			alt: 'This short clip shows a storm rolling across the bay, with red sand and green mangrove trees in the foreground and the blue water of the bay, followed by grey storm clouds and a lightening bolt.'
 		}
@@ -177,7 +197,7 @@
 </script>
 
 <Header
-	image={image_header}
+	image={singleImages.Header_MG_0337}
 	name="yawuru"
 	alt="An expansive flat of red soil, covered with some green shrubs and grass. There is flat horizon and a light blue sky with some light clouds."
 	heading="Jangu yirr Janyjagurdiny: murra mala nyurdany"
@@ -323,7 +343,7 @@
 	</p>
 
 	<AudioFullWidth
-		audio={audio_seasons}
+		audio={singleAudio.DiscussingSeasons_UndaDi}
 		credit="Thomas Edgar and Dianne Appleby on Thangoo Station discussing seasons with Ben Silverstein, Marrul (April) 2022."
 	/>
 
@@ -332,7 +352,7 @@
 	</p>
 
 	<figure>
-		<img src={image_calendar} alt="Graphic depiction of the Yawuru six seasons." />
+		<img src={singleImages.YawuruSeasonalCalendar} alt="Graphic depiction of the Yawuru six seasons." />
 		<figcaption>Yawuru Seasonal Calendar.</figcaption>
 	</figure>
 
@@ -393,7 +413,7 @@
 
 <SideCaption
 	id="maps1"
-	image={slide_maps_1}
+	image={mapsImages[0]}
 	caption="left"
 	alt="Section of map of Yawuru Country from 1864."
 >
@@ -416,7 +436,7 @@
 
 <SideCaption
 	id="maps2"
-	image={slide_maps_2}
+	image={mapsImages[1]}
 	caption="left"
 	alt="Public Plan of land near Roebuck Bay from 1901."
 >
@@ -438,7 +458,7 @@
 
 <SideCaption
 	id="maps3"
-	image={slide_maps_3}
+	image={mapsImages[2]}
 	caption="left"
 	alt="Section of aeronautical map produced by the Royal Australian Air Force and Australian Army from 1945."
 >
@@ -458,7 +478,7 @@
 
 <SideCaption
 	id="maps4"
-	image={slide_maps_4}
+	image={mapsImages[3]}
 	caption="left"
 	alt="Map from 1924 showing the stick route along the coast, and information about leases."
 >
@@ -485,7 +505,7 @@
 	</p>
 
 	<AudioFullWidth
-		audio={audio_thangoo}
+		audio={singleAudio.DianneAppleby_ThangooCulturalIntelligence}
 		credit="Dianne Appleby, 2021, speaking about the continuing cultural significance of Thangoo."
 	/>
 </GenericContent>
@@ -499,7 +519,7 @@
 	</p>
 
 	<figure>
-		<img src={image_thangoo_coast} alt="A map from the Yawuru Cultural Management Plan. " />
+		<img src={singleImages.YawuruCountry} alt="A map from the Yawuru Cultural Management Plan. " />
 		<figcaption>Yawuru Country, as shown in the Yawuru Cultural Management Plan.</figcaption>
 	</figure>
 
@@ -535,7 +555,7 @@
 		about Country.
 	</p>
 
-	<AudioFullWidth audio={audio_jimmy_country} credit="Jimmy Edgar, 2021." />
+	<AudioFullWidth audio={singleAudio.JimmyEdgar2_01_amplified} credit="Jimmy Edgar, 2021." />
 
 	<p>
 		Susan Edgar speaks about the foods and medicines found on Country, including at Janyjagurdiny,
@@ -597,7 +617,7 @@
 
 <SideCaption
 	id="station1"
-	image={slide_station_1}
+	image={stationImages[0]}
 	caption="left"
 	alt="An old black and white photograph of nine people on the Thanhoo homestead verandah in 1932.  There is a group of seven Aboriginal children: Jagana/ Ellen Edar; Gubjarra/ Jack Edgar; Mangkala/Flossie Edgar/Flossie Larry; Jagura/Thelma Sadler; Susand Edgar's mum's brothers and sisters. Two white women stand behind them on the verandah."
 >
@@ -613,7 +633,7 @@
 
 <SideCaption
 	id="station2"
-	image={slide_station_2}
+	image={stationImages[1]}
 	caption="left"
 	alt="An old black and white photograph of thirteen people at Janyjagurdiny (Thangoo Station). Date unknown. The photo shows a group of children and three adults: the children  are Frank 'Pilot' Edgar and Annie Edgar's children. The  woman holds the tail of a hunted kangaroo lying in front of her.  There is one white woman in the photo holding a small dog."
 >
@@ -625,7 +645,7 @@
 
 <SideCaption
 	id="station3"
-	image={slide_station_3}
+	image={stationImages[2]}
 	caption="left"
 	alt="Old black and white photograph of Jack Edgar on Thangoo Station. He is wearing work clothes and an Akubra-style hat and standing in front of tractor parked near a fence, with a windmill in the left hand side of the photo and gum trees on the right. "
 >
@@ -645,11 +665,11 @@
 	<figure class="image-duo">
 		<div>
 			<img
-				src={image_tommy_edgar}
+				src={singleImages.TommyEdgar}
 				alt="An old lack and white portrait photograph of Gurndiga/Tommy Edgar. He is wearing a white suit, a tie and jacket. "
 			/>
 			<img
-				src={image_doris_edgar}
+				src={singleImages.TommyDorisCanberra1969}
 				alt="An old  colour photograph of Ngalyjan/Doris Edgar and Gurndiga/Tommy Edgar. They are both standing: Doris is wearing a dress, white cardigan and white sandals, Tommy is wearing a black suit, tie and shoes and a white shirt."
 			/>
 		</div>
@@ -673,7 +693,7 @@
 
 <SideCaption
 	id="maps4"
-	image={slide_thangoo_1}
+	image={thangooImages[0]}
 	caption="left"
 	alt="Old black and white photograph of a Well on Thangoo Station from 1935.It shows a windmill and tank, surrounded by a post and rail fence and a concrete cattle trough with four cattle drinking. The cattle are emaciated. There are three cattle carcasses in the sand near the trough, and some cattle in the bakcground of the photograph close to the scrub."
 >
@@ -689,7 +709,7 @@
 </SideCaption>
 <SideCaption
 	id="maps4"
-	image={slide_thangoo_2}
+	image={thangooImages[1]}
 	caption="left"
 	alt="Old black and white photograph of Thangoo Station, August 1943. It shows a windmill, post and rail dence and a herd of cattle. There is some grass in the foreground and scrub in the background. "
 >
@@ -732,7 +752,7 @@
 
 	<p>Dianne Appleby remembers her mother describing their treatment as slaves.</p>
 
-	<AudioFullWidth audio={audio_dianne_2022} credit="Dianne Appleby, 2022." />
+	<AudioFullWidth audio={singleAudio.DianneAppleby_2022} credit="Dianne Appleby, 2022." />
 
 	<p>
 		From the 1930s onwards, some kids moved into Broome for schooling, and continued to move back
@@ -741,7 +761,7 @@
 
 	<figure>
 		<img
-			src={image_elsie}
+			src={singleImages.elsie_edgar}
 			alt="An old black and white photograph of a car with a group of four adults and two children standing next to it."
 		/>
 		<figcaption>
@@ -752,7 +772,7 @@
 
 	<p>Janet Cox talks about living in Broome and having a home on Thangoo.</p>
 
-	<AudioFullWidth audio={audio_janet_2022} credit="Janet Cox, 2022." />
+	<AudioFullWidth audio={singleAudio.JanetCox1_01} credit="Janet Cox, 2022." />
 </GenericContent>
 
 <GenericContent>
@@ -794,7 +814,7 @@
 		<div>
 			<figure>
 				<img
-					src={image_dispute}
+					src={singleImages.NativesDisputeWestAustralian_cropped}
 					alt="Newspaper article from 1946 from the West Australian. The title is 'Natives' Dispute: Higher Wages Wanted.'"
 				/>
 			</figure>
@@ -804,7 +824,7 @@
 
 <SideCaption
 	id="maps4"
-	image={slide_kennedy_1}
+	image={kennedyImages[0]}
 	caption="left"
 	alt="Black and white photograph of group of houses located on top of a sandy hill. Some are made from corrugated iron. There is some scrub on the hill, the surrounding plains are flat."
 >
@@ -813,7 +833,7 @@
 
 <SideCaption
 	id="maps4"
-	image={slide_kennedy_2}
+	image={kennedyImages[1]}
 	caption="left"
 	alt="A colour photograph of two huts, with small verandahs at the front and louvered windows. The huts have a small chimney and seem to be made from galvanised steel (monoclad rather than corrugated). One hut has a galvanised drum and a pram at the side. There is black cloth spread over three bushes close by, and half a corrugated iron water tank in the foreground. It is sandy ground and there is a small sand hill in the backgroun with a large rank on top of it, and a gum tree to the right of the image."
 >
@@ -845,13 +865,13 @@
 	</p>
 
 	<AudioFullWidth
-		audio={audio_susan_karnin}
+		audio={singleAudio.SusanEdgar_Karnin}
 		credit="Susan Edgar discussing life at Karnin with Ben Silverstein and Mike Jones, drawn from two separate interview sessions in 2021 and 2022."
 	/>
 </GenericContent>
 
 <MediaFullWidth
-	image={image_susan_father}
+	image={singleImages.MarjadeeFather_cropped}
 	caption="Susan Edgar's father, carrying fish, at Karnin. Photo provided by Susan Edgar."
 	alt="An old black and white photograph showing four people next to a flat-bed truck underneath a tree at Karnin. The photograph is sepia coloured and has some creases. The main focus of the phorograph is Susan Edgar's farther, he is holding two large catches of fish. He is lookingat the camera. The other men are standing around the back of the truck. "
 />
@@ -913,7 +933,7 @@
 
 	<figure>
 		<img
-			src={image_gate}
+			src={singleImages.Gate_cropped}
 			alt="The fence next to the gate to Thangoo Station has two hand-painted signs attached to it. The biggest sign is at the top of the gate and reads: 'PRIVATE ROAD: STATION BUSINESS ONLY.' The second sign is smaller and reads 'NO ACCESS TO COAST THANGOO PTY LTD.'"
 		/>
 		<figcaption>The entrance to Thangoo Station in 2022. Photo: Ben Silverstein.</figcaption>
@@ -924,7 +944,7 @@
 	</p>
 
 	<AudioFullWidth
-		audio={audio_dianne_thomas}
+		audio={singleAudio.ApplebyEdgar_2022}
 		credit="Dianne Appleby and Thomas 'Unda' Edgar, 2022."
 	/>
 
@@ -1000,11 +1020,11 @@
 
 	<p>Listen to Dianne Appleby speak more about an ongoing connection to Jangu.</p>
 
-	<AudioFullWidth audio={audio_dianne_2021} credit="Dianne Appleby, 2021" />
+	<AudioFullWidth audio={singleAudio.DianneAppleby_2021} credit="Dianne Appleby, 2021" />
 
 	<figure>
 		<img
-			src={image_jack_edgar}
+			src={singleImages.JackEdgarThangoo}
 			alt="Bulan/Jack Edgar back home at Jangu. This is a colour still (taped onto a piece of cardboard) of Jack Edgar sitting down and playing cards. There are other people sitting close by but their faces are not in frame."
 		/>
 		<figcaption>
@@ -1027,11 +1047,11 @@
 <figure class="image-duo">
 	<div>
 		<img
-			src={image_lloyd_unda}
+			src={singleImages.Lloyd_Unda}
 			alt="Llyod is wearing sunglasses, shorts and thongs and holding a water bottle, Thomas is weating shorts and a t-shirt. It is sunny and looks hot. There are some bags in front of them on the sandy ground and mangroves behind them. "
 		/>
 		<img
-			src={image_unda}
+			src={singleImages.Unda}
 			alt="There is a bed of black coals and some read coals beside it, in the shade of  a tree. Thomas is moving the black colas with a long stick. "
 		/>
 	</div>
@@ -1044,7 +1064,7 @@
 <GenericContent>
 	<p>Lloyd Pigram talks about the feeling of travelling over from Broome to Jangu.</p>
 
-	<AudioFullWidth audio={audio_lloyd} credit="Lloyd Pigram, 2022." />
+	<AudioFullWidth audio={singleAudio.Lloyd_goingtoJangu} credit="Lloyd Pigram, 2022." />
 
 	<p>
 		On return to Broome, it is customary for Yawuru and other Aboriginal people who access Jangu

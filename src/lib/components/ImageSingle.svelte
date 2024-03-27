@@ -12,16 +12,12 @@
 	import 'photoswipe/style.css';
 	import '../../../node_modules/photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css';
 
+	let item = [];
+
 	onMount(() => {
-		// let lightbox = new PhotoSwipeLightbox({
-		// 	gallery: '#' + galleryId,
-		// 	children: 'a',
-		// 	pswpModule: () => import('photoswipe')
-		// });
-		// lightbox.init();
 		const options = {
 			gallery: '#' + galleryId,
-			children: '.pswp-gallery__item',
+			children: item,
 			pswpModule: () => import('photoswipe')
 		};
 		const lightbox = new PhotoSwipeLightbox(options);
@@ -31,38 +27,12 @@
 			type: 'auto'
 		});
 
-		// lightbox.on('uiRegister', function () {
-		// 	lightbox.pswp.ui.registerElement({
-		// 		name: 'custom-caption',
-		// 		order: 9,
-		// 		isButton: false,
-		// 		appendTo: 'root',
-		// 		html: 'Caption text',
-		// 		onInit: (el, pswp) => {
-		// 			lightbox.pswp.on('change', () => {
-		// 				const currSlideElement = lightbox.pswp.currSlide.data.element;
-		// 				let captionHTML = '';
-		// 				if (currSlideElement) {
-		// 					const hiddenCaption = currSlideElement.querySelector('.hidden-caption-content');
-		// 					if (hiddenCaption) {
-		// 						// get caption from element with class hidden-caption-content
-		// 						captionHTML = hiddenCaption.innerHTML;
-		// 					} else {
-		// 						// get caption from alt attribute
-		// 						captionHTML = currSlideElement.querySelector('img').getAttribute('alt');
-		// 					}
-		// 				}
-		// 				el.innerHTML = captionHTML || '';
-		// 			});
-		// 		}
-		// 	});
-		// });
 		lightbox.init();
 	});
 </script>
 
 <div class="pswp-gallery pswp-gallery--single-column" id={galleryId}>
-	<figure class="pswp-gallery__item">
+	<figure class="pswp-gallery__item" bind:this={item[0]} >
 		<a
 			href={source}
 			data-pswp-width={width}
@@ -79,9 +49,7 @@
 </div>
 
 <style>
-	/* div {
-		width: 100%;
-	} */
+	
 	div {
 		background: #110e0e;
 		box-shadow: inset 8px 8px 16px #070606, inset -8px -8px 16px #1b1616;		

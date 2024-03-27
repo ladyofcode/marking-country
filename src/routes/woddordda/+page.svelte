@@ -1,179 +1,149 @@
 <script>
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import { Vimeo, YouTube } from 'sveltekit-embed';
+	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
 
 	import {
+		AudioBlock,
+		Bios,
 		Header,
 		GenericContent,
 		Citations,
 		Credits,
 		Collapsible,
-		ImageSliderFullscreen,
+		ImageGrid,
+		ImageSingle,
 		LargeQuote,
 		InlineQuote,
 		MediaFullWidth,
 		Intro,
-		TwoColumnContent,
+		SideScroller,
 		Warning,
 		AudioFullWidth,
 		WoddorddaMap
 	} from '$lib';
 
-	let leahIntro = `${base}/stories/woddordda/audio/Leah-Umbagai-intro-clan-tribe-mowanjum-edit.mp3`;
-	let leahSymbols = `${base}/stories/woddordda/audio/Leah-Umbagai-map-language-symbols.mp3`;
-	let leahFlood = `${base}/stories/woddordda/audio/Leah-Umbagai_Flood_sound-edit.mp3`;
-	let repaints = `${base}/stories/woddordda/images/37H-Yorna-Woolagoodja-repaints-Namardarlee-2002.jpg`;
-	let janet = `${base}/stories/woddordda/images/Janet- Oobagooma-B_W-Kevin-Shaw.jpg`;
-	let leah = `${base}/stories/woddordda/images/Leah-Umbagai_Wudoo_Tim-Mummery-10072022.jpg`;
-	let mudmapImage = `${base}/stories/woddordda/images/Mudmap_01.jpg`;
-	let namarali = `${base}/stories/woddordda/images/Namarali_Olympics02.jpg`;
-	let raftPoint = `${base}/stories/woddordda/images/RaftPoint-s-lachman.png`;
-	let yorna = `${base}/stories/woddordda/images/Yorna post-painting Namarali 2002.jpg`;
-	let langii = `${base}/stories/woddordda/images/langgi-S-Lachman.jpg`;
-	let makingSlide1 = `${base}/stories/woddordda/images/making_of_slideshow/01MakingOf_woddordda.jpg`;
-	let makingSlide2 = `${base}/stories/woddordda/images/making_of_slideshow/02MakingOf_woddordda.jpg`;
-	let makingSlide3 = `${base}/stories/woddordda/images/making_of_slideshow/03MakingOf_woddordda.jpg`;
-	let makingSlide4 = `${base}/stories/woddordda/images/making_of_slideshow/04MakingOf_woddordda.jpg`;
-	let makingSlide5 = `${base}/stories/woddordda/images/making_of_slideshow/05MakingOf_woddordda.jpg`;
-	let makingSlide6 = `${base}/stories/woddordda/images/making_of_slideshow/06MakingOf_woddordda.jpg`;
-	let makingSlide7 = `${base}/stories/woddordda/images/making_of_slideshow/07MakingOf_woddordda.jpg`;
-	let namaraliLangii = `${base}/stories/woddordda/images/namarali-langgi.jpg`;
-	let image_poster_woddordda = `${base}/stories/woddordda/images/woddordda_poster.jpg`;
-	let image_header = `${base}/stories/woddordda/images/woddordda_header.jpg`;
-	let background = `${base}/stories/woddordda/videos/Woddordda_titleBackground.mp4`;
+	const singleImageFilenames = [
+		'Yorna_Woolagoodja_repaints_Namardarlee_2002.jpg',
+		'Janet__Oobagooma_B_W_Kevin_Shaw.jpg',
+		'Leah_Umbagai_Wudoo_Tim_Mummery_10072022.jpg',
+		'Mudmap_01.jpg',
+		'Namarali_Olympics02.jpg',
+		'RaftPoint_s_lachman.png',
+		'Yorna_post_painting_Namarali_2002.jpg',
+		'langgi_S_Lachman.jpg',
+		'namarali_langgi.jpg',
+		'woddordda_poster.jpg',
+		'woddordda_header.jpg'
+	];
+
+	const makingOfSlideshowFilenames = [
+		'01MakingOf_woddordda.jpg',
+		'02MakingOf_woddordda.jpg',
+		'03MakingOf_woddordda.jpg',
+		'04MakingOf_woddordda.jpg',
+		'05MakingOf_woddordda.jpg',
+		'06MakingOf_woddordda.jpg',
+		'07MakingOf_woddordda.jpg'
+	];
+
+	const pageTitle = 'Woddordda: Ngamardalee and Wudoo';
+
+	const leahIntro = `${base}/stories/woddordda/audio/Leah-Umbagai-intro-clan-tribe-mowanjum-edit.mp3`;
+	const leahSymbols = `${base}/stories/woddordda/audio/Leah-Umbagai-map-language-symbols.mp3`;
+	const leahFlood = `${base}/stories/woddordda/audio/Leah-Umbagai_Flood_sound-edit.mp3`;
+	const background = `${base}/stories/woddordda/videos/Woddordda_titleBackground.mp4`;
+
+	const folderPath = `/stories/woddordda/images/`
+	const singleImages = generateSingleMedia(`${folderPath}`, singleImageFilenames);
+	const makingImages = generateSubfolderMedia(`${folderPath}making_of_slideshow`, makingOfSlideshowFilenames);
+
 
 	const slideshowOne = [
 		{
-			url: makingSlide1,
+			type: 'image',
+			url: makingImages[0],
 			caption:
 				'Cecilia Umbagai with baby Avashay Stewart, Yorna Woolagoodja and Kallem Mungulu. Photo: Sahyma Lachman 2022.',
 			link: ''
 		},
 		{
-			url: makingSlide2,
+			type: 'image',
+			url: makingImages[1],
 			caption:
 				'Shontae Charles, Yorna Woolagoodja holding baby Martena and Kallem Mungulu at Mangajaddaa performing Wudoo. Photo: Sahyma Lachman 2022.',
 			link: ''
 		},
 		{
-			url: makingSlide3,
+			type: 'image',
+			url: makingImages[2],
 			caption:
 				'Janet Oobagooma performing Wudoo for baby Jai with his father Derek Oobagooma, at Manggajaddaa. Photo: Ann McGrath 2022.',
 			link: ''
 		},
 		{
-			url: makingSlide4,
+			type: 'image',
+			url: makingImages[3],
 			caption:
 				'Woddordda Wudoo recording camp, catering and camp organiser Peter Croll with children. Photo: Sahyma Lachman 2022.',
 			link: ''
 		},
 		{
-			url: makingSlide5,
+			type: 'image',
+			url: makingImages[4],
 			caption:
 				'Training workshop in July 2022 to curate the Wudoo/Wurdu website. Shontae Charles (seated with back to camera), Sherika Duckhole, Maitland Ngerdu, Leah Umbagai, Brentisha Macale (standing), Mike Jones (ANU). Photo: Mary Anne Jebb 2022.',
 			link: ''
 		},
 		{
-			url: makingSlide6,
+			type: 'image',
+			url: makingImages[5],
 			caption:
 				'Training workshop in July 2022 to curate the Wudoo/Wurdu website. Cecilia Umbagai (seated facing camera), Shontae Charles, Lotte Waters (General Manager, Mowanjum Art Centre), Sherika Nulgit, Maitland Ngerdu, Leah Umbagai (face obscured), Brentisha Macale (standing), Kirsty Burgu, Mike Jones (ANU). Photo: Mary Anne Jebb 2022.',
 			link: ''
 		},
 		{
-			url: makingSlide7,
+			type: 'image',
+			url: makingImages[6],
 			caption:
 				'Yorna Woolagoodja reviewing the website draft, with Mike Jones (left) and Mary Anne Jebb. Photo: Sahyma Lachman 2022.',
 			link: ''
 		}
 	];
 
-	const pageTitle = 'Woddordda: Ngamardalee and Wudoo';
-</script>
+	const bios = [
+		{
+			heading:
+				'Yorna Donny Woolagoodja, Woddordda, author, artist and senior custodian of Ngamardalee',
+			image: {
+				source: singleImages.Yorna_post_painting_Namarali_2002,
+				caption:
+					'Yorna Woolagoodja after painting Ngamardalee at Kandirrim. Photo: Tim Mummery, 2022.',
+				alt: 'Yorna Donny Wooldagoodja: he is smiling, he has red ochre in his hair, and there are some flecks of white paint on his face and shoulders.'
+			}
+		},
+		{
+			heading: 'Eewaambood Janet Oobagooma, Woddordda elder, language and cultural adviser',
+			image: {
+				source: singleImages.Janet__Oobagooma_B_W_Kevin_Shaw,
+				caption: 'Photo: Kevin Shaw.',
+				alt: 'Eewaambood Janet Oobagooma. Janet is smiling, and looking away from the camera.'
+			}
+		},
+		{
+			heading: 'Leah Umbagai, Woddordda woman, artist, community researcher and language adviser',
+			image: {
+				source: singleImages.Leah_Umbagai_Wudoo_Tim_Mummery_10072022,
+				caption: 'Photo: Tim Mummery, 2022.',
+				alt: 'Leah Umbagai in front of a large tree trunk; she is smiling.'
+			}
+		}
+	];
 
-<Warning>
-	<p>
-		Janet Oobagooma and Yorna Woolagoodja have passed away since the making of this website and the
-		short films it includes. Their images, voices and names are reproduced here in recognition of
-		their tireless efforts to share their knowledge for future generations.
-	</p>
-</Warning>
-
-<Header
-	image={image_header}
-	name="woddordda"
-	alt="The coastline taken as seen from the sea; the water is calm and a depp blue, and the rocky coast line dotted with green trees. "
-	heading="Woddordda"
-	subheading="Ngamardalee and Wudoo"
-	id="intro"
-	gradientColor="#406467"
-/>
-
-<Intro intro="woddordda">
-	<h2>Community co-curators</h2>
-
-	<p>
-		This is a digital story about Woddordda people and their Country, the Wandjina ancestor
-		Ngamardalee, and the important Wudoo smoking ceremony for babies. It includes a handpainted map
-		by Leah Umbagai showing key places along the coast where Woddordda people come from, and two
-		short films about Wudoo.
-	</p>
-
-	<TwoColumnContent>
-		<figure>
-			<div>
-				<img
-					src={yorna}
-					alt=" Yorna Donny Wooldagoodja: he is smiling, he has red ochre in his hair, and there are some flecks of white paint on his face and shoulders."
-				/>
-			</div>
-			<div>
-				<h3>
-					Yorna Donny Woolagoodja, Woddordda, author, artist and senior custodian of Ngamardalee.
-				</h3>
-				<figcaption>
-					Yorna Woolagoodja after painting Ngamardalee at Kandirrim. Photo: Tim Mummery, 2022.
-				</figcaption>
-			</div>
-		</figure>
-	</TwoColumnContent>
-
-	<TwoColumnContent>
-		<figure>
-			<div>
-				<img
-					src={janet}
-					alt="Eewaambood Janet Oobagooma. Janet is smiling, and looking away from the camera."
-				/>
-			</div>
-			<div>
-				<h3>Eewaambood Janet Oobagooma, Woddordda elder, language and cultural adviser.</h3>
-				<figcaption>Photo: Kevin Shaw.</figcaption>
-			</div>
-		</figure>
-	</TwoColumnContent>
-
-	<TwoColumnContent>
-		<figure>
-			<div>
-				<img src={leah} alt="Leah Umbagai in front of a large tree trunk, she is smiling. " />
-			</div>
-			<div>
-				<h3>Leah Umbagai, Woddordda woman, artist, community researcher and language adviser.</h3>
-				<figcaption>Photo: Tim Mummery, 2022.</figcaption>
-			</div>
-		</figure>
-	</TwoColumnContent>
-</Intro>
-
-<MediaFullWidth video={background} poster={image_poster_woddordda} alt="" />
-
-<LargeQuote credit="Yorna Woolagoodja, 2022">
-	<p>We live the stories from the rock shelter paintings every day.</p>
-</LargeQuote>
-
-<GenericContent>
-	<p>
+	const sideScrollerOne = [
+		{
+			markup: [
+				`<p>
 		Wandjina paintings at caves and rock shelters are living expressions of the ongoing process of
 		creation and regeneration for Wandjina Wunggudd peoples of the west Kimberley. Woddordda
 		language people are part of the Wandjina Wunggudd cultural community. Their stories recount and
@@ -194,53 +164,163 @@
 		example, Yorna Woolagoodja gave his permission for a giant Ngamardalee to emerge from the ground
 		as the Awakening Spirit for the 2000 Sydney Olympics. This 35 metre high Ngamardalee is now part
 		of the National Museum of Australia's collection in Canberra.
-	</p>
-
-	<figure>
-		<img
-			src={namarali}
-			alt="Ngarmadalee at the Sydney Olympics in 2002. It is a large strucutre of Ngarmadalee's white face, with two large dark eyes and headdress. In the background are a groups of people holding lights."
-		/>
-		<figcaption>
-			Ngamardalee at the Sydney Olympics, 2002. Photo: supplied by Tim Mummery/Yorna Woolagoodja.
-		</figcaption>
-	</figure>
-
-	<p>Yorna attended the Olympics and later commented:</p>
-
-	<InlineQuote credit="Yorna Woolagoodja 2005.">
-		<p>
-			When he came up in the opening ceremony it made that emotion come out, like when you lose your
-			own relation… His spirit came to me in the opening ceremony …That's why I decided to go back
-			and paint him, because I'd showed him to the world. He drew me back to the cave.
-		</p>
-	</InlineQuote>
-
-	<figure>
-		<img
-			src={repaints}
-			alt=" Yorna Woolagoodja is using his hands and paint to reach up and 'refresh' a rock painting of Ngarmadalee on an overhanging rock shelter."
-		/>
-		<figcaption>
-			Yorna Woolagoodja refreshing Ngamardarlee in 2002. Photo: Sahyma Lachman.
-		</figcaption>
-	</figure>
-
-	<p>
+	</p>`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: singleImages.Namarali_Olympics02,
+					width: '1147',
+					height: '838',
+					caption:
+						'Ngamardalee at the Sydney Olympics, 2002. Photo: supplied by Tim Mummery/Yorna Woolagoodja.',
+					alt: "Ngarmadalee at the Sydney Olympics in 2002. It is a large structure of Ngarmadalee's white face, with two large dark eyes and headdress. In the background are a group of people holding lights.",
+					galleryId: 'namarali'
+				}
+			}
+		},
+		{
+			markup: [
+				`	<p>Yorna attended the Olympics and later commented:</p>`,
+				{
+					component: InlineQuote,
+					props: {
+						credit: 'Yorna Woolagoodja 2005.'
+					},
+					children: `<p>
+			When he came up in the opening ceremony it made that emotion come out, like when you lose your own relation… His spirit came to me in the opening ceremony …That's why I decided to go back and paint him, because I'd showed him to the world. He drew me back to the cave.</p>`
+				},
+				`<p>
 		Ngamardalee is a powerful Wandjina, the source of significant laws and customs for Woddordda
 		people. When Elders warm their hands with smoke and fire, and touch and talk to babies during
-		the Wudoo smoking ceremony, they are transmitting Ngamardalee's words, laws and purpose.
-	</p>
-
-	<InlineQuote credit=" Yorna Woolagoodja 2020.">
-		<p>
+		the Wudoo smoking ceremony, they are transmitting Ngamardalee's words, laws and purpose.</p>`,
+				{
+					component: InlineQuote,
+					props: {
+						credit: 'Yorna Woolagoodja 2020.'
+					},
+					children: `<p>
 			It's not about dates: it started from Lailai. When there was no beginning of time, it was when
 			the world started. Our evidence is all these images. … One sacred man would be given a dream
 			about what happened and they would tell future generations about how to live. … The images
-			teach us what the land provides us: it's our histories.
-		</p>
-	</InlineQuote>
-</GenericContent>
+			teach us what the land provides us: it's our histories.</p>`
+				}
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: singleImages.Yorna_Woolagoodja_repaints_Namardarlee_2002,
+					width: '367',
+					height: '550',
+					caption: 'Yorna Woolagoodja refreshing Ngamardarlee in 2002. Photo: Sahyma Lachman.',
+					alt: "Yorna Woolagoodja is using his hands and paint to reach up and 'refresh' a rock painting of Ngarmadalee on an overhanging rock shelter.",
+					galleryId: 'repaints'
+				}
+			}
+		}
+	];
+
+	const sideScrollerTwo = [
+		{
+			markup: [
+				`<p>
+	Stories of major land forming events continue to be told by Wandjina Wunggudd peoples and those
+	stories are carried by new generations. The contemporary actions, songs and events of Wandjina
+	people and their Country confirm and re-enact the events of Lalai when the land was soft and
+	taking the shape we experience today. The history of landscape formation and of the environment
+	resides in people who are responsible for their Country.
+</p>
+
+<p>
+	Doombee and the Flood is a multifaceted story of epic proportions describing the actions of
+	Wandjinas creating Country, laws and customs. At Wanaliddi, a rock art site in central north
+	Kimberley (Ngarinyin language Country), powerful Wandjinas punished humans for being cruel and
+	disrespecting the owl Doombee. The brolga danced and softened the ground, the Barramundi used
+	its forehead to push from underneath and also softened the ground. Turtles, lizards and other
+	animals joined in to teach the people a lesson. The Wandjinas brought a flood of such
+	proportions that whole populations were relocated to different parts of the Kimberley, founding
+	the landscapes and languages of today.
+</p>
+
+<p>
+	Ngamardalee journeyed from Ngarinyin Country during the time of the flood to the coast and
+	eventually battled with other Wandjinas there for dominance.
+</p>`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: singleImages.langgi_S_Lachman,
+					width: '2571',
+					height: '1714',
+					caption:
+						'Langgee, the rocks that are evidence of the Wandjina battle that killed Ngamardalee. Photo: Sahyma Lachman.',
+					alt: 'Dark vertical rocks of different shapes and sizes, standing upright in sand along a beach. In the background is a small reddish cliff with a rise covered in trees on the top, and on the other side of the rise is another sandy beach, more rocks and more trees.',
+					galleryId: 'langii'
+				}
+			}
+		},
+		{
+			markup: [
+				`	<p>
+		Ngamardalee was killed, but was transformed in his burial into the rock art painting on the
+		ceiling of the rock shelter Kandirrim.
+	</p>`
+			],
+			image: {
+				component: ImageSingle,
+				props: {
+					source: singleImages.namarali_langgi,
+					width: '533',
+					height: '426',
+					caption:
+						'Ngamardalee on the ceiling of Kandirrim, his rock shelter on the Kimberley coast. Photo: Mowanjum Aborginal Art & Culture Centre, courtesy WA Museum, Ian Crawford Collection.',
+					alt: 'Ngarmadalee on the ceiling of his rock shelter. It shows his whole figure, from his feet to his headress around his head, that is painted white and is adorned with red dots and lines.',
+					galleryId: 'namaraliLangii'
+				}
+			}
+		}
+	];
+</script>
+
+<Warning>
+	<p>
+		Janet Oobagooma and Yorna Woolagoodja have passed away since the making of this website and the
+		short films it includes. Their images, voices and names are reproduced here in recognition of
+		their tireless efforts to share their knowledge for future generations.
+	</p>
+</Warning>
+
+<Header
+	image={singleImages.woddordda_header}
+	name="woddordda"
+	alt="The coastline taken as seen from the sea; the water is calm and a depp blue, and the rocky coast line dotted with green trees. "
+	heading="Woddordda"
+	subheading="Ngamardalee and Wudoo"
+	id="intro"
+	gradientColor="#406467"
+/>
+
+<Intro intro="woddordda">
+	<h2>Community co-curators</h2>
+
+	<p>
+		This is a digital story about Woddordda people and their Country, the Wandjina ancestor
+		Ngamardalee, and the important Wudoo smoking ceremony for babies. It includes a handpainted map
+		by Leah Umbagai showing key places along the coast where Woddordda people come from, and two
+		short films about Wudoo.
+	</p>
+</Intro>
+
+<Bios content={bios} />
+
+<MediaFullWidth video={background} poster={singleImages.woddordda_poster} alt="" />
+
+<LargeQuote credit="Yorna Woolagoodja, 2022">
+	<p>We live the stories from the rock shelter paintings every day.</p>
+</LargeQuote>
+
+<SideScroller content={sideScrollerOne} />
 
 <GenericContent>
 	<h2>When the sea rose</h2>
@@ -250,7 +330,7 @@
 		Western Australia:
 	</p>
 
-	<AudioFullWidth audio={leahIntro} />
+	<AudioBlock audio={leahIntro} />
 
 	<details>
 		<summary>Audio transcript</summary>
@@ -276,7 +356,7 @@
 		her use of animals and Woddordda placenames.
 	</p>
 
-	<AudioFullWidth audio={leahSymbols} />
+	<AudioBlock audio={leahSymbols} />
 
 	<details>
 		<summary>Audio transcript</summary>
@@ -294,66 +374,16 @@
 		</p>
 	</details>
 
-	<figure>
-		<img
-			src={mudmapImage}
-			alt="Map showing the changes to the coastline of Woddordda Country, and includes symbols painted by Leah Umbagai, such as fireplace with red flames and a hand outstretched over the fire; the head and face of a baby; as well as animals, including a brolga, a kangaroo, a quoll, a snake."
-		/>
-		<figcaption>Map of Woddordda Country by Leah Umbagai.</figcaption>
-	</figure>
+	<ImageSingle
+		source={singleImages.Mudmap_01}
+		width="533"
+		height="533"
+		alt="Map showing the changes to the coastline of Woddordda Country, and includes symbols painted by Leah Umbagai, such as fireplace with red flames and a hand outstretched over the fire; the head and face of a baby; as well as animals, including a brolga, a kangaroo, a quoll, a snake."
+		caption="Map of Woddordda Country by Leah Umbagai."
+	/>
 
+	<!-- SCROLL TO!! -->
 	<p><a href="#interactive-map">» View the interactive map </a></p>
-
-	<p>
-		Stories of major land forming events continue to be told by Wandjina Wunggudd peoples and those
-		stories are carried by new generations. The contemporary actions, songs and events of Wandjina
-		people and their Country confirm and re-enact the events of Lalai when the land was soft and
-		taking the shape we experience today. The history of landscape formation and of the environment
-		resides in people who are responsible for their Country.
-	</p>
-
-	<p>
-		Doombee and the Flood is a multifaceted story of epic proportions describing the actions of
-		Wandjinas creating Country, laws and customs. At Wanaliddi, a rock art site in central north
-		Kimberley (Ngarinyin language Country), powerful Wandjinas punished humans for being cruel and
-		disrespecting the owl Doombee. The brolga danced and softened the ground, the Barramundi used
-		its forehead to push from underneath and also softened the ground. Turtles, lizards and other
-		animals joined in to teach the people a lesson. The Wandjinas brought a flood of such
-		proportions that whole populations were relocated to different parts of the Kimberley, founding
-		the landscapes and languages of today.
-	</p>
-
-	<p>
-		Ngamardalee journeyed from Ngarinyin Country during the time of the flood to the coast and
-		eventually battled with other Wandjinas there for dominance.
-	</p>
-
-	<figure>
-		<img
-			src={langii}
-			alt="Dark vertical rocks of different shapes and sizes, standing upright in sand along a beach. In the background is a small reddish cliff with a rise covered in trees on the top, and on the other side of the rise is another sandy beach, more rocks and more trees."
-		/>
-		<figcaption>
-			Langgee, the rocks that are evidence of the Wandjina battle that killed Ngamardalee. Photo:
-			Sahyma Lachman.
-		</figcaption>
-	</figure>
-
-	<p>
-		Ngamardalee was killed, but was transformed in his burial into the rock art painting on the
-		ceiling of the rock shelter Kandirrim.
-	</p>
-
-	<figure>
-		<img
-			src={namaraliLangii}
-			alt="Ngarmadalee on the  ceiling of his rock shelter. It shows his whole figure, from his feet to his headress around his head, that is painted white and is adorned with red dots and lines."
-		/>
-		<figcaption>
-			Ngamardalee on the ceiling of of Kandirrim, his rock shelter on the Kimberley coast. Photo:
-			Mowanjum Aborginal Art & Culture Centre, courtesy WA Museum, Ian Crawford Collection.
-		</figcaption>
-	</figure>
 </GenericContent>
 
 <GenericContent>
@@ -405,16 +435,14 @@
 		</p>
 	</Collapsible>
 
-	<figure>
-		<img
-			src={raftPoint}
-			alt="Rock art painted on a vertical rock wall and on a horizontal, overhanging rock shelter. The figures include fish and two figures with human-like faces. The outlines of the paintings are in a dark red colour."
-		/>
-		<figcaption>
-			Raft Point Rock Art. A gallery of rock art on the coast that is associated with the story of
-			the woman who poked the eye of the sea. Photo: Sahyma Lachman.
-		</figcaption>
-	</figure>
+	<ImageSingle
+		source={singleImages.RaftPoint_s_lachman}
+		width="2246"
+		height="1080"
+		alt="Rock art painted on a vertical rock wall and on a horizontal, overhanging rock shelter. The figures include fish and two figures with human-like faces. The outlines of the paintings are in a dark red colour."
+		caption="Raft Point Rock Art. A gallery of rock art on the coast that is associated with the story of
+	the woman who poked the eye of the sea. Photo: Sahyma Lachman."
+	/>
 
 	<p>
 		The story of the woman who poked the eye of the sea relates to a painting at Ngumbree, which is
@@ -422,15 +450,17 @@
 		Country. With its name, the child spirit comes to the parent. They are not given by parents or
 		separate from the land and its history.
 	</p>
+</GenericContent>
 
-	<InlineQuote credit="Leah Umbagai 2022.">
-		<p>
-			That's why it is important to tell the story to children especially when they're growing up.
-			And when they're older you can trace back generation to generation by that one particular
-			person and the name. So you carry an old person's name you got a lot of history comes with it.
-		</p>
-	</InlineQuote>
+<LargeQuote credit="Leah Umbagai 2022.">
+	<p>
+		That's why it is important to tell the story to children especially when they're growing up. And
+		when they're older you can trace back generation to generation by that one particular person and
+		the name. So you carry an old person's name you got a lot of history comes with it.
+	</p>
+</LargeQuote>
 
+<GenericContent>
 	<p><strong>Listen to</strong> Leah Umbagai speak about the significance of the flood.</p>
 
 	<AudioFullWidth audio={leahFlood} />
@@ -453,13 +483,6 @@
 
 <GenericContent>
 	<h2>Woddordda Country</h2>
-</GenericContent>
-
-<LargeQuote credit="Leah Umbagai, 2022.">
-	<p>I think it's important that we use our own language in the areas of our Country.</p>
-</LargeQuote>
-
-<GenericContent>
 	<p>
 		In addition to named places, each location has a symbol. Wandjina spirit ancestors who burst out
 		of the Country during Lailai went back into the earth and left their shadows on the walls of
@@ -467,7 +490,13 @@
 		creation are also on rock walls and their activities are apparent in the Country in springs,
 		rock formations, trees and water holes.
 	</p>
+</GenericContent>
 
+<LargeQuote credit="Leah Umbagai, 2022.">
+	<p>I think it's important that we use our own language in the areas of our Country.</p>
+</LargeQuote>
+
+<GenericContent>
 	<p>
 		On the map they symbolize and represent creation figures that are fundamentally linked to the
 		creation and to people today.
@@ -498,9 +527,10 @@
 		The film provides an audio-visual record of the ceremony and shares the process and meaning with
 		everyone.
 	</p>
+</GenericContent>
+<MediaFullWidth youTubeId="4ssgk3TxATI" />
 
-	<YouTube youTubeId="4ssgk3TxATI" />
-
+<GenericContent>
 	<h3>Ngamardalee Wudoo (5 mins, 40 sec)</h3>
 
 	<p>
@@ -510,9 +540,9 @@
 		explains the story of Ngamardalee and his acts and adventures of creation that are evident in
 		places on the coast.
 	</p>
-
-	<Vimeo vimeoId="770334576?h=47a0921e90&amp" />
 </GenericContent>
+
+<MediaFullWidth vimeoId="770334576?h=47a0921e90&amp" />
 
 <Collapsible name="collapsibleMaking" label="Making Woddordda Wudoo">
 	<p>
@@ -589,92 +619,87 @@
 		Stewart, Cecilia Umbagai and baby Avashay Stewart, Ashleah Umbagai, Cheyne Umbagai, Elkin
 		Umbagai, Leah Umbagai, Zani Umbagai, Yorna Donny Woolagoodja.
 	</p>
-	<ImageSliderFullscreen slides={slideshowOne} />
+	<ImageGrid media={slideshowOne} />
 </Collapsible>
 
-<GenericContent>
-	<Collapsible name="referencesWoddorda" label="References and further reading">
-		<ul>
-			<li>
-				Blundell, V. and D. Woolagoodja. 2005.
-				<em> Keeping the Wanjinas Fresh: Sam Woolagoodja and the enduring power of Lalai </em>
-				. Fremantle: Fremantle Arts Centre Press.
-			</li>
+<Collapsible name="referencesWoddorda" label="References and further reading">
+	<ul>
+		<li>
+			Blundell, V. and D. Woolagoodja. 2005.
+			<em> Keeping the Wanjinas Fresh: Sam Woolagoodja and the enduring power of Lalai </em>
+			. Fremantle: Fremantle Arts Centre Press.
+		</li>
 
-			<li>
-				Crawford, I.M. 1968.
-				<em>
-					The Art of the Wandjina: Aboriginal Cave Paintings in Kimberley, Western Australia
-				</em>
-				. Melbourne: Oxford University Press.
-			</li>
+		<li>
+			Crawford, I.M. 1968.
+			<em> The Art of the Wandjina: Aboriginal Cave Paintings in Kimberley, Western Australia </em>
+			. Melbourne: Oxford University Press.
+		</li>
 
-			<li>
-				Edols, Michael, with Sam Woolagoodja. 1975.
-				<em>Lailai Dreamtime</em>. North Sydney: Aboriginal Arts Board and the Australia Council.
-			</li>
+		<li>
+			Edols, Michael, with Sam Woolagoodja. 1975.
+			<em>Lailai Dreamtime</em>. North Sydney: Aboriginal Arts Board and the Australia Council.
+		</li>
 
-			<li>
-				Jebb, Mary Anne, ed. 2008.
-				<em>Mowanjum: 50 Years Community History</em>. Derby: Mowanjum Aboriginal Community and
-				Mowanjum Artists Spirit of the Wandjina Aboriginal Corporation.
-			</li>
+		<li>
+			Jebb, Mary Anne, ed. 2008.
+			<em>Mowanjum: 50 Years Community History</em>. Derby: Mowanjum Aboriginal Community and
+			Mowanjum Artists Spirit of the Wandjina Aboriginal Corporation.
+		</li>
 
-			<li>
-				Lalbanda, Patsy and Daisy Utemorrah. 2000.
-				<em> Wanjurna: The Wandjina and other stories from Worrorra folklore </em>
-				. Halls Creek: Kimberley Language Resource Centre.
-			</li>
+		<li>
+			Lalbanda, Patsy and Daisy Utemorrah. 2000.
+			<em> Wanjurna: The Wandjina and other stories from Worrorra folklore </em>
+			. Halls Creek: Kimberley Language Resource Centre.
+		</li>
 
-			<li>
-				Lalbanda, Patsy, Amy Peters and Daisy Utemorrah. 2000.
-				<em> Ngarlelwana Karnmanya: I was born at Kunmunya and other Worrorra stories </em>
-				. Halls Creek: Kimberley Language Resource Centre.
-			</li>
+		<li>
+			Lalbanda, Patsy, Amy Peters and Daisy Utemorrah. 2000.
+			<em> Ngarlelwana Karnmanya: I was born at Kunmunya and other Worrorra stories </em>
+			. Halls Creek: Kimberley Language Resource Centre.
+		</li>
 
-			<li>
-				Love, J.R.B. 1936.
-				<em>
-					Stone-age Bushmen of To-day: Life and Adventure among A Tribe of Savages in North-Western
-					Australia
-				</em>
-				. London and Glascow: Blackie & Son Limited.
-			</li>
+		<li>
+			Love, J.R.B. 1936.
+			<em>
+				Stone-age Bushmen of To-day: Life and Adventure among A Tribe of Savages in North-Western
+				Australia
+			</em>
+			. London and Glascow: Blackie & Son Limited.
+		</li>
 
-			<li>
-				Mangolamara, Sylvesta and Lily Karadada, Janet Oobagooma, Donny Woolagoodja, Jack Karadada.
-				2018. <em>We Are Coming To See You</em>. Derby: Dambimangari Aboriginal Corporation and
-				Wunambal Gaambera Aboriginal Corporation.
-			</li>
+		<li>
+			Mangolamara, Sylvesta and Lily Karadada, Janet Oobagooma, Donny Woolagoodja, Jack Karadada.
+			2018. <em>We Are Coming To See You</em>. Derby: Dambimangari Aboriginal Corporation and
+			Wunambal Gaambera Aboriginal Corporation.
+		</li>
 
-			<li>
-				Utemorrah, Daisy. 1990. <em>Do Not Go Around the Edges</em>. Broome: Magabala Books.
-			</li>
+		<li>
+			Utemorrah, Daisy. 1990. <em>Do Not Go Around the Edges</em>. Broome: Magabala Books.
+		</li>
 
-			<li>
-				Utemorrah, Daisy and Susan Wyatt (illustrator). 1993.
-				<em>Moonglue</em>. Broome: Magabala Books.
-			</li>
+		<li>
+			Utemorrah, Daisy and Susan Wyatt (illustrator). 1993.
+			<em>Moonglue</em>. Broome: Magabala Books.
+		</li>
 
-			<li>
-				Utemorrah, Daisy, Elkin Umbagai, Buruwola Algarra, Jean Wungunyet and David Mowaljarlai.
-				1980.
-				<em>Visions of Mowanjum. Aboriginal Writings from the Kimberley</em>
-				. Adelaide: Rigby.
-			</li>
+		<li>
+			Utemorrah, Daisy, Elkin Umbagai, Buruwola Algarra, Jean Wungunyet and David Mowaljarlai. 1980.
+			<em>Visions of Mowanjum. Aboriginal Writings from the Kimberley</em>
+			. Adelaide: Rigby.
+		</li>
 
-			<li>
-				Utemorrah, Daisy. 2004. <em>Dunbi the Owl</em>. Sydney: Scholastic Press.
-			</li>
+		<li>
+			Utemorrah, Daisy. 2004. <em>Dunbi the Owl</em>. Sydney: Scholastic Press.
+		</li>
 
-			<li>
-				Woolagoodja, Donny. 2007. ‘Rock Art as Inspiration for Contemporary Aboriginal Painting,’ in <em
-					>Rock Art of the Kimberley</em
-				>, edited by Mike Donaldson and Kevin Kenneally, 25-38. Perth: Kimberley Society.
-			</li>
-		</ul>
-	</Collapsible>
-</GenericContent>
+		<li>
+			Woolagoodja, Donny. 2007. ‘Rock Art as Inspiration for Contemporary Aboriginal Painting,’ in <em
+				>Rock Art of the Kimberley</em
+			>, edited by Mike Donaldson and Kevin Kenneally, 25-38. Perth: Kimberley Society.
+		</li>
+	</ul>
+</Collapsible>
 
 <Collapsible name="collapsibleSpelling" label="Note on spelling">
 	<p>

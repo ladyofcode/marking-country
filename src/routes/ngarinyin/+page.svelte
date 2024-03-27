@@ -1,8 +1,8 @@
 <script>
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import { goto } from '$app/navigation';
 	import { Vimeo } from 'sveltekit-embed';
+	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
 
 	import {
 		GenericContent,
@@ -18,115 +18,135 @@
 		MararddaMap
 	} from '$lib';
 
-	let davidMowaljarlai = `${base}/stories/ngarinyin/audio/David-Mowaljarlai-when-earth-soft-Edols-1974.mp3`;
-	let chloe = `${base}/stories/ngarinyin/images/Chloe-Nulgit_Collecting algae 02-Mummery-06062022.jpg`;
-	let jalala = `${base}/stories/ngarinyin/images/Jalala_MtHartMarkingStones07.jpg`;
-	let matthew = `${base}/stories/ngarinyin/images/Matthew-Dembal-Martin_sings-06062022_RCDH.jpg`;
-	let pansy = `${base}/stories/ngarinyin/images/Pansy-Nulgit_06062022_Tim-Mummery_RCDH3.jpg`;
-	let phillip = `${base}/stories/ngarinyin/images/Phillip-Cracker-Duckhole_ at creek_RCDH.jpg`;
-	let sherika = `${base}/stories/ngarinyin/images/Sherika-Duckhole-Tim-Mummery_2022.jpg`;
-	let makingSlideshow1 = `${base}/stories/ngarinyin/images/making_of_slideshow/MakingOf01.jpg`;
-	let makingSlideshow2 = `${base}/stories/ngarinyin/images/making_of_slideshow/MakingOf02.jpg`;
-	let makingSlideshow3 = `${base}/stories/ngarinyin/images/making_of_slideshow/MakingOf03.jpg`;
-	let makingSlideshow4 = `${base}/stories/ngarinyin/images/making_of_slideshow/MakingOf04.jpg`;
-	let makingSlideshow5 = `${base}/stories/ngarinyin/images/making_of_slideshow/MakingOf05.jpg`;
-	let makingSlideshow6 = `${base}/stories/ngarinyin/images/making_of_slideshow/MakingOf06.jpg`;
-	let makingSlideshow7 = `${base}/stories/ngarinyin/images/making_of_slideshow/MakingOf07.jpg`;
-	let makingSlideshow8 = `${base}/stories/ngarinyin/images/making_of_slideshow/MakingOf08.jpg`;
-	let image_poster_ngarinyin = `${base}/stories/ngarinyin/images/ngarinyin_poster.jpg`;
-	let image_ngarinyin_header = `${base}/stories/ngarinyin/images/ngarinyin_header.jpg`;
-	let wurduSlideshow1 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow01.jpg`;
-	let wurduSlideshow2 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow02.jpg`;
-	let wurduSlideshow3 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow03.jpg`;
-	let wurduSlideshow4 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow04.jpg`;
-	let wurduSlideshow5 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow05.jpg`;
-	let wurduSlideshow6 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow06.jpg`;
-	let wurduSlideshow7 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow07.jpg`;
-	let wurduSlideshow8 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow08.jpg`;
-	let wurduSlideshow9 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow09.jpg`;
-	let wurduSlideshow10 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow10.jpg`;
-	let wurduSlideshow11 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow11.jpg`;
-	let wurduSlideshow12 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow12.jpg`;
-	let wurduSlideshow13 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow13.jpg`;
-	let wurduSlideshow14 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow14.jpg`;
-	let wurduSlideshow15 = `${base}/stories/ngarinyin/images/wurdu_slideshow/WurduSlideshow15.jpg`;
-	let video_NgarinyinOpening = `${base}/stories/ngarinyin/videos/NgarinyinOpening.webm`;
+	const singleImageFilenames = [
+		'Chloe_Nulgit_Collecting_alga_02_Mummery_06062022.jpg',
+		'Jalala_MtHartMarkingStones07.jpg',
+		'Matthew_Dembal_Martin_sings_06062022_RCDH.jpg',
+		'Pansy_Nulgit_06062022_Tim_Mummery_RCDH3.jpg',
+		'Phillip_Cracker_Duckhole_at_creek_RCDH.jpg',
+		'Sherika_Duckhole_Tim_Mummery_2022.jpg',
+		'ngarinyin_poster.jpg',
+		'ngarinyin_header.jpg'
+	];
+
+	const makingOfSlideshowFilenames = [
+		'MakingOf01.jpg',
+		'MakingOf02.jpg',
+		'MakingOf03.jpg',
+		'MakingOf04.jpg',
+		'MakingOf05.jpg',
+		'MakingOf06.jpg',
+		'MakingOf07.jpg',
+		'MakingOf08.jpg'
+	];
+
+	const wurduSlideshowFilenames = [
+		'WurduSlideshow01.jpg',
+		'WurduSlideshow02.jpg',
+		'WurduSlideshow03.jpg',
+		'WurduSlideshow04.jpg',
+		'WurduSlideshow05.jpg',
+		'WurduSlideshow06.jpg',
+		'WurduSlideshow07.jpg',
+		'WurduSlideshow08.jpg',
+		'WurduSlideshow09.jpg',
+		'WurduSlideshow10.jpg',
+		'WurduSlideshow11.jpg',
+		'WurduSlideshow12.jpg',
+		'WurduSlideshow13.jpg',
+		'WurduSlideshow14.jpg',
+		'WurduSlideshow15.jpg'
+	];
+
+	const folderPath = `/stories/ngarinyin/images/`;
+	const davidMowaljarlai = `${base}/stories/ngarinyin/audio/David-Mowaljarlai-when-earth-soft-Edols-1974.mp3`;
+	const video_NgarinyinOpening = `${base}/stories/ngarinyin/videos/NgarinyinOpening.webm`;
+
+	const singleImages = generateSingleMedia(`${folderPath}`, singleImageFilenames);
+	const makingImages = generateSubfolderMedia(
+		`${folderPath}making_of_slideshow`,
+		makingOfSlideshowFilenames
+	);
+	const wurduImages = generateSubfolderMedia(
+		`${folderPath}wurdu_slideshow`,
+		wurduSlideshowFilenames
+	);
 
 	const pageTitle = `Marardda: Stories from Ngarinyin Country`;
 
 	const slideshowOne = [
 		{
-			url: wurduSlideshow1,
+			url: wurduImages[0],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow2,
+			url: wurduImages[1],
 			caption: 'Collecting Jalagu (algae) for Wurdu. Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow3,
+			url: wurduImages[2],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow4,
+			url: wurduImages[3],
 			caption: 'Burning Jalagu to make smoke. Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow5,
+			url: wurduImages[4],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow6,
+			url: wurduImages[5],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow7,
+			url: wurduImages[6],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow8,
+			url: wurduImages[7],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow9,
+			url: wurduImages[8],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow10,
+			url: wurduImages[9],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow11,
+			url: wurduImages[10],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow12,
+			url: wurduImages[11],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow13,
+			url: wurduImages[12],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow14,
+			url: wurduImages[13],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
-			url: wurduSlideshow15,
+			url: wurduImages[14],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		}
@@ -134,49 +154,49 @@
 
 	const slideShowTwo = [
 		{
-			url: makingSlideshow1,
+			url: makingImages[0],
 			caption:
 				'Nulgit (Pansy) recording at Durdu-ngardi, Barker Pool. Camera person Tim Mummery, Ann McGrath sitting, Mary Anne Jebb standing. Photo: Lotte Waters 2022.',
 			link: ''
 		},
 		{
-			url: makingSlideshow2,
+			url: makingImages[1],
 			caption:
 				'Ann McGrath interviews Matthew Dembal Martin (seated). Camera Tim Mummery. Photo: Mary Anne Jebb 2022.',
 			link: ''
 		},
 		{
-			url: makingSlideshow3,
+			url: makingImages[2],
 			caption:
 				'Smoking people when they visit Country, led by Nulgit (Pansy). Photo: Ann McGrath 2022.',
 			link: ''
 		},
 		{
-			url: makingSlideshow4,
+			url: makingImages[3],
 			caption:
 				'Tim Mummery mentoring Lexann Oobagooma on filming, at Durdu-ngardi, Barker Pool. Photo: Mary Anne Jebb 2022.',
 			link: ''
 		},
 		{
-			url: makingSlideshow5,
+			url: makingImages[4],
 			caption:
 				'Emelio Nulgit cooks Banardd (turkey) at the recording camp. Seated Phillip (Cracker) Duckhole, Chloe Nulgit and Matthew Dembal Martin. Photo: Mary Anne Jebb 2022.',
 			link: ''
 		},
 		{
-			url: makingSlideshow6,
+			url: makingImages[5],
 			caption:
 				'Training workshop in July 2022 to curate the Wurdu website. Seated with back to camera Shontae Charles, Sherika Nulgit, Maitland Ngerdu, Leah Umbagai, Brentisha Macale (standing), Mike Jones (Research Centre for Deep History). Photo: Mary Anne Jebb 2022.',
 			link: ''
 		},
 		{
-			url: makingSlideshow7,
+			url: makingImages[6],
 			caption:
 				'Sherika Duckhole at the meeting with key Ngarinyin Elders to review and discuss the draft website. Photo: Mary Anne Jebb 2022.',
 			link: ''
 		},
 		{
-			url: makingSlideshow8,
+			url: makingImages[7],
 			caption:
 				'Chloe Nulgit and Matthew Dembal Martin, with Mike Jones (ANU) at the meeting at Mowanjum Aboriginal Art & Culture Centre reviewing and discussing the draft website. Photo: Mary Anne Jebb 2022.',
 			link: ''
@@ -194,7 +214,7 @@
 
 <Header
 	id="intro"
-	image={image_ngarinyin_header}
+	image={singleImages.ngarinyin_header}
 	name="ngarinyin"
 	alt="A water hold, seen through paper bark trees, with a bright blue sky in the background."
 	heading="Marardda"
@@ -217,7 +237,7 @@
 		<figure>
 			<div>
 				<img
-					src={pansy}
+					src={singleImages.Pansy_Nulgit_06062022_Tim_Mummery_RCDH3}
 					alt="Pansy Nulgit, wiht trees, grass and scrub in the background. Pansy is gesturing with her right hand."
 				/>
 			</div>
@@ -235,7 +255,7 @@
 		<figure>
 			<div>
 				<img
-					src={matthew}
+					src={singleImages.Matthew_Dembal_Martin_sings_06062022_RCDH}
 					alt="Matthew Dembal Martin. He is sitting on a chair, holding clap sticks and there are a group of women sitting close by on the ground."
 				/>
 			</div>
@@ -253,7 +273,7 @@
 		<figure>
 			<div>
 				<img
-					src={chloe}
+					src={singleImages.Chloe_Nulgit_Collecting_alga_02_Mummery_06062022}
 					alt="Chloe Nulgit, sitting in a water hole. The water reaches the top of her arms and  her hands are floating on top of the water. She is in the water to collect Jalagu (algae) for Wurdu."
 				/>
 			</div>
@@ -269,7 +289,10 @@
 	<TwoColumnContent>
 		<figure>
 			<div>
-				<img src={phillip} alt="Philip Duckhole, with a track and scrub in the background." />
+				<img
+					src={singleImages.Phillip_Cracker_Duckhole_at_creek_RCDH}
+					alt="Philip Duckhole, with a track and scrub in the background."
+				/>
 			</div>
 			<div>
 				<h3>
@@ -284,7 +307,7 @@
 	<TwoColumnContent>
 		<figure>
 			<div>
-				<img src={sherika} alt="Sherika Duckhole." />
+				<img src={singleImages.Sherika_Duckhole_Tim_Mummery_2022} alt="Sherika Duckhole." />
 			</div>
 			<div>
 				<h3>
@@ -310,7 +333,7 @@
 	<figure>
 		<video
 			src={video_NgarinyinOpening}
-			poster={image_poster_ngarinyin}
+			poster={singleImages.ngarinyin_poster}
 			type="video/webm"
 			name="ngarinyin"
 			alt=""
@@ -367,7 +390,7 @@
 
 	<figure>
 		<img
-			src={jalala}
+			src={singleImages.Jalala_MtHartMarkingStones07}
 			alt="A Jalala standing upright as a marker among a collection of rocks surrounded by grass."
 		/>
 		<figcaption>Jalala—Mt. Hart Marking Stones. Photo: Tim Mummery, 2022.</figcaption>
@@ -649,99 +672,3 @@
 		page={pageTitle}
 	/>
 </GenericContent>
-
-<style>
-	.main-container {
-		min-height: 100vh;
-	}
-	.main-container header {
-		position: relative;
-	}
-	.main-container .title,
-	.main-container .full-section {
-		position: relative;
-		z-index: 50;
-	}
-	.full-section {
-		min-height: 100vh;
-	}
-	.full-sectionp {
-		font-size: 1.2rem;
-		margin-bottom: 3.2rem;
-		text-align: center;
-	}
-	.pane {
-		padding: 1rem;
-		width: 100%;
-		height: 100%;
-		margin: 0 auto;
-		z-index: 50;
-		max-width: 800px;
-
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-	.fullwidth-audio {
-		color: var(--text-light);
-
-		margin-bottom: 0;
-	}
-
-	.fullwidth-audio audio {
-		width: 100%;
-	}
-
-	.warning-buttons {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.warning-buttons button:first-child {
-		background-color: transparent;
-		margin-right: 2rem;
-	}
-	.warning-buttons button:last-child {
-		background-color: #fff 1c;
-		color: #fff;
-	}
-	.warning-buttons button:last-child:hover a {
-		color: #fff;
-	}
-	.warning-buttons button {
-		font-family: 'Work Sans', Arial, Helvetica, sans-serif;
-		width: 100%;
-		border: 2px solid #fff;
-		border-radius: 4px;
-		margin: 1rem 0;
-		padding: 1rem 2rem;
-		font-size: 1rem;
-	}
-	.warning-buttons button a {
-		color: #fff;
-	}
-
-	.warning-buttons button:hover {
-		border: 2px solid var(--color-fg-dark);
-		background-color: var(--color-fg-dark);
-		color: #fff !important;
-		cursor: pointer;
-	}
-
-	@media (min-width: 900px) {
-		.warning-buttons {
-			flex-direction: row;
-			justify-content: flex-start;
-		}
-
-		.warning-buttons button {
-			margin: 2rem 0;
-		}
-
-		.pane {
-			max-height: 400px;
-			padding: 0;
-		}
-	}
-</style>

@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { YouTube } from 'sveltekit-embed';
+	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
 
 	import {
 		Header,
@@ -25,101 +26,74 @@
 		WalkTwo
 	} from '$lib';
 
-	let audio_C0041_AudioOnly2 = `${base}/stories/carnarvon/audio/C0041_AudioOnly2.mp3`;
-
-	let image_aunty_rita = `${base}/stories/carnarvon/images/AuntyRita01.jpg`;
-	let image_C0008 = `${base}/stories/carnarvon/images/C0008.jpg`;
-	let image_C0009 = `${base}/stories/carnarvon/images/C0009.jpg`;
-	let image_C0010 = `${base}/stories/carnarvon/images/C0010.jpg`;
-	let image_groupPhoto = `${base}/stories/carnarvon/images/_ANU7346.jpg`;
-	let image_still_C0027 = `${base}/stories/carnarvon/images/Still_C0027.jpg`;
-	let image_walk1 = `${base}/stories/carnarvon/images/Walk1.jpg`;
-	let image_walk2 = `${base}/stories/carnarvon/images/Walk2.jpg`;
-	let image_ANU6915 = `${base}/stories/carnarvon/images/_ANU6915.jpg`;
-	let image_ANU6921 = `${base}/stories/carnarvon/images/_ANU6921.jpg`;
-	let image_ANU6976 = `${base}/stories/carnarvon/images/_ANU6976.jpg`;
-	let image_ANU7106 = `${base}/stories/carnarvon/images/_ANU7106.jpg`;
-	let image_ANU7118_cropped = `${base}/stories/carnarvon/images/_ANU7118_cropped.jpg`;
-	let image_ANU7135 = `${base}/stories/carnarvon/images/_ANU7135.jpg`;
-	let image_ANU7181 = `${base}/stories/carnarvon/images/_ANU7181.jpg`;
-	let image_ANU7350 = `${base}/stories/carnarvon/images/_ANU7350.jpg`;
-	let image_ANU7376 = `${base}/stories/carnarvon/images/_ANU7376.jpg`;
-	let image_ANU7606 = `${base}/stories/carnarvon/images/_ANU7606.jpg`;
-	let image_poster_carnarvon = `${base}/stories/carnarvon/images/carnarvon_poster.jpg`;
-	let image_jackie_portrait = `${base}/stories/carnarvon/images/jackie_portrait.jpg`;
-	let image_poster_reunion = `${base}/stories/carnarvon/images/reunion.jpg`;
-	let image_still_02 = `${base}/stories/carnarvon/images/still_02.jpg`;
-	let image_uncle_fred_portrait = `${base}/stories/carnarvon/images/uncle_fred_portrait.jpg`;
-
-	let slideshowOne1 = `${base}/stories/carnarvon/images/slider/_ANU7560.jpg`;
-	let slideshowOne2 = `${base}/stories/carnarvon/images/slider/_ANU7566.jpg`;
-	let slideshowOne3 = `${base}/stories/carnarvon/images/slider/_ANU7567.jpg`;
-	let slideshowOne4 = `${base}/stories/carnarvon/images/slider/_ANU7581.jpg`;
-	let slideshowOne5 = `${base}/stories/carnarvon/images/slider/_ANU7588.jpg`;
-	let slideshowOne6 = `${base}/stories/carnarvon/images/slider/_ANU7591.jpg`;
-
-	let image_poster_drone = `${base}/stories/carnarvon/images/carnarvon_poster.jpg`;
-	let image_C0001_poster = `${base}/stories/carnarvon/videos/C0001.jpg`;
-	let image_C0006_poster = `${base}/stories/carnarvon/videos/C0006.jpg`;
-	let image_poster_C0016 = `${base}/stories/carnarvon/videos/C0016.jpg`;
-	let image_poster_C0025 = `${base}/stories/carnarvon/images/image_poster_C0025.jpg`;
-	let image_poster_C0027 = `${base}/stories/carnarvon/images/image_poster_C0027.jpg`;
-	let image_poster_C0028 = `${base}/stories/carnarvon/images/image_poster_C0028.jpg`;
-	let image_poster_C0009 = `${base}/stories/carnarvon/images/image_poster_C0028.jpg`;
-	let image_poster_C0008 = `${base}/stories/carnarvon/images/image_poster_C0028.jpg`;
-	let image_poster_C0010 = `${base}/stories/carnarvon/images/image_poster_C0028.jpg`;
-
-	let video_C0001 = `${base}/stories/carnarvon/videos/C0001.webm`;
-	let video_C0008 = `${base}/stories/carnarvon/videos/C0008.webm`;
-	let video_C0009 = `${base}/stories/carnarvon/videos/C0009.webm`;
-	let video_C0010 = `${base}/stories/carnarvon/videos/C0010.webm`;
-	let video_C0006 = `${base}/stories/carnarvon/videos/C0006.webm`;
-	let video_C0016 = `${base}/stories/carnarvon/videos/C0016.webm`;
-	let video_C0025 = `${base}/stories/carnarvon/videos/C0025.webm`;
-	let video_C0027 = `${base}/stories/carnarvon/videos/C0027.webm`;
-	let video_C0028 = `${base}/stories/carnarvon/videos/C0028.webm`;
-	let video_carnarvon_drone = `${base}/stories/carnarvon/videos/carnarvonDrone.webm`;
-	let video_UncleFredArrival = `${base}/stories/carnarvon/videos/UncleFredArrival.webm`;
-
-	const slideshowOne = [
-		{
-			url: slideshowOne1,
-			caption: '',
-			link: ''
-		},
-		{
-			url: slideshowOne2,
-			caption: '',
-			link: ''
-		},
-		{
-			url: slideshowOne3,
-			caption: '',
-			link: ''
-		},
-		{
-			url: slideshowOne4,
-			caption: '',
-			link: ''
-		},
-		{
-			url: slideshowOne5,
-			caption: '',
-			link: ''
-		},
-		{
-			url: slideshowOne6,
-			caption: '',
-			link: ''
-		}
+	const singleImageFilenames = [
+		'AuntyRita01.jpg',
+		'C0008.jpg',
+		'C0009.jpg',
+		'C0010.jpg',
+		'_ANU7346.jpg',
+		'Still_C0027.jpg',
+		'Walk1.jpg',
+		'Walk2.jpg',
+		'_ANU6915.jpg',
+		'_ANU6921.jpg',
+		'_ANU6976.jpg',
+		'_ANU7106.jpg',
+		'_ANU7118_cropped.jpg',
+		'_ANU7135.jpg',
+		'_ANU7181.jpg',
+		'_ANU7350.jpg',
+		'_ANU7376.jpg',
+		'_ANU7606.jpg',
+		'carnarvon_poster.jpg',
+		'jackie_portrait.jpg',
+		'reunion.jpg',
+		'still_02.jpg',
+		'uncle_fred_portrait.jpg',
+		'C0001.jpg',
+		'C0006.jpg',
+		'C0016.jpg',
+		'image_poster_C0025.jpg',
+		'image_poster_C0027.jpg',
+		'image_poster_C0028.jpg'
 	];
+
+	const slideshowOneFilenames = [
+		'_ANU7560.jpg',
+		'_ANU7566.jpg',
+		'_ANU7567.jpg',
+		'_ANU7581.jpg',
+		'_ANU7588.jpg',
+		'_ANU7591.jpg'
+	];
+
+	const singleVideosFilenames = [
+		'C0001.webm',
+		'C0008.webm',
+		'C0009.webm',
+		'C0010.webm',
+		'C0006.webm',
+		'C0016.webm',
+		'C0025.webm',
+		'C0027.webm',
+		'C0028.webm',
+		'carnarvonDrone.webm',
+		'UncleFredArrival.webm'
+	];
+
+	const filePathImages = `/stories/carnarvon/images/`;
+	const filePathVideo = `/stories/carnarvon/video/`;
+	const audio_C0041_AudioOnly2 = `${base}/stories/carnarvon/audio/C0041_AudioOnly2.mp3`;
+	const singleImages = generateSingleMedia(`${filePathImages}`, singleImageFilenames);
+	const slideshow = generateSubfolderMedia(`${filePathImages}slider`, slideshowOneFilenames);
+	const singleVideos = generateSingleMedia(`${filePathVideo}`, singleVideosFilenames);
 
 	const pageTitle = `Walking deep history: Carnarvon Gorge`;
 </script>
 
 <Header
-	poster={image_poster_carnarvon}
-	video={video_carnarvon_drone}
+	poster={singleImages.carnarvon_poster}
+	video={singleVideos.carnarvonDrone}
 	type="video/webm"
 	name="carnarvon"
 	alt=""
@@ -190,7 +164,7 @@
 </Intro>
 
 <MediaFullWidth
-	image={image_ANU7350}
+	image={singleImages._ANU6915}
 	alt="Jackie Huggins and Uncle Red ssitting next to one another on some rocks in the gorge. Jackie is smiling; Uncle Fred is gesturing towards the camera."
 	caption="Jackie learns from Uncle Fred as he shares Bidjara culture, Mickey's
     Creek, Carnavon Gorge, Queensland, 23 March 2022. Photo: Amy Way."
@@ -246,11 +220,11 @@
 
 <ScrollingCaption
 	id="trio1"
-	video={video_C0025}
+	video={singleVideos.C0025}
 	type="video/webm"
 	caption="left"
 	alt=""
-	poster={image_poster_C0025}
+	poster={singleImages.image_poster_C0025}
 	autoplay={true}
 >
 	<p>Walking Carnarvon Gorge takes you down into shaded rainforests...</p>
@@ -258,11 +232,11 @@
 
 <ScrollingCaption
 	id="trio2"
-	video={video_C0027}
+	video={singleVideos.C0027}
 	type="video/webm"
 	caption="left"
 	alt=""
-	poster={image_poster_C0027}
+	poster={singleImages.image_poster_C0027}
 	autoplay={true}
 >
 	<p>... over creek crossings...</p>
@@ -270,11 +244,11 @@
 
 <ScrollingCaption
 	id="trio3"
-	video={video_C0028}
+	video={singleVideos.C0028}
 	caption="left"
 	type="video/webm"
 	alt=""
-	poster={image_poster_C0028}
+	poster={singleImages.image_poster_C0028}
 	autoplay={true}
 >
 	<p>... and right alongside the base of the ancient rock shelter.</p>
@@ -299,10 +273,10 @@
 	<p>But he was determined to walk that track again.</p>
 </FullScreenStop>
 
-<ScrollStop video={video_UncleFredArrival} alt="" poster={image_poster_reunion} />
+<ScrollStop video={singleVideos.UncleFredArrival} alt="" poster={singleImages.reunion} />
 
 <ScrollingCaption
-	image={image_ANU7118_cropped}
+	image={singleImages._ANU7118_cropped}
 	caption="right"
 	credit="Uncle Fred explains the significance of the Art Gallery in
     Carnarvon Gorge, QLD, 22 March 2022. Photo: Amy Way."
@@ -333,7 +307,7 @@
 <GenericContent>
 	<figure>
 		<img
-			src={image_ANU7106}
+			src={singleImages._ANU7106}
 			alt="Uncle Fred sitting on the railing, with the rock art gallery behind him; gesturing with his hands."
 		/>
 		<figcaption>
@@ -392,7 +366,7 @@
 </GenericContent>
 
 <MediaFullWidth
-	image={image_ANU7135}
+	image={singleImages._ANU7135}
 	alt="The woman's place in the Art Gallery."
 	caption="A woman's place, Art Gallery, Carnarvon Gorge, QLD 22 March 2022.
     Photo: Amy Way."
@@ -420,7 +394,7 @@
 
 <GenericContent>
 	<figure>
-		<img src={image_ANU7181} alt="Graffiti on the Art Gallery rock wall." />
+		<img src={singleImages._ANU7181} alt="Graffiti on the Art Gallery rock wall." />
 		<figcaption>
 			Graffiti at the Art Gallery in Carnarvon Gorge, QLD, 22 March 2022. Photo: Amy Way.
 		</figcaption>
@@ -486,7 +460,7 @@
 </ScrollStop>
 
 <ScrollingCaption
-	image={slideshowOne1}
+	image={slideshow[0]}
 	alt="An overhanging rock outcrop, blackened and damaged by fire. "
 	caption="left"
 >
@@ -497,7 +471,7 @@
 </ScrollingCaption>
 
 <ScrollingCaption
-	image={slideshowOne2}
+	image={slideshow[1]}
 	alt="Broken rock on the ground that has fallen from the overhanging rock outcrop."
 	caption="left"
 	orientation="portrait"
@@ -506,7 +480,7 @@
 </ScrollingCaption>
 
 <ScrollingCaption
-	image={slideshowOne3}
+	image={slideshow[2]}
 	alt="The overhanging rock outcrop, showing some remaining pieces of art that have not fallen down."
 	caption="left"
 >
@@ -517,7 +491,7 @@
 </ScrollingCaption>
 
 <ScrollingCaption
-	image={slideshowOne4}
+	image={slideshow[3]}
 	alt="The overhanging rock outcrop, showing some remaining pieces of art that have not fallen down."
 	caption="left"
 >
@@ -527,14 +501,14 @@
 	</p>
 </ScrollingCaption>
 
-<ScrollingCaption image={slideshowOne5} alt="Piles of broken rock." caption="left">
+<ScrollingCaption image={slideshow[4]} alt="Piles of broken rock." caption="left">
 	<p>
 		Plastic fibres remain mixed with the soil and rock. Very few images from the ancient archive
 		survived.
 	</p>
 </ScrollingCaption>
 <ScrollingCaption
-	image={slideshowOne6}
+	image={slideshow[5]}
 	alt="Pieces of twisted, melted plastic from the boardwalk."
 	caption="left"
 >
@@ -542,7 +516,7 @@
 </ScrollingCaption>
 
 <ScrollingCaption
-	image={image_ANU7606}
+	image={singleImages._ANU7350}
 	alt="Jackie standing with one hand on a walking stick the other hand resting on her hip, surrounded by trees. "
 	credit="Professor Jackie Huggins discusses fire damage in Carnarvon Gorge,
       Queensland, 24 March 2022. Photo: Amy Way."
@@ -597,7 +571,7 @@
 </GenericContent>
 
 <ScrollingCaption
-	image={image_still_C0027}
+	image={singleImages.Still_C0027}
 	credit="Professor Jackie Huggins discusses fire damage in Carnarvon Gorge,
     Queensland, 24 March 2022. Photo: Amy Way."
 	alt="Close of up Jackie. "
@@ -610,14 +584,14 @@
 	</a>
 </ScrollingCaption>
 
-<MediaFullWidth video={video_C0001} poster={image_C0001_poster} alt="" />
+<MediaFullWidth video={singleVideos.C0001} poster={singleImages.C0001} alt="" />
 
 <WalkTwo />
 
 <ScrollingCaption
-	video={video_C0008}
+	video={singleVideos.C0008}
 	alt=""
-	poster={image_poster_C0008}
+	poster={singleImages.image_poster_C0008}
 	caption="left"
 	autoplay={true}
 >
@@ -625,9 +599,9 @@
 </ScrollingCaption>
 
 <ScrollingCaption
-	video={video_C0009}
+	video={singleVideos.C0009}
 	alt=""
-	poster={image_poster_C0009}
+	poster={singleImages.image_poster_C0009 }
 	caption="left"
 	autoplay={true}
 >
@@ -635,9 +609,9 @@
 </ScrollingCaption>
 
 <ScrollingCaption
-	video={video_C0010}
+	video={singleVideos.C0010}
 	alt=""
-	poster={image_poster_C0010}
+	poster={singleImages.image_poster_C0028}
 	caption="left"
 	autoplay={true}
 >
@@ -647,7 +621,7 @@
 <!-- caption="Rita Huggins, Jackie's mother, in Carnarvon Gorge, QLD. Photo:
 Jane M. Jacobs" -->
 <ScrollingCaption
-	image={image_aunty_rita}
+	image={singleImages.AuntyRita01}
 	orientation="portrait"
 	caption="right"
 	alt="Rita Huggins, sitting underneath an rock wall covered with red and white tock art. "
@@ -705,7 +679,7 @@ Jane M. Jacobs" -->
 <ScrollingCaption
 	align="left"
 	id="groupPhoto"
-	image={image_groupPhoto}
+	image={singleImages._ANU7346}
 	caption="right"
 	alt="Jakcie and Uncle Fred sitting on some rocks in the Gorge; Jackie is smiling, Uncle Fred is holding his walking stick in one and and pointing to something with the other hand."
 >
@@ -737,7 +711,7 @@ Jane M. Jacobs" -->
 		<div>
 			<figure>
 				<img
-					src={image_jackie_portrait}
+					src={singleImages.jackie_portrait}
 					alt="Jackie sitting on rocks, smiling at the camera, her hands together in front of her."
 				/>
 			</figure>
@@ -770,7 +744,7 @@ Jane M. Jacobs" -->
 		<div>
 			<figure>
 				<img
-					src={image_uncle_fred_portrait}
+					src={singleImages.uncle_fred_portrait}
 					alt="Uncle Fred sitting on rocks, resting his chi on his hands that are folded over the top of his walking stick. "
 				/>
 			</figure>
@@ -800,7 +774,7 @@ Jane M. Jacobs" -->
 	<p>And that's what I love talking about, what I am.</p>
 </LargeQuote>
 
-<MediaFullWidth video={video_C0016} poster={image_poster_C0016} alt="" autoplay={true} />
+<MediaFullWidth video={singleVideos.C0016} poster={singleImages.C0016} alt="" autoplay={true} />
 
 <GenericContent>
 	<Collapsible name="referencesCarnarvon" label="References and further reading">

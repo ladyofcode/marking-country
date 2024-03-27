@@ -81,7 +81,7 @@
 </script>
 
 <div class="wrapper">
-	<div class="top-bar" aria-hidden={ariaHidden}>
+	<div class="top-bar" class:open={menuChecked} aria-hidden={ariaHidden}>
 		<input
 			type="checkbox"
 			class="menu-button"
@@ -177,15 +177,19 @@
 
 	.top-bar {
 		height: 70px;
+		width: 0;
 	}
 
 	.top-bar-underlay {
 		display: block;
 		height: 70px;
-		width: 280px;
+		width: 0;
 		background-color: var(--clr-dark-charcoal);
 		transition: transform 0.3s ease-in-out;
 		transform: translateX(100%);
+	}
+	.top-bar.open, .top-bar-underlay.open{
+		width: 280px;
 	}
 
 	nav.open {
@@ -197,13 +201,16 @@
 
 	nav {
 		height: 100%;
-		width: 100%;
 		display: flex;
 		flex-direction: column;
 		overflow-x: hidden;
 		background-color: var(--clr-dark-charcoal);
 		transition: transform 0.3s ease-in-out;
 		transform: translateX(100%);
+		width: 0;
+	}
+	nav.open {
+		width: 100%;
 	}
 
 	ul {
@@ -316,7 +323,7 @@
 
 		.top-bar {
 			background-color: var(--clr-dark-charcoal);
-			width: 100%;
+			width: 100px;
 			position: fixed;
 		}
 

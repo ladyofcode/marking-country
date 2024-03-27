@@ -12,7 +12,6 @@
 <section class="header">
 	<h1>Marking Country</h1>
 	<h2>Mapping deep histories</h2>
-	<p>Click icons to navigate.</p>
 	<div class="map">
 		<Map />
 	</div>

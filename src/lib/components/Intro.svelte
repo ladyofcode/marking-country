@@ -16,12 +16,12 @@
 				trigger: wrapper,
 				start: 'top 60%',
 				end: 'bottom bottom',
-				onEnter: () => {
-					gsap.to(window, {
-						scrollTo: { y: wrapper, offsetY: 50 },
-						duration: 1.5
-					});
-				}
+				// onEnter: () => {
+				// 	gsap.to(window, {
+				// 		scrollTo: { y: wrapper, offsetY: 50 },
+				// 		duration: 1.5
+				// 	});
+				// }
 			}
 		});
 

@@ -195,7 +195,7 @@
 		object-fit: cover;
 	}
 
-	.header img {
+	.header img, .header video {
 		display: block;
 		margin: 0 auto;
 		margin-top: 100px;

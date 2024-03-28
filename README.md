@@ -18,6 +18,7 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 
 ### Scrollytelling
 IMAGES
+* [] Add border: none to ImageSingle (e.g. rotating calendar)
 * [] All enlargeable images need a little enlarge icon or somethig
 * [] AudioBlock - smaller contained block that doens't break out of the width too much, - can be wider, but thinner!
 * [] Load full page of images before starting animations and sequences
@@ -39,6 +40,7 @@ IMAGES
 * [] Carnarvon - aerial map reveal, then disappear, then show again
 * [] Yawuru: Uncrop Susan Edgar's father, carrying fish, at Karnin (in downloads)
 * [] Carnarvon: Check Baloon video - Jackie's welcome (file C0022) (Scroll/full stop)
+* [] Readjust the icons on the homepage
 
 ---
 * [] Add numbers to side-scroll slider & **standard** slider

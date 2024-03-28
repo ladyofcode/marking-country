@@ -6,24 +6,28 @@
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 	import { MotionPathPlugin } from 'gsap/dist/MotionPathPlugin';
 	import { killScrollTriggers } from '$lib/utils';
+	import { marker } from 'leaflet';
 	gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 	const homeOcean = `${base}/images/home_ocean.png`;
 	const homeContinent = `${base}/images/home_continent.png`;
 
 	let icons = [],
-		triggers = [];
+		triggers = [],
+		markers = [];
 
 	let ocean;
 
+	const rectHeight = 240,
+		rectCorner = 24,
+		rectColor = 'black';
+
 	onMount(() => {
 		icons.forEach((icon) => {
-			const lastPath = icon.querySelector('path:last-of-type');
+			const markerAnimation = gsap.timeline({ repeat: -1, yoyo: true });
 
-			const tl = gsap.timeline({ repeat: -1, yoyo: true });
-
-			tl.to(
-				lastPath,
+			markerAnimation.to(
+				markers,
 				{
 					stroke: 'rgba(214, 90, 90, 0.31)',
 					strokeWidth: 60,
@@ -34,7 +38,7 @@
 				0
 			);
 
-			tl.to(
+			markerAnimation.to(
 				icon,
 				{
 					y: -40,
@@ -44,10 +48,10 @@
 				},
 				0
 			);
-			triggers.push(tl);
+			triggers.push(markerAnimation);
 		});
 
-		const swell = gsap.to(ocean, {
+		const oceanAnimation = gsap.to(ocean, {
 			transformOrigin: 'center',
 			ease: 'none',
 			repeat: -1,
@@ -64,7 +68,7 @@
 			]
 		});
 
-		triggers.push(swell);
+		triggers.push(oceanAnimation);
 	});
 
 	onDestroy(() => {
@@ -77,11 +81,20 @@
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	viewBox="0 0 4328.09 4170.88"
 >
+	<defs>
+		<filter id="glass" x="0" y="0" width="100%" height="100%">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blurred" />
+			<feComponentTransfer in="blurred" result="brightness">
+				<feFuncA type="linear" slope="0.4" />
+			</feComponentTransfer>
+			<feComposite in="SourceGraphic" in2="brightness" operator="in" result="composite" />
+		</filter>
+	</defs>
 	<g id="Logo">
 		<path
 			id="logomark"
 			d="M257.51,4147.61v17.45h-75.13c-22.54-47.99-27.99-60.71-47.14-94.16-14.91-26.3-25.93-34.78-49.2-36.48v82.77c0,22.9,6.79,30.05,30.54,30.54v17.45H0v-17.45c25.45-.48,31.39-6.79,31.39-30.9v-196.19c0-24.24-5.94-31.02-31.39-31.39v-17.81h121.3c61.92,0,105.18,22.05,105.18,82.28,0,50.05-37.32,73.8-85.67,75.5v1.7c20.84,5.57,35.63,16.6,44.96,29.33,11.03,14.78,22.54,35.63,37.32,62.77,8.48,15.75,13.57,23.75,34.29,24.6h.12ZM115.36,3897.25h-29.33v114.15h27.99c34.42,0,54.29-12.72,54.29-57.68s-15.75-56.47-53.08-56.47h.12ZM448.73,4122.16l9.33,16.12c-21.69,19.51-48.35,31.75-82.28,31.75-63.62,0-100.94-41.2-100.94-112.46s40.35-111.12,97.19-111.12c60.71,0,89.92,38.17,89.92,103.12v14.78h-131.97c1.21,54.29,19.99,73.8,62.41,73.8,17.81,0,39.5-6.42,56.47-16.12l-.12.12ZM330.34,4039.4h78.89c0-51.38-10.66-69.19-37.32-69.19-24.96,0-38.66,16.12-41.56,69.19ZM571.85,4134.77c0-19.51-15.27-35.14-35.26-35.14s-35.26,15.15-35.26,35.14,15.27,36.11,35.26,36.11,35.26-16.6,35.26-36.11Z"
-			fill="none"
+			fill="#fff"
 			stroke-width="0"
 		/>
 	</g>
@@ -127,10 +140,23 @@
 			/>
 			<path
 				id="marker"
+				bind:this={markers[0]}
 				d="M994.26,980c-82.84,0-150,67.16-150,150,0,58.25,74.17,206.8,118.2,289.85,13.53,25.52,50.08,25.52,63.6,0,44.03-83.05,118.2-231.59,118.2-289.85,0-82.84-67.16-150-150-150ZM1069.16,1133.91c-1.93,38.1-32.89,69.07-71,71-44.5,2.25-81.06-34.3-78.8-78.8,1.93-38.1,32.89-69.07,71-71,44.5-2.26,81.06,34.3,78.8,78.81Z"
 				fill="#000"
 				stroke-width="0"
 			/>
+			<rect
+				x="620"
+				y="1460"
+				width="740"
+				height={rectHeight}
+				rx={rectCorner}
+				ry={rectCorner}
+				fill={rectColor}
+				
+				filter="url(#glass)"
+			/>
+			<text x="980" y="1640" class="marker-title">Yawuru</text>
 		</g>
 		<g
 			id="woddordda-ngarinyin"
@@ -149,11 +175,26 @@
 			/>
 			<path
 				id="marker-2"
+				bind:this={markers[1]}
 				data-name="marker"
 				d="M1240.88,734.79c-82.84,0-150,67.16-150,150,0,58.25,74.17,206.8,118.2,289.85,13.53,25.52,50.08,25.52,63.6,0,44.03-83.05,118.2-231.59,118.2-289.85,0-82.84-67.16-150-150-150ZM1315.79,888.69c-1.93,38.1-32.89,69.07-71,71-44.5,2.25-81.06-34.3-78.8-78.8,1.93-38.1,32.89-69.07,71-71,44.5-2.26,81.06,34.3,78.8,78.81Z"
 				fill="#000"
 				stroke-width="0"
 			/>
+			<rect
+				x="1380"
+				y="1140"
+				width="1120"
+				height={rectHeight}
+				rx={rectCorner}
+				ry={rectCorner}
+				fill={rectColor}
+				
+				filter="url(#glass)"
+			/>
+			<text x="1950" y="1320" class="marker-title">
+				Wurdu/Wudoo</text
+			>
 		</g>
 		<g
 			id="willandra"
@@ -172,11 +213,26 @@
 			/>
 			<path
 				id="marker-3"
+				bind:this={markers[2]}
 				data-name="marker"
 				d="M3045.26,2441.12c-82.84,0-150,67.16-150,150,0,58.25,74.17,206.8,118.2,289.85,13.53,25.52,50.08,25.52,63.6,0,44.03-83.05,118.2-231.59,118.2-289.85,0-82.84-67.16-150-150-150ZM3120.16,2595.03c-1.93,38.1-32.89,69.07-71,71-44.5,2.25-81.06-34.3-78.8-78.8,1.93-38.1,32.89-69.07,71-71,44.5-2.26,81.06,34.3,78.8,78.81Z"
 				fill="#000"
 				stroke-width="0"
 			/>
+			<rect
+				x="2580"
+				y="2960"
+				width="920"
+				height={rectHeight}
+				rx={rectCorner}
+				ry={rectCorner}
+				fill={rectColor}
+				
+				filter="url(#glass)"
+			/>
+			<text x="3060" y="3140" class="marker-title">
+				Willandra</text
+			>
 		</g>
 		<g
 			id="quinkan"
@@ -195,11 +251,26 @@
 			/>
 			<path
 				id="marker-4"
+				bind:this={markers[3]}
 				data-name="marker"
 				d="M3344.02,417.16c-82.84,0-150,67.16-150,150,0,58.25,74.17,206.8,118.2,289.85,13.53,25.52,50.08,25.52,63.6,0,44.03-83.05,118.2-231.59,118.2-289.85,0-82.84-67.16-150-150-150ZM3418.92,571.07c-1.93,38.1-32.89,69.07-71,71-44.5,2.25-81.06-34.3-78.8-78.8,1.93-38.1,32.89-69.07,71-71,44.5-2.26,81.06,34.3,78.8,78.81Z"
 				fill="#000"
 				stroke-width="0"
 			/>
+			<rect
+				x="2880"
+				y="960"
+				width="920"
+				height={rectHeight}
+				rx={rectCorner}
+				ry={rectCorner}
+				fill={rectColor}
+				
+				filter="url(#glass)"
+			/>
+			<text x="3300" y="1140" class="marker-title">
+				W. Yalanji</text
+			>
 		</g>
 		<g
 			id="carnarvon"
@@ -218,11 +289,26 @@
 			/>
 			<path
 				id="marker-5"
+				bind:this={markers[4]}
 				data-name="marker"
 				d="M3674.93,1722.22c-82.84,0-150,67.16-150,150,0,58.25,74.17,206.8,118.2,289.85,13.53,25.52,50.08,25.52,63.6,0,44.03-83.05,118.2-231.59,118.2-289.85,0-82.84-67.16-150-150-150ZM3749.83,1876.12c-1.93,38.1-32.89,69.07-71,71-44.5,2.25-81.06-34.3-78.8-78.8,1.93-38.1,32.89-69.07,71-71,44.5-2.26,81.06,34.3,78.8,78.81Z"
 				fill="#000"
 				stroke-width="0"
 			/>
+			<rect
+				x="3180"
+				y="2260"
+				width="920"
+				height={rectHeight}
+				rx={rectCorner}
+				ry={rectCorner}
+				fill={rectColor}
+				
+				filter="url(#glass)"
+			/>
+			<text x="3660" y="2420" class="marker-title">
+				Carnarvon</text
+			>
 		</g>
 		<circle
 			id="dhrg"
@@ -258,22 +344,22 @@
 		cursor: pointer;
 	}
 
-	#icons path:last-of-type {
-		fill: #872a20;
-		/* animation: pulse 1s infinite ease-in alternate; */
+	text,
+	rect {
+		visibility: hidden;
+		opacity: 0;
+		transform: translateY(-100px);
+		transition: opacity 0.4s ease-in-out, transform 0.4s ease-out;
 	}
 
-	@keyframes pulse {
-		0% {
-			stroke-width: 60;
-			stroke-opacity: 0.9;
-			stroke: rgba(214, 90, 90, 0.31);
-		}
-		100% {
-			stroke-width: 4;
-			stroke-opacity: 0.4;
-			stroke: rgba(168, 72, 72, 0.21);
-		}
+	text {
+		font-size: 160px;
+		text-anchor: middle;
+		fill: rgba(235, 217, 220, 0.788);
+	}
+
+	#icons path:last-of-type {
+		fill: #872a20;
 	}
 
 	#icons path:first-of-type {
@@ -282,6 +368,12 @@
 
 	#icons:hover {
 		cursor: pointer;
+	}
+
+	#icons g:hover rect,
+	#icons g:hover text {
+		transform: translateX(2rem);
+		transform: translateY(2rem);
 	}
 
 	#icons g:hover path:nth-child(1) {
@@ -311,6 +403,15 @@
 		}
 		100% {
 			opacity: 1;
+		}
+	}
+
+	@media (min-width: 600px) {
+		#icons g:hover rect,
+		#icons g:hover text {
+			visibility: visible;
+			opacity: 1;
+			transform: translateY(0);
 		}
 	}
 </style>

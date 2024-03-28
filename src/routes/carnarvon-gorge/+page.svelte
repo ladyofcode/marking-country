@@ -104,7 +104,7 @@
 	gradientColor="#15150b"
 />
 
-<Intro intro="carnarvon">
+<!-- <Intro intro="carnarvon">
 	<p>
 		<strong>
 			Led by Bidjara elders Uncle Fred 'Cotto' Conway OAM and Professor Jackie Huggins AM.
@@ -168,7 +168,7 @@
 	alt="Jackie Huggins and Uncle Red ssitting next to one another on some rocks in the gorge. Jackie is smiling; Uncle Fred is gesturing towards the camera."
 	caption="Jackie learns from Uncle Fred as he shares Bidjara culture, Mickey's
     Creek, Carnavon Gorge, Queensland, 23 March 2022. Photo: Amy Way."
-/>
+/> -->
 
 <!-- <GenericContent>
 	<div className={`${styles.quickLinks}`}>
@@ -202,7 +202,7 @@
 	</div>
 </GenericContent> -->
 
-<MediaFullWidth youTubeId="v0tiqh1Ml04" />
+<!-- <MediaFullWidth youTubeId="v0tiqh1Ml04" /> -->
 
 <!-- <VideoEmbedFullWidth>
       <iframe
@@ -215,7 +215,7 @@
         allowFullScreen
       ></iframe>
     </VideoEmbedFullWidth> -->
-
+<!-- 
 <WalkOne />
 
 <ScrollingCaption
@@ -456,7 +456,7 @@
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
-      ></iframe> -->
+      ></iframe>
 </ScrollStop>
 
 <ScrollingCaption
@@ -586,9 +586,9 @@
 
 <MediaFullWidth video={singleVideos.C0001} poster={singleImages.C0001} alt="" />
 
-<WalkTwo />
+<WalkTwo /> -->
 
-<ScrollingCaption
+<!-- <ScrollingCaption
 	video={singleVideos.C0008}
 	alt=""
 	poster={singleImages.image_poster_C0008}
@@ -616,11 +616,11 @@
 	autoplay={true}
 >
 	<p>...whose path is nestled underneath the rock.</p>
-</ScrollingCaption>
+</ScrollingCaption> -->
 
 <!-- caption="Rita Huggins, Jackie's mother, in Carnarvon Gorge, QLD. Photo:
 Jane M. Jacobs" -->
-<ScrollingCaption
+<!-- <ScrollingCaption
 	image={singleImages.AuntyRita01}
 	orientation="portrait"
 	caption="right"
@@ -893,7 +893,7 @@ Jane M. Jacobs" -->
 		location={$page.url.href}
 		page={pageTitle}
 	/>
-</GenericContent>
+</GenericContent> -->
 
 <style>
 	.youtube-button {

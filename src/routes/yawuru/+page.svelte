@@ -20,6 +20,10 @@
 		YawuruThangooMap,
 		YawuruCoastMap
 	} from '$lib';
+	import { YouTube } from 'sveltekit-embed';
+	import ImageSingle from '$lib/components/ImageSingle.svelte';
+	import TwoColumns from '$lib/layout/TwoColumns.svelte';
+	import ImageGrid from '$lib/components/ImageGrid.svelte';
 
 	const singleImageFilenames = [
 		'Header_MG_0337.jpg',
@@ -86,16 +90,30 @@
 		'SusanEdgar_Karnin.mp3'
 	];
 
-	const folderPathAudio = `/stories/yawuru/audio`
-	const folderPathImages = `/stories/yawuru/images`
-	const singleAudio = generateSingleMedia(`${folderPathAudio}`, singleImageFilenames);
-	const singleImages = generateSingleMedia(`${folderPathImages}`, singleAudioFilenames);
-	const mapsImages = generateSubfolderMedia(`${folderPathImages}historic_ maps_slideshow`, slideMapsFilenames);
-	const kennedyImages = generateSubfolderMedia(`${folderPathImages}huts_on_kennedy_hill`, slideKennedyFilenames);
-	const makingImages = generateSubfolderMedia(`${folderPathImages}making_of_slideshow`, slideMakingFilenames);
-	const stationImages = generateSubfolderMedia(`${folderPathImages}station_life_slideshow`, slideStationFilenames);
-	const thangooImages = generateSubfolderMedia(`${folderPathImages}thangoo_wells_slideshow`, slideThangooFilenames);
-
+	const folderPathAudio = `/stories/yawuru/audio/`;
+	const folderPathImages = `/stories/yawuru/images/`;
+	const singleAudio = generateSingleMedia(`${folderPathAudio}`, singleAudioFilenames);
+	const singleImages = generateSingleMedia(`${folderPathImages}`, singleImageFilenames);
+	const mapsImages = generateSubfolderMedia(
+		`${folderPathImages}historic_ maps_slideshow`,
+		slideMapsFilenames
+	);
+	const kennedyImages = generateSubfolderMedia(
+		`${folderPathImages}huts_on_kennedy_hill`,
+		slideKennedyFilenames
+	);
+	const makingImages = generateSubfolderMedia(
+		`${folderPathImages}making_of_slideshow`,
+		slideMakingFilenames
+	);
+	const stationImages = generateSubfolderMedia(
+		`${folderPathImages}station_life_slideshow`,
+		slideStationFilenames
+	);
+	const thangooImages = generateSubfolderMedia(
+		`${folderPathImages}thangoo_wells_slideshow`,
+		slideThangooFilenames
+	);
 
 	const slider = [
 		{
@@ -254,23 +272,15 @@
 		During the incoming tide, two young boys find themselves stranded on a sandbar, lost to their
 		people forever. Marrimarrigun, the giant spirit, returns them to their people as men.
 	</p>
+</GenericContent>
 
-	<figure>
-		<iframe
-			width="100%"
-			height="auto"
-			src="https://www.youtube.com/embed/GczGhPs3rzQ?rel=0"
-			title="YouTube video player"
-			frameBorder="0"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-			allowFullScreen
-		/>
-		<figcaption>
-			Marrimarrigun (2017), 13mins. Director: Kimberley West. Writers: Dot (Dorothy) West, Dianne
-			Appleby. Producer: Jodie Bell. Reproduced with permission.
-		</figcaption>
-	</figure>
+<MediaFullWidth
+	youTubeId="GczGhPs3rzQ"
+	caption="Marrimarrigun (2017), 13mins. Director: Kimberley West. Writers: Dot (Dorothy) West, Dianne
+Appleby. Producer: Jodie Bell. Reproduced with permission."
+/>
 
+<GenericContent>
 	<p>
 		Like all Bugarrigarra stories, Marrimarrigun has many meanings. It is about law and culture,
 		remembering and acknowledging the spirituality of Country, the need to be aware of the tides and
@@ -305,9 +315,11 @@
 		The Yawuru people are the traditional owners of Birragun and Nagulagun buru (land and sea
 		Country), including the town of Broome, in the Kimberley region of northern Western Australia.
 	</p>
+</GenericContent>
 
-	<YawuruAustraliaMap />
+<YawuruAustraliaMap />
 
+<GenericContent>
 	<p>
 		Yawuru Country is a landscape of plains, mudflats, mangroves, foreshore, sandbars, and sea. On
 		the south coast of the bay is an area called Jangu, and a place called Janyjagurdiny—an area of
@@ -318,9 +330,11 @@
 		The following map shows just some of the key cultural sites on this landscape, including jila
 		(springs or waterholes).
 	</p>
+</GenericContent>
 
-	<YawuruBroomeMap />
+<YawuruBroomeMap />
 
+<GenericContent>
 	<p>
 		The rhythms of life on Country are about time as well as place. For generations Yawuru people
 		have lived seasonally on these lands, fishing for salmon, catfish, stingray, and sharks, hunting
@@ -351,10 +365,13 @@
 		Yawuru people live by six seasons: Man-gala, Marrul, Wirralburu, Barrgana, Wirlburu, and Laja.
 	</p>
 
-	<figure>
-		<img src={singleImages.YawuruSeasonalCalendar} alt="Graphic depiction of the Yawuru six seasons." />
-		<figcaption>Yawuru Seasonal Calendar.</figcaption>
-	</figure>
+	<ImageSingle
+		width="817"
+		height="817"
+		source={singleImages.YawuruSeasonalCalendar}
+		alt="Graphic depiction of the Yawuru six seasons."
+		caption="Yawuru Seasonal Calendar."
+	/>
 
 	<InlineQuote credit="Janet Cox, 2022"><p>This is sort of a map.</p></InlineQuote>
 	<InlineQuote credit="Thomas 'Unda' Edgar, 2022"
@@ -518,10 +535,13 @@
 		(people) have lived along this coastline.
 	</p>
 
-	<figure>
-		<img src={singleImages.YawuruCountry} alt="A map from the Yawuru Cultural Management Plan. " />
-		<figcaption>Yawuru Country, as shown in the Yawuru Cultural Management Plan.</figcaption>
-	</figure>
+	<ImageSingle
+		width="2400"
+		height="1958"
+		source={singleImages.YawuruCountry}
+		alt="A map from the Yawuru Cultural Management Plan."
+		caption="Yawuru Country, as shown in the Yawuru Cultural Management Plan."
+	/>
 
 	<p>
 		In the twentieth century, Janyjagurdiny was home not just to Yawuru but also to Karajarri,
@@ -662,19 +682,20 @@
 		the name of the Thangoo station-owner.
 	</p>
 
-	<figure class="image-duo">
-		<div>
-			<img
-				src={singleImages.TommyEdgar}
-				alt="An old lack and white portrait photograph of Gurndiga/Tommy Edgar. He is wearing a white suit, a tie and jacket. "
-			/>
-			<img
-				src={singleImages.TommyDorisCanberra1969}
-				alt="An old  colour photograph of Ngalyjan/Doris Edgar and Gurndiga/Tommy Edgar. They are both standing: Doris is wearing a dress, white cardigan and white sandals, Tommy is wearing a black suit, tie and shoes and a white shirt."
-			/>
-		</div>
-		<figcaption>Gurndiga/Tommy Edgar, and Ngalyjan/Doris Edgar.</figcaption>
-	</figure>
+	<ImageSingle
+		width="600"
+		height="658"
+		source={singleImages.TommyEdgar}
+		caption="Gurndiga/Tommy Edgar"
+		alt="An old lack and white portrait photograph of Gurndiga/Tommy Edgar. He is wearing a white suit, a tie and jacket. "
+	/>
+	<ImageSingle
+		width="234"
+		height="555"
+		source={singleImages.TommyDorisCanberra1969}
+		alt="An old  colour photograph of Ngalyjan/Doris Edgar and Gurndiga/Tommy Edgar. They are both standing: Doris is wearing a dress, white cardigan and white sandals, Tommy is wearing a black suit, tie and shoes and a white shirt."
+		caption="Gurndiga/Tommy Edgar and Ngalyjan/Doris Edgar."
+	/>
 
 	<p>
 		Tommy Edgar was one of the first Aboriginal people in the region to get a driver's licence, and
@@ -759,68 +780,64 @@
 		and forth.
 	</p>
 
-	<figure>
-		<img
-			src={singleImages.elsie_edgar}
-			alt="An old black and white photograph of a car with a group of four adults and two children standing next to it."
-		/>
-		<figcaption>
-			Elsie Edgar arriving at the Common Gate, where people crossed the municipal boundary into
-			Broome.
-		</figcaption>
-	</figure>
+	<ImageSingle
+		width="384"
+		height="226"
+		source={singleImages.elsie_edgar}
+		alt="An old black and white photograph of a car with a group of four adults and two children standing next to it."
+		caption="Elsie Edgar arriving at the Common Gate, where people crossed the municipal boundary into
+	Broome."
+	/>
 
 	<p>Janet Cox talks about living in Broome and having a home on Thangoo.</p>
 
 	<AudioFullWidth audio={singleAudio.JanetCox1_01} credit="Janet Cox, 2022." />
 </GenericContent>
 
-<GenericContent>
-	<TwoColumnContent>
-		<div>
-			<p>After the war, things changed.</p>
+<TwoColumns>
+	<div slot="column1">
+		<p>After the war, things changed.</p>
 
-			<p>
-				In 1946 Aboriginal pastoral workers across the Pilbara went on strike. Tommy Edgar, who
-				drove road trains around the state, learnt about the strike in Port Hedland and, from there,
-				he was involved with the strike mob.
-			</p>
+		<p>
+			In 1946 Aboriginal pastoral workers across the Pilbara went on strike. Tommy Edgar, who drove
+			road trains around the state, learnt about the strike in Port Hedland and, from there, he was
+			involved with the strike mob.
+		</p>
 
-			<p>
-				But word also spread through other connections, and soon those in Thangoo knew what was
-				happening.
-			</p>
+		<p>
+			But word also spread through other connections, and soon those in Thangoo knew what was
+			happening.
+		</p>
 
-			<p>Some walked off the station in 1946, moving to Broome.</p>
+		<p>Some walked off the station in 1946, moving to Broome.</p>
 
-			<p>
-				In February 1951 the remaining Aboriginal workers on Thangoo walked off and, when they
-				returned, they demanded wages and better conditions.
-			</p>
+		<p>
+			In February 1951 the remaining Aboriginal workers on Thangoo walked off and, when they
+			returned, they demanded wages and better conditions.
+		</p>
 
-			<p>
-				The station managers refused, and the Broome office of the Native Affairs department was
-				directed to suspend issuing employment permits, meaning that station workers who had left
-				were unable to obtain legal employment in Broome.
-			</p>
+		<p>
+			The station managers refused, and the Broome office of the Native Affairs department was
+			directed to suspend issuing employment permits, meaning that station workers who had left were
+			unable to obtain legal employment in Broome.
+		</p>
 
-			<p>
-				Some moved to the settlement on Didirrgun (Kennedy Hill), which was declared as a reserve in
-				the 1950s. From here people had easy access to the mangroves and the sea, waterholes,
-				corroborree sites, bushfoods, and more, with Thangoo in clear line of sight across the bay.
-			</p>
-		</div>
+		<p>
+			Some moved to the settlement on Didirrgun (Kennedy Hill), which was declared as a reserve in
+			the 1950s. From here people had easy access to the mangroves and the sea, waterholes,
+			corroborree sites, bushfoods, and more, with Thangoo in clear line of sight across the bay.
+		</p>
+	</div>
 
-		<div>
-			<figure>
-				<img
-					src={singleImages.NativesDisputeWestAustralian_cropped}
-					alt="Newspaper article from 1946 from the West Australian. The title is 'Natives' Dispute: Higher Wages Wanted.'"
-				/>
-			</figure>
-		</div>
-	</TwoColumnContent>
-</GenericContent>
+	<div slot="column2">
+		<figure>
+			<img
+				src={singleImages.NativesDisputeWestAustralian_cropped}
+				alt="Newspaper article from 1946 from the West Australian. The title is 'Natives' Dispute: Higher Wages Wanted.'"
+			/>
+		</figure>
+	</div>
+</TwoColumns>
 
 <SideCaption
 	id="maps4"
@@ -931,13 +948,13 @@
 		travel across the Bay by boat.
 	</p>
 
-	<figure>
-		<img
-			src={singleImages.Gate_cropped}
-			alt="The fence next to the gate to Thangoo Station has two hand-painted signs attached to it. The biggest sign is at the top of the gate and reads: 'PRIVATE ROAD: STATION BUSINESS ONLY.' The second sign is smaller and reads 'NO ACCESS TO COAST THANGOO PTY LTD.'"
-		/>
-		<figcaption>The entrance to Thangoo Station in 2022. Photo: Ben Silverstein.</figcaption>
-	</figure>
+	<ImageSingle
+		width="2400"
+		height="1962"
+		source={singleImages.Gate_cropped}
+		alt="The fence next to the gate to Thangoo Station has two hand-painted signs attached to it. The biggest sign is at the top of the gate and reads: 'PRIVATE ROAD: STATION BUSINESS ONLY.' The second sign is smaller and reads 'NO ACCESS TO COAST THANGOO PTY LTD.'"
+		caption="The entrance to Thangoo Station in 2022. Photo: Ben Silverstein."
+	/>
 
 	<p>
 		Dianne Appleby and Thomas 'Unda' Edgar talk about opening the gate and returning to Thangoo.
@@ -952,9 +969,11 @@
 		Returning from Broome to Janyjagurdiny is a way of mapping Country. From Broome, looking over
 		Roebuck Bay, you can see the tamarind tree near the Thangoo homestead.
 	</p>
+</GenericContent>
 
-	<YawuruThangooMap />
+<YawuruThangooMap />
 
+<GenericContent>
 	<p>
 		In what now looks like a small clearing just above the younger tree in the image above, there
 		used to stand an older tamarind tree, later knocked down in a cyclone. A long time ago, when
@@ -1022,15 +1041,13 @@
 
 	<AudioFullWidth audio={singleAudio.DianneAppleby_2021} credit="Dianne Appleby, 2021" />
 
-	<figure>
-		<img
-			src={singleImages.JackEdgarThangoo}
-			alt="Bulan/Jack Edgar back home at Jangu. This is a colour still (taped onto a piece of cardboard) of Jack Edgar sitting down and playing cards. There are other people sitting close by but their faces are not in frame."
-		/>
-		<figcaption>
-			Bulan/Jack Edgar back home at Jangu (date unknown). Photo provided by Susan Edgar.
-		</figcaption>
-	</figure>
+	<ImageSingle
+	width="1400"
+	height="3153"
+	source={singleImages.JackEdgarThangoo}
+	alt="Bulan/Jack Edgar back home at Jangu. This is a colour still (taped onto a piece of cardboard) of Jack Edgar sitting down and playing cards. There are other people sitting close by but their faces are not in frame."
+	caption="Bulan/Jack Edgar back home at Jangu (date unknown). Photo provided by Susan Edgar."
+	/>
 </GenericContent>
 
 <GenericContent>
@@ -1154,7 +1171,7 @@
 	</p>
 </GenericContent>
 
-<ImageSliderFullscreen slides={slider} />
+<ImageGrid media={slider} />
 
 <GenericContent>
 	<h2>Credits</h2>

@@ -2,6 +2,15 @@
 
 This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt with Svelte.
 
+## Running this project
+- Edit the npmrc example before running.
+- This project uses Club GSAP (paid) plugins.
+- You may need to add the following to the npmrc to install everything.
+  
+`always-auth=true
+//npm.greensock.com/:_authToken=API_TOKEN
+@gsap:registry=https://npm.greensock.com`
+
 ## To-do
 
 ### General
@@ -11,14 +20,14 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 * [] Add dark/light mode
 * [] Convert hexcodes to use color()
 ---
-* [] Rebuild the menu: make it fullscreen, add transitions and animations, dim background
+* [x] Rebuild the menu: make it fullscreen, add transitions and animations, dim background
 * [] Convert all audio to components
 * [] Convert warning headers to components
 
 
 ### Scrollytelling
 IMAGES
-* [] Add border: none to ImageSingle (e.g. rotating calendar)
+* [x] Add border: none to ImageSingle (e.g. rotating calendar)
 * [] All enlargeable images need a little enlarge icon or somethig
 * [] AudioBlock - smaller contained block that doens't break out of the width too much, - can be wider, but thinner!
 * [] Load full page of images before starting animations and sequences
@@ -35,6 +44,7 @@ IMAGES
 * [] Make Leaflet maps fullwidth
 * [] Yawuru - rotate calendar on scroll
 * [] Forced stops on welcomes (Carnarvon)
+* [] Carnarvon quick switcher: 
 * [] Carnarvon - scrolling gallery fullheight of burnt damage
 * [] Carnarvon: Add aerial map to Carnarvon
 * [] Carnarvon - aerial map reveal, then disappear, then show again

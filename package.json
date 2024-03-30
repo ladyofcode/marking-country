@@ -32,9 +32,10 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"gsap": "^3.12.5",
+		"gsap": "npm:@gsap/shockingly@^3.12.5",
 		"leaflet": "^1.9.4",
 		"leaflet.fullscreen": "^2.4.0",
+		"locomotive-scroll": "^4.1.4",
 		"photoswipe": "^5.4.1",
 		"photoswipe-dynamic-caption-plugin": "^1.2.7",
 		"screenfull": "^6.0.2",

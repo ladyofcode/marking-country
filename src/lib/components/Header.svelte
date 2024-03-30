@@ -7,9 +7,8 @@
 		image = '',
 		video = '',
 		poster = '',
-		type = '',
-		name;
-
+		type = '';
+		
 	import { onMount, onDestroy } from 'svelte';
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -19,7 +18,7 @@
 
 	let triggers = [];
 
-	let title, pane, header;
+	let title, pane, header, gradient;
 
 	onMount(() => {
 		document.documentElement.style.setProperty('--clr-dynamic', gradientColor);
@@ -33,15 +32,15 @@
 			delay: 0.4
 		});
 		const gradientAnimation = gsap.to(
-			'.gradient',
+			gradient,
 			{
 				scrollTrigger: {
-					trigger: '.header',
+					trigger: header,
 					start: 'top top',
 					end: '+=100%',
 					scrub: true,
-					onEnter: () => gsap.to('.gradient', { opacity: 0 }),
-					onLeaveBack: () => gsap.to('.gradient', { opacity: 1 })
+					onEnter: () => gsap.to(gradient, { opacity: 0 }),
+					onLeaveBack: () => gsap.to(gradient, { opacity: 1 })
 				}
 			},
 			0
@@ -64,8 +63,8 @@
 	});
 </script>
 
-<header {id} class="header {name}" {...$$restProps} bind:this={header}>
-	<div class="gradient" />
+<header {id} {...$$restProps} bind:this={header}>
+	<div class="gradient" bind:this={gradient} />
 	<div class="heading" bind:this={pane}>
 		<h1 bind:this={title}>{@html heading}</h1>
 		{#if subheading}
@@ -109,29 +108,22 @@
 
 	label {
 		display: block;
-		/* margin: 0.5rem auto; */
-		margin-top: 2.4rem;
-		padding: 4px 4px 6px 6px;
-		border: 0 solid #005a9c;
-		border-radius: 5px;
-		width: 16rem;
+		border: 0 solid var(--clr-terracotta);
+		border-radius: var(--radius-corner);
 	}
 
 	label .label {
 		display: inline-block;
-		width: 9em;
 		user-select: none;
 	}
-
+	
 	label input[role='switch'] {
 		opacity: 0;
+		position: absolute;
 	}
-
-	label .container {
-		background-color: white;
-	}
-
+	
 	label input[role='switch'] ~ .state {
+		margin-left: var(--space-sm);
 		display: inline-block;
 		user-select: none;
 	}
@@ -140,63 +132,62 @@
 		position: relative;
 		top: 2px;
 		display: inline-block;
-		border: 2px solid black;
-		width: 40px;
-		/* height: 20px; */
-		border-radius: 11px;
+		border: 2px solid var(--clr-lightGrey);
+		width: var(--space-xxl);
+		border-radius: 64px;
 	}
 
 	label input[role='switch'] ~ .state > .container > .position {
 		position: relative;
-		top: 1px;
-		left: 2px;
+		left: 4px;
 		display: inline-block;
-		border: 2px solid black;
+		border: 2px solid var(--clr-lightGrey);
 		border-radius: 9px;
 		width: 14px;
 		height: 14px;
-		background: white;
+		background: transparent;
 		opacity: 0.6;
 	}
 
 	label input[role='switch']:checked ~ .state > .container > .position {
-		left: 20px;
-		border-color: green;
-		background: green;
+		left: 24px;
+		border-color: var(--clr-clay);
+		background: var(--clr-clay);
 		opacity: 1;
 	}
 
-	/* label:focus,
+	label:focus,
 	label:hover {
-		padding: 2px 2px 4px 4px;
+		padding: var(--space-xs) var(--space-sm);
 		border-width: 2px;
 		outline: none;
-		background-color: #def;
+		background-color: #ffffff54;
 		cursor: pointer;
+		color: #fff;
 	}
 
 	label:focus span.container,
 	label:hover span.container {
-		background-color: white;
-	} */
-
-	.header {
-		width: 100%;
-		height: 100%;
-		/* overflow: hidden; */
-		overflow-y: scroll;
-		position: relative;
+		background-color: rgba(255, 255, 255, 0.397);
 	}
 
-	.header img,
-	.header video {
+	header {
+		width: 100%;
+		height: 100%;
+		overflow-y: scroll;
+		position: relative;
+		margin-bottom: var(--space-xxxl);
+	}
+
+	header img,
+	header video {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 	}
 
-	.header img,
-	.header video {
+	header img,
+	header video {
 		display: block;
 		margin: 0 auto;
 		margin-top: 100px;
@@ -211,8 +202,9 @@
 	.heading {
 		position: absolute;
 		bottom: 1.6rem;
-		margin-left: 4rem;
-		padding: 2.4rem;
+		left: var(--space-lg);
+		right: var(--space-lg);
+		padding: var(--space-xxl);
 		z-index: 4;
 		background: var(--glass-clr-bg);
 		/* box-shadow: var(--glass-box-shadow); */
@@ -222,17 +214,20 @@
 		border: var(--glass-outline);
 	}
 
-	.heading h1,
-	.heading h2 {
-		color: var(--clr-font-heading);
+	h1,
+	h2 {
+		color: var(--clr-lightGrey);
 	}
 
-	.heading h1 {
+	h1 {
+		font-size: var(--font-size-hero);
 		margin-bottom: 0;
 		text-shadow: 0px 3px 6px rgba(40, 40, 40, 0.8);
 	}
 
-	.heading h2 {
+	h2 {
+		/* text-transform: uppercase; */
+		font-weight: 400;
 		margin-top: 0.8rem;
 		font-size: 1.6rem;
 	}
@@ -240,6 +235,12 @@
 	@media (min-width: 600px) {
 		.heading {
 			max-width: 64%;
+		}
+	}
+
+	@media (min-width: 800px) {
+		.heading {
+			left: var(--space-xxl);
 		}
 	}
 

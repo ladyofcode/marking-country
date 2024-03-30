@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { onMount, onDestroy } from 'svelte';
+	import ThemeToggle from './ThemeToggle.svelte';
 
 	let menuChecked = false;
 	let isLargeScreen = false;
@@ -28,6 +29,10 @@
 	}
 
 	let menuItems = [
+		{
+			title: 'Home',
+			url: `${base}`
+		},
 		{
 			title: 'About',
 			url: `${base}#`,
@@ -134,6 +139,8 @@
 					{/if}
 				</li>
 			{/each}
+
+			<li class="toggle"><ThemeToggle /></li>
 		</ul>
 	</nav>
 </div>
@@ -151,6 +158,14 @@
 		height: 100%;
 		min-height: 100vh;
 		z-index: 400;
+	}
+
+	.toggle {
+		display: block;
+		padding: 1.4rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.overlay {
@@ -239,7 +254,7 @@
 	.arrow {
 		display: block;
 		float: right;
-		border: solid var(--clr-terracotta-dark);
+		border: solid var(--clr-terracotta);
 		border-width: 0 3px 3px 0;
 		padding: 3px;
 		margin-top: 10px;

@@ -50,14 +50,14 @@
 		text-align: center;
 		padding: 1rem;
 		color: #fff;
-		background: var(--color-fg-dark);
+		background: var(--clr-dark-charcoal);
 		cursor: pointer;
 		border-radius: 7px;
 		transition: all 0.25s ease-out;
 	}
 
 	.label-toggle:hover {
-		color: var(--color-bg-light);
+		color: var(--clr-bg-main);
 	}
 
 	.label-toggle::before {
@@ -91,7 +91,7 @@
 	.collapsible-content :global(ul),
 	.collapsible-content :global(li),
 	.collapsible-content :global(figcaption) {
-		color: var(--color-dark-charcoal);
+		color: var(--clr-dark-charcoal);
 	}
 
 	.toggle:checked + .label-toggle + .collapsible-container {
@@ -104,7 +104,7 @@
 	}
 
 	.collapsible-container .collapsible-content {
-		background-color: var(--color-bg-light);
+		background-color: var(--clr-bg-main);
 		border-bottom: 1px solid rgba(250, 224, 66, 0.45);
 		border-bottom-left-radius: 7px;
 		border-bottom-right-radius: 7px;

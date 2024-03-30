@@ -10,7 +10,7 @@
 		margin-top: 24px;
 		margin-bottom: 24px;
 		padding: 1.4rem 2.4rem;
-		border-radius: var(--corner-radius);
+		border-radius: var(--radius-corner);
 	}
 
 	.learn-more-box :global(div) {

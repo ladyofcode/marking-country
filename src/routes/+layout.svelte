@@ -7,7 +7,7 @@
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 	import { ScrollSmoother } from 'gsap/ScrollSmoother';
 	import { killScrollTriggers } from '$lib/utils';
-	import { dotNavData } from '../stores';
+	import { dotNavData } from '../stores/dotNavStore';
 	import { base } from '$app/paths';
 	import { onMount, onDestroy } from 'svelte';
 

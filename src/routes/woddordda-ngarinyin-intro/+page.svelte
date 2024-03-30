@@ -140,7 +140,7 @@
 	.title div h1,
 	.title div h2 {
 		text-align: center;
-		color: var(--text-light);
+		color: var(--clr-text);
 	}
 	.pane {
 		padding: 1rem;
@@ -222,8 +222,8 @@
 		font-size: 1.6rem;
 		max-width: 340px;
 		padding: 1.6rem;
-		background-color: var(--color-dark-charcoal);
-		border-radius: var(--corner-radius);
+		background-color: var(--clr-dark-charcoal);
+		border-radius: var(--radius-corner);
 		margin-bottom: 6.4rem;
 	}
 	.links a :hover {
@@ -231,7 +231,7 @@
 	}
 
 	.links img {
-		border-radius: var(--corner-radius);
+		border-radius: var(--radius-corner);
 		margin: 0 auto;
 		margin-bottom: 1rem;
 		width: 100%;

@@ -567,7 +567,7 @@
 
 <style>
 	.fullwidth-audio {
-		color: var(--text-light);
+		color: var(--clr-text);
 
 		margin-bottom: 0;
 	}

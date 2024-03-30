@@ -11,8 +11,8 @@
 
 <style>
 	blockquote {
-		border-top: 2px solid var(--color-terracotta);
-		border-bottom: 2px solid var(--color-terracotta);
+		border-top: 2px solid var(--clr-terracotta);
+		border-bottom: 2px solid var(--clr-terracotta);
 		border-left: none;
 		font-family: Georgia, Times, 'Times New Roman', serif;
 		line-height: 2rem;
@@ -22,7 +22,7 @@
 	}
 
 	.quote :global(blockquote > p) {
-		color: var(--color-terracotta) !important;
+		color: var(--clr-terracotta) !important;
 	}
 
 	blockquote:before {
@@ -31,7 +31,7 @@
 		top: 0;
 		left: 50%;
 		height: 4px;
-		background-color: var(--color-dark-charcoal);
+		background-color: var(--clr-dark-charcoal);
 		width: 2rem;
 		margin-top: -3px;
 		margin-left: -1em;
@@ -42,7 +42,7 @@
 		position: absolute;
 		top: 0;
 		left: 50%;
-		color: var(--color-terracotta);
+		color: var(--clr-terracotta);
 		font-style: normal;
 		font-size: 4rem;
 		text-align: center;
@@ -76,7 +76,7 @@
 	@media (min-width: 900px) {
 		blockquote {
 			border: 0;
-			border-left: 3px solid var(--color-terracotta);
+			border-left: 3px solid var(--clr-terracotta);
 			font-size: 1.1em;
 			margin: 1.1em -4em 0em 0rem;
 		}

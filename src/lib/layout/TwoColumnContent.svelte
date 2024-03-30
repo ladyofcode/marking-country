@@ -10,7 +10,7 @@
 	}
 
 	.two-column-container :global(img) {
-		border-radius: var(--corner-radius);
+		border-radius: var(--radius-corner);
 	}
 
 	.two-column-container :global(figcaption) {

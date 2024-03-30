@@ -75,7 +75,7 @@
 	}
 
 	.options label {
-		color: var(--text-light);
+		color: var(--clr-text);
 	}
 
 	.options label:hover {
@@ -84,8 +84,8 @@
 
 	.text {
 		padding: 1.2rem 1.6rem;
-		background-color: var(--text-dark);
-		border-radius: var(--corner-radius);
+		background-color: var(--clr-text);
+		border-radius: var(--radius-corner);
 	}
 	.text div {
 		width: 100%;
@@ -93,25 +93,25 @@
 		justify-content: flex-end;
 	}
 	.text div button {
-		color: var(--text-highlight);
+		color: var(--clr-terracotta);
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		font-family: var(--font-body-copy);
+		font-family: var(--font-family-body);
 		padding: 0.4rem 0.8rem;
 		background-color: transparent;
-		border: 1px solid var(--text-highlight);
-		border-radius: var(--corner-radius);
+		border: 1px solid var(--clr-terracotta);
+		border-radius: var(--radius-corner);
 	}
 	.text div button:hover,
 	.text div button:hover svg {
 		cursor: pointer;
-		background-color: var(--text-highlight);
+		background-color: var(--clr-terracotta);
 		color: #fff;
 		fill: #fff;
 	}
 	.text div button svg {
 		margin-left: 1.2rem;
-		fill: var(--text-highlight);
+		fill: var(--clr-terracotta);
 	}
 </style>

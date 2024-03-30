@@ -5,7 +5,7 @@
 	import { generateSubfolderMedia, generateSingleMedia } from '$lib/imagePaths';
 	import { gsap } from 'gsap/dist/gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-	import { dotNavData } from '../../stores';
+	import { dotNavData } from '../../stores/dotNavStore';
 
 	gsap.registerPlugin(ScrollTrigger);
 

@@ -465,7 +465,7 @@
 		width: 100%;
 		min-height: 300px;
 		max-height: 400px;
-		background: var(--color-dark-charcoal);
+		background: var(--clr-dark-charcoal);
 		padding: 2rem;
 		border-radius: 5px;
 		box-shadow: 0 0 10px 10px rgba(0, 82, 149, 0.2);

@@ -881,7 +881,7 @@ Jane M. Jacobs" -->
 		width: 100%;
 		border-radius: 4px;
 		color: #ffffff;
-		background-color: var(--color-terracotta);
+		background-color: var(--clr-terracotta);
 		padding: 0.8rem 1.2rem;
 		margin-top: 1.6rem;
 	}

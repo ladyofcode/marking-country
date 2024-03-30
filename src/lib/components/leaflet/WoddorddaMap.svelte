@@ -803,11 +803,11 @@
 
 	.info {
 		z-index: 800;
-		font-family: var(--font-body-copy);
+		font-family: var(--font-family-body);
 		min-height: 280px;
 		max-height: 360px;
 		max-width: 600px;
-		background: var(--color-dark-charcoal);
+		background: var(--clr-dark-charcoal);
 		padding: 1.6rem;
 		border-radius: 5px;
 		overflow-y: scroll;

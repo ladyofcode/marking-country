@@ -14,7 +14,7 @@
 
 <style>
 	figure {
-		color: var(--text-light);
+		color: var(--clr-text);
 		margin-bottom: 0;
 	}
 

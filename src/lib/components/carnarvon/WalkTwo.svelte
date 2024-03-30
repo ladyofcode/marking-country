@@ -132,12 +132,12 @@
 		margin-bottom: 1.6rem;
 	}
 	figure img {
-		border-radius: var(--corner-radius);
+		border-radius: var(--radius-corner);
 	}
 	.container-left {
 		height: 100%;
 		flex: 1 0 50%;
-		background-color: var(--color-dark-charcoal);
+		background-color: var(--clr-dark-charcoal);
 		z-index: 200;
 	}
 	.container-left figure:first-child {

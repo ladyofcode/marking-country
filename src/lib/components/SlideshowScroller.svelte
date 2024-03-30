@@ -41,7 +41,6 @@
 						trigger: section,
 						start: 'top center',
 						end: 'bottom center',
-						markers: true,
 						preventOverlaps: true,
 						onEnter: () => updateImage(index),
 						onEnterBack: () => updateImage(index)
@@ -102,7 +101,6 @@
 					end: 'top 50%',
 					animation: animation,
 					scrub: true,
-					markers: true
 				});
 				triggers.push(animation);
 			});

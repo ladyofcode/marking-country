@@ -588,16 +588,16 @@
 
 <style>
 	.button-view-fullscreen {
-		font-family: var(--font-body-copy);
+		font-family: var(--font-family-body);
 		padding: 0.8rem 1.6rem;
 		margin: 1.2rem auto;
-		background-color: var(--text-highlight);
+		background-color: var(--clr-terracotta);
 		border: none;
-		border-radius: var(--corner-radius);
+		border-radius: var(--radius-corner);
 	}
 
 	.button-view-fullscreen a {
-		color: var(--text-light);
+		color: var(--clr-text);
 	}
 
 	.portrait-image > img {

@@ -56,7 +56,7 @@
 					end: 'top 50%',
 					animation: animation,
 					scrub: true,
-					markers: true
+					
 				});
 				triggers.push(animation);
 			});

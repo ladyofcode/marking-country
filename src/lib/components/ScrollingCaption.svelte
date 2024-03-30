@@ -62,7 +62,7 @@
 	}
 
 	.pane :global(p:first-of-type) {
-		border-top: 2px solid var(--text-highlight);
+		border-top: 2px solid var(--clr-terracotta);
 		padding-top: 1.2rem;
 	}
 

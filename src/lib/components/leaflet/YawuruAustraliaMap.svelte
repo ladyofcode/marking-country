@@ -74,6 +74,6 @@
 
 :global(.leaflet-popup-content-wrapper),
 :global(.leaflet-popup-tip) {
-	background-color: var(--color-dark-charcoal);
+	background-color: var(--clr-dark-charcoal);
 }
 </style>

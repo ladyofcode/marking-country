@@ -88,14 +88,14 @@
 	}
 
 	.home-buttons button:first-of-type {
-		background-color: var(--color-terracotta);
+		background-color: var(--clr-terracotta);
 		margin-right: 2rem;
 		color: #ffffff;
 	}
 
 	.home-buttons button:last-of-type {
 		background-color: transparent !important;
-		color: var(--color-terracotta) !important;
+		color: var(--clr-terracotta) !important;
 	}
 
 	.home-buttons button:last-of-type:hover {
@@ -105,15 +105,15 @@
 	button {
 		font-family: 'Work Sans', Arial, Helvetica, sans-serif;
 		width: 100%;
-		border: 2px solid var(--color-terracotta);
+		border: 2px solid var(--clr-terracotta);
 		border-radius: 4px;
 		margin: 1rem 0;
 		padding: 1rem 2rem;
 		font-size: 1rem;
 	}
 	button:hover {
-		border: 2px solid var(--color-fg-dark);
-		background-color: var(--color-fg-dark);
+		border: 2px solid var(--clr-dark-charcoal);
+		background-color: var(--clr-dark-charcoal);
 		color: #ffffff !important;
 		cursor: pointer;
 	}

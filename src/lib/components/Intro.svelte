@@ -101,7 +101,7 @@
 		width: 100%;
 		height: 3px;
 		border-radius: 4px;
-		background-color: var(--clr-terracotta-dark);
+		background-color: var(--clr-terracotta);
 		margin-bottom: 4rem;
 	}
 

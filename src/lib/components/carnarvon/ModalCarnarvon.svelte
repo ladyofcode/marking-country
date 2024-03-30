@@ -31,7 +31,7 @@
 		border: none;
 		padding: 0;
 		margin: 0 auto;
-		background-color: var(--color-dark-charcoal);
+		background-color: var(--clr-dark-charcoal);
 	}
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.6);
@@ -48,7 +48,7 @@
 		justify-content: flex-end;
 		width: 100%;
 		height: 80px;
-		background-color: var(--color-terracotta);
+		background-color: var(--clr-terracotta);
 	}
 	.close {
 		color: #ffffff;

@@ -89,7 +89,7 @@
 		height: 88vh;
 		width: 100%;
 		position: relative;
-		background-color: var(--color-dark-charcoal);
+		background-color: var(--clr-dark-charcoal);
 		padding-top: 1.2rem;
 		display: flex;
 		flex-direction: column;
@@ -119,7 +119,7 @@
 		width: 100%;
 		margin-top: 80px;
 		padding: 1.2rem;
-		color: var(--text-light);
+		color: var(--clr-text);
 		background: rgba(29, 29, 29, 0.494);
 		/* box-shadow: 0 8px 32px 0 rgba(79, 79, 85, 0.618); */
 		backdrop-filter: blur(10px);
@@ -142,7 +142,7 @@
 		z-index: 10;
 		color: #864640;
 		border: 1px solid #867a5653;
-		background-color: var(--color-dark-charcoal);
+		background-color: var(--clr-dark-charcoal);
 		padding: 16px;
 	}
 

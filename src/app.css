@@ -56,8 +56,9 @@ h6 {
 /*Custom CSS*/
 
 @font-face {
-	font-family: 'Playfair Display', serif;
-	src: url(/fonts/PlayfairDisplay-VariableFont.ttf) format('truetype');
+	font-family: 'Playfair Display';
+	src: url(/fonts/PlayfairDisplay-VariableFont_wght.ttf) format('truetype');
+	/* font-weight: 1 999; */
 }
 
 @font-face {
@@ -65,56 +66,71 @@ h6 {
 	src: url(/fonts/WorkSans-VariableFont.ttf) format('truetype');
 }
 
-.gsap-marker-start, .gsap-marker-end, .gsap-marker-scroller-start, .gsap-marker-scroller-end {
-    z-index: 9999 !important;
-  }
-  
+.gsap-marker-start,
+.gsap-marker-end,
+.gsap-marker-scroller-start,
+.gsap-marker-scroller-end {
+	z-index: 9999 !important;
+}
 
 :root {
-	--paragraph-padding: 1em;
-
-	--clr-black-red: #110e0e;
+	--clr-black-red: #151010;
 	--clr-charcoal: #212121;
 	--clr-dark-charcoal: #141414;
-    --clr-light: #ececec;
-    --clr-terracotta-light: #c26f67;
-    --clr-terracotta-dark: #d85245;
+	--clr-pink: #f3e3e3;
+	--clr-lightGrey: #dbd9d9;
+	--clr-clay: #c26f67;
+	--clr-terracotta: #d85245;
+
+	--space-unit: 0.5rem;
+	--space-xs: calc(var(--space-unit) * 0.5); /* 0.25rem = 4px */
+	--space-sm: var(--space-unit); /* 0.5rem = 8px */
+	--space-md: calc(var(--space-unit) * 2); /* 1rem = 16px */
+	--space-lg: calc(var(--space-unit) * 3); /* 1.5rem = 24px */
+	--space-xl: calc(var(--space-unit) * 4); /* 2rem = 32px */
+	--space-xxl: calc(var(--space-unit) * 6); /* 3rem = 48px */
+	--space-xxxl: calc(var(--space-unit) * 8); /* 4rem = 64px */
 
 	--height-menu: 72px;
 	--height-viewable: calc(100vh - var(--height-menu));
-	
-	--width-content: 700px;
+	--width-content: 720px;
 
-	--color-terracotta: #c26f67;
-	--color-dark-charcoal: #101010;
-	--color-bg-light: #cbcbcb;
-	--color-charcoal: #080808;
-	--color-fg-dark: #4d4d4d;
-	--text-light: #ececec;
-	--text-dark: #2f2f2f;
-	--text-highlight: #d85245;
-	--color-heading: var(--clr-terracotta-dark);
-	--font-body-copy: 'WorkSans', Arial, Helvetica, sans-serif;
-	--font-heading: 'Playfair Display';
-	--corner-radius: 4px;
-	--margin-8: 8rem;
+	--font-sans: 'WorkSans', Aria, Helvetica, sans-serif;
+	--font-serif: 'Playfair Display', sans-serif;
+	--font-size-body: 1rem; /* Base font size for body text */
+	--font-size-caption: 0.875rem; /* Smaller text */
+	--font-size-subheading: 1.25rem; /* Subheading, slightly larger than body text */
+	--font-size-heading: 1.5rem; /* Main headings */
+	--font-size-large-heading: 2rem; /* Larger headings */
+	--font-size-hero: 4rem; /* Hero or very large titles */
+	--font-family-body: var(--font-sans);
+	--font-family-heading: var(--font-serif);
+
+	--radius-corner: var(--space-xs);
+
+	--glass-light: rgba(224, 224, 224, 0.5);
+	--glass-dark: rgba(29, 29, 29, 0.5);
 }
 
 [data-theme='light'] {
-	--clr-bg-main: grey;
-	--clr-text: var(--text-dark);
+	--glass-contrast: var(--glass-dark);
+	--clr-bg-main: var(--clr-pink);
+	--clr-text: var(--clr-charcoal);
+	--clr-font-heading: var(--clr-terracotta);
+	--glass-clr-bg: var(--glass-light);
 }
 
 [data-theme='dark'] {
 	--clr-bg-main: var(--clr-black-red);
-	--clr-text: var(--text-light);
-    --clr-font-heading: var(--clr-light);
-	--glass-clr-bg: rgba(29, 29, 29, 0.494);
+	--clr-text: var(--clr-lightGrey);
+	--clr-font-heading: var(--clr-clay);
+	--glass-contrast: var(--glass-light);
+	--glass-clr-bg: var(--glass-dark);
 	--glass-box-shadow: 0 8px 32px 0 rgba(79, 79, 85, 0.618);
 	--glass-backdrop-filter: blur(10px);
 	--glass-webkit-backdrop-filter: blur(10px);
 	--glass-border-radius: 10px;
-    --glass-outline: 1px solid rgba( 255, 255, 255, 0.16 );
+	--glass-outline: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 html,
@@ -128,18 +144,6 @@ body {
 	margin: 0 auto;
 	overflow-x: hidden;
 }
-/* 
-body::before {
-	content: '';
-	top: 0;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	opacity: 0.94;
-} */
-
-/* body::before:has() .ngarinyin {
-} */
 
 h1,
 h2,
@@ -147,8 +151,8 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--clr-font-heading);
-	color: var(--color-heading);
+	font-family: var(--font-family-heading);
+	color: var(--clr-font-heading);
 }
 
 h1 {
@@ -171,8 +175,8 @@ h3 {
 p,
 li,
 label {
-	font-family: var(--font-body-copy);
-	color: var(--text-light);
+	font-family: var(--font-family-body);
+	color: var(--clr-text);
 	font-size: 1.12rem;
 }
 
@@ -184,9 +188,9 @@ div > figure {
 }
 
 a {
-	text-decoration: underline solid var(--color-heading);
-	color: var(--text-highlight);
-	font-family: var(--font-body-copy);
+	text-decoration: underline solid var(--clr-text);
+	color: var(--clr-terracotta);
+	font-family: var(--font-family-body);
 }
 
 h1 a,
@@ -196,9 +200,9 @@ h2 a {
 }
 
 figcaption {
-	font-family: var(--font-body-copy);
+	font-family: var(--font-family-body);
 	font-weight: 400;
-	color: var(--text-light);
+	color: var(--clr-text);
 	text-align: center;
 	letter-spacing: 0.04rem;
 	font-size: 0.8rem;
@@ -210,20 +214,21 @@ audio {
 }
 
 details {
-	border: 1px dotted var(--text-highlight);
+	border: 1px dotted var(--clr-terracotta);
 	padding: 1rem;
 	margin-bottom: 4rem;
 }
 
 summary {
-	color: var(--text-light);
-	font-family: var(--font-body-copy);
+	color: var(--clr-text);
+	font-family: var(--font-family-body);
 	text-transform: uppercase;
 }
 
 .pswp__dynamic-caption {
-	font-family: var(--font-body-copy);
+	font-family: var(--font-family-body);
 }
+
 @media (min-width: 600px) {
 	h1 {
 		font-size: 4rem;

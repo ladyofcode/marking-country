@@ -5,13 +5,14 @@
 	import { gsap } from 'gsap/dist/gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
-	gsap.registerPlugin(ScrollTrigger);
-
+	
 	let wrapper;
 	let containers = [],
-		triggers = [];
-
+	triggers = [];
+	
 	onMount(() => {
+		gsap.registerPlugin(ScrollTrigger);
+	
 		let sections = gsap.utils.toArray(containers);
 
 		const animation = gsap.to(sections, {

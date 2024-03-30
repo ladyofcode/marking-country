@@ -15,6 +15,7 @@ export { default as Header } from './components/Header.svelte';
 export { default as HorizontalScroller } from './components/HorizontalScroller.svelte';
 export { default as ImageGrid } from './components/ImageGrid.svelte';
 export { default as ImageSingle } from './components/ImageSingle.svelte';
+export { default as ImageFull } from './components/ImageFull.svelte';
 export { default as ImageSliderFullscreen } from './components/ImageSliderFullscreen.svelte';
 export { default as InlineQuote } from './components/InlineQuote.svelte';
 export { default as Intro } from './components/Intro.svelte';
@@ -26,6 +27,7 @@ export { default as ScrollingCaption } from './components/ScrollingCaption.svelt
 export { default as ScrollStop } from './components/ScrollStop.svelte';
 export { default as SideCaption } from './components/SideCaption.svelte';
 export { default as SideScroller } from './components/SideScroller.svelte';
+export { default as SlideshowScroller } from './components/SlideshowScroller.svelte';
 export { default as TwoColumnContent } from './layout/TwoColumnContent.svelte';
 export { default as TwoColumns } from './layout/TwoColumns.svelte';
 export { default as WalkOne } from './components/carnarvon/WalkOne.svelte';
@@ -38,4 +40,5 @@ export { default as YawuruAustraliaMap } from './components/leaflet/YawuruAustra
 export { default as YawuruBroomeMap } from './components/leaflet/YawuruBroomeMap.svelte';
 export { default as YawuruCoastMap } from './components/leaflet/YawuruCoastMap.svelte';
 export { default as YawuruThangooMap } from './components/leaflet/YawuruThangooMap.svelte';
+export { default as ZoomableContent } from './components/ZoomableContent.svelte';
 

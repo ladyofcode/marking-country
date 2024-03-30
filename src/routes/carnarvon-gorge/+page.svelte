@@ -23,7 +23,8 @@
 		GalleryOne,
 		GalleryTwo,
 		WalkOne,
-		WalkTwo
+		WalkTwo,
+		ZoomableContent
 	} from '$lib';
 
 	const singleImageFilenames = [
@@ -104,7 +105,8 @@
 	gradientColor="#15150b"
 />
 
-<!-- <Intro intro="carnarvon">
+
+<Intro intro="carnarvon">
 	<p>
 		<strong>
 			Led by Bidjara elders Uncle Fred 'Cotto' Conway OAM and Professor Jackie Huggins AM.
@@ -168,13 +170,11 @@
 	alt="Jackie Huggins and Uncle Red ssitting next to one another on some rocks in the gorge. Jackie is smiling; Uncle Fred is gesturing towards the camera."
 	caption="Jackie learns from Uncle Fred as he shares Bidjara culture, Mickey's
     Creek, Carnavon Gorge, Queensland, 23 March 2022. Photo: Amy Way."
-/> -->
+/>
 
-<!-- <GenericContent>
-	<div className={`${styles.quickLinks}`}>
-		<h2>Quick links</h2>
-		<ul className={styles.quickLinks}>
-			<li>
+<!-- Quick links
+
+	<li>
 				<a href="#rock-walk">Walk with Uncle to the rock archive</a>
 			</li>
 			<li>
@@ -189,33 +189,11 @@
 			<li>
 				<a href="#creek-stories">Skip to Creek stories</a>
 			</li>
-		</ul>
+-->
 
-		<br />
-		<p>Scroll to take the full journey</p>
-		<svg width="24" height="auto" viewBox="0 0 512.02 319.26">
-			<path
-				fill="#C26F67"
-				d="M5.9 48.96 48.97 5.89c7.86-7.86 20.73-7.84 28.56 0l178.48 178.48L434.5 5.89c7.86-7.86 20.74-7.82 28.56 0l43.07 43.07c7.83 7.84 7.83 20.72 0 28.56l-192.41 192.4-.36.37-43.07 43.07c-7.83 7.82-20.7 7.86-28.56 0l-43.07-43.07-.36-.37L5.9 77.52c-7.87-7.86-7.87-20.7 0-28.56z"
-			/>
-		</svg>
-	</div>
-</GenericContent> -->
 
-<!-- <MediaFullWidth youTubeId="v0tiqh1Ml04" /> -->
+<MediaFullWidth youTubeId="v0tiqh1Ml04" />
 
-<!-- <VideoEmbedFullWidth>
-      <iframe
-        width="100%"
-        height="auto"
-        src="https://www.youtube.com/embed/v0tiqh1Ml04?rel=0"
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-      ></iframe>
-    </VideoEmbedFullWidth> -->
-<!-- 
 <WalkOne />
 
 <ScrollingCaption
@@ -253,6 +231,7 @@
 >
 	<p>... and right alongside the base of the ancient rock shelter.</p>
 </ScrollingCaption>
+
 
 <GenericContent>
 	<p>
@@ -408,7 +387,7 @@
 	</p>
 </GenericContent>
 
-<GenericContent>
+<ZoomableContent>
 	<p>
 		The National Park is surrounded by government and private property; state forests, cattle
 		stations and pastoral leases whose origins date back to the area's violent colonial history.
@@ -426,7 +405,7 @@
 		(Cherbourg).
 	</p>
 	<p>The gorge became part of the Carnarvon National Park in 1932.</p>
-</GenericContent>
+</ZoomableContent>
 
 <FullScreenStop>
 	<p id="sacred-sites">
@@ -456,7 +435,7 @@
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
-      ></iframe>
+      ></iframe> -->
 </ScrollStop>
 
 <ScrollingCaption
@@ -584,11 +563,11 @@
 	</a>
 </ScrollingCaption>
 
-<MediaFullWidth video={singleVideos.C0001} poster={singleImages.C0001} alt="" />
+<MediaFullWidth video={singleVideos.C0001} poster={singleImages.C0001} alt="" /> -
 
-<WalkTwo /> -->
+<WalkTwo />
 
-<!-- <ScrollingCaption
+ <ScrollingCaption
 	video={singleVideos.C0008}
 	alt=""
 	poster={singleImages.image_poster_C0008}
@@ -616,11 +595,11 @@
 	autoplay={true}
 >
 	<p>...whose path is nestled underneath the rock.</p>
-</ScrollingCaption> -->
+</ScrollingCaption>
 
 <!-- caption="Rita Huggins, Jackie's mother, in Carnarvon Gorge, QLD. Photo:
 Jane M. Jacobs" -->
-<!-- <ScrollingCaption
+ <ScrollingCaption
 	image={singleImages.AuntyRita01}
 	orientation="portrait"
 	caption="right"
@@ -893,7 +872,7 @@ Jane M. Jacobs" -->
 		location={$page.url.href}
 		page={pageTitle}
 	/>
-</GenericContent> -->
+</GenericContent>
 
 <style>
 	.youtube-button {

@@ -13,7 +13,7 @@
 	$: $page.path, closeNav();
 
 	$: {
-		if (menuChecked && isLargeScreen=== false) {
+		if (menuChecked && isLargeScreen === false) {
 			document.body.style.overflow = 'hidden';
 		} else {
 			document.body.style.overflow = '';
@@ -28,7 +28,6 @@
 	}
 
 	let menuItems = [
-		{ title: 'Home', url: `${base}/` },
 		{
 			title: 'About',
 			url: `${base}#`,
@@ -151,7 +150,7 @@
 		right: 0;
 		height: 100%;
 		min-height: 100vh;
-		z-index: 200;
+		z-index: 400;
 	}
 
 	.overlay {
@@ -188,7 +187,8 @@
 		transition: transform 0.3s ease-in-out;
 		transform: translateX(100%);
 	}
-	.top-bar.open, .top-bar-underlay.open{
+	.top-bar.open,
+	.top-bar-underlay.open {
 		width: 280px;
 	}
 
@@ -314,14 +314,15 @@
 			width: 100%;
 			display: flex;
 			justify-content: center;
-			overflow:visible;
+			overflow: visible;
 		}
 
 		.overlay {
 			display: none;
 		}
 
-		.top-bar, .top-bar.open {
+		.top-bar,
+		.top-bar.open {
 			background-color: var(--clr-dark-charcoal);
 			width: 100%;
 			position: fixed;
@@ -338,11 +339,11 @@
 			flex-direction: row;
 			width: 100%;
 			max-width: 1024px;
-			overflow:visible;
+			overflow: visible;
 			background-color: transparent;
 			transform: translateX(0%);
 		}
-		
+
 		nav > ul {
 			height: fit-content;
 			width: 100%;
@@ -383,6 +384,5 @@
 		.subnav-content:hover {
 			display: block;
 		}
-
 	}
 </style>

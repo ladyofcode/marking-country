@@ -58,7 +58,7 @@
 		`${folderPath}slideshow_four`,
 		slideshowFourFilenames
 	);
-	const matthew = `${base}/stories/ngarinyin/images/Matthew-Dembal-Martin_sings-06062022_RCDH.jpg`;
+	const matthew = `${base}/stories/ngarinyin/images/Matthew_Dembal_Martin_sings_06062022_RCDH.jpg`;
 	const mudMap = `${base}/stories/woddordda/images/Mudmap_01.jpg`;
 	const matthewMartinMessage = `${base}/mapping/audio/Matthew-Martin-message-sticks.mp3`;
 

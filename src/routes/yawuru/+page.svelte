@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
+	import { YouTube } from 'sveltekit-embed';
 
 	import {
 		Header,
@@ -9,21 +10,22 @@
 		Citations,
 		Credits,
 		ImageSliderFullscreen,
+		ImageSingle,
+		ImageFull,
+		TwoColumns,
 		InlineQuote,
 		AudioFullWidth,
 		MediaFullWidth,
 		TwoColumnContent,
 		Intro,
 		SideCaption,
+		SlideshowScroller,
+		ImageGrid,
 		YawuruAustraliaMap,
 		YawuruBroomeMap,
 		YawuruThangooMap,
 		YawuruCoastMap
 	} from '$lib';
-	import { YouTube } from 'sveltekit-embed';
-	import ImageSingle from '$lib/components/ImageSingle.svelte';
-	import TwoColumns from '$lib/layout/TwoColumns.svelte';
-	import ImageGrid from '$lib/components/ImageGrid.svelte';
 
 	const singleImageFilenames = [
 		'Header_MG_0337.jpg',
@@ -211,8 +213,194 @@
 		}
 	];
 
+	const mapsImagesSlides = [
+		{
+			markup: [
+				`<h3>North West Australia—Chart showing explorations about Roebuck Bay, &c. up to 1864. [detail]</h3>`,
+				`<p>Some of the detail for this map was provided by Frederick Panter and James Martin. It described low grassy plains, mangroves and lines of paperbark trees—in Yawuru language Murrga yirr Ganburr. The map shows lines of paperbark stretching inland, along the edges of the saline grasslands of the southern part of Roebuck bay, as they do today.</p>`,
+				`<p>Several sites are marked 'Native well'. Other notes include: 'Well grassed', 'Kangaroos numerous', 'Game abundant', and 'Native tracks everywhere'.</p>`
+			],
+			image: {
+				component: ImageFull,
+				props: {
+					source: mapsImages[0],
+					width: '1794',
+					height: '879',
+					alt: 'Section of map of Yawuru Country from 1864.',
+					galleryId: 'maps1'
+				}
+			}
+		},
+		{
+			markup: [
+				`<h3>Kimberley [Tally No. 505395], cons4898 06K/7, State Records of Western Australia, produced 1901 and cancelled 1903.</h3>`,
+				`<p>In one of the obituaries after his death in 1924, George Roe was referred to as a ‘pioneer’ of the north, and that he ‘squatted’ on land near Roebuck Bay. According to later government records, Roe established Thangoo station in 1891. Later, John Edgar went into partnership with pearler Frank Biddles, and this map produced in 1901 shows their leases from Cape Gourdon to the mangrove shores just north of Langurru (Goldwyer Well). Edgar and Biddles’ station on Yawuru country was initially called Yardogarra, spelled various ways on different maps, and was named after the jila Yardugarra, just inland from the shore.</p>`
+			],
+			image: {
+				component: ImageFull,
+				props: {
+					source: mapsImages[1],
+					width: '1920',
+					height: '1412',
+					alt: 'Public Plan of land near Roebuck Bay from 1901.',
+					galleryId: 'maps2'
+				}
+			}
+		},
+		{
+			markup: [
+				`<h3>Australia. Department of the Interior. Property and Survey Branch & Australia. Royal Australian Air Force & Australia. Army. A.H.Q. Cartographic Company (1945). Australian aeronautical map: Broome (Sheet E4). [detail]</h3>`,
+				`<p>This detail from a large aeronautical map of the area shows numerous 'native wells', including 'Than-gool-ngun-jal' (an attempt to transcribe Thangoo or Jangu Ngunjal, where Ngunjal means place) and 'Thangoo or Cowan Well'. Also labelled are places such as the sand hills (Mararr, a restricted area), Racecourse Plains (a massacre site), and Yardogarra Well.</p>`
+			],
+			image: {
+				component: ImageFull,
+				props: {
+					source: mapsImages[2],
+					width: '704',
+					height: '361',
+					alt: 'Section of aeronautical map produced by the Royal Australian Air Force and Australian Army from 1945.',
+					galleryId: 'maps3'
+				}
+			}
+		},
+		{
+			markup: [
+				`<h3>300 Chain Plan [Tally No. 503215], cons4567 127/4, map produced 1924 and cancelled 1955, State Records of Western Australia.</h3>`,
+				`<p>The Thangoo leases were sold in 1939. Among the advertised attractions of the leases at the time were 'numerous native watering places', and the 20 wells that had been built on what were originally Yawuru water sources. Despite the fact that the resources of this part of Yawuru Country were included in the attractions of the property, Yawuru people had no say in the sale of the leases and gained no material benefit when the Edgars sold them.</p>`
+			],
+			image: {
+				component: ImageFull,
+				props: {
+					source: mapsImages[3],
+					width: '2400',
+					height: '1725',
+					alt: 'Map from 1924 showing the stick route along the coast, and information about leases.',
+					galleryId: 'maps4'
+				}
+			}
+		}
+	];
+
+	const stationImagesSlides = [
+		{
+			markup: [
+				`<h3>Photograph on the Thangoo homestead verandah (1932).</h3>`,
+				`<p>The people pictured standing in front of the two women on the verandah are, in the back row: Jalgana/Ellen Edgar on far left; Gubajarra/Jack Edgar next to Jalgana; Mangkala/Flossie Edgar/Flossie Larry; Jagura/Thelma Sadler nee Edgar on far right. In the front row are Susan Edgar’s mum’s brothers and sisters.</p>`
+			],
+			image: {
+				component: ImageFull,
+				props: {
+					source: stationImages[0],
+					width: '',
+					height: '',
+					alt: "An old black and white photograph of nine people on the Thanhoo homestead verandah in 1932.  There is a group of seven Aboriginal children: Jagana/ Ellen Edar; Gubjarra/ Jack Edgar; Mangkala/Flossie Edgar/Flossie Larry; Jagura/Thelma Sadler; Susand Edgar's mum's brothers and sisters. Two white women stand behind them on the verandah.",
+					galleryId: 'station1'
+				}
+			}
+		},
+		{
+			markup: [
+				`<h3>Frank 'Pilot' Edgar and Annie Edgar's children, at Janyjagurdiny (Thangoo Station) (date unknown). Photo provided by Susan Edgar.</h3>`
+			],
+			image: {
+				component: ImageFull,
+				props: {
+					source: stationImages[1],
+					width: '',
+					height: '',
+					alt: "An old black and white photograph of thirteen people at Janyjagurdiny (Thangoo Station). Date unknown. The photo shows a group of children and three adults: the children  are Frank 'Pilot' Edgar and Annie Edgar's children. The  woman holds the tail of a hunted kangaroo lying in front of her.  There is one white woman in the photo holding a small dog.",
+					galleryId: 'station2'
+				}
+			}
+		},
+		{
+			markup: [
+				`<h3>Jack Edgar on Thangoo Station (date unknown). Photo provided by Susan Edgar.</h3>`
+			],
+			image: {
+				component: ImageFull,
+				props: {
+					source: stationImages[2],
+					width: '',
+					height: '',
+					alt: 'Old black and white photograph of Jack Edgar on Thangoo Station. He is wearing work clothes and an Akubra-style hat and standing in front of tractor parked near a fence, with a windmill in the left hand side of the photo and gum trees on the right.',
+					galleryId: 'station3'
+				}
+			}
+		}
+	];
+
+	const thangooImagesSlides = [
+		{
+			markup: [
+				`<h3>Well on Thangoo Station, 1935, photographer John K Ewers, State Library of Western Australia: BA1658/203.</h3>`,
+				`<p>Sourced from the collections of the State Library of Western Australia and reproduced with the permission of the Library Board of Western Australia.</p>`
+			],
+			image: {
+				component: ImageFull,
+				props: {
+					source: thangooImages[0],
+					width: '',
+					height: '',
+					alt: 'Old black and white photograph of a Well on Thangoo Station from 1935.It shows a windmill and tank, surrounded by a post and rail fence and a concrete cattle trough with four cattle drinking. The cattle are emaciated. There are three cattle carcasses in the sand near the trough, and some cattle in the bakcground of the photograph close to the scrub.',
+					galleryId: 'maps4'
+				}
+			}
+		},
+		{
+			markup: [
+				`<h3>Thangoo Station – cattle at windmill, August 1943, photographer F Dale and G Gale, National Archives of Australia: K1131, W827 2/15.</h3>`
+			],
+			image: {
+				component: ImageFull,
+				props: {
+					source: thangooImages[1],
+					width: '',
+					height: '',
+					alt: 'Old black and white photograph of Thangoo Station, August 1943. It shows a windmill, post and rail dence and a herd of cattle. There is some grass in the foreground and scrub in the background.',
+					galleryId: 'maps4'
+				}
+			}
+		}
+	];
+
+	const kennedyImagesSlides = [
+		{
+			markup: [`<h3>Huts on Didirrgun (Kennedy Hill) (c.1958?).</h3>`],
+			image: {
+				component: ImageFull,
+				props: {
+					source: kennedyImages[0],
+					width: '',
+					height: '',
+					alt: 'Black and white photograph of group of houses located on top of a sandy hill. Some are made from corrugated iron. There is some scrub on the hill, the surrounding plains are flat.',
+					galleryId: 'maps4'
+				}
+			}
+		},
+		{
+			markup: [
+				`<h3>Huts on Dirridigun (Kennedy Hill).</h3>`,
+				`<p>Buildings and landscape, Broome. From the papers of D'Arcy James Ryan, ANU Archives (ANUA 590-141-23). Reproduced with permission from ANU Archives.</p>`,
+				`<p>Dianne Appleby recalls growing up in the home on the left of this image.</p>`
+			],
+			image: {
+				component: ImageFull,
+				props: {
+					source: kennedyImages[1],
+					width: '',
+					height: '',
+					alt: 'A colour photograph of two huts, with small verandahs at the front and louvered windows. The huts have a small chimney and seem to be made from galvanised steel (monoclad rather than corrugated). One hut has a galvanised drum and a pram at the side. There is black cloth spread over three bushes close by, and half a corrugated iron water tank in the foreground. It is sandy ground and there is a small sand hill in the backgroun with a large rank on top of it, and a gum tree to the right of the image.',
+					galleryId: 'maps4'
+				}
+			}
+		}
+	];
+
 	const pageTitle = `Jangu yirr Janyjagurdiny: murra mala nyurdany`;
 </script>
+
+<!-- <SlideshowScroller content={mapsImagesSlides} /> -->
 
 <Header
 	image={singleImages.Header_MG_0337}
@@ -428,90 +616,7 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 	</p>
 </GenericContent>
 
-<SideCaption
-	id="maps1"
-	image={mapsImages[0]}
-	caption="left"
-	alt="Section of map of Yawuru Country from 1864."
->
-	<h3>
-		North West Australia—Chart showing explorations about Roebuck Bay, &c. up to 1864. [detail]
-	</h3>
-
-	<p>
-		Some of the detail for this map was provided by Frederick Panter and James Martin. It described
-		low grassy plains, mangroves and lines of paperbark trees—in Yawuru language Murrga yirr
-		Ganburr. The map shows lines of paperbark stretching inland, along the edges of the saline
-		grasslands of the southern part of Roebuck bay, as they do today.
-	</p>
-
-	<p>
-		Several sites are marked 'Native well'. Other notes include: 'Well grassed', 'Kangaroos
-		numerous', 'Game abundant', and 'Native tracks everywhere'.
-	</p>
-</SideCaption>
-
-<SideCaption
-	id="maps2"
-	image={mapsImages[1]}
-	caption="left"
-	alt="Public Plan of land near Roebuck Bay from 1901."
->
-	<h3>
-		Kimberley [Tally No. 505395], cons4898 06K/7, State Records of Western Australia, produced 1901
-		and cancelled 1903.
-	</h3>
-
-	<p>
-		In one of the obituaries after his death in 1924, George Roe was referred to as a ‘pioneer’ of
-		the north, and that he ‘squatted’ on land near Roebuck Bay. According to later government
-		records, Roe established Thangoo station in 1891. Later, John Edgar went into partnership with
-		pearler Frank Biddles, and this map produced in 1901 shows their leases from Cape Gourdon to the
-		mangrove shores just north of Langurru (Goldwyer Well). Edgar and Biddles’ station on Yawuru
-		country was initially called Yardogarra, spelled various ways on different maps, and was named
-		after the jila Yardugarra, just inland from the shore.
-	</p>
-</SideCaption>
-
-<SideCaption
-	id="maps3"
-	image={mapsImages[2]}
-	caption="left"
-	alt="Section of aeronautical map produced by the Royal Australian Air Force and Australian Army from 1945."
->
-	<h3>
-		Australia. Department of the Interior. Property and Survey Branch & Australia. Royal Australian
-		Air Force & Australia. Army. A.H.Q. Cartographic Company (1945). Australian aeronautical map:
-		Broome (Sheet E4). [detail]
-	</h3>
-
-	<p>
-		This detail from a large aeronautical map of the area shows numerous 'native wells', including
-		'Than-gool-ngun-jal' (an attempt to transcribe Thangoo or Jangu Ngunjal, where Ngunjal means
-		place) and 'Thangoo or Cowan Well'. Also labelled are places such as the sand hills (Mararr, a
-		restricted area), Racecourse Plains (a massacre site), and Yardogarra Well.
-	</p>
-</SideCaption>
-
-<SideCaption
-	id="maps4"
-	image={mapsImages[3]}
-	caption="left"
-	alt="Map from 1924 showing the stick route along the coast, and information about leases."
->
-	<h3>
-		300 Chain Plan [Tally No. 503215], cons4567 127/4, map produced 1924 and cancelled 1955, State
-		Records of Western Australia.
-	</h3>
-
-	<p>
-		The Thangoo leases were sold in 1939. Among the advertised attractions of the leases at the time
-		were 'numerous native watering places', and the 20 wells that had been built on what were
-		originally Yawuru water sources. Despite the fact that the resources of this part of Yawuru
-		Country were included in the attractions of the property, Yawuru people had no say in the sale
-		of the leases and gained no material benefit when the Edgars sold them.
-	</p>
-</SideCaption>
+<SlideshowScroller content={mapsImagesSlides} />
 
 <GenericContent>
 	<p>
@@ -635,42 +740,7 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 	</p>
 </GenericContent>
 
-<SideCaption
-	id="station1"
-	image={stationImages[0]}
-	caption="left"
-	alt="An old black and white photograph of nine people on the Thanhoo homestead verandah in 1932.  There is a group of seven Aboriginal children: Jagana/ Ellen Edar; Gubjarra/ Jack Edgar; Mangkala/Flossie Edgar/Flossie Larry; Jagura/Thelma Sadler; Susand Edgar's mum's brothers and sisters. Two white women stand behind them on the verandah."
->
-	<h3>Photograph on the Thangoo homestead verandah (1932).</h3>
-
-	<p>
-		The people pictured standing in front of the two women on the verandah are, in the back row:
-		Jalgana/Ellen Edgar on far left; Gubajarra/Jack Edgar next to Jalgana; Mangkala/Flossie
-		Edgar/Flossie Larry; Jagura/Thelma Sadler nee Edgar on far right. In the front row are Susan
-		Edgar’s mum’s brothers and sisters.
-	</p>
-</SideCaption>
-
-<SideCaption
-	id="station2"
-	image={stationImages[1]}
-	caption="left"
-	alt="An old black and white photograph of thirteen people at Janyjagurdiny (Thangoo Station). Date unknown. The photo shows a group of children and three adults: the children  are Frank 'Pilot' Edgar and Annie Edgar's children. The  woman holds the tail of a hunted kangaroo lying in front of her.  There is one white woman in the photo holding a small dog."
->
-	<h3>
-		Frank 'Pilot' Edgar and Annie Edgar's children, at Janyjagurdiny (Thangoo Station) (date
-		unknown). Photo provided by Susan Edgar.
-	</h3>
-</SideCaption>
-
-<SideCaption
-	id="station3"
-	image={stationImages[2]}
-	caption="left"
-	alt="Old black and white photograph of Jack Edgar on Thangoo Station. He is wearing work clothes and an Akubra-style hat and standing in front of tractor parked near a fence, with a windmill in the left hand side of the photo and gum trees on the right. "
->
-	<h3>Jack Edgar on Thangoo Station (date unknown). Photo provided by Susan Edgar.</h3>
-</SideCaption>
+<SlideshowScroller content={stationImagesSlides} />
 
 <GenericContent>
 	<p>
@@ -712,33 +782,7 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 	</InlineQuote>
 </GenericContent>
 
-<SideCaption
-	id="maps4"
-	image={thangooImages[0]}
-	caption="left"
-	alt="Old black and white photograph of a Well on Thangoo Station from 1935.It shows a windmill and tank, surrounded by a post and rail fence and a concrete cattle trough with four cattle drinking. The cattle are emaciated. There are three cattle carcasses in the sand near the trough, and some cattle in the bakcground of the photograph close to the scrub."
->
-	<h3>
-		Well on Thangoo Station, 1935, photographer John K Ewers, State Library of Western Australia:
-		BA1658/203.
-	</h3>
-
-	<p>
-		Sourced from the collections of the State Library of Western Australia and reproduced with the
-		permission of the Library Board of Western Australia.
-	</p>
-</SideCaption>
-<SideCaption
-	id="maps4"
-	image={thangooImages[1]}
-	caption="left"
-	alt="Old black and white photograph of Thangoo Station, August 1943. It shows a windmill, post and rail dence and a herd of cattle. There is some grass in the foreground and scrub in the background. "
->
-	<h3>
-		Thangoo Station – cattle at windmill, August 1943, photographer F Dale and G Gale, National
-		Archives of Australia: K1131, W827 2/15.
-	</h3>
-</SideCaption>
+<SlideshowScroller content={thangooImagesSlides} />
 
 <GenericContent>
 	<p>
@@ -839,30 +883,7 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 	</div>
 </TwoColumns>
 
-<SideCaption
-	id="maps4"
-	image={kennedyImages[0]}
-	caption="left"
-	alt="Black and white photograph of group of houses located on top of a sandy hill. Some are made from corrugated iron. There is some scrub on the hill, the surrounding plains are flat."
->
-	<h3>Huts on Didirrgun (Kennedy Hill) (c.1958?).</h3>
-</SideCaption>
-
-<SideCaption
-	id="maps4"
-	image={kennedyImages[1]}
-	caption="left"
-	alt="A colour photograph of two huts, with small verandahs at the front and louvered windows. The huts have a small chimney and seem to be made from galvanised steel (monoclad rather than corrugated). One hut has a galvanised drum and a pram at the side. There is black cloth spread over three bushes close by, and half a corrugated iron water tank in the foreground. It is sandy ground and there is a small sand hill in the backgroun with a large rank on top of it, and a gum tree to the right of the image."
->
-	<h3>Huts on Dirridigun (Kennedy Hill).</h3>
-
-	<p>
-		Buildings and landscape, Broome. From the papers of D'Arcy James Ryan, ANU Archives (ANUA
-		590-141-23). Reproduced with permission from ANU Archives.
-	</p>
-
-	<p>Dianne Appleby recalls growing up in the home on the left of this image.</p>
-</SideCaption>
+<SlideshowScroller content={kennedyImagesSlides} />
 
 <GenericContent>
 	<InlineQuote credit="Thomas 'Unda' Edgar">
@@ -1042,11 +1063,11 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 	<AudioFullWidth audio={singleAudio.DianneAppleby_2021} credit="Dianne Appleby, 2021" />
 
 	<ImageSingle
-	width="1400"
-	height="3153"
-	source={singleImages.JackEdgarThangoo}
-	alt="Bulan/Jack Edgar back home at Jangu. This is a colour still (taped onto a piece of cardboard) of Jack Edgar sitting down and playing cards. There are other people sitting close by but their faces are not in frame."
-	caption="Bulan/Jack Edgar back home at Jangu (date unknown). Photo provided by Susan Edgar."
+		width="1400"
+		height="3153"
+		source={singleImages.JackEdgarThangoo}
+		alt="Bulan/Jack Edgar back home at Jangu. This is a colour still (taped onto a piece of cardboard) of Jack Edgar sitting down and playing cards. There are other people sitting close by but their faces are not in frame."
+		caption="Bulan/Jack Edgar back home at Jangu (date unknown). Photo provided by Susan Edgar."
 	/>
 </GenericContent>
 

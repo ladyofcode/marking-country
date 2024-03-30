@@ -1,8 +1,12 @@
+
 <script>
+	import { onMount, setContext } from 'svelte';
 	import { base } from '$app/paths';
 	import { generateSubfolderMedia, generateSingleMedia } from '$lib/imagePaths';
 	import { gsap } from 'gsap/dist/gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { dotNavData } from '../../stores';
+
 	gsap.registerPlugin(ScrollTrigger);
 
 	import {
@@ -18,7 +22,13 @@
 		Credits
 	} from '$lib';
 
-	
+	const dotNavLinks = [
+		{ title: 'Header', ref: '#header' },
+		{ title: 'Scroller', ref: '#scroller' },
+		{ title: 'YHeader', ref: '#header2' },
+	];
+
+
 	const singleImageFilenames = [
 		'dualMap.jpg',
 		'collage.jpg',
@@ -29,7 +39,7 @@
 		'DurerMap.jpg',
 		'map_australia.jpg'
 	];
-	
+
 	const slideshowFilenames = [
 		'SlideshowOne01.jpg',
 		'SlideshowOne02.jpg',
@@ -37,7 +47,7 @@
 		'SlideshowOne04.jpg',
 		'SlideshowOne05.jpg'
 	];
-	
+
 	const folderPath = `/about/images/`;
 	const singleImages = generateSingleMedia(`${folderPath}`, singleImageFilenames);
 	const slideshow = generateSubfolderMedia(`${folderPath}slideshow_one`, slideshowFilenames);
@@ -209,7 +219,7 @@
 			image: {
 				component: ImageSingle,
 				props: {
-					source: singleImages.durerMap,
+					source: singleImages.DurerMap,
 					alt: "Woodcut black and white map of the world from 1515. Around the margins of the globe are pictures of human-style heads blowing 'winds'.",
 					width: '2200',
 					height: '1750',
@@ -364,10 +374,14 @@
 			}
 		}
 	];
+	
+	onMount(() => {
+		dotNavData.set(dotNavLinks);
+	})
 </script>
 
 <Header
-	id="intro"
+	id="header"
 	image={singleImages.map_australia}
 	name="about"
 	alt="A satellite image map of australia taken from Esri map tiles"
@@ -391,9 +405,18 @@
 	</p>
 </Intro>
 
-<SideScroller content={sectionOneContent} />
+<SideScroller id="scroller" content={sectionOneContent} />
 
-<GenericContent>
+<Header
+	id="header2"
+	image={singleImages.School_Exploration_Map}
+	name="about"
+	alt="A satellite image map of australia taken from Esri map tiles"
+	heading="About <em>Marking Country</em>"
+	gradientColor="#012a40"
+/>
+
+<!-- <GenericContent>
 	<p>
 		<em>Marking Country</em> offers a way of thinking about and sharing these stories with a broader
 		public, while speaking back to dominant traditions of mapping and mapmaking.
@@ -409,13 +432,13 @@
 		Australian continent. There are no claims to being comprehensive, or representative. We see this
 		as making a start—a pilot project which we hope will be added to into the future.
 	</p>
-</GenericContent>
+</GenericContent> -->
 
-<SideScroller content={sectionTwoContent} />
+<!-- <SideScroller content={sectionTwoContent} /> -->
 
-<HorizontalScroller slides={slideshowOne} />
+<!-- <HorizontalScroller slides={slideshowOne} /> -->
 
-<GenericContent>
+<!-- <GenericContent>
 	<h2>Research Centre for Deep History</h2>
 
 	<p>
@@ -503,4 +526,4 @@
 			}
 		]}
 	/>
-</GenericContent>
+</GenericContent> -->

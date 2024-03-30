@@ -802,7 +802,7 @@
 	}
 
 	.info {
-		z-index: 1000;
+		z-index: 800;
 		font-family: var(--font-body-copy);
 		min-height: 280px;
 		max-height: 360px;

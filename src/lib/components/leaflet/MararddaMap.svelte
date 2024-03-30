@@ -460,7 +460,7 @@
 
 	#info {
 		position: static;
-		z-index: 1000;
+		z-index: 800;
 		border: 2px solid #2e2e2e;
 		width: 100%;
 		min-height: 300px;

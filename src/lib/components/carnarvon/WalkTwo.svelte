@@ -5,8 +5,8 @@
 	import InlineQuote from '../InlineQuote.svelte';
 
 	let image_still_02 = `${base}/stories/carnarvon/images/still_02.jpg`;
-	let image_C0006_poster = `${base}/stories/carnarvon/videos/C0006.jpg`;
-	let video_C0006 = `${base}/stories/carnarvon/videos/C0006.webm`;
+	let image_C0006_poster = `${base}/stories/carnarvon/images/C0006.jpg`;
+	let video_C0006 = `${base}/stories/carnarvon/video/C0006.webm`;
 	let image_ANU7376 = `${base}/stories/carnarvon/images/_ANU7376.jpg`;
 	let image_walk2 = `${base}/stories/carnarvon/images/Walk2.jpg`;
 </script>

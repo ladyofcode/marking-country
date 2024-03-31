@@ -66,7 +66,7 @@
 	.container {
 		height: 100%;
 		width: 100%;
-		max-width: 1024px;
+		max-width: var(--width-site);
 		margin: 0 auto 0 auto;
 		display: grid;
 		gap: 12px 12px;

@@ -62,7 +62,7 @@ let arcLogo = `${base}/images/arc-logo-white.png`;
 	}
 
 	h2 {
-		max-width: 1024px;
+		max-width: var(--width-site);
 		margin: 0 auto;
 		padding: 8px;
 		margin-top: 2rem;
@@ -76,7 +76,7 @@ let arcLogo = `${base}/images/arc-logo-white.png`;
 
 	hr {
 		width: 100%;
-		max-width: 1024px;
+		max-width: var(--width-site);
 		margin: 2rem auto;
 		background-color: #ffffff23;
 	}
@@ -84,7 +84,7 @@ let arcLogo = `${base}/images/arc-logo-white.png`;
 	.menu {
 		display: flex;
 		flex-direction: column;
-		max-width: 1024px;
+		max-width: var(--width-site);
 		margin: 0 auto;
 		margin-bottom: 2rem;
 	}

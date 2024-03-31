@@ -40,7 +40,8 @@
 			crs: L.CRS.Simple,
 			minZoom: -1,
 			maxZoom: 4,
-			fullscreenControl: true
+			fullscreenControl: true,
+			scrollWheelZoom: false
 		}).on('zoom', (e) => dispatch('zoom', e));
 
 		let kennedy = L.imageOverlay(kennedyMap, bounds);

@@ -1,9 +1,10 @@
 <script>
-	export let caption='',
+	export let caption = '',
 		source,
 		height,
 		width,
-		alt = '';
+		alt = '',
+		removeTopMargin = false;
 	export let galleryId;
 
 	import { onMount } from 'svelte';
@@ -31,8 +32,12 @@
 	});
 </script>
 
-<div class="pswp-gallery pswp-gallery--single-column" id={galleryId}>
-	<figure class="pswp-gallery__item" bind:this={item[0]} >
+<div
+	class="pswp-gallery pswp-gallery--single-column"
+	class:top-margin-remove={removeTopMargin}
+	id={galleryId}
+>
+	<figure class="pswp-gallery__item" bind:this={item[0]}>
 		<a
 			href={source}
 			data-pswp-width={width}
@@ -49,13 +54,12 @@
 </div>
 
 <style>
-	
 	div {
-		background: #110e0e;
-		box-shadow: inset 8px 8px 16px #070606, inset -8px -8px 16px #1b1616;		
-		border-radius: 24px;
-		padding: 2.4rem;
-		margin: 2.4rem 0;
+		background: #110d0d;
+		box-shadow: inset 8px 8px 16px #070606, inset -8px -8px 16px #1b1616;
+		border-radius: var(--radius-corner);
+		padding: var(--space-md);
+		margin: var(--space-xxxl) 0;
 	}
 	figure {
 		display: flex;
@@ -63,13 +67,26 @@
 		align-items: center;
 		justify-content: center;
 	}
+	figcaption {
+		max-width: var(--width-content);
+	}
 	img {
-		max-height: 80vh;
+		max-height: calc(var(--height-viewable) - 20vh);
 		max-width: 100%;
-		border-radius: 24px;
+		border-radius: var(--radius-corner);
 	}
 	.pswp-caption-content {
 		display: block;
 	}
 
+	@media (min-width: 900px) {
+		div {
+			padding: var(--space-lg);
+		}
+
+		.top-margin-remove {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
 </style>

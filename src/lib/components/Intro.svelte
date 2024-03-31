@@ -11,28 +11,16 @@
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
 
-		const scrollDownTo = gsap.to(wrapper, {
-			scrollTrigger: {
-				trigger: wrapper,
-				start: 'top 60%',
-				end: 'bottom bottom',
-				// onEnter: () => {
-				// 	gsap.to(window, {
-				// 		scrollTo: { y: wrapper, offsetY: 50 },
-				// 		duration: 1.5
-				// 	});
-				// }
-			}
-		});
-
 		const lineAnimation = gsap.from(
 			line,
 			{
 				width: 0,
+				ease: "bounce.out",
 				duration: 4,
 				scrollTrigger: {
 					trigger: wrapper,
-					start: '-80 top',
+					start: 'top top',
+					end: 'top 40',
 					once: true
 				}
 			},
@@ -46,7 +34,7 @@
 				y: 20,
 				duration: 1,
 				scrollTrigger: {
-					trigger: '.wrapper',
+					trigger: wrapper,
 					start: 'top top',
 					once: true
 				}
@@ -54,7 +42,7 @@
 			'>'
 		);
 
-		triggers.push(scrollDownTo, lineAnimation, fadeIn);
+		triggers.push(lineAnimation, fadeIn);
 	});
 
 	onDestroy(() => {
@@ -73,42 +61,45 @@
 
 <style>
 	.wrapper {
+		height: 100%;
 		min-height: 110vh;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		width: 100%;
-		max-width: 1024px;
+		max-width: var(--width-site);
 		margin: 0 auto;
-		height: 100%;
+		padding: var(--space-xxxxl) var(--space-lg);
 	}
 
 	.container {
 		position: relative;
-		margin: 6.4rem auto;
-		padding: 2.4rem;
 		width: 100%;
-		max-width: 800px;
+		max-width: var(--width-content);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		min-height: 100vh;
-		padding-top: 20vh;
+		margin: 0 auto;
 	}
 
 	.line {
 		width: 100%;
+		max-width: 64%;
 		height: 3px;
-		border-radius: 4px;
+		border-radius: var(--radius-corner);
 		background-color: var(--clr-terracotta);
-		margin-bottom: 4rem;
+		margin-bottom: var(--space-xxxl);
 	}
 
 	@media (min-width: 900px) {
-		.wrapper > div:first-of-type {
-			padding: 20vh 0 0 0;
-			margin: 8rem auto;
+
+		.wrapper {
+			padding: var(--space-xxxxl) 0;
+		}
+		.wrapper > .container {
+			margin: var(--space-xxxl) auto;
 		}
 	}
 </style>

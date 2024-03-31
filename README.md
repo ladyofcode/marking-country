@@ -17,31 +17,32 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
   
 * [] Rebuild Galleries with Leaflet/zoom function (will confirm)
 ---
-* [] Add dark/light mode
+* [x] Add dark/light mode
 * [] Convert hexcodes to use color()
 ---
 * [x] Rebuild the menu: make it fullscreen, add transitions and animations, dim background
 * [] Convert all audio to components
 * [] Convert warning headers to components
+* [] Tighten up design
+* [] Fix footer
 
 
 ### Scrollytelling
-IMAGES
+* [] Add superscroll support
+* [x] Intro: bounce the line
 * [x] Add border: none to ImageSingle (e.g. rotating calendar)
-* [] All enlargeable images need a little enlarge icon or somethig
 * [] AudioBlock - smaller contained block that doens't break out of the width too much, - can be wider, but thinner!
 * [] Load full page of images before starting animations and sequences
 * [] Animate the quotes
-* [] Rewrite MediaSingle to take 1 image or video, caption optional, border optional
+* [] Rewrite ImageSingle to take 1 image or video, caption optional, border optional
 * [] 2 quote types: inline, long
-* [] MediaFullWidth: Amend to accomodate video
-* [] Collapsible: animate on open
-* [] Citations: animate
-* [] Intro: Add minimum padding/margin to top
-* [] Build quick switcher; add to each page
-* [] Zoom effect on homepage after clicking an icon
-* [] On Story load, fade in
-* [] Make Leaflet maps fullwidth
+* [x] MediaFullWidth: Amend to accomodate video
+* [x] Collapsible: animate on open
+* [x] Citations: animate
+* [x] Intro: Add minimum padding/margin to top
+* [x] Build quick switcher
+* [x] On Story load, fade header image in
+* [x] Make Leaflet maps fullwidth
 * [] Yawuru - rotate calendar on scroll
 * [] Forced stops on welcomes (Carnarvon)
 * [] Carnarvon quick switcher: 
@@ -55,11 +56,7 @@ IMAGES
 ---
 * [] Add numbers to side-scroll slider & **standard** slider
 * [] Make images more responsive; captions should fit within the visible part of the browser when scrolling 
-
-
-### Design-based
-* [] Convert home page icons to bouncing location markers, remove instructional text
-* [] Redesign headers
+* [] Remove flash from acknowledgement
 
 ### Accessibility
 * [] Course: Accessibility: How to Design for All

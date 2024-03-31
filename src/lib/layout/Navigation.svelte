@@ -353,7 +353,7 @@
 			height: fit-content;
 			flex-direction: row;
 			width: 100%;
-			max-width: 1024px;
+			max-width: var(--width-site);
 			overflow: visible;
 			background-color: transparent;
 			transform: translateX(0%);

@@ -11,28 +11,36 @@
 
 <style>
     .wrapper {
-        padding: 2.4rem;
+        padding: var(--space-xl);
+        margin: 0 auto;
     }
     .container {
         display: flex;
         flex-direction: column;
     }
 
-    @media (min-width: 1200px) {
-
+    @media (min-width: 900px) {
         .wrapper {
-            padding: 0;
-            max-width: 1024px;
-            margin: 4rem auto;
+            padding: var(--space-xxxxl) var(--space-xl);
+            max-width: var(--width-site);
         }
         .container {
             flex-direction: row;
         }
         .column1 {
-            max-width: 400px;
+            max-width: 40%;
+            margin-right: var(--space-xl);
         }
         .column2{
+            width: 100%;
             max-width: 50%;
         }
+    }
+
+    @media (min-width: 1200px) {
+        .wrapper {
+            padding: var(--space-xxxxl) 0;
+        }
+        
     }
 </style>

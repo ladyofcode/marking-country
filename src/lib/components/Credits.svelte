@@ -4,13 +4,15 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	import { killScrollTriggers } from '$lib/utils';
+	import { fade } from 'svelte/transition';
 	gsap.registerPlugin(ScrollTrigger);
 
 	let titles = [],
 		names = [],
 		triggers = [];
 
-	let container;
+	let wrapper, container, text;
 
 	onMount(() => {
 		gsap.utils.toArray(titles).forEach((title, i) => {
@@ -45,29 +47,55 @@
 			triggers.push(animation);
 		});
 
+		const fadeIn = gsap.from(text, {
+			y: 50,
+			opacity: 0,
+			duration: 1,
+			ease: 'power1.out',
+			scrollTrigger: {
+				trigger: text,
+				start: 'top bottom',
+				toggleActions: 'play none none none'
+			}
+		});
+
+		triggers.push(fadeIn);
 	});
 
 	onDestroy(() => {
-		triggers.forEach((trigger) => {
-			if (trigger.scrollTrigger) {
-				trigger.scrollTrigger.kill();
-			}
-			trigger.kill();
-		});
+		killScrollTriggers(triggers);
 	});
 </script>
 
-<div class="container" bind:this={container}>
-	{#each credits as credit, i}
-		<p bind:this={titles[i]}><strong>{credit.title}</strong></p>
-		<p bind:this={names[i]}>{credit.names}</p>
-	{/each}
+<div class="wrapper" bind:this={wrapper}>
+	<div class="container" bind:this={container}>
+		<h2>Credits</h2>
+		<div class="credits">
+			{#each credits as credit, i}
+				<p bind:this={titles[i]}><strong>{credit.title}</strong></p>
+				<p bind:this={names[i]}>{credit.names}</p>
+			{/each}
+		</div>
+		<div bind:this={text}>
+			<slot />
+		</div>
+	</div>
 </div>
 
 <style>
-	.container {
-		margin: 0 auto;
-		margin-top: 1.2rem;
+	.wrapper {
+		max-width: var(--width-site);
+		margin: var(--space-lg) auto;
+		padding: var(--space-md) var(--space-lg);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.container{
+		max-width: var(--width-content);
+	}
+	.credits {
+		margin: var(--space-lg) auto;
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
@@ -88,7 +116,14 @@
 	}
 
 	@media (min-width: 900px) {
+		.wrapper {
+			margin: var(--space-xxxl) auto;
+			padding: 0;
+		}
 		.container {
+			margin: 0 auto;
+		}
+		.credits {
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-areas: 'a a';
 			grid-auto-rows: auto;

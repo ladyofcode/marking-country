@@ -1,4 +1,5 @@
 <script>
+	export let id='';
 	import { onMount, onDestroy } from 'svelte';
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -10,31 +11,16 @@
 	let triggers = [];
 
 	onMount(() => {
-		// const scrollDownTo = gsap.to(wrapper, {
-		// 	scrollTrigger: {
-		// 		trigger: wrapper,
-		// 		start: '-4% 60%',
-		// 		end: 'top top',
-		// 		scrub: true,
-		// 		snap: {
-		// 			snapTo: 1, // snaps to the end (100% scroll position)
-		// 			duration: { min: 0.2, max: 0.3 },
-		// 			delay: 0.2,
-		// 			ease: 'power1.inOut'
-		// 		},
-		// 		toggleActions: 'play none none none'
-		// 	}
-		// });
 
 		const fadeIn = gsap.from(container, {
-			y: 50, // Start from 50 pixels below its starting position
-			opacity: 0, // Start fully transparent
-			duration: 1, // Animation duration of 1 second
-			ease: 'power1.out', // Smooth easing for the animation
+			y: 50,
+			opacity: 0,
+			duration: 1,
+			ease: 'power1.out',
 			scrollTrigger: {
-				trigger: wrapper, // Use the .wrapper as the trigger
-				start: 'top bottom', // Start the animation when the top of the wrapper hits the bottom of the viewport
-				toggleActions: 'play none none none' // Play the animation once when the trigger condition is met
+				trigger: wrapper,
+				start: 'top bottom',
+				toggleActions: 'play none none none'
 			}
 		});
 
@@ -46,7 +32,7 @@
 	});
 </script>
 
-<div class="wrapper" bind:this={wrapper}>
+<div {id} class="wrapper" bind:this={wrapper}>
 	<div class="container" bind:this={container}>
 		<slot />
 	</div>
@@ -54,8 +40,8 @@
 
 <style>
 	.wrapper {
-		max-width: 800px;
-		padding: 8rem 2.4rem;
+		max-width: var(--width-site);
+		padding: var(--space-xxxl) var(--space-lg);
 		height: 100%;
 		background-color: var(--clr-bg-main);
 	}
@@ -71,22 +57,14 @@
 
 	.container {
 		width: 100%;
-		max-width: 800px;
+		max-width: var(--width-content);
 		margin: 0 auto;
-	}
-
-	@media (min-width: 600px) {
-		.wrapper :global(figure) {
-			max-height: 96vh;
-		}
-		.wrapper {
-			padding: 8rem 4rem;
-		}
 	}
 
 	@media (min-width: 900px) {
 		.wrapper {
-			margin: 8rem auto;
+			margin: var(--space-xxxl) auto;
+			padding: var(--space-xxxl) 0;
 		}
 	}
 </style>

@@ -7,7 +7,13 @@
 	const video = `${base}/videos/Introduction.webm`;
 
 	let showModal = false;
+	
+	const pageTitle = 'Home';
 </script>
+
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
 
 <section class="header">
 	<h1>Marking Country</h1>

@@ -14,8 +14,15 @@
 		ImageSingle,
 		TwoColumns
 	} from '$lib';
+	import { dotNavData } from '../../stores/dotNavStore';
+	import { onMount } from 'svelte';
 
-	
+	const dotNavLinks = [
+		{ title: 'Top', ref: '#header' },
+		{ title: 'Mungo Project', ref: '#project' },
+		{ title: 'Mungo Map', ref: '#map' },
+	];
+
 	const singleImageFilenames = [
 		'MaryPappin.png',
 		'dvd.jpg',
@@ -26,14 +33,23 @@
 		'dune_tree.jpg',
 		'willandra_header.jpg'
 	];
-	
+
 	const folderPath = `/stories/willandra/images/`;
 	const singleImages = generateSingleMedia(`${folderPath}`, singleImageFilenames);
 
 	const pageTitle = 'Willandra Lakes';
+
+	onMount(() => {
+		dotNavData.set(dotNavLinks);
+	})
 </script>
 
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
+
 <Header
+id="header"
 	image={singleImages.willandra_header}
 	name="willandra"
 	alt="Sand and rock formations at Willandra Lakes."
@@ -65,6 +81,7 @@
 			behalf of ANU projects Deepening Histories of Place and Rediscovering the Deep Human Past.
 			Digitisation: National Library of Australia."
 		galleryId="willandra-image"
+		removeTopMargin={true}
 	/>
 </Intro>
 
@@ -142,12 +159,14 @@
 		that they created.
 	</p>
 
-	<figure class="portrait-image">
-		<img src={singleImages.MaryPappin} alt="Mary Pappin standing in front of the map." />
-		<figcaption>
-			Mary Pappin with the Willandra Lakes Map, March 2021. Photo: Ann McGrath.
-		</figcaption>
-	</figure>
+	<ImageSingle
+		source={singleImages.MaryPappin}
+		width="1284"
+		height="2778"
+		alt="Mary Pappin standing in front of the map."
+		caption="Mary Pappin with the Willandra Lakes Map, March 2021. Photo: Ann McGrath."
+		galleryId="maryPappin"
+	/>
 
 	<p>
 		The first field trip, in October and November 2017, included visits to Balranald, Yanga National
@@ -239,11 +258,13 @@
 	<div slot="column2">
 		<ImageSingle
 			source={singleImages.NLAVisit}
-			width=""
-			height=""
+			galleryId="NLAvisit"
+			width="4032"
+			height="3024"
 			alt="Six people standing the Willandra Map on the table at ANU."
 			caption="National Library of Australia staff visiting the Research Centre for Deep History at the
 		Australian National University to see the Willandra Lakes Map, June 2021. Photo: Mike Jones."
+			removeTopMargin={true}
 		/>
 	</div>
 </TwoColumns>
@@ -273,9 +294,7 @@
 
 <MediaFullWidth youTubeId="iWfvzgN5jIU" />
 
-<!-- <YouTube youTubeId="iWfvzgN5jIU" /> -->
-
-<GenericContent>
+<GenericContent id="project">
 	<h2>The Mungo Project</h2>
 
 	<p>
@@ -305,7 +324,6 @@
 		were active and formative; they made the present - an animated landscape. People living today
 		had a duty to them.
 	</p>
-
 	<LearnMoreBox>
 		<img
 			src={singleImages.dvd}
@@ -331,6 +349,9 @@
 
 <MediaFullWidth
 	image={singleImages.dune_tree}
+	width="3456"
+	height="1515"
+	galleryId="dune_tree"
 	alt="A typical Willandra Lakes scene, with a sandy dune, some scrubs and a small tree, and a vast blue sky in the background."
 	caption="Willandra Lakes—a Pleistocene Dry Lake Landscape. Photo: Ann
         McGrath, 2018."
@@ -398,18 +419,17 @@
 
 	<p>But their rightful place and role continues to be a point of controversy.</p>
 
-	<figure>
-		<img
-			src={singleImages.MungoReturn_cropped}
-			alt="The return of Mungo Man's remains to Lake Mungo in 2017 in a 1970s blarge black hearse  with an Aboriginal flag on the door. A group of people are standing and sitting on chairs nearby."
-		/>
-		<figcaption>
-			Return and reburial of Mungo Man's remains, 17 November 2017, Lake Mungo. Photo: Ann McGrath.
-		</figcaption>
-	</figure>
+	<ImageSingle
+		source={singleImages.MungoReturn_cropped}
+		width="3456"
+		height="1912"
+		alt="The return of Mungo Man's remains to Lake Mungo in 2017 in a 1970s blarge black hearse  with an Aboriginal flag on the door. A group of people are standing and sitting on chairs nearby."
+		caption="Return and reburial of Mungo Man's remains, 17 November 2017, Lake Mungo. Photo: Ann McGrath."
+		galleryId="mungoReturn"
+	/>
 </Collapsible>
 
-<GenericContent>
+<GenericContent id="map">
 	<h2>Creating the Mungo Map</h2>
 
 	<p>
@@ -434,6 +454,9 @@
 
 <MediaFullWidth
 	image={singleImages.VisitingANU_3000px}
+	width="3000"
+	height="2000"
+	galleryId="visiting_anu"
 	alt="Participants from the Willandra Lakes map project standing in front of a min-bus at ANU."
 	caption="Visitors and friends from the Willandra Lakes World Heritage region
             at The Australian National University in June 2013. From left to
@@ -472,86 +495,82 @@
 	</p>
 
 	<p>Many have likened the result to a treasure map.</p>
-	<Collapsible name="referencesWillandra" label="References and further reading">
-		<ul>
-			<li>
-				Allbrook, M. and McGrath, A., "Collaborative Histories of the Willandra Lakes". In
-				<em>Long history, deep time: deepening histories of place</em>, edited by McGrath, A. and
-				Jebb, M, 241-252. Canberra: ANU Press, 2015.
-			</li>
-
-			<li>
-				Barrows, Timothy T., Kathryn E. Fitzsimmons, Stephanie C. Mills, Jacqui Tumney, Daryl
-				Pappin, and Nicola Stern. 2020. “Late Pleistocene Lake Level History of Lake Mungo,
-				Australia.”
-				<em>Quaternary Science Reviews</em> 238 (June): 106338.
-				<a href="https://doi.org/10.1016/j.quascirev.2020.106338">
-					https://doi.org/10.1016/j.quascirev.2020.106338
-				</a>
-				.
-			</li>
-
-			<li>
-				Bowler, J. M., Rhys Jones, Harry Allen, and A. G. Thorne. 1970. "Pleistocene Human Remains
-				from Australia: A Living Site and Human Cremation from Lake Mungo, Western New South Wales."
-				<em>World Archaeology</em> 2 (1): 39-60.
-			</li>
-
-			<li>
-				McGrath, Ann. 2018. "Lady Mungo and the New and Old Discovery Narrative.” In
-				<em>
-					Unmasking Ideology in Imperial and Colonial Archeology: Vocabulary, Symbols, and Legacy
-				</em>
-				, edited by B. Effros and L. Guolong, 227-56. Los Angeles: The Cotsen Institute of Archaeology
-				Press.
-			</li>
-
-			<li>
-				McGrath, Ann, Laura Rademaker, and Jakelin Troy, eds. 2023.
-				<em>Everywhen: Australia and the Language of Deep History</em>. Lincoln: University of
-				Nebraska Press. Sydney: UNSW Press.
-			</li>
-
-			<li>
-				Pike, Andrew, and Ann McGrath. 2014. <em>Message from Mungo</em>. Canberra: Ronin Films.
-			</li>
-		</ul>
-	</Collapsible>
 </GenericContent>
 
-<GenericContent>
-	<h2>Credits</h2>
+<Collapsible name="referencesWillandra" label="References and further reading">
+	<ul>
+		<li>
+			Allbrook, M. and McGrath, A., "Collaborative Histories of the Willandra Lakes". In
+			<em>Long history, deep time: deepening histories of place</em>, edited by McGrath, A. and
+			Jebb, M, 241-252. Canberra: ANU Press, 2015.
+		</li>
 
-	<Credits
-		credits={[
-			{
-				title: 'Mutthi Mutthi',
-				names:
-					'Mary Pappin Senior, Patsy Winch, Tanya Charles, Bernadette Pappin, Danny Kelly, Maureen Reyland, Mary Pappin Junior, Kia Charles, Barry Pierce'
-			},
-			{
-				title: 'Barkintji/Parinji',
-				names:
-					'Patricia Johnson, Michael Young, Eunice Hudson, Priscilla Biggs, Lottie Williams, Brenda Brodie'
-			},
-			{
-				title: 'Ngiyaampa',
-				names:
-					'Roy Kennedy, Joan Kennedy/Slade, Coral Ellis, Mark (Doc) Slade, Dawn Smith, Maureen Taylor, Mick Kelly'
-			},
-			{
-				title: 'Barkintji/Murora',
-				names:
-					'Philip Lawson, Ivan Johnston, Ernest (Narkie) Mitchell 3rd, Junette Mitchell, Doreen Mitchell, Lynne Mitchell'
-			},
-			{ title: 'Written by', names: 'Ann McGrath, Kim Mahood' },
-			{ title: 'Marking Country Project Manager', names: 'Mike Jones' },
-			{ title: 'Interactive digital map', names: 'Mike Jones, Tabassum Fakier' },
-			{ title: 'Developer', names: 'Tabassum Fakier' },
-			{ title: 'Director of Research Centre for Deep History', names: 'Ann McGrath' }
-		]}
-	/>
+		<li>
+			Barrows, Timothy T., Kathryn E. Fitzsimmons, Stephanie C. Mills, Jacqui Tumney, Daryl Pappin,
+			and Nicola Stern. 2020. “Late Pleistocene Lake Level History of Lake Mungo, Australia.”
+			<em>Quaternary Science Reviews</em> 238 (June): 106338.
+			<a href="https://doi.org/10.1016/j.quascirev.2020.106338">
+				https://doi.org/10.1016/j.quascirev.2020.106338
+			</a>
+			.
+		</li>
 
+		<li>
+			Bowler, J. M., Rhys Jones, Harry Allen, and A. G. Thorne. 1970. "Pleistocene Human Remains
+			from Australia: A Living Site and Human Cremation from Lake Mungo, Western New South Wales."
+			<em>World Archaeology</em> 2 (1): 39-60.
+		</li>
+
+		<li>
+			McGrath, Ann. 2018. "Lady Mungo and the New and Old Discovery Narrative.” In
+			<em>
+				Unmasking Ideology in Imperial and Colonial Archeology: Vocabulary, Symbols, and Legacy
+			</em>
+			, edited by B. Effros and L. Guolong, 227-56. Los Angeles: The Cotsen Institute of Archaeology
+			Press.
+		</li>
+
+		<li>
+			McGrath, Ann, Laura Rademaker, and Jakelin Troy, eds. 2023.
+			<em>Everywhen: Australia and the Language of Deep History</em>. Lincoln: University of
+			Nebraska Press. Sydney: UNSW Press.
+		</li>
+
+		<li>
+			Pike, Andrew, and Ann McGrath. 2014. <em>Message from Mungo</em>. Canberra: Ronin Films.
+		</li>
+	</ul>
+</Collapsible>
+
+<Credits
+	credits={[
+		{
+			title: 'Mutthi Mutthi',
+			names:
+				'Mary Pappin Senior, Patsy Winch, Tanya Charles, Bernadette Pappin, Danny Kelly, Maureen Reyland, Mary Pappin Junior, Kia Charles, Barry Pierce'
+		},
+		{
+			title: 'Barkintji/Parinji',
+			names:
+				'Patricia Johnson, Michael Young, Eunice Hudson, Priscilla Biggs, Lottie Williams, Brenda Brodie'
+		},
+		{
+			title: 'Ngiyaampa',
+			names:
+				'Roy Kennedy, Joan Kennedy/Slade, Coral Ellis, Mark (Doc) Slade, Dawn Smith, Maureen Taylor, Mick Kelly'
+		},
+		{
+			title: 'Barkintji/Murora',
+			names:
+				'Philip Lawson, Ivan Johnston, Ernest (Narkie) Mitchell 3rd, Junette Mitchell, Doreen Mitchell, Lynne Mitchell'
+		},
+		{ title: 'Written by', names: 'Ann McGrath, Kim Mahood' },
+		{ title: 'Marking Country Project Manager', names: 'Mike Jones' },
+		{ title: 'Interactive digital map', names: 'Mike Jones, Tabassum Fakier' },
+		{ title: 'Developer', names: 'Tabassum Fakier' },
+		{ title: 'Director of Research Centre for Deep History', names: 'Ann McGrath' }
+	]}
+>
 	<p>
 		Work in the Willandra Lakes region has been supported by funding from the Australian Research
 		Council, including the Discovery grant 'Australia's Ancient and Modern Pasts: A History of Lake
@@ -567,42 +586,25 @@
 		Jong-Reuss, Nicola Mackay-Sim, Craig Mackenzie, Elizabeth MacKenzie, Sue McFadden, Aleara
 		Pearce, Shirleene Robinson, and Kathryn Ross.
 	</p>
-</GenericContent>
+</Credits>
 
-<GenericContent>
-	<h2>Citations</h2>
-
-	<Citations
-		citations={[
-			{ insert: 'this page', authors: 'Ann McGrath and Kim Mahood (2022)' },
-			{
-				insert: 'Bernadette Pappin',
-				authors: 'Bernadette Pappin cited in Ann McGrath and Kim Mahood (2022)'
-			},
-			{ insert: 'the Willandra Lakes Map', authors: 'Research Centre for Deep History, (2022)' }
-		]}
-		location={$page.url.href}
-		page={pageTitle}
-	/>
-</GenericContent>
+<Citations
+	citations={[
+		{ insert: 'this page', authors: 'Ann McGrath and Kim Mahood (2022)' },
+		{
+			insert: 'Bernadette Pappin',
+			authors: 'Bernadette Pappin cited in Ann McGrath and Kim Mahood (2022)'
+		},
+		{ insert: 'the Willandra Lakes Map', authors: 'Research Centre for Deep History, (2022)' }
+	]}
+	location={$page.url.href}
+	page={pageTitle}
+/>
 
 <style>
-	.button-view-fullscreen {
-		font-family: var(--font-family-body);
-		padding: 0.8rem 1.6rem;
-		margin: 1.2rem auto;
-		background-color: var(--clr-terracotta);
-		border: none;
-		border-radius: var(--radius-corner);
-	}
-
-	.button-view-fullscreen a {
-		color: var(--clr-text);
-	}
-
-	.portrait-image > img {
+	/* .portrait-image > img {
 		max-height: 88vh;
 		width: auto;
 		margin: 0 auto;
-	}
+	} */
 </style>

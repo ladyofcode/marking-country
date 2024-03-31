@@ -1,15 +1,45 @@
 <script>
-	export let name = '', label = '', checked, type='';
+	export let name = '',
+		label = '',
+		checked = false,
+		type = '';
+
+	import { onMount, tick } from 'svelte';
+	import { gsap } from 'gsap';
+
+	let container;
+	let content;
+	let isOpen = false;
+
+	async function toggleCollapsible() {
+		await tick();
+		if (checked) {
+			gsap.set(container, { height: 'auto' });
+			gsap.from(container, { height: 0, duration: 0.5 });
+		} else {
+			gsap.to(container, { height: 0, duration: 0.5 });
+		}
+	}
+
+	onMount(() => {
+		toggleCollapsible(); // Initial check
+	});
+
+	$: checked, toggleCollapsible();
 </script>
 
-<div class="wrap-collapsible {type ? type : null}">
-	<input checked={checked ? true : null} id={name} class="toggle" type="checkbox" />
+<div class="wrap-collapsible">
+	<input bind:checked id={name} class="toggle" type="checkbox" />
 	<label for={name} class="label-toggle">
 		{label}
 	</label>
 
-	<div class="collapsible-container">
-		<div class="collapsible-content"><slot /></div>
+	<div class="collapsible-container" bind:this={container}>
+		<div class="collapsible-content">
+			<div class="content">
+				<slot />
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -18,16 +48,10 @@
 		display: none;
 	}
 
-
 	.wrap-collapsible {
-		margin: 0 auto;
-		margin-bottom: 1.2rem;
-		max-width: 800px;
-	}
-
-	.wide {
-		margin-bottom: 4rem;
-		margin-top: 4rem
+		margin: var(--space-xxxl) auto;
+		padding: 0 var(--space-md);
+		max-width: var(--width-site);
 	}
 
 	.wrap-collapsible :global(img),
@@ -43,13 +67,13 @@
 
 	.label-toggle {
 		display: block;
-		margin: 2rem 24px auto 24px;
-		font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+		font-family: var(--font-serif);
+		font-weight: 100;
 		font-size: 1.2rem;
 		text-transform: uppercase;
 		text-align: center;
 		padding: 1rem;
-		color: #fff;
+		color: var(--clr-clay);
 		background: var(--clr-dark-charcoal);
 		cursor: pointer;
 		border-radius: 7px;
@@ -57,13 +81,12 @@
 	}
 
 	.label-toggle:hover {
-		color: var(--clr-bg-main);
+		color: var(--clr-clay);
 	}
 
 	.label-toggle::before {
 		content: ' ';
 		display: inline-block;
-
 		border-top: 5px solid transparent;
 		border-bottom: 5px solid transparent;
 		border-left: 5px solid currentColor;
@@ -78,12 +101,20 @@
 		transform: rotate(90deg) translateX(-3px);
 	}
 
-	.collapsible-container {
-		max-height: 0px;
-		overflow: hidden;
-		transition: max-height 0.25s ease-in-out;
-		margin: auto 24px auto 24px;
+	.collapsible-content {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
+
+	.content {
+		height: 100%;
+		width: 100%;
+		max-width: var(--width-content);
+	}
+
 
 	.collapsible-content :global(p),
 	.collapsible-content :global(h2),
@@ -91,7 +122,23 @@
 	.collapsible-content :global(ul),
 	.collapsible-content :global(li),
 	.collapsible-content :global(figcaption) {
-		color: var(--clr-dark-charcoal);
+		color: var(--clr-text);
+	}
+
+	.collapsible-content :global(ul) {
+		padding-left: var(--space-md);
+	}
+
+	.collapsible-container {
+		overflow: hidden;
+	}
+
+	.label-toggle {
+		cursor: pointer;
+	}
+
+	.toggle {
+		display: none;
 	}
 
 	.toggle:checked + .label-toggle + .collapsible-container {
@@ -104,26 +151,23 @@
 	}
 
 	.collapsible-container .collapsible-content {
-		background-color: var(--clr-bg-main);
-		border-bottom: 1px solid rgba(250, 224, 66, 0.45);
+		background-color: var(--clr-bg-contrast);
+		border-bottom: 1px solid var(--clr-clay);
 		border-bottom-left-radius: 7px;
 		border-bottom-right-radius: 7px;
 		padding: 2rem;
 	}
 
 	@media (min-width: 900px) {
+
 		.label-toggle {
 			margin: auto 0px auto 0px;
 		}
-
-        .collapsible-container {
-            margin: 0 auto;
-
-        }
-
-		.wide {
-		margin-bottom: 8rem;
-		margin-top: 8rem
 	}
+
+	@media (min-width: 1024px) {
+		.wrap-collapsible {
+			padding: var(--space-xxxxl) 0;
+		}
 	}
 </style>

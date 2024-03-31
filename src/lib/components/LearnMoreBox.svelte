@@ -1,24 +1,29 @@
-<div class="learn-more-box">
-	<slot />
+<div class="wrapper">
+	<div class="learn-more-box">
+		<slot />
+	</div>
 </div>
 
 <style>
+	.wrapper {
+		padding: var(--space-xxl) var(--space-md);
+	}
+
 	.learn-more-box {
-		background-color: hsla(37, 10%, 36%, 0.041);
+		border-radius: var(--radius-corner);
+		background-color: var(--clr-charcoal);
 		display: flex;
 		flex-direction: column;
-		margin-top: 24px;
-		margin-bottom: 24px;
-		padding: 1.4rem 2.4rem;
+		padding: var(--space-xxl) var(--space-lg);
 		border-radius: var(--radius-corner);
 	}
 
-	.learn-more-box :global(div) {
-		padding-left: 3.2rem;
+	.learn-more-box :global(img) {
+		border-radius: var(--radius-corner);
 	}
 
 	.learn-more-box :global(h3) {
-		margin-top: 0;
+		font-weight: 200;
 	}
 
 	.learn-more-box :global(ul) {
@@ -26,31 +31,30 @@
 		padding: 0;
 	}
 
-	.learn-more-box :global(li a) {
+	.learn-more-box :global(a) {
 		padding: 0;
 		margin: 0;
-	}
-
-	.learn-more-box :global(a) {
+		text-decoration: none;
 		font-family: var(--font-headings);
-		font-size: 1.2em;
-		padding: 0 0 1rem 0;
+		font-size: var(--font-size-body);
+
 	}
 
 	@media (min-width: 600px) {
+		.wrapper {
+			padding: var(--space-xxl) 0;
+		}
 		.learn-more-box {
-			max-height: 160px;
 			flex-direction: row;
-			align-items: center;
+			align-items: start;
 			justify-content: start;
+			max-width: var(--width-content);
+			margin: 0 auto;
+			padding: var(--space-lg);
 		}
 
 		.learn-more-box :global(img) {
-			max-width: 240px;
-		}
-
-		.learn-more-box :global(a) {
-			padding: 0 0 0 1rem;
+			margin-right: var(--space-xxl);
 		}
 	}
 </style>

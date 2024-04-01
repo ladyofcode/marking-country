@@ -60,15 +60,6 @@
 
 		<figure>
 			<YouTube youTubeId="ukLpVOI6pys" />
-			<!-- <iframe
-          width="100%"
-          height="360px"
-          src="https://www.youtube.com/embed/ukLpVOI6pys?rel=0"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe> -->
 			<figcaption>
 				Uncle Fred Conway describes the six uses of grass trees, Carnarvon Gorge, QLD 22 March 2022.
 			</figcaption>

@@ -62,7 +62,6 @@
 <style>
 	.wrapper {
 		height: 100%;
-		min-height: 110vh;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

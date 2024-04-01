@@ -49,7 +49,7 @@
 	}
 
 	.wrap-collapsible {
-		margin: var(--space-xxxl) auto;
+		margin: var(--space-xxxxl) auto;
 		padding: 0 var(--space-md);
 		max-width: var(--width-site);
 	}
@@ -74,7 +74,7 @@
 		text-align: center;
 		padding: 1rem;
 		color: var(--clr-clay);
-		background: var(--clr-dark-charcoal);
+		background: var(--clr-grey);
 		cursor: pointer;
 		border-radius: 7px;
 		transition: all 0.25s ease-out;

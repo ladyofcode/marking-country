@@ -71,15 +71,15 @@
 	const pageTitle = 'Western Yalanji';
 
 	const slidesMagnificentGallery = [
-		{ url: slide_gallery[0], caption: 'Mike Jones', type: 'image' },
-		{ url: slide_gallery[1], caption: 'Mike Jones', type: 'image' },
-		{ url: slide_gallery[2], caption: 'Mike Jones', type: 'image' },
-		{ url: slide_gallery[3], caption: 'Mike Jones', type: 'image' },
-		{ url: slide_gallery[4], caption: 'Mike Jones', type: 'image' },
-		{ url: slide_gallery[5], caption: 'Mike Jones', type: 'image' },
-		{ url: slide_gallery[6], caption: 'Mike Jones', type: 'image' },
-		{ url: slide_gallery[7], caption: 'Mike Jones', type: 'image' },
-		{ url: slide_gallery[8], caption: 'Mike Jones', type: 'image' }
+		{ url: slide_gallery[0], caption: 'Mike Jones', type: 'image', width: '2400', height: '1800' },
+		{ url: slide_gallery[1], caption: 'Mike Jones', type: 'image', width: '2400', height: '1800' },
+		{ url: slide_gallery[2], caption: 'Mike Jones', type: 'image', width: '2400', height: '1800' },
+		{ url: slide_gallery[3], caption: 'Mike Jones', type: 'image', width: '2400', height: '1800' },
+		{ url: slide_gallery[4], caption: 'Mike Jones', type: 'image', width: '2400', height: '1800' },
+		{ url: slide_gallery[5], caption: 'Mike Jones', type: 'image', width: '2400', height: '1800' },
+		{ url: slide_gallery[6], caption: 'Mike Jones', type: 'image', width: '2400', height: '1800' },
+		{ url: slide_gallery[7], caption: 'Mike Jones', type: 'image', width: '2400', height: '1800' },
+		{ url: slide_gallery[8], caption: 'Mike Jones', type: 'image', width: '2400', height: '1800' }
 	];
 
 	const imageGrid = [
@@ -127,7 +127,8 @@
 					width: '2400',
 					height: '1967',
 					caption: '',
-					galleryId: 'quinkan_country_boundary_map'
+					galleryId: 'quinkan_country_boundary_map',
+					scroller: true
 				}
 			}
 		},
@@ -206,7 +207,8 @@
 					width: '2400',
 					height: '3200',
 					caption: 'Quinkans. Photo: Mike Jones, 2021.',
-					galleryId: 'Quinkans'
+					galleryId: 'Quinkans',
+					scroller: true
 				}
 			}
 		}
@@ -222,7 +224,7 @@
 	gradientColor="#937863"
 />
 
-<Intro intro="yalanji">
+<Intro>
 	<p>
 		In Cape York, the Western Yalanji preside over a region featuring an astonishing array of
 		paintings and engravings that tell the Stories of Quinkan Country, named for the distinctive
@@ -282,7 +284,7 @@ License</a
 	</p>
 </GenericContent>
 <MediaFullWidth
-	image={singleImages.coastlines}
+	image={singleImages.sahul_animated}
 	alt="Animated map showing the changing coastline of Sahul from today to 21,000 years ago."
 	,
 	caption={`Changing coastlines of Sahul. Created by Mike Jones, based on data provided by CartoGIS
@@ -363,7 +365,7 @@ License</a
 	</div>
 </TwoColumns>
 
-<ImageGrid media={slidesMagnificentGallery} />
+<ImageGrid media={slidesMagnificentGallery} galleryId="magnificentGallery" />
 
 <GenericContent>
 	<p>Aboriginal family and clan groups visited this big Story Place over millennia.</p>
@@ -465,7 +467,7 @@ License</a
 	</p>
 </GenericContent>
 
-<ImageGrid media={imageGrid} />
+<ImageGrid media={imageGrid} galleryId="rockArtGallery" />
 
 <TwoColumns>
 	<div slot="column1">
@@ -777,46 +779,37 @@ License</a
 	</ul>
 </Collapsible>
 
-<GenericContent>
-	<h2>Credits</h2>
-
+<Credits
+	credits={[
+		{ title: 'Cultural Adviser and Permissions', names: 'Brad Grogan' },
+		{
+			title: 'Knowledge Holders',
+			names:
+				"Charlie Lee Cheu, Danny Lee Cheu, Aileen Meldrum, Betty Knowles, Danny O'Shane, Glenis Grogan"
+		},
+		{ title: 'Written by', names: 'Ann McGrath' },
+		{ title: 'Digital story created by', names: 'Mike Jones' },
+		{ title: 'Research Assistant', names: 'Bethany Phillips-Peddlesden' }
+	]}
+>
 	<p>Thank you to Brad Grogan and the Western Yalanji Aboriginal Corporation.</p>
-
-	<Credits
-		credits={[
-			{ title: 'Cultural Adviser and Permissions', names: 'Brad Grogan' },
-			{
-				title: 'Knowledge Holders',
-				names:
-					"Charlie Lee Cheu, Danny Lee Cheu, Aileen Meldrum, Betty Knowles, Danny O'Shane, Glenis Grogan"
-			},
-			{ title: 'Written by', names: 'Ann McGrath' },
-			{ title: 'Digital story created by', names: 'Mike Jones' },
-			{ title: 'Research Assistant', names: 'Bethany Phillips-Peddlesden' }
-		]}
-	/>
-</GenericContent>
-
-<GenericContent>
-	<h2>Citations</h2>
-
-	<Citations
-		citations={[
-			{ insert: 'this page', authors: 'Ann McGrath and Mike Jones (2023)' },
-			{
-				insert: 'Charlie Lee Cheu',
-				authors: 'Charlie Lee Cheu in Ann McGrath and Mike Jones (2023)'
-			},
-			{ insert: 'Danny Lee Cheu', authors: 'Danny Lee Cheu in Ann McGrath and Mike Jones (2023)' },
-			{ insert: "Danny O'Shane", authors: "Danny O'Shane in Ann McGrath and Mike Jones (2023)" },
-			{ insert: 'Glenis Grogan', authors: 'Glenis Grogan in Ann McGrath and Mike Jones (2023)' },
-			{ insert: 'Aileen Meldrum', authors: 'Aileen Meldrum in Ann McGrath and Mike Jones (2023)' },
-			{ insert: 'Betty Knowles', authors: 'Betty Knowles in Ann McGrath and Mike Jones (2023)' }
-		]}
-		location={$page.url.href}
-		page={pageTitle}
-	/>
-</GenericContent>
+</Credits>
+<Citations
+	citations={[
+		{ insert: 'this page', authors: 'Ann McGrath and Mike Jones (2023)' },
+		{
+			insert: 'Charlie Lee Cheu',
+			authors: 'Charlie Lee Cheu in Ann McGrath and Mike Jones (2023)'
+		},
+		{ insert: 'Danny Lee Cheu', authors: 'Danny Lee Cheu in Ann McGrath and Mike Jones (2023)' },
+		{ insert: "Danny O'Shane", authors: "Danny O'Shane in Ann McGrath and Mike Jones (2023)" },
+		{ insert: 'Glenis Grogan', authors: 'Glenis Grogan in Ann McGrath and Mike Jones (2023)' },
+		{ insert: 'Aileen Meldrum', authors: 'Aileen Meldrum in Ann McGrath and Mike Jones (2023)' },
+		{ insert: 'Betty Knowles', authors: 'Betty Knowles in Ann McGrath and Mike Jones (2023)' }
+	]}
+	location={$page.url.href}
+	page={pageTitle}
+/>
 
 <style>
 </style>

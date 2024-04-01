@@ -79,6 +79,7 @@ h6 {
 	--clr-dark-charcoal: #141414;
 	--clr-pink: #f3e3e3;
 	--clr-lightGrey: #dbd9d9;
+	--clr-grey: #313131;
 	--clr-clay: #c26f67;
 	--clr-terracotta: #d85245;
 
@@ -193,7 +194,7 @@ div > figure {
 }
 
 a {
-	text-decoration: underline solid var(--clr-text);
+	text-decoration: underline solid var(--clr-terracotta);
 	color: var(--clr-terracotta);
 	font-family: var(--font-family-body);
 }

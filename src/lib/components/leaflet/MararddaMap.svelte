@@ -127,7 +127,6 @@
       src="https://www.youtube.com/embed/HSrNTwZ7-68?rel=0&amp;modestbranding=1?rel=0"
       title="YouTube video player"
       frameBorder="0"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
     ></iframe>
 
@@ -187,7 +186,6 @@
       src="https://www.youtube.com/embed/0rSdmx_U-nE?rel=0&amp;modestbranding=1?rel=0"
       title="YouTube video player"
       frameBorder="0"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
     ></iframe>
 
@@ -255,7 +253,6 @@
       src="https://www.youtube.com/embed/Vhxt3dhzoxU?rel=0&amp;modestbranding=1?rel=0"
       title="YouTube video player"
       frameBorder="0"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
     ></iframe>
 

@@ -391,7 +391,7 @@
 		stroke: rgb(233, 139, 139) !important;
 	}
 
-	#home-continent {
+	#continent {
 		animation: fadeInAnimation ease 2s;
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;

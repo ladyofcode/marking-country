@@ -7,7 +7,6 @@
 	let mapPin = `${base}/stories/yalanji/images/map-pin-icon.png`;
 	let slide_gallery_1 = `${base}/stories/yalanji/images/magnificent_gallery_slideshow/Magnificent01.jpg`;
 
-
 	export let bounds;
 	export let view = [-15.8564, 144.24];
 	export let zoom = 6;
@@ -18,7 +17,7 @@
 	let mapElement;
 
 	let pin = L.icon({
-		iconUrl:mapPin,
+		iconUrl: mapPin,
 		className: `pin`,
 		html: `<img src=${mapPin}></img>`,
 		iconSize: [45, 60]
@@ -29,9 +28,9 @@
 			throw new Error('Must set either bounds, or view and zoom.');
 		}
 
-		map = L.map(mapElement)
-			// example to expose map events to parent components:
-			.on('zoom', (e) => dispatch('zoom', e));
+		map = L.map(mapElement, {
+			scrollWheelZoom: false
+		}).on('zoom', (e) => dispatch('zoom', e));
 
 		L.tileLayer(
 			'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
@@ -41,11 +40,11 @@
 		).addTo(map);
 
 		L.marker([-15.8564, 144.24], { icon: pin })
-		.addTo(map)
-		.bindPopup(
-			`<img src=${slide_gallery_1} alt="" />
+			.addTo(map)
+			.bindPopup(
+				`<img src=${slide_gallery_1} alt="" />
             Magnificent Gallery`
-		);
+			);
 	});
 
 	onDestroy(() => {

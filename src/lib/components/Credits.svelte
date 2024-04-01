@@ -55,7 +55,7 @@
 			scrollTrigger: {
 				trigger: text,
 				start: 'top bottom',
-				toggleActions: 'play none none none'
+				toggleActions: 'play none none reverse'
 			}
 		});
 

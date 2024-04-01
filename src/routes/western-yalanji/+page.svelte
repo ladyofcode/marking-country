@@ -1,8 +1,15 @@
 <script>
 	import { page } from '$app/stores';
 	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
-
+	import { dotNavData } from '../../stores/dotNavStore';
 	import { YouTube } from 'sveltekit-embed';
+	import { onMount } from 'svelte';
+
+	const dotNavLinks = [
+		{ title: 'Top', ref: '#header' },
+		{ title: 'Magnificent Gallery', ref: '#magnificent' },
+		{ title: 'Quinkan Rock Art', ref: '#rockart' }
+	];
 
 	import {
 		Header,
@@ -213,6 +220,10 @@
 			}
 		}
 	];
+
+	onMount(() => {
+		dotNavData.set(dotNavLinks);
+	});
 </script>
 
 <Header
@@ -352,7 +363,7 @@ License</a
 	</p>
 </GenericContent>
 
-<TwoColumns>
+<TwoColumns id="magnificent">
 	<div slot="column1">
 		<h2>Magnificent Gallery</h2>
 		<p>
@@ -453,7 +464,7 @@ License</a
 	</p>
 </GenericContent>
 
-<GenericContent>
+<GenericContent id="rockart">
 	<h2>Quinkan rock art</h2>
 
 	<p>
@@ -632,7 +643,7 @@ License</a
 	</div>
 </TwoColumns>
 
-<YouTube youTubeId="-uSSUNeida8" />
+<MediaFullWidth youTubeId="-uSSUNeida8" />
 
 <Collapsible name="percyWesternYalanji" label="Percy Tresize and Dick Roughsey">
 	<p>

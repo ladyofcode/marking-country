@@ -1,4 +1,8 @@
-<div class="wrapper">
+<script>
+    export let id='';
+</script>
+
+<div {id} class="wrapper">
     <div class="container">
         <div class="column1">
             <slot name="column1" />

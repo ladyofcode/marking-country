@@ -1,8 +1,7 @@
 <script>
 	export let name = '',
 		label = '',
-		checked = false,
-		type = '';
+		checked = false;
 
 	import { onMount, tick } from 'svelte';
 	import { gsap } from 'gsap';

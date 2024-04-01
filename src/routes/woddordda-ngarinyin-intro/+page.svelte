@@ -1,23 +1,50 @@
 <script>
 	import { base } from '$app/paths';
 	import { YouTube } from 'sveltekit-embed';
-
-	import { Warning } from '$lib';
+	import { onDestroy, onMount } from 'svelte';
+	import { killScrollTriggers } from '$lib/utils';
+	import { gsap } from 'gsap/dist/gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { AudioBlock, Warning } from '$lib';
+	import { dotNavData } from '../../stores/dotNavStore';
+	gsap.registerPlugin(ScrollTrigger);
+	const dotNavLinks = [];
 
 	const sound = `${base}/stories/woddorda-ngarinyin-intro/audio/sound-intro-wudoo_final.mp3`;
 	const marardda = `${base}/stories/woddorda-ngarinyin-intro/images/marardda_navTile.png`;
 	const ngamardalee = `${base}/stories/woddorda-ngarinyin-intro/images/ngamardalee_navTile.png`;
-	const smoke = `${base}/stories/woddorda-ngarinyin-intro/video/iStock_smoke_fades.mp4`;
+
+	let triggers = [],
+		panels = [];
+	let wrapper;
+
+	onMount(() => {
+		if (wrapper) {
+			const children = Array.from(wrapper.children);
+			children.forEach((child) => {
+				gsap.from(child, {
+					y: 30,
+					opacity: 0,
+					stagger: 0.5,
+					scrollTrigger: {
+						trigger: child,
+						start: 'top 40%',
+						end: 'top 50%',
+						toggleActions: 'play none none reverse'
+					}
+				});
+			});
+		}
+
+		dotNavData.set(dotNavLinks);
+	});
+
+	onDestroy(() => {
+		killScrollTriggers(triggers);
+	});
 </script>
 
-<div class="main-container">
-	<div class="fix-video">
-		<video autoPlay loop muted>
-			<source src={smoke} type="video/webm" />
-			Your browser does not support the video tag.
-		</video>
-	</div>
-
+<div class="wrapper" bind:this={wrapper}>
 	<Warning>
 		<p>
 			Phillip Duckhole, Janet Oobagooma, and Yorna Woolagoodja have passed away since the making of
@@ -26,190 +53,119 @@
 		</p>
 	</Warning>
 
-	<div id="intro" class="title">
+	<div class="panel">
 		<div>
 			<h1>Wurdu/Wudoo</h1>
 			<h2>Smoke ceremony for babies</h2>
 		</div>
 	</div>
 
-	<div class="full-section pane">
-		<div class="text">
-			<p>
-				Warm hands, smoke and words from Elders encircle babies in the Wurdu/Wudoo ceremony,
-				embodying the Laws and guidelines for generations of people from west Kimberley Wandjina
-				Wunggudd culture.
-			</p>
+	<div class="panel">
+		<p>
+			Warm hands, smoke and words from Elders encircle babies in the Wurdu/Wudoo ceremony, embodying
+			the Laws and guidelines for generations of people from west Kimberley Wandjina Wunggudd
+			culture.
+		</p>
 
-			<p>
-				<em>The words are put there that the Wandjinas gave us.</em>
-				<br />
-				Sam Woolagoodja 1972
-			</p>
+		<p>
+			<em>The words are put there that the Wandjinas gave us.</em>
+			<br />
+			<strong>Sam Woolagoodja 1972</strong>
+		</p>
 
-			<p>
-				<em>
-					It is the Law. Only our people can carry the Law for Wudoo. It needs to be done properly.
-				</em>
-				<br />
-				Yorna Woolagoodja 2022
-			</p>
-		</div>
-		<audio controls>
-			<source src={sound} type="audio/mp3" />
-		</audio>
+		<p>
+			<em>
+				It is the Law. Only our people can carry the Law for Wudoo. It needs to be done properly.
+			</em>
+			<br />
+			<strong>Yorna Woolagoodja 2022</strong>
+		</p>
+
+		<AudioBlock source={sound} />
 	</div>
 
-	<div class="container full-section centre-section">
-		<div class="container second-section">
-			<p>
-				Wudoo (Woddordda) or Wurdu (Ngarinyin) is a blessing. Certain adults warm their hands by the
-				fire and the smoke, and touch the children on different parts of the body.  Different parts
-				of the body are associated with different behaviours.
-			</p>
+	<div class="panel">
+		<p>
+			Wudoo (Woddordda) or Wurdu (Ngarinyin) is a blessing. Certain adults warm their hands by the
+			fire and the smoke, and touch the children on different parts of the body.  Different parts of
+			the body are associated with different behaviours.
+		</p>
 
-			<p>
-				Listen to Sherika Duckhole (in Ngarinyin) and Leah Umbagai (in Woddordda) give the names and
-				meanings of some of the places on the baby’s body in a Wurdu/Wudoo smoking ceremony.
-			</p>
+		<p>
+			Listen to Sherika Duckhole (in Ngarinyin) and Leah Umbagai (in Woddordda) give the names and
+			meanings of some of the places on the baby’s body in a Wurdu/Wudoo smoking ceremony.
+		</p>
 
-			<YouTube youTubeId="HkKLuybg2p8" />
-		</div>
+		<YouTube youTubeId="HkKLuybg2p8?rel=0" />
 	</div>
 
-	<div class="container full-section centre-section">
-		<div class="content links">
-			<a href="{base}/woddordda/">
-				<img
-					src={ngamardalee}
-					alt="Map showing the changes to the coastline of Woddordda Country, and includes symbols painted by Leah Umbagai, such as fireplace with red flames and a hand outstretched over the fire; the head and face of a baby; as well as animals, including a brolga, a kangaroo, a quoll, and a snake."
-				/>
-				Woddordda »
-			</a>
+	<div class="panel links">
+		<a href="{base}/woddordda/">
+			<img
+				src={ngamardalee}
+				alt="Map showing the changes to the coastline of Woddordda Country, and includes symbols painted by Leah Umbagai, such as fireplace with red flames and a hand outstretched over the fire; the head and face of a baby; as well as animals, including a brolga, a kangaroo, a quoll, and a snake."
+			/>
+			Woddordda »
+		</a>
 
-			<a href="{base}/ngarinyin">
-				<img
-					src={marardda}
-					alt="Satellite photograph of Ngainyin Country with hand painted images of three catfish, a dingo and an eagle."
-				/>
-				Ngarinyin »
-			</a>
-		</div>
+		<a href="{base}/ngarinyin">
+			<img
+				src={marardda}
+				alt="Satellite photograph of Ngainyin Country with hand painted images of three catfish, a dingo and an eagle."
+			/>
+			Ngarinyin »
+		</a>
 	</div>
 </div>
 
 <style>
-	.content {
-		height: fit-content;
-		width: 100%;
-		max-width: 800px;
-		margin: 0 auto;
+	h1 {
+		font-size: var(--font-size-hero);
 	}
-	.main-container {
-		min-height: 100vh;
-	}
-	.main-container .title,
-	.main-container .full-section {
-		position: relative;
-		z-index: 50;
-	}
-	.fix-video {
-		position: fixed !important;
-		z-index: 10;
-		height: 100vh;
-	}
-	.fix-video video {
-		width: 1001vw;
-		height: 100%;
-		object-fit: cover;
-	}
-	.full-section {
-		min-height: 100vh;
-	}
-	.full-section p {
-		font-size: 1.2rem;
-		margin-bottom: 3.2rem;
-		text-align: center;
-	}
-	.title {
-		height: 100vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	.title div h1,
-	.title div h2 {
-		text-align: center;
+
+	h1,
+	h2 {
 		color: var(--clr-text);
 	}
-	.pane {
-		padding: 1rem;
+
+	p {
+		font-size: var(--font-size-text);
+		margin-bottom: var(--space-xl);
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.panel :global(iframe) {
+		border-radius: var(--radius-corner);
+	}
+
+	.panel :global(div) {
+		height: 100%;
+		width: 100%;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	.panel {
+		padding: var(--space-xxl) var(--space-lg);
 		width: 100%;
 		height: 100%;
-		margin: 0 auto;
-		z-index: 50;
-		max-width: 800px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.pane audio {
-		width: 100%;
-	}
-	.text {
-		text-align: center;
-	}
-	.text p {
-		font-size: 1.2rem;
-		margin-bottom: 3.2rem;
-	}
-
-	.text {
-		opacity: 1;
-		animation: fadeIn 5s linear;
-		animation-fill-mode: backwards;
-	}
-	@keyframes fadeOut {
-		0% {
-			opacity: 1;
-		}
-		100% {
-			opacity: 0;
-		}
-	}
-	@keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-	.second-section {
+		min-height: 100vh;
+		max-width: var(--width-content);
 		margin: 0 auto;
 		text-align: center;
-		max-width: 800px;
-	}
-	.second-section p {
-		font-size: 1.2rem;
-	}
-
-	/* .second-section iframe {
-		width: 100%;
-		margin-top: 2.4rem;
-	} */
-
-	.centre-section {
+		color: var(--clr-text);
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		align-items: center;
+		justify-content: center;
 	}
+
 	.links {
-		height: 100%;
-		width: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -218,13 +174,12 @@
 
 	.links a {
 		text-align: center;
-		font-family: 'Work Sans', Arial, Helvetica, sans-serif;
-		font-size: 1.6rem;
+		font-size: var(--font-size-heading);
 		max-width: 340px;
-		padding: 1.6rem;
+		padding: var(--space-lg);
 		background-color: var(--clr-dark-charcoal);
 		border-radius: var(--radius-corner);
-		margin-bottom: 6.4rem;
+		margin-bottom: var(--space-xxxl);
 	}
 	.links a :hover {
 		background-color: #1e1e1e;
@@ -233,30 +188,28 @@
 	.links img {
 		border-radius: var(--radius-corner);
 		margin: 0 auto;
-		margin-bottom: 1rem;
+		margin-bottom: var(--space-sm);
 		width: 100%;
-		max-width: 340px;
 	}
 
 	@media (min-width: 900px) {
-		.pane {
-			max-height: 400px;
+		h1 {
+			font-size: var(--font-size-large-hero);
+		}
+
+		p {
+			font-size: var(--font-size-subheading);
+		}
+
+		.panel {
 			padding: 0;
 		}
 
-		.text p {
-			font-size: 1.6rem;
-		}
-
-		.second-section p {
-			font-size: 1.6rem;
-		}
-
 		.links {
-			align-items: stretch;
 			flex-direction: row;
 			justify-content: space-between;
-			gap: 12px;
+			/* align-items: stretch; */
+			gap: var(--space-xxxl);
 		}
 
 		.links a {

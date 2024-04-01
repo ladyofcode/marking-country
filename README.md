@@ -22,18 +22,19 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 ---
 * [x] Rebuild the menu: make it fullscreen, add transitions and animations, dim background
 * [] Convert all audio to components
-* [] Convert warning headers to components
+* [x] Convert warning headers to components
 * [] Tighten up design
 * [] Fix footer
+* [] Remove unrelated videos
 
 
 ### Scrollytelling
-* [] Add superscroll support
+* [] Add superscroll support (speed to end rush through anims)
 * [x] Intro: bounce the line
 * [x] Add border: none to ImageSingle (e.g. rotating calendar)
-* [] AudioBlock - smaller contained block that doens't break out of the width too much, - can be wider, but thinner!
+* [x] AudioBlock - smaller contained block that doens't break out of the width too much, - can be wider, but thinner!
 * [] Load full page of images before starting animations and sequences
-* [] Animate the quotes
+* [x] Animate the quotes
 * [] Rewrite ImageSingle to take 1 image or video, caption optional, border optional
 * [] 2 quote types: inline, long
 * [x] MediaFullWidth: Amend to accomodate video
@@ -55,7 +56,7 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 
 ---
 * [] Add numbers to side-scroll slider & **standard** slider
-* [] Make images more responsive; captions should fit within the visible part of the browser when scrolling 
+* [x] Make images more responsive; captions should fit within the visible part of the browser when scrolling 
 * [] Remove flash from acknowledgement
 
 ### Accessibility

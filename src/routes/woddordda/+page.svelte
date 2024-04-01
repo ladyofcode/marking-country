@@ -330,7 +330,7 @@
 		Western Australia:
 	</p>
 
-	<AudioBlock audio={leahIntro} />
+	<AudioBlock source={leahIntro} />
 
 	<details>
 		<summary>Audio transcript</summary>
@@ -356,7 +356,7 @@
 		her use of animals and Woddordda placenames.
 	</p>
 
-	<AudioBlock audio={leahSymbols} />
+	<AudioBlock source={leahSymbols} />
 
 	<details>
 		<summary>Audio transcript</summary>

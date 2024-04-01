@@ -3,6 +3,7 @@
 	import DotNavigation from '$lib/layout/DotNavigation.svelte';
 	import Navigation from '$lib/layout/Navigation.svelte';
 	import Footer from '$lib/layout/Footer.svelte';
+	import { page } from '$app/stores';
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 	import { ScrollSmoother } from 'gsap/ScrollSmoother';
@@ -12,6 +13,8 @@
 	import { onMount, onDestroy } from 'svelte';
 
 	import ModalAcknowledgement from '$lib/layout/ModalAcknowledgement.svelte';
+
+	const smoke = `${base}/stories/woddorda-ngarinyin-intro/video/iStock_smoke_fades.mp4`;
 
 	let showModal = false,
 		scrollContainer;
@@ -24,16 +27,14 @@
 	if (typeof window !== 'undefined') {
 		gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 	}
-	
+
 	onMount(() => {
-		// gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
-
 		const smoother = ScrollSmoother.create({
 			wrapper: '.scroll-wrapper',
 			content: '.smooth-content',
 			smooth: 1,
-			effects: true
+			effects: true,
+			normalizeScroll: true
 		});
 
 		triggers.push(smoother);
@@ -55,14 +56,22 @@
 	});
 </script>
 
-
 <Navigation />
 
-{#if $dotNavData}
-  <DotNavigation links={$dotNavData} />
+{#if $dotNavData && $dotNavData.length > 0}
+	<DotNavigation links={$dotNavData} />
 {/if}
 
 <ModalAcknowledgement bind:showModal />
+
+{#if $page.url.pathname.startsWith('/woddordda-ngarinyin-intro')}
+	<div class="fix-video">
+		<video autoPlay loop muted>
+			<source src={smoke} type="video/webm" />
+			Your browser does not support the video tag.
+		</video>
+	</div>
+{/if}
 
 <div class="smooth-wrapper" bind:this={scrollContainer}>
 	<div class="smooth-content">
@@ -74,6 +83,29 @@
 <style>
 	.smooth-wrapper {
 		min-height: 100vh;
-		/* overflow: auto; */
+	}
+
+	.fix-video {
+		height: 100vh;
+		width: 100%;
+		position: fixed;
+		background-color: #000000;
+	}
+
+	.fix-video::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+		pointer-events: none;
+	}
+
+	.fix-video video {
+		width: 1001vw;
+		height: 100%;
+		object-fit: cover;
 	}
 </style>

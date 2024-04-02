@@ -2,6 +2,14 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
+	import { dotNavData } from '../../stores/dotNavStore';
+	import { onMount } from 'svelte';
+
+	const dotNavLinks = [
+		{ title: 'Header', ref: '#header' },
+		{ title: 'Scroller', ref: '#scroller' },
+		{ title: 'YHeader', ref: '#header2' }
+	];
 
 	import {
 		AudioBlock,
@@ -13,13 +21,12 @@
 		Collapsible,
 		ImageGrid,
 		ImageSingle,
-		LargeQuote,
-		InlineQuote,
+		QuoteLarge,
+		QuoteInline,
 		MediaFullWidth,
 		Intro,
 		SideScroller,
 		Warning,
-		AudioFullWidth,
 		WoddorddaMap
 	} from '$lib';
 
@@ -54,15 +61,19 @@
 	const leahFlood = `${base}/stories/woddordda/audio/Leah-Umbagai_Flood_sound-edit.mp3`;
 	const background = `${base}/stories/woddordda/videos/Woddordda_titleBackground.mp4`;
 
-	const folderPath = `/stories/woddordda/images/`
+	const folderPath = `/stories/woddordda/images/`;
 	const singleImages = generateSingleMedia(`${folderPath}`, singleImageFilenames);
-	const makingImages = generateSubfolderMedia(`${folderPath}making_of_slideshow`, makingOfSlideshowFilenames);
-
+	const makingImages = generateSubfolderMedia(
+		`${folderPath}making_of_slideshow`,
+		makingOfSlideshowFilenames
+	);
 
 	const slideshowOne = [
 		{
 			type: 'image',
 			url: makingImages[0],
+			width: '2016',
+			height: '1612',
 			caption:
 				'Cecilia Umbagai with baby Avashay Stewart, Yorna Woolagoodja and Kallem Mungulu. Photo: Sahyma Lachman 2022.',
 			link: ''
@@ -70,6 +81,8 @@
 		{
 			type: 'image',
 			url: makingImages[1],
+			width: '1280',
+			height: '770',
 			caption:
 				'Shontae Charles, Yorna Woolagoodja holding baby Martena and Kallem Mungulu at Mangajaddaa performing Wudoo. Photo: Sahyma Lachman 2022.',
 			link: ''
@@ -77,6 +90,8 @@
 		{
 			type: 'image',
 			url: makingImages[2],
+			width: '4032',
+			height: '3024',
 			caption:
 				'Janet Oobagooma performing Wudoo for baby Jai with his father Derek Oobagooma, at Manggajaddaa. Photo: Ann McGrath 2022.',
 			link: ''
@@ -84,6 +99,8 @@
 		{
 			type: 'image',
 			url: makingImages[3],
+			width: '2016',
+			height: '1512',
 			caption:
 				'Woddordda Wudoo recording camp, catering and camp organiser Peter Croll with children. Photo: Sahyma Lachman 2022.',
 			link: ''
@@ -91,6 +108,8 @@
 		{
 			type: 'image',
 			url: makingImages[4],
+			width: '4032',
+			height: '2268',
 			caption:
 				'Training workshop in July 2022 to curate the Wudoo/Wurdu website. Shontae Charles (seated with back to camera), Sherika Duckhole, Maitland Ngerdu, Leah Umbagai, Brentisha Macale (standing), Mike Jones (ANU). Photo: Mary Anne Jebb 2022.',
 			link: ''
@@ -98,6 +117,8 @@
 		{
 			type: 'image',
 			url: makingImages[5],
+			width: '4032',
+			height: '2268',
 			caption:
 				'Training workshop in July 2022 to curate the Wudoo/Wurdu website. Cecilia Umbagai (seated facing camera), Shontae Charles, Lotte Waters (General Manager, Mowanjum Art Centre), Sherika Nulgit, Maitland Ngerdu, Leah Umbagai (face obscured), Brentisha Macale (standing), Kirsty Burgu, Mike Jones (ANU). Photo: Mary Anne Jebb 2022.',
 			link: ''
@@ -105,6 +126,8 @@
 		{
 			type: 'image',
 			url: makingImages[6],
+			width: '2048',
+			height: '1526',
 			caption:
 				'Yorna Woolagoodja reviewing the website draft, with Mike Jones (left) and Mary Anne Jebb. Photo: Sahyma Lachman 2022.',
 			link: ''
@@ -183,7 +206,7 @@
 			markup: [
 				`	<p>Yorna attended the Olympics and later commented:</p>`,
 				{
-					component: InlineQuote,
+					component: QuoteInline,
 					props: {
 						credit: 'Yorna Woolagoodja 2005.'
 					},
@@ -195,7 +218,7 @@
 		people. When Elders warm their hands with smoke and fire, and touch and talk to babies during
 		the Wudoo smoking ceremony, they are transmitting Ngamardalee's words, laws and purpose.</p>`,
 				{
-					component: InlineQuote,
+					component: QuoteInline,
 					props: {
 						credit: 'Yorna Woolagoodja 2020.'
 					},
@@ -281,6 +304,10 @@
 			}
 		}
 	];
+
+	// onMount(() => {
+	// 	dotNavData.set(dotNavLinks);
+	// });
 </script>
 
 <Warning>
@@ -301,7 +328,7 @@
 	gradientColor="#406467"
 />
 
-<Intro intro="woddordda">
+<Intro>
 	<h2>Community co-curators</h2>
 
 	<p>
@@ -316,9 +343,9 @@
 
 <MediaFullWidth video={background} poster={singleImages.woddordda_poster} alt="" />
 
-<LargeQuote credit="Yorna Woolagoodja, 2022">
+<QuoteLarge credit="Yorna Woolagoodja, 2022">
 	<p>We live the stories from the rock shelter paintings every day.</p>
-</LargeQuote>
+</QuoteLarge>
 
 <SideScroller content={sideScrollerOne} />
 
@@ -382,9 +409,11 @@
 		caption="Map of Woddordda Country by Leah Umbagai."
 	/>
 
-	<!-- SCROLL TO!! -->
 	<p><a href="#interactive-map">» View the interactive map </a></p>
 </GenericContent>
+
+<SideScroller content={sideScrollerTwo} />
+
 
 <GenericContent>
 	<h2>The woman who poked the eye of the sea</h2>
@@ -452,18 +481,18 @@
 	</p>
 </GenericContent>
 
-<LargeQuote credit="Leah Umbagai 2022.">
+<QuoteLarge credit="Leah Umbagai 2022.">
 	<p>
 		That's why it is important to tell the story to children especially when they're growing up. And
 		when they're older you can trace back generation to generation by that one particular person and
 		the name. So you carry an old person's name you got a lot of history comes with it.
 	</p>
-</LargeQuote>
+</QuoteLarge>
 
 <GenericContent>
 	<p><strong>Listen to</strong> Leah Umbagai speak about the significance of the flood.</p>
 
-	<AudioFullWidth audio={leahFlood} />
+	<AudioBlock source={leahFlood} />
 
 	<details>
 		<summary>Audio transcript</summary>
@@ -492,9 +521,9 @@
 	</p>
 </GenericContent>
 
-<LargeQuote credit="Leah Umbagai, 2022.">
+<QuoteLarge credit="Leah Umbagai, 2022.">
 	<p>I think it's important that we use our own language in the areas of our Country.</p>
-</LargeQuote>
+</QuoteLarge>
 
 <GenericContent>
 	<p>
@@ -619,7 +648,7 @@
 		Stewart, Cecilia Umbagai and baby Avashay Stewart, Ashleah Umbagai, Cheyne Umbagai, Elkin
 		Umbagai, Leah Umbagai, Zani Umbagai, Yorna Donny Woolagoodja.
 	</p>
-	<ImageGrid media={slideshowOne} />
+	<ImageGrid media={slideshowOne} galleryId="slides" />
 </Collapsible>
 
 <Collapsible name="referencesWoddorda" label="References and further reading">
@@ -711,72 +740,63 @@
 	</p>
 </Collapsible>
 
-<GenericContent>
-	<h2>Credits</h2>
-
+<Credits
+	credits={[
+		{
+			title: 'Senior cultural advisers',
+			names: 'Yorna Donny Woolagoodja, Mildred Mungulu, Eewaambood Janet Oobagooma'
+		},
+		{ title: 'Community researcher & language adviser', names: 'Leah Umbagai' },
+		{ title: 'Written by', names: 'Mary Anne Jebb' },
+		{ title: 'Story developed by', names: 'Mary Anne Jebb, Mike Jones' },
+		{ title: 'Marking Country Project Manager', names: 'Mike Jones' },
+		{ title: 'Developer', names: 'Tabassum Fakier' },
+		{ title: 'Camera and editing', names: 'Tim Mummery' },
+		{ title: 'Short films directed by', names: 'Mary Anne Jebb, Ann McGrath' },
+		{ title: 'Director of Research Centre for Deep History', names: 'Ann McGrath' }
+	]}
+>
 	<p>
 		This digital story was developed in collaboration with Yorna Woolagoodja, Janet Oobagooma, and
 		Leah Umbagai. Thank you to Woddordda community members, and to Mowanjum Aboriginal Art & Culture
 		Centre for providing facilities and support.
 	</p>
-
-	<Credits
-		credits={[
-			{
-				title: 'Senior cultural advisers',
-				names: 'Yorna Donny Woolagoodja, Mildred Mungulu, Eewaambood Janet Oobagooma'
-			},
-			{ title: 'Community researcher & language adviser', names: 'Leah Umbagai' },
-			{ title: 'Written by', names: 'Mary Anne Jebb' },
-			{ title: 'Story developed by', names: 'Mary Anne Jebb, Mike Jones' },
-			{ title: 'Marking Country Project Manager', names: 'Mike Jones' },
-			{ title: 'Developer', names: 'Tabassum Fakier' },
-			{ title: 'Camera and editing', names: 'Tim Mummery' },
-			{ title: 'Short films directed by', names: 'Mary Anne Jebb, Ann McGrath' },
-			{ title: 'Director of Research Centre for Deep History', names: 'Ann McGrath' }
-		]}
-	/>
-
 	<p>Header landscape still by Tim Mummery.</p>
-</GenericContent>
+</Credits>
 
-<GenericContent>
-	<h2>Citations</h2>
-
-	<Citations
-		citations={[
-			{
-				insert: 'this page',
-				authors:
-					'Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
-			},
-			{
-				insert: 'Yorna Woolagoodja',
-				authors:
-					'Yorna Woolagoodja cited in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
-			},
-			{
-				insert: 'Eewaambood Janet Oobagooma',
-				authors:
-					'Eewaambood Janet Oobagooma cited in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
-			},
-			{
-				insert: 'Leah Umbagai',
-				authors:
-					'Leah Umbagai cited in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
-			},
-			{
-				insert: 'Sam Woolagoodja',
-				authors:
-					'Sam Woolagoodja cited in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
-			},
-			{
-				insert: '‘Woddordda Wudoo’',
-				authors:
-					'‘Woddordda Wudoo’ in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
-			}
-		]}
-		location={$page.url.href}
-		page={pageTitle}
-	/>
-</GenericContent>
+<Citations
+	citations={[
+		{
+			insert: 'this page',
+			authors:
+				'Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
+		},
+		{
+			insert: 'Yorna Woolagoodja',
+			authors:
+				'Yorna Woolagoodja cited in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
+		},
+		{
+			insert: 'Eewaambood Janet Oobagooma',
+			authors:
+				'Eewaambood Janet Oobagooma cited in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
+		},
+		{
+			insert: 'Leah Umbagai',
+			authors:
+				'Leah Umbagai cited in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
+		},
+		{
+			insert: 'Sam Woolagoodja',
+			authors:
+				'Sam Woolagoodja cited in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
+		},
+		{
+			insert: '‘Woddordda Wudoo’',
+			authors:
+				'‘Woddordda Wudoo’ in Yorna Donny Woolagoodja, Eewaambood Janet Oobagooma, Leah Umbagai, Mary Anne Jebb and Ann McGrath (2022)'
+		}
+	]}
+	location={$page.url.href}
+	page={pageTitle}
+/>

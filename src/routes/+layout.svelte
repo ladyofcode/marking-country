@@ -21,9 +21,6 @@
 
 	let triggers = [];
 
-	let smoother;
-	let pageData;
-
 	if (typeof window !== 'undefined') {
 		gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 	}

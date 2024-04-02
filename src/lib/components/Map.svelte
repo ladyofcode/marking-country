@@ -6,7 +6,6 @@
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 	import { MotionPathPlugin } from 'gsap/dist/MotionPathPlugin';
 	import { killScrollTriggers } from '$lib/utils';
-	import { marker } from 'leaflet';
 	gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 	const homeOcean = `${base}/images/home_ocean.png`;
@@ -76,10 +75,7 @@
 	});
 </script>
 
-<svg
-	xmlns="http://www.w3.org/2000/svg"
-	xmlns:xlink="http://www.w3.org/1999/xlink"
-	viewBox="0 0 4328.09 4170.88"
+<svg viewBox="0 0 4328.09 4170.88"
 >
 	<defs>
 		<filter id="glass" x="0" y="0" width="100%" height="100%">

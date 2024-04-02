@@ -13,12 +13,11 @@
 		ImageSingle,
 		ImageFull,
 		TwoColumns,
-		InlineQuote,
-		AudioFullWidth,
+		QuoteInline,
+		AudioBlock,
 		MediaFullWidth,
 		TwoColumnContent,
 		Intro,
-		SideCaption,
 		SlideshowScroller,
 		ImageGrid,
 		YawuruAustraliaMap,
@@ -411,7 +410,7 @@
 	gradientColor="#1b191a"
 />
 
-<Intro intro="yawuru">
+<Intro>
 	<p>Co-created by Yawuru storytellers and the Research Centre for Deep History</p>
 
 	<p>
@@ -431,25 +430,25 @@
 <GenericContent>
 	<h2>Bugarrigarra nyurdany</h2>
 
-	<InlineQuote credit="Susan Edgar, 2022">
+	<QuoteInline credit="Susan Edgar, 2022">
 		<p>Bugarrigarra is a Yawuru thing, dreamtime, dreamtime stories.</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Jimmy Edgar, 2022">
+	<QuoteInline credit="Jimmy Edgar, 2022">
 		<p>It's not 'dreamtime' in the sense of going to sleep and dreaming.</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Janet Cox, 2022">
+	<QuoteInline credit="Janet Cox, 2022">
 		<p>We're talking about our history.</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Dianne Appleby, 2022">
+	<QuoteInline credit="Dianne Appleby, 2022">
 		<p>Bugarrigarra is real, it's still living.</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Thomas 'Unda' Edgar, 2022">
+	<QuoteInline credit="Thomas 'Unda' Edgar, 2022">
 		<p>Bugarrigarra is life. A living story. It's Yawuru existence.</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		There are many Bugarrigarra stories in and of this landscape. One is Marrimarrigun, which Thomas
@@ -486,17 +485,17 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 
 <GenericContent>
 	<h2>Buru</h2>
-	<InlineQuote credit="Jimmy Edgar, 2022"><p>Buru is Country.</p></InlineQuote>
+	<QuoteInline credit="Jimmy Edgar, 2022"><p>Buru is Country.</p></QuoteInline>
 
-	<InlineQuote credit="Thomas 'Unda' Edgar, 2022"
-		><p>Bugarrigarra created buru, Law, and culture.</p></InlineQuote
+	<QuoteInline credit="Thomas 'Unda' Edgar, 2022"
+		><p>Bugarrigarra created buru, Law, and culture.</p></QuoteInline
 	>
 
-	<InlineQuote credit="Joseph Nipper Roe Ngulibardu (Yawuru Cultural Management Plan)"
+	<QuoteInline credit="Joseph Nipper Roe Ngulibardu (Yawuru Cultural Management Plan)"
 		><p>
 			The people, the land, and the Law are three aspects of the same thing. We have a duty to look
 			after them all, and looking after one of them means looking after the other two as well.
-		</p></InlineQuote
+		</p></QuoteInline
 	>
 
 	<p>
@@ -529,14 +528,14 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		turtles, dugong, and goanna, and collecting bushfoods.
 	</p>
 
-	<InlineQuote credit="Susan Edgar, Laja (October) 2022">
+	<QuoteInline credit="Susan Edgar, Laja (October) 2022">
 		<p>
 			Yes, wanggaja [mud crab] always fat one time. Wanggaja, crab you know like birndany it’s a
 			different season, it’s a different nagula for birndany, for stingrays and stuff. Birndany,
 			balarri (shovel shark), jurrwayi (eating shark). Fish come into that season now. Now all the
 			reef fish is fat.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		There are many seasonal indicators, from flowers and weather patterns to animal behaviour. On a
@@ -544,7 +543,7 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		Silverstein about some of these signs, and the sustainability of seasonal living.
 	</p>
 
-	<AudioFullWidth
+	<AudioBlock
 		audio={singleAudio.DiscussingSeasons_UndaDi}
 		credit="Thomas Edgar and Dianne Appleby on Thangoo Station discussing seasons with Ben Silverstein, Marrul (April) 2022."
 	/>
@@ -561,9 +560,9 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		caption="Yawuru Seasonal Calendar."
 	/>
 
-	<InlineQuote credit="Janet Cox, 2022"><p>This is sort of a map.</p></InlineQuote>
-	<InlineQuote credit="Thomas 'Unda' Edgar, 2022"
-		><p>This is Bugarrigarra. We believe in this seasonal map.</p></InlineQuote
+	<QuoteInline credit="Janet Cox, 2022"><p>This is sort of a map.</p></QuoteInline>
+	<QuoteInline credit="Thomas 'Unda' Edgar, 2022"
+		><p>This is Bugarrigarra. We believe in this seasonal map.</p></QuoteInline
 	>
 
 	<p>
@@ -571,17 +570,17 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		grow up, they learn about the connections between buru, seasons, culture, and law.
 	</p>
 
-	<InlineQuote credit="Susan Edgar, 2022">
+	<QuoteInline credit="Susan Edgar, 2022">
 		<p>
 			We were told to do what we can do, and told not to do what we can't do, and places not to go
 			and places you can go, things you can eat, things you can't eat and all these like sea snakes
 			and all that, they got banaga, burungu, barrjarri, garimba, but they got skin groups and I
 			know them.
-		</p></InlineQuote
+		</p></QuoteInline
 	>
 
-	<InlineQuote credit="Jimmy Edgar, 2022"
-		><p>All these places are cultural; not just jila, all places are cultural.</p></InlineQuote
+	<QuoteInline credit="Jimmy Edgar, 2022"
+		><p>All these places are cultural; not just jila, all places are cultural.</p></QuoteInline
 	>
 
 	<p>
@@ -596,11 +595,11 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		Station, using what they called 'native wells' and 'native paths' to travel inland.
 	</p>
 
-	<InlineQuote credit="Thomas 'Unda' Edgar"
+	<QuoteInline credit="Thomas 'Unda' Edgar"
 		><p>
 			Then the cattle came and the sheep there and you know what happened after that, with all the
 			messiness and everything.
-		</p></InlineQuote
+		</p></QuoteInline
 	>
 
 	<p>
@@ -626,7 +625,7 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		continue to practice their culture today, and carry it into the future.
 	</p>
 
-	<AudioFullWidth
+	<AudioBlock
 		audio={singleAudio.DianneAppleby_ThangooCulturalIntelligence}
 		credit="Dianne Appleby, 2021, speaking about the continuing cultural significance of Thangoo."
 	/>
@@ -660,12 +659,12 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		relationships.
 	</p>
 
-	<InlineQuote credit="Dianne Appleby, 2022"
+	<QuoteInline credit="Dianne Appleby, 2022"
 		><p>
 			Our cultural identity is to do with our roles and responsibilities, and who we are ... Who we
 			can marry and who we can’t marry, who we can talk to and who we can laugh with, who we can
 			growl, and those sorts of things.
-		</p></InlineQuote
+		</p></QuoteInline
 	>
 
 	<p>
@@ -680,21 +679,21 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		about Country.
 	</p>
 
-	<AudioFullWidth audio={singleAudio.JimmyEdgar2_01_amplified} credit="Jimmy Edgar, 2021." />
+	<AudioBlock source={singleAudio.JimmyEdgar2_01_amplified} credit="Jimmy Edgar, 2021." />
 
 	<p>
 		Susan Edgar speaks about the foods and medicines found on Country, including at Janyjagurdiny,
 		that helped to keep people healthy.
 	</p>
 
-	<InlineQuote credit="Susan Edgar, 2022"
+	<QuoteInline credit="Susan Edgar, 2022"
 		><p>
 			The yaminyarri should be starting soon. Yaminyarri is gubinge tree. You know, they hold a lot
 			of Vitamin C, more than orange and they are cleansing too for sores ... we never used to get
 			sores. The only sores we get is when we scratched walking barefoot there or whatever, but no
 			sores because we used to always have our food sources, our natural food sources to eat, we
 			would clean our blood system out you know.
-		</p></InlineQuote
+		</p></QuoteInline
 	>
 
 	<p>
@@ -705,17 +704,17 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		just outside Broome, or south on Karajarri Country at Bidyadanga.
 	</p>
 
-	<InlineQuote credit="Thomas 'Unda' Edgar, 2022"
+	<QuoteInline credit="Thomas 'Unda' Edgar, 2022"
 		><p>
 			We get the sea there, right there. Everything in there, like all the big turtles and
 			everything. Everything here, because that’s the time of the year now! [Mangala season is the]
 			wet time of the year. Plenty abundance. They had it every year. Or in Karnin then. They’d
 			shift place, every time then. Same law, but they shift right back to Karnin. Everybody go
 			there. Everybody go here, and everybody go Bidyadanga.
-		</p></InlineQuote
+		</p></QuoteInline
 	>
 
-	<InlineQuote credit="Janet Cox, 2022"
+	<QuoteInline credit="Janet Cox, 2022"
 		><p>
 			It was good, it was a good life … Everybody was happy, children was happy. We were all happy
 			there playing around … And there’d be ceremonies there. They, oh, it was beautiful. Every
@@ -723,15 +722,15 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 			and singing and, and everybody was happy and laughing and it was good. Because I was only
 			little myself and watching it, you know … And they came from different places … But they all
 			mixed together and they were very happy … And the people in those days were very good.
-		</p></InlineQuote
+		</p></QuoteInline
 	>
 
-	<InlineQuote credit="Jimmy Edgar, 2022"
+	<QuoteInline credit="Jimmy Edgar, 2022"
 		><p>
 			Every night there was corroboree … My goodness, there was singing every night … People
 			practiced corroboree and danced every day. And I used to get sick of it, because I wanted to
 			play guitar and play basketball.
-		</p></InlineQuote
+		</p></QuoteInline
 	>
 
 	<p>
@@ -773,13 +772,13 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		Tommy became known as the 'Windmill Man.'
 	</p>
 
-	<InlineQuote credit="Janet Cox, 2022">
+	<QuoteInline credit="Janet Cox, 2022">
 		<p>
 			He travelled the whole station, fixing up windmills. Because there would be about 12
 			windmills. And he’d go to fix up that windmill and all them other windmills, you know, going
 			with the big trucks and, I mean, the station trucks, and see that everything was running.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 </GenericContent>
 
 <SlideshowScroller content={thangooImagesSlides} />
@@ -789,35 +788,35 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		Conditions were hard at Thangoo, and people who lived on the station experienced disrespect and
 		the constant threat of violence.
 	</p>
-	<InlineQuote credit="Jimmy Edgar, 2021">
+	<QuoteInline credit="Jimmy Edgar, 2021">
 		<p>
 			They were the bosses, they had the guns … You know, you know if, if you said anything wrong
 			they’d put, they’d, they’d have a gun in front of you, that sort of things. … everybody had to
 			abide by the station managers where, because of the rifle … what I saw was not the station
 			manager, but it was the gun.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Jimmy Edgar, 2022">
+	<QuoteInline credit="Jimmy Edgar, 2022">
 		<p>
 			They hurt me too as well. Like, I used to play with the calves and that, and the stockmen used
 			to kick us up the bum and that … So, you know, yeah, definitely that kind of things that would
 			happen … Because I often see them chase of all my, all my aunties and sisters, all the
 			stockmens, yeah?
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Janet Cox, 2022">
+	<QuoteInline credit="Janet Cox, 2022">
 		<p>
 			I think something was happening there but I, I, I don't, I'm too small to know, understand …
 			And if, when the girls came back from doing things, you'd hear them screaming, come running,
 			running back into the camp. Might be that's why they ran away from there.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>Dianne Appleby remembers her mother describing their treatment as slaves.</p>
 
-	<AudioFullWidth audio={singleAudio.DianneAppleby_2022} credit="Dianne Appleby, 2022." />
+	<AudioBlock source={singleAudio.DianneAppleby_2022} credit="Dianne Appleby, 2022." />
 
 	<p>
 		From the 1930s onwards, some kids moved into Broome for schooling, and continued to move back
@@ -835,7 +834,7 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 
 	<p>Janet Cox talks about living in Broome and having a home on Thangoo.</p>
 
-	<AudioFullWidth audio={singleAudio.JanetCox1_01} credit="Janet Cox, 2022." />
+	<AudioBlock source={singleAudio.JanetCox1_01} credit="Janet Cox, 2022." />
 </GenericContent>
 
 <TwoColumns>
@@ -886,23 +885,23 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 <SlideshowScroller content={kennedyImagesSlides} />
 
 <GenericContent>
-	<InlineQuote credit="Thomas 'Unda' Edgar">
+	<QuoteInline credit="Thomas 'Unda' Edgar">
 		<p>
 			This was my growing up place, and the happiest time of my life. We had everything, we had the
 			fish, we had the crab just straight down there, the creek, everything.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Janet Edgar, 2022">
+	<QuoteInline credit="Janet Edgar, 2022">
 		<p>It was like a tin shack, but it doesn't matter because we were all there together.</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		Others moved to Karnin, where they supported themselves by selling oysters, crab, and other
 		cultural resources. Hear Susan Edgar talking about life during this period.
 	</p>
 
-	<AudioFullWidth
+	<AudioBlock
 		audio={singleAudio.SusanEdgar_Karnin}
 		credit="Susan Edgar discussing life at Karnin with Ben Silverstein and Mike Jones, drawn from two separate interview sessions in 2021 and 2022."
 	/>
@@ -922,13 +921,13 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		Janyjagurdiny.
 	</p>
 
-	<InlineQuote credit="Susan Edgar, 2022">
+	<QuoteInline credit="Susan Edgar, 2022">
 		<p>
 			They never take that away from the old, old people in Janyjagurdiny. They were strong and they
 			kept it going. They couldn't take it off them, because they already, their minds [were] set.
 			That's their law and they have to keep it.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		The use of language and practice of law continues. Yawuru people remain connected to Country and
@@ -936,14 +935,14 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		Yawuru people.
 	</p>
 
-	<InlineQuote credit="Dianne Appleby, 2022">
+	<QuoteInline credit="Dianne Appleby, 2022">
 		<p>
 			Well we’d be there every weekend. After school, you know, like the holiday time. They actually
 			never left, basically. All they wanted to do was spend time back on Country.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Janet Cox, 2022">
+	<QuoteInline credit="Janet Cox, 2022">
 		<p>
 			It’s what the place means to you. When you go there, what does Thangoo mean to all of us? It
 			means home. It’s everything that we’ve got there. And so we want to go back and see that
@@ -956,11 +955,11 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 			grandchildren, what happened to us when we were there, what our feelings towards Thangoo are.
 			Our place is there. And there’s sacred places.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Dianne Appleby, 2022">
+	<QuoteInline credit="Dianne Appleby, 2022">
 		<p>When our cup is empty, we return to refill the cup, to make it full.</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		Though it wasn’t always easy, returning, in the right tide and the right season, allowed Yawuru
@@ -981,7 +980,7 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		Dianne Appleby and Thomas 'Unda' Edgar talk about opening the gate and returning to Thangoo.
 	</p>
 
-	<AudioFullWidth
+	<AudioBlock
 		audio={singleAudio.ApplebyEdgar_2022}
 		credit="Dianne Appleby and Thomas 'Unda' Edgar, 2022."
 	/>
@@ -1024,13 +1023,13 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		Jangu.
 	</p>
 
-	<InlineQuote credit="Thomas 'Unda' Edgar, 2022">
+	<QuoteInline credit="Thomas 'Unda' Edgar, 2022">
 		<p>We always return.</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Dianne Appleby, 2021">
+	<QuoteInline credit="Dianne Appleby, 2021">
 		<p>We never disconnect. Although we live here, we’re always back there.</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		Yawuru people regularly return to Jangu and Janyjagurdiny, sometimes by car and often by boat.
@@ -1039,14 +1038,14 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		surrounds. These visits maintain cultural connection and liyan—Yawuru wellbeing.
 	</p>
 
-	<InlineQuote credit="Thomas 'Unda' Edgar, 2022">
+	<QuoteInline credit="Thomas 'Unda' Edgar, 2022">
 		<p>
 			This knowledge comes from our old people who told us how to protect Country; this is their
 			story of what they’ve been doing all their life.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Dianne Appleby, 2022">
+	<QuoteInline credit="Dianne Appleby, 2022">
 		<p>
 			Liyan is the thing driving us back, drawing us back there. When we get back there now, Unda
 			mob go and get birndany, for example. When we light that jungku from gundurung, that smell
@@ -1056,11 +1055,11 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 			the liyan is free. The freedom of what Marrimarrigun brings, that’s freedom too, that spirit
 			from that Country. That liyan is so beautiful there.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>Listen to Dianne Appleby speak more about an ongoing connection to Jangu.</p>
 
-	<AudioFullWidth audio={singleAudio.DianneAppleby_2021} credit="Dianne Appleby, 2021" />
+	<AudioBlock source={singleAudio.DianneAppleby_2021} credit="Dianne Appleby, 2021" />
 
 	<ImageSingle
 		width="1400"
@@ -1102,7 +1101,7 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 <GenericContent>
 	<p>Lloyd Pigram talks about the feeling of travelling over from Broome to Jangu.</p>
 
-	<AudioFullWidth audio={singleAudio.Lloyd_goingtoJangu} credit="Lloyd Pigram, 2022." />
+	<AudioBlock source={singleAudio.Lloyd_goingtoJangu} credit="Lloyd Pigram, 2022." />
 
 	<p>
 		On return to Broome, it is customary for Yawuru and other Aboriginal people who access Jangu
@@ -1119,20 +1118,20 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		with other Aboriginal people who have long-lasting and enduring connections with Yawuru.
 	</p>
 
-	<InlineQuote credit="Lloyd Pigram, 2022">
+	<QuoteInline credit="Lloyd Pigram, 2022">
 		<p>
 			The dropping off part was the perfect, was the best part … that liyan you know, because you're
 			like oh everybody coming and everybody getting a feed … that's the cultural way.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Thomas 'Unda' Edgar, 2022">
+	<QuoteInline credit="Thomas 'Unda' Edgar, 2022">
 		<p>It’s the law.</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>Looking after Bugarrigarra, buru, people, and culture remains a vital part of Yawuru life.</p>
 
-	<InlineQuote credit="Susan Edgar, 2022">
+	<QuoteInline credit="Susan Edgar, 2022">
 		<p>
 			The main thing is connecting with the Country to know your people, where they come from, you
 			know, what group they’re in. Wirriya liyan buru is your liyan, your feelings of the Country.
@@ -1145,15 +1144,15 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 			onto us so we could pass onto our mimi, our grandchildren and our jalbi mob, our great great
 			grandchildren.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Thomas 'Unda' Edgar, 2022">
+	<QuoteInline credit="Thomas 'Unda' Edgar, 2022">
 		<p>
 			This is what the buru, the land gives us. We’ve got to respect that land, respect the buru.
 			Water comes out from underneath the land. That brings the animals, and that’s the life of the
 			buru where we live. Respect the buru.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 </GenericContent>
 
 <YawuruCoastMap />

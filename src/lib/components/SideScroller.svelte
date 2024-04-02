@@ -8,7 +8,7 @@
 	gsap.registerPlugin(ScrollTrigger);
 
 	import ImageSingle from './ImageSingle.svelte';
-	import InlineQuote from './InlineQuote.svelte';
+	import QuoteInline from './QuoteInline.svelte';
 	import LearnMoreBox from './LearnMoreBox.svelte';
 	import { YouTube } from 'sveltekit-embed';
 

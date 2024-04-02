@@ -1,34 +1,45 @@
-<div class="warning-container">
-    <div>
+<div class="wrapper">
+	<div>
 		<slot />
-    </div>
+	</div>
 </div>
 
 <style>
-    .warning-container {
-        height: 100%;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        z-index: 20;
-    }
+	.wrapper {
+		height: 100%;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 20;
+	}
 
-    .warning-container div {
-        width: 100%;
-        max-width: var(--width-content);
-        text-align: center;
-        padding: 0 var(--space-xl);
-    }
+	.wrapper div {
+		width: 100%;
+		max-width: var(--width-content);
+		text-align: center;
+		padding: 0 var(--space-xl);
+		animation: fadeIn 1.5s ease-out forwards;
+	}
 
-    .warning-container div :global(p){
-        font-family: var(--font-serif);
-        /* font-weight: 700; */
-        font-size: var(--font-size-heading);
-    }
+	.wrapper div :global(p) {
+		font-family: var(--font-serif);
+		font-size: var(--font-size-heading);
+	}
 
-    @media (min-width: 900px) {
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
 
-    }
+	@media (min-width: 900px) {
+		.wrapper div {
+			padding: 0;
+		}
+	}
 </style>

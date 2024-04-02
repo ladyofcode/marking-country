@@ -2,7 +2,7 @@
 	import { base } from '$app/paths';
 	import { YouTube } from 'sveltekit-embed';
 
-	import InlineQuote from '../InlineQuote.svelte';
+	import QuoteInline from '../QuoteInline.svelte';
 
 	let image_still_02 = `${base}/stories/carnarvon/images/still_02.jpg`;
 	let image_C0006_poster = `${base}/stories/carnarvon/images/C0006.jpg`;

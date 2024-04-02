@@ -2,7 +2,7 @@
 	import { base } from '$app/paths';
 	import { YouTube } from 'sveltekit-embed';
 
-	import InlineQuote from '../InlineQuote.svelte';
+	import QuoteInline from '../QuoteInline.svelte';
 
 	let image_walk1 = `${base}/stories/carnarvon/images/Walk1_old.jpg`;
 	let image_ANU6915 = `${base}/stories/carnarvon/images/_ANU6915.jpg`;
@@ -29,26 +29,26 @@
 			friends.
 		</p>
 
-		<InlineQuote credit="Uncle Fred Conway">
+		<QuoteInline credit="Uncle Fred Conway">
 			<p>
 				Now our women folk… had <strong>boiling technique</strong>. They said "Aboriginal people
 				never had any saucepans, billy cans, pan." But we had all these things before white man was
 				put into Australia.
 			</p>
-		</InlineQuote>
+		</QuoteInline>
 
 		<p>
 			By cutting into the side of a tree, lighting a fire and crafting a spit, Bidjara people could
 			slow-cook their food in a smouldering burl of charcoal, like a blacksmith's forge.
 		</p>
 
-		<InlineQuote credit="Uncle Fred Conway">
+		<QuoteInline credit="Uncle Fred Conway">
 			<p>
 				We weren't in a hurry to go anywhere.
 				<br />
 				We had all the patience and time in the world.
 			</p>
-		</InlineQuote>
+		</QuoteInline>
 
 		<figure>
 			<img src={image_ANU6921} alt="Uncle Fred with his hand outstretched reaching on the trunk of a tree." />
@@ -75,7 +75,7 @@
 			off to make a spear, or halved to make a <strong>fire stick</strong>.
 		</p>
 
-		<InlineQuote credit="Uncle Fred Conway">
+		<QuoteInline credit="Uncle Fred Conway">
 			<p>
 				Our people were the greatest scientists on this earth.
 				<br />
@@ -83,7 +83,7 @@
 				They didn't do that. They sat and they talked. And they got from there to where it is handed
 				down today.
 			</p>
-		</InlineQuote>
+		</QuoteInline>
 
 		<p>
 			Uncle Fred's deep history will in time be taught to his nephews, who can pass it down to their

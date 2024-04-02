@@ -1,7 +1,6 @@
 // place files you want to import through the `$lib` alias in this folder.
 
 export { default as AiatsisMap } from './components/leaflet/AiatsisMap.svelte';
-export { default as AudioFullWidth } from './components/AudioFullWidth.svelte';
 export { default as AudioBlock } from './components/AudioBlock.svelte';
 export { default as Bios } from './components/Bios.svelte';
 export { default as Citations } from './components/Citations.svelte';
@@ -17,15 +16,14 @@ export { default as ImageGrid } from './components/ImageGrid.svelte';
 export { default as ImageSingle } from './components/ImageSingle.svelte';
 export { default as ImageFull } from './components/ImageFull.svelte';
 export { default as ImageSliderFullscreen } from './components/ImageSliderFullscreen.svelte';
-export { default as InlineQuote } from './components/InlineQuote.svelte';
+export { default as QuoteInline } from './components/QuoteInline.svelte';
 export { default as Intro } from './components/Intro.svelte';
-export { default as LargeQuote } from './components/LargeQuote.svelte';
+export { default as QuoteLarge } from './components/QuoteLarge.svelte';
 export { default as LearnMoreBox } from './components/LearnMoreBox.svelte';
 export { default as MararddaMap } from './components/leaflet/MararddaMap.svelte';
 export { default as MediaFullWidth } from './components/MediaFullWidth.svelte';
 export { default as ScrollingCaption } from './components/ScrollingCaption.svelte';
 export { default as ScrollStop } from './components/ScrollStop.svelte';
-export { default as SideCaption } from './components/SideCaption.svelte';
 export { default as SideScroller } from './components/SideScroller.svelte';
 export { default as SlideshowScroller } from './components/SlideshowScroller.svelte';
 export { default as TwoColumnContent } from './layout/TwoColumnContent.svelte';

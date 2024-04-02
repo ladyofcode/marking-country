@@ -26,9 +26,11 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 * [] Tighten up design
 * [] Fix footer
 * [] Remove unrelated videos
+* [] Sort out YT warnings?
 
 
 ### Scrollytelling
+* [] Fix Bios not working on reverse
 * [] Add superscroll support (speed to end rush through anims)
 * [x] Intro: bounce the line
 * [x] Add border: none to ImageSingle (e.g. rotating calendar)

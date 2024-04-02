@@ -58,7 +58,7 @@ id="header"
 	gradientColor="#816b5e"
 />
 
-<Intro intro="willandra">
+<Intro>
 	<p>
 		The Willandra Lakes Map depicts some of the many family stories from Mutthi Mutthi, Barkintji,
 		and Nyaampa people that criss-cross the landscape around Lake Mungo and the Willandra Lakes.

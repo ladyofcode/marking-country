@@ -13,10 +13,10 @@
 		TwoColumnContent,
 		MediaFullWidth,
 		ImageSliderFullscreen,
-		AudioFullWidth,
+		AudioBlock,
 		Intro,
-		InlineQuote,
-		LargeQuote,
+		QuoteInline,
+		QuoteLarge,
 		ScrollingCaption,
 		FullScreenStop,
 		ScrollStop,
@@ -106,7 +106,7 @@
 />
 
 
-<Intro intro="carnarvon">
+<Intro>
 	<p>
 		<strong>
 			Led by Bidjara elders Uncle Fred 'Cotto' Conway OAM and Professor Jackie Huggins AM.
@@ -305,9 +305,9 @@
 		experts.
 	</p>
 
-	<InlineQuote>
+	<QuoteInline>
 		<p>You got to be very, very skilful to do that.</p>
-	</InlineQuote>
+	</QuoteInline>
 </GenericContent>
 
 <GenericContent>
@@ -320,22 +320,22 @@
 <GalleryTwo />
 
 <GenericContent>
-	<InlineQuote credit="Uncle Fred Conway">
+	<QuoteInline credit="Uncle Fred Conway">
 		<p>Little children like to ask inquisitively, "where do babies come from, mummy and daddy?"</p>
 		<p>There it is.</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		Images of children's hands and feet cover the rock, alongside innumerable depictions of female
 		genitalia.
 	</p>
 
-	<InlineQuote credit="Uncle Fred Conway">
+	<QuoteInline credit="Uncle Fred Conway">
 		<p>
 			Sex education has been around for thousands and thousands of years. Well, put it this way,
 			[here] for two and a half thousand according to the archaeologists.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		The engravings extend around the curve of the rock face and appear with various animal tracks
@@ -514,36 +514,36 @@
 		babies.
 	</p>
 
-	<InlineQuote credit="Professor Jackie Huggins">
+	<QuoteInline credit="Professor Jackie Huggins">
 		<p>Our babies still live here. Their spirits still linger.</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		Jackie and Uncle Fred want this place to rest in peace, but they believe confronting the damage
 		will help protect other sites within the park.
 	</p>
 
-	<InlineQuote credit="Professor Jackie Huggins">
+	<QuoteInline credit="Professor Jackie Huggins">
 		<p>People need to acknowledge these beautiful places.</p>
 
 		<p>
 			Make sure they're kept in perpetuity, not only for us—we would love that forever, and our
 			spirits live on in here—but for white people as well.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>How should they be protected?</p>
 
-	<InlineQuote credit="Professor Jackie Huggins">
+	<QuoteInline credit="Professor Jackie Huggins">
 		<p>Pure and simple, listen to what the old people are telling you.</p>
-	</InlineQuote>
+	</QuoteInline>
 
-	<InlineQuote credit="Professor Jackie Huggins">
+	<QuoteInline credit="Professor Jackie Huggins">
 		<p>
 			Never think that scientific evidence is the best way to go, because it's the knowledge of our
 			people that will stop these places being ruined.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>All quotes above are by Professor Jackie Huggins.</p>
 </GenericContent>
@@ -626,26 +626,26 @@ Jane M. Jacobs" -->
 		Carnarvon Gorge is restorative.
 	</p>
 
-	<InlineQuote credit="Professor Jackie Huggins">
+	<QuoteInline credit="Professor Jackie Huggins">
 		<p>
 			I really do feel the ancestors with me. They're guiding me and just nourishing my very soul
 			and nurturing me. I think about them as I walk. It's a kind of meditation, I suppose.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		Physically being on Country is just as important as being able to maintain relationships and
 		share knowledge with others—something the Bidjara have been doing since time began.
 	</p>
 
-	<InlineQuote credit="Professor Jackie Huggins">
+	<QuoteInline credit="Professor Jackie Huggins">
 		<p>
 			We all went for walks like this. We sat around, we shared meals, you know? Round the campfire.
 			We all cared and protected one another. It's very different from the school textbooks and the
 			academic nature of study, because you can't beat this. You're right in the heart of it. You're
 			just right in the soul—the vortex of this very beautiful, spiritual Country.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		Bidjara deep histories are experienced through being on Country and through story. They are
@@ -698,7 +698,7 @@ Jane M. Jacobs" -->
 			</a>
 		</div>
 		<div>
-			<InlineQuote credit="Professor Jackie Huggins">
+			<QuoteInline credit="Professor Jackie Huggins">
 				<p>
 					We're all about truth telling in our Country now. Where do we start? Well, we start at the
 					basic premise, and that is Aboriginal history. The history that needs to be told and needs
@@ -708,7 +708,7 @@ Jane M. Jacobs" -->
 					history, to really bring out those truths that were not there for me and were denied all
 					that time ago.
 				</p>
-			</InlineQuote>
+			</QuoteInline>
 		</div>
 	</TwoColumnContent>
 
@@ -731,7 +731,7 @@ Jane M. Jacobs" -->
 			</a>
 		</div>
 		<div>
-			<InlineQuote credit="Uncle Fred Conway">
+			<QuoteInline credit="Uncle Fred Conway">
 				<p>
 					I don't think any Indigenous people on this continent will ever forget how we've been
 					treated. That's going to stay with each and every one through their whole life until this
@@ -739,18 +739,18 @@ Jane M. Jacobs" -->
 					people, I'm a proud Black man. I come here because I am Black. I come here because my
 					culture is here.
 				</p>
-			</InlineQuote>
+			</QuoteInline>
 		</div>
 	</TwoColumnContent>
 </GenericContent>
 
-<LargeQuote credit="Uncle Fred Conway, 2022">
+<QuoteLarge credit="Uncle Fred Conway, 2022">
 	<p>
 		Anybody comes here and asks me questions about my culture, when I talk to them and tell them
 		"I'm a happy man, I'm a happy man," that's keeping my culture alive.
 	</p>
 	<p>And that's what I love talking about, what I am.</p>
-</LargeQuote>
+</QuoteLarge>
 
 <MediaFullWidth video={singleVideos.C0016} poster={singleImages.C0016} alt="" autoplay={true} />
 

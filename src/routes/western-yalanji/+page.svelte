@@ -17,7 +17,7 @@
 		GenericContent,
 		ImageGrid,
 		ImageSingle,
-		InlineQuote,
+		QuoteInline,
 		Intro,
 		MediaFullWidth,
 		Citations,
@@ -119,7 +119,7 @@
 </p>
 `,
 				{
-					component: InlineQuote,
+					component: QuoteInline,
 					children: `<p>
 			The epic narratives of the Storytime tell of the origins of the dramatic Cape York landscape
 			of rocky ridges, escarpments, plateaus, steep cliffs, rock falls, river gullies and valleys.
@@ -166,7 +166,7 @@
 
 	<p>One notable character appearing in the local rock shelters are the Quinkans.</p>`,
 				{
-					component: InlineQuote,
+					component: QuoteInline,
 					props: {
 						credit: 'Charlie Lee Cheu, Western Yalanji'
 					},
@@ -273,12 +273,12 @@ License</a
 		present, possibly longer.
 	</p>
 
-	<InlineQuote>
+	<QuoteInline>
 		<p>
 			With its solid rock medium, this art has endured across tens of thousands of years—and across
 			the continent’s climatic epochs.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		The rock art of Quinkan Country was created long before the invention of writing in the northern
@@ -345,12 +345,12 @@ License</a
 		Others tell epic stories about the origin of landscapes, and the principles of everyday life.
 	</p>
 
-	<InlineQuote>
+	<QuoteInline>
 		<p>
 			The ancestors of yesterday used carvings and paintings on rock to depict people, spirits,
 			animals and plants, and the dual and transforming creatures in between.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		These paintings are not just art for art’s sake. In a tangible way, paintings on rock were and
@@ -404,12 +404,12 @@ License</a
 		local custodians call Storytime.
 	</p>
 
-	<InlineQuote>
+	<QuoteInline>
 		<p>
 			In vivid, carefully crafted images and symbols, the colourful walls of the Magnificent Gallery
 			speak of a people’s enduring connection to a deeply storied past.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		As though mirroring the continuity of past and present, known also as 'Everywhen', artists of
@@ -447,13 +447,13 @@ License</a
 		more recently.
 	</p>
 
-	<InlineQuote>
+	<QuoteInline>
 		<p>
 			The hundreds of images that they made expressed their people’s ways of thinking about their
 			origins, their history and their present times. When they visited, this cultural site
 			reinforced a sense of belonging and a set of principles and values to live by.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		With an astonishing variety of motifs, styles and shapes, the Magnificent Gallery says much
@@ -577,13 +577,13 @@ License</a
 		'come in' to work on a pastoral station.
 	</p>
 
-	<InlineQuote>
+	<QuoteInline>
 		<p>
 			As with many themes from their history, such subjects are depicted in the rock art. As part of
 			resistance efforts to avenge or weaken their police attackers, Aboriginal artists created
 			paintings of police across the region.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<p>
 		They painted them in a traditional style, with stylized variations to suggest police clothing or

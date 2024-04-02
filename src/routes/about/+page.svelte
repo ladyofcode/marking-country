@@ -14,7 +14,7 @@
 		Header,
 		GenericContent,
 		Collapsible,
-		InlineQuote,
+		QuoteInline,
 		Intro,
 		LearnMoreBox,
 		HorizontalScroller,
@@ -171,7 +171,7 @@
 		</p>
 		<p>He spoke of a continent linked to other lands in the north.</p>`,
 				{
-					component: InlineQuote,
+					component: QuoteInline,
 					children: `<p>
 				The traditions say that the Aborigines came out of the north-west, the Loo loo poon cold.
 				'Too loo' means a break, a severance. 'Poon cold' means a connection. The tradition implies

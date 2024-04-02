@@ -6,7 +6,7 @@
 
 	import {
 		GenericContent,
-		InlineQuote,
+		QuoteInline,
 		Citations,
 		Credits,
 		Header,
@@ -222,7 +222,7 @@
 	gradientColor="#362e2b"
 />
 
-<Intro intro="ngarinyin">
+<Intro>
 	<h2>Community co-curators</h2>
 
 	<p>
@@ -378,7 +378,7 @@
 		significant in the area.
 	</p>
 
-	<InlineQuote credit="Matthew Dembal Martin, 2022.">
+	<QuoteInline credit="Matthew Dembal Martin, 2022.">
 		<p>
 			Jalala is a sign. You see a rock standing, shaped like a sign. Any sign you see. See the sign
 			of rock standing up on the edge. You know there's something there. It's about Wunggudd sign,
@@ -386,7 +386,7 @@
 			thing you're looking for. Wandjina you'll find them in a cave. You look for Wunggudd you'll
 			find a water. That's a Jalala. It's like a signpost saying "It's there."
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 
 	<figure>
 		<img
@@ -430,7 +430,7 @@
 
 	<p>Wurdu also comes from the Wandjina. Sherika Duckhole describes Wurdu:</p>
 
-	<InlineQuote credit="Sherika Duckhole.">
+	<QuoteInline credit="Sherika Duckhole.">
 		<p>
 			Wurdu makes them remember the rules and commands that they have to take during their life …
 			It's giving them that knowledge in life that they have to go through and what they have to do
@@ -448,7 +448,7 @@
 			with the Guru (cypress pine) or the Gunjurla (Conkaberry tree). Our grandparents or great
 			grandparents, great aunt or great uncle, will be the ones doing the Wurdu for the family.
 		</p>
-	</InlineQuote>
+	</QuoteInline>
 </GenericContent>
 
 <ImageSliderFullscreen slides={slideshowOne} />

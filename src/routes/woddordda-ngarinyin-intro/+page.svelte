@@ -6,9 +6,9 @@
 	import { gsap } from 'gsap/dist/gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	import { AudioBlock, Warning } from '$lib';
-	import { dotNavData } from '../../stores/dotNavStore';
+	import { switcher } from '../../stores/sectionSwitcherStore';
 	gsap.registerPlugin(ScrollTrigger);
-	const dotNavLinks = [];
+	const switcherLinks = [];
 
 	const sound = `${base}/stories/woddorda-ngarinyin-intro/audio/sound-intro-wudoo_final.mp3`;
 	const marardda = `${base}/stories/woddorda-ngarinyin-intro/images/marardda_navTile.png`;
@@ -22,21 +22,23 @@
 		if (wrapper) {
 			const children = Array.from(wrapper.children);
 			children.forEach((child) => {
-				gsap.from(child, {
-					y: 30,
-					opacity: 0,
-					stagger: 0.5,
-					scrollTrigger: {
-						trigger: child,
-						start: 'top 40%',
-						end: 'top 50%',
-						toggleActions: 'play none none reverse'
-					}
-				});
+				if (child) {
+					gsap.from(child, {
+						y: 30,
+						opacity: 0,
+						stagger: 0.5,
+						scrollTrigger: {
+							trigger: child,
+							start: 'top 40%',
+							end: 'top 50%',
+							toggleActions: 'play none none reverse'
+						}
+					});
+				}
 			});
 		}
 
-		dotNavData.set(dotNavLinks);
+		switcher.set(switcherLinks);
 	});
 
 	onDestroy(() => {

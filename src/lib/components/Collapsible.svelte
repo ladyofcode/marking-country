@@ -150,7 +150,7 @@
 	}
 
 	.collapsible-container .collapsible-content {
-		background-color: var(--clr-bg-contrast);
+		background-color: var(--clr-light-contrast);
 		border-bottom: 1px solid var(--clr-clay);
 		border-bottom-left-radius: 7px;
 		border-bottom-right-radius: 7px;

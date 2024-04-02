@@ -97,6 +97,7 @@ h6 {
 	--height-viewable: calc(100vh - var(--height-menu));
 	--width-content: 720px;
 	--width-site: 1024px;
+	--width-max: 1200px;
 
 	--font-sans: 'WorkSans', Aria, Helvetica, sans-serif;
 	--font-serif: 'Playfair Display', sans-serif;
@@ -117,8 +118,9 @@ h6 {
 }
 
 [data-theme='light'] {
-	--clr-bg-main: var(--clr-pink);
-	--clr-bg-contrast: var(--clr-pink);
+	--clr-dark-contrast: var(--clr-grey);
+	--clr-bg-main: var(--clr-lightGrey);
+	--clr-light-contrast: var(--clr-pink);
 	--clr-text: var(--clr-charcoal);
 	--clr-font-heading: var(--clr-terracotta);
 	--glass-contrast: var(--glass-dark);
@@ -126,8 +128,9 @@ h6 {
 }
 
 [data-theme='dark'] {
+	--clr-dark-contrast: var(--dark-charcoal);
 	--clr-bg-main: var(--clr-black-red);
-	--clr-bg-contrast: var(--clr-charcoal);
+	--clr-light-contrast: var(--clr-charcoal);
 	--clr-text: var(--clr-lightGrey);
 	--clr-font-heading: var(--clr-clay);
 	--glass-contrast: var(--glass-light);
@@ -146,7 +149,7 @@ body {
 }
 
 body {
-	max-width: 2048px;
+	max-width: 1200px;
 	margin: 0 auto;
 	overflow-x: hidden;
 }
@@ -225,6 +228,11 @@ summary {
 	color: var(--clr-text);
 	font-family: var(--font-family-body);
 	text-transform: uppercase;
+}
+
+.no-scroll {
+    overflow: hidden !important;
+    height: 100% !important;
 }
 
 .pswp__dynamic-caption {

@@ -1,6 +1,6 @@
 <script>
 	export let source;
-	export let credit;
+	export let credit='';
 	import { onMount, onDestroy } from 'svelte';
 	import { gsap } from 'gsap';
 
@@ -219,6 +219,7 @@
 		white-space: nowrap;
 		font-family: var(--font-sans);
 		font-size: var(--font-size-caption);
+		color: var(--clr-text);
 	}
 
 	.audio-player {
@@ -242,10 +243,9 @@
 	}
 
 	:root {
-		--track-height: 10px; /* Example height, adjust as needed */
+		--track-height: 10px;
 	}
 
-	/* Style for the track */
 	.audio-seekbar::-webkit-slider-runnable-track {
 		border-radius: 4px;
 		background: linear-gradient(
@@ -255,41 +255,39 @@
 			var(--unplayed-color, var(--clr-clay)) var(--seek-before-width, 0%),
 			var(--unplayed-color, var(--clr-clay)) 100%
 		);
-		height: var(--track-height); /* Set track height */
+		height: var(--track-height);
 	}
 
-	/* Fix for Firefox */
 	.audio-seekbar::-moz-range-track {
 		border-radius: 4px;
 		background: var(--unplayed-color, var(--clr-clay));
-		height: var(--track-height); /* Set track height for Firefox */
+		height: var(--track-height);
 	}
 
 	.audio-seekbar::-moz-range-progress {
 		border-radius: 4px;
 		background: var(--played-color, var(--clr-terracotta));
-		height: var(--track-height); /* Ensure progress bar matches track height in Firefox */
+		height: var(--track-height);
 	}
 
-	/* Ensure the slider thumb is properly aligned with the adjusted track height */
 	.audio-seekbar::-webkit-slider-thumb {
-		-webkit-appearance: none; /* Remove default styling */
+		-webkit-appearance: none; 
 		appearance: none;
-		height: 20px; /* Adjust as needed */
-		width: 20px; /* Adjust as needed */
+		height: 20px; 
+		width: 20px; 
 		border-radius: 50%;
 		border: 2px solid #ffffff;
 		background: var(--clr-terracotta);
 		cursor: pointer;
 		margin-top: calc(
 			(var(--track-height) - 20px) / 2
-		); /* Adjust thumb position based on track height */
+		); 
 	}
 
 	.audio-seekbar::-moz-range-thumb {
 		border: 2px solid #ffffff;
-		height: 20px; /* Adjust as needed */
-		width: 20px; /* Adjust as needed */
+		height: 20px; 
+		width: 20px; 
 		border-radius: 50%;
 		background: var(--clr-terracotta);
 		cursor: pointer;

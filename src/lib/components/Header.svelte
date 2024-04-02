@@ -267,5 +267,15 @@
 	}
 
 	@media (min-width: 900px) {
+		img {
+			max-width: 1400px;
+			max-height: 700px
+		}
+	}
+
+	@media (min-width: 1400px) {
+		.heading {
+			left: var(--space-xxxxl);
+		}
 	}
 </style>

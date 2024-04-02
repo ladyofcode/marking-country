@@ -1,6 +1,6 @@
 <script>
 	import '../app.css';
-	import DotNavigation from '$lib/layout/DotNavigation.svelte';
+	import SectionSwitcher from '$lib/layout/SectionSwitcher.svelte';
 	import Navigation from '$lib/layout/Navigation.svelte';
 	import Footer from '$lib/layout/Footer.svelte';
 	import { page } from '$app/stores';
@@ -8,7 +8,8 @@
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 	import { ScrollSmoother } from 'gsap/ScrollSmoother';
 	import { killScrollTriggers } from '$lib/utils';
-	import { dotNavData } from '../stores/dotNavStore';
+	import { switcher } from '../stores/sectionSwitcherStore';
+	import { isScrollPaused } from '../stores/scrollControlStore';
 	import { base } from '$app/paths';
 	import { onMount, onDestroy } from 'svelte';
 
@@ -17,7 +18,7 @@
 	const smoke = `${base}/stories/woddorda-ngarinyin-intro/video/iStock_smoke_fades.mp4`;
 
 	let showModal = false,
-		scrollContainer;
+		smoother;
 
 	let triggers = [];
 
@@ -26,7 +27,7 @@
 	}
 
 	onMount(() => {
-		const smoother = ScrollSmoother.create({
+		smoother = ScrollSmoother.create({
 			wrapper: '.scroll-wrapper',
 			content: '.smooth-content',
 			smooth: 1,
@@ -48,15 +49,22 @@
 		};
 	});
 
+	$: if (smoother) {
+		smoother.paused($isScrollPaused);
+	}
+
 	onDestroy(() => {
 		killScrollTriggers(triggers);
+		if (smoother) {
+			smoother.kill();
+		}
 	});
 </script>
 
 <Navigation />
 
-{#if $dotNavData && $dotNavData.length > 0}
-	<DotNavigation links={$dotNavData} />
+{#if $switcher && $switcher.length > 0}
+	<SectionSwitcher links={$switcher} />
 {/if}
 
 <ModalAcknowledgement bind:showModal />
@@ -70,7 +78,7 @@
 	</div>
 {/if}
 
-<div class="smooth-wrapper" bind:this={scrollContainer}>
+<div class="smooth-wrapper">
 	<div class="smooth-content">
 		<slot />
 		<Footer />

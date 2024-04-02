@@ -149,7 +149,7 @@
 							{#if youtube}
 								<svelte:component this={youtube.component} {...youtube.props} />
 							{/if}
-							]
+							
 						</div>
 					</div>
 				{/each}
@@ -159,6 +159,10 @@
 </div>
 
 <style>
+	.wrapper {
+		max-width: var(--width-max);
+		margin: 0 auto;
+	}
 	.side-scroller {
 		display: flex;
 	}
@@ -241,6 +245,7 @@
 
 	/* defines styles for screens up to 599px wide */
 	@media screen and (min-width: 600px) {
+
 		.left {
 			/* display: block; */
 			width: 50%;

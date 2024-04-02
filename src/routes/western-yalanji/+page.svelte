@@ -1,11 +1,11 @@
 <script>
 	import { page } from '$app/stores';
 	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
-	import { dotNavData } from '../../stores/dotNavStore';
+	import { switcher } from '../../stores/sectionSwitcherStore';
 	import { YouTube } from 'sveltekit-embed';
 	import { onMount } from 'svelte';
 
-	const dotNavLinks = [
+	const switcherLinks = [
 		{ title: 'Top', ref: '#header' },
 		{ title: 'Magnificent Gallery', ref: '#magnificent' },
 		{ title: 'Quinkan Rock Art', ref: '#rockart' }
@@ -222,7 +222,7 @@
 	];
 
 	onMount(() => {
-		dotNavData.set(dotNavLinks);
+		switcher.set(switcherLinks);
 	});
 </script>
 

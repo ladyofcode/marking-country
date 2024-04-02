@@ -2,6 +2,8 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { onMount, onDestroy } from 'svelte';
+	import { isScrollPaused } from '../../stores/scrollControlStore';
+	import { openSwitcher } from '../../stores/sectionSwitcherStore';
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	let menuChecked = false;
@@ -30,8 +32,8 @@
 
 	let menuItems = [
 		{
-			title: 'Home',
-			url: `${base}`
+			title: 'Marking Country',
+			url: `/`
 		},
 		{
 			title: 'About',
@@ -82,16 +84,22 @@
 			currentOpenSubnav = currentOpenSubnav === nav ? null : nav;
 		};
 	});
+
+	onDestroy(() => {});
 </script>
 
-<div class="wrapper">
+<div class="wrapper" class:open={menuChecked && !isLargeScreen}>
 	<div class="top-bar" class:open={menuChecked} aria-hidden={ariaHidden}>
 		<input
 			type="checkbox"
 			class="menu-button"
 			id="menu-button"
 			bind:checked={menuChecked}
-			on:click={() => (menuChecked = !menuChecked)}
+			on:click={() => {
+				menuChecked = !menuChecked;
+				isScrollPaused.set(menuChecked);
+				openSwitcher.update((value) => !value);
+			}}
 		/>
 		<label for="menu-button">
 			<div class="hamburger">
@@ -112,6 +120,7 @@
 							handleSubNav(subnavId ?? '', event);
 							closeNav(event);
 						}}
+						class:highlight={currentOpenSubnav === subnavId}
 					>
 						{title}
 
@@ -139,7 +148,6 @@
 					{/if}
 				</li>
 			{/each}
-
 			<li class="toggle"><ThemeToggle /></li>
 		</ul>
 	</nav>
@@ -147,17 +155,26 @@
 <div
 	class="overlay"
 	class:open={menuChecked && !isLargeScreen}
-	on:click={() => (menuChecked = false)}
+	on:click={() => {
+		menuChecked = false;
+		isScrollPaused.set(menuChecked);
+		openSwitcher.update((value) => !value);
+	}}
 	aria-hidden="true"
 />
 
 <style>
 	.wrapper {
 		position: fixed;
+		display: flex;
+		flex-direction: column;
 		right: 0;
-		height: 100%;
-		min-height: 100vh;
-		z-index: 400;
+		height: 0;
+		z-index: 900;
+	}
+	.wrapper.open {
+		pointer-events: auto;
+		height: 100vh;
 	}
 
 	.toggle {
@@ -171,21 +188,21 @@
 	.overlay {
 		width: 100%;
 		height: 200vh;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		right: 0;
-		z-index: 100;
-		background-color: rgba(0, 0, 0, 0.39);
+		z-index: 800;
+		background-color: rgba(0, 0, 0, 0.7);
 		visibility: hidden;
 		opacity: 0;
 		cursor: pointer;
 		pointer-events: none;
+		transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
 	}
 
 	.overlay.open {
 		opacity: 1;
 		visibility: visible;
-		transition: opacity 1s ease-in-out;
 		pointer-events: auto;
 	}
 
@@ -194,13 +211,18 @@
 		width: 0;
 	}
 
+	nav,
+	.top-bar-underlay,
+	label {
+		background-color: var(--clr-dark-contrast);
+	}
+
 	.top-bar-underlay {
 		display: block;
 		height: 70px;
-		width: 0;
-		background-color: var(--clr-dark-charcoal);
-		transition: transform 0.3s ease-in-out;
+		width: 280px;
 		transform: translateX(100%);
+		transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
 	}
 	.top-bar.open,
 	.top-bar-underlay.open {
@@ -210,22 +232,32 @@
 	nav.open {
 		transform: translateX(0);
 	}
+
 	.top-bar-underlay.open {
 		transform: translateX(0);
 	}
 
 	nav {
+		flex: 1;
 		height: 100%;
+		max-height: calc(100vh + var(--height-menu));
+		box-sizing: border-box;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
 		display: flex;
 		flex-direction: column;
 		overflow-x: hidden;
-		background-color: var(--clr-dark-charcoal);
-		transition: transform 0.3s ease-in-out;
 		transform: translateX(100%);
-		width: 0;
+		width: 280px;
+		transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
 	}
 	nav.open {
-		width: 100%;
+		width: 280px;
+		transform: translateX(0);
+	}
+
+	nav > ul > li:last-of-type {
+		justify-content: flex-start;
 	}
 
 	ul {
@@ -239,16 +271,29 @@
 		text-decoration: none;
 	}
 
-	li a:hover {
-		background-color: grey;
+	nav > ul > li:first-of-type > a {
+		font-family: var(--font-serif);
+		font-size: var(--font-size-subheading);
+		font-weight: bold;
+	}
+
+	li a:hover,
+	a.highlight {
+		background-color: var(--clr-clay);
+		color: var(--clr-text);
 	}
 
 	.subnav-content {
-		display: none;
+		background-color: black;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.5s ease-out, opacity 0.5s ease;
+		opacity: 0;
 	}
 
 	.subnav-content.open {
-		display: block;
+		max-height: 600px; /* Adjust as needed based on your content */
+		opacity: 1;
 	}
 
 	.arrow {
@@ -258,12 +303,12 @@
 		border-width: 0 3px 3px 0;
 		padding: 3px;
 		margin-top: 10px;
-		transform: rotate(45deg);
+		transform: rotate(135deg);
+		transition: transform 0.3s ease-in-out;
 	}
 
 	.arrow.down {
-		transform: rotate(135deg);
-		transition: transform 0.3s ease-in-out;
+		transform: rotate(45deg);
 	}
 
 	.menu-button {
@@ -275,7 +320,7 @@
 		position: fixed;
 		top: 16px;
 		right: 16px;
-		background: black;
+		border: 2px solid var(--clr-charcoal);
 		padding: 8px;
 		z-index: 200;
 		transition: background-color 0.2s ease-in-out;
@@ -302,20 +347,20 @@
 		height: 3px;
 		width: 100%;
 		transition: 0.5s;
-		background-color: #fff;
+		background-color: var(--clr-clay);
 	}
 
 	.menu-button:checked ~ label .hamburger .line1 {
 		transform: translateY(9px) rotate(45deg);
-		background-color: #fff;
+		background-color: var(--clr-clay);
 	}
 	.menu-button:checked ~ label .hamburger .line2 {
 		opacity: 0;
-		background-color: #fff;
+		background-color: var(--clr-clay);
 	}
 	.menu-button:checked ~ label .hamburger .line3 {
 		transform: translateY(-12px) rotate(-45deg);
-		background-color: #fff;
+		background-color: var(--clr-clay);
 	}
 
 	.menu-button:checked ~ label {
@@ -327,7 +372,7 @@
 			min-height: 0;
 			height: fit-content;
 			width: 100%;
-			display: flex;
+			flex-direction: row;
 			justify-content: center;
 			overflow: visible;
 		}
@@ -337,8 +382,13 @@
 		}
 
 		.top-bar,
+		.top-bar.open,
+		.subnav-content {
+			background-color: var(--clr-dark-contrast);
+		}
+
+		.top-bar,
 		.top-bar.open {
-			background-color: var(--clr-dark-charcoal);
 			width: 100%;
 			position: fixed;
 		}
@@ -371,16 +421,24 @@
 			margin-right: auto;
 		}
 
+		nav > ul > li:first-of-type > a {
+			margin-top: -4px;
+		}
+
+		ul > li > ul {
+			border-bottom-left-radius: var(--radius-corner);
+			border-bottom-right-radius: var(--radius-corner);
+		}
+
 		li {
 			height: fit-content;
 		}
 
 		li a {
-			padding: 1.4rem;
+			padding: var(--space-lg);
 		}
 
 		.subnav-content {
-			background-color: var(--clr-dark-charcoal);
 			position: absolute;
 			top: 70px;
 			z-index: 400;
@@ -391,13 +449,29 @@
 		}
 
 		li:hover .arrow {
-			transform: rotate(135deg);
+			transform: rotate(45deg);
+			border: solid var(--clr-text);
+			border-width: 0 3px 3px 0;
+		}
+
+		nav > ul > li:hover > .subnav-content {
+			display: block; /* Show the submenu */
+			max-height: none; /* Ensure it's fully visible */
+			opacity: 1; /* Make sure it's fully opaque */
+		}
+
+		/* Rotate the arrow when the parent li is hovered and the submenu is open */
+		nav > ul > li:hover > a.highlight > .arrow,
+		nav > ul > li > a.highlight:hover > .arrow {
+			transform: rotate(-135deg); /* Adjust rotation angle as needed */
 			transition: transform 0.3s ease-in-out;
 		}
 
-		nav > ul > li > a:hover ~ .subnav-content,
-		.subnav-content:hover {
+		nav > ul > li:hover .subnav-content,
+		nav > ul > li .subnav-content:hover {
 			display: block;
+			max-height: 600px; /* or whatever maximum height */
+			opacity: 1;
 		}
 	}
 </style>

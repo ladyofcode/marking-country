@@ -2,7 +2,6 @@ import { writable } from 'svelte/store';
 
 function getInitialDarkMode() {
     const darkModeFromStorage = localStorage.getItem('darkMode');
-    console.log('dms', darkModeFromStorage)
     if (darkModeFromStorage !== null) {
         return darkModeFromStorage === 'true';
     }

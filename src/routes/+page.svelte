@@ -3,12 +3,20 @@
 	import { goto } from '$app/navigation';
 	import Map from '$lib/components/Map.svelte';
 	import ModalHome from '$lib/layout/ModalHome.svelte';
+	import { switcher } from '../stores/sectionSwitcherStore';
+	import { onMount } from 'svelte';
+
+	const switcherLinks = [];
 
 	const video = `${base}/videos/Introduction.webm`;
 
 	let showModal = false;
-	
+
 	const pageTitle = 'Home';
+
+	onMount(() => {
+		switcher.set(switcherLinks);
+	});
 </script>
 
 <svelte:head>
@@ -50,41 +58,32 @@
 
 <style>
 	.header {
-		max-width: 800px;
+		max-width: var(--width-site);
 		margin: 0 auto;
 		margin-bottom: 12px;
 		padding: 2rem 2rem 2rem 2rem;
 	}
 
 	h1 {
-		font-size: 2.4rem;
-		line-height: 2.4rem;
-		margin-top: 2.4rem;
-		margin-bottom: 0rem;
+		font-size: var(--font-size-heading);
+		margin-top: var(--space-lg);
+		margin-bottom: 0;
 	}
 
 	h2 {
-		font-size: 1.6rem;
-		line-height: 1.6rem;
-		margin-top: 0rem;
-		margin-bottom: 1.6rem;
+		font-size:  var(--font-size-subheading);
+		line-height: var(--font-size-subheading);
+		margin-top: 0;
 	}
 
-	.header p {
-		font-size: 1rem;
-		position: absolute;
-		margin-top: -14px;
-	}
 	.map {
 		margin: 0 auto;
-		margin-top: 2.4rem;
 	}
 
 	.marking-country {
-		padding: 1.6rem;
-
+		padding: var(--space-lg);
 		width: 100%;
-		max-width: 800px;
+		max-width: var(--width-content);
 		margin: 0 auto;
 	}
 
@@ -93,33 +92,32 @@
 		flex-direction: column;
 	}
 
+
 	.home-buttons button:first-of-type {
-		background-color: var(--clr-terracotta);
+		background-color: var(--clr-clay);
 		margin-right: 2rem;
 		color: #ffffff;
 	}
 
 	.home-buttons button:last-of-type {
-		background-color: transparent !important;
-		color: var(--clr-terracotta) !important;
+		background-color: transparent;
+		color: var(--clr-clay);
 	}
 
-	.home-buttons button:last-of-type:hover {
-		color: #ffffff;
-	}
 
 	button {
 		font-family: 'Work Sans', Arial, Helvetica, sans-serif;
 		width: 100%;
-		border: 2px solid var(--clr-terracotta);
-		border-radius: 4px;
-		margin: 1rem 0;
-		padding: 1rem 2rem;
+		border: 2px solid var(--clr-clay);
+		border-radius: var(--radius-corner);
+		margin: var(--space-md) 0;
+		padding: var(--space-md) var(--space-lg);
 		font-size: 1rem;
 	}
+
 	button:hover {
-		border: 2px solid var(--clr-dark-charcoal);
-		background-color: var(--clr-dark-charcoal);
+		border: 2px solid var(--clr-clay);
+		background-color: var(--clr-charcoal) !important;
 		color: #ffffff !important;
 		cursor: pointer;
 	}
@@ -133,29 +131,28 @@
 	@media (min-width: 900px) {
 		.header {
 			padding: 0;
-			padding-top: 4rem;
-			padding-bottom: 4rem;
+			margin-top: var(--space-xxl);
+			padding-top: var(--space-xxl);
 		}
 
-		.header h1 {
-			font-size: 2.4rem;
-			line-height: 2.4rem;
+		h1, h2 {
+			padding-left: var(--space-lg);
+		}
+
+		h1 {
+			font-size: var(--font-size-hero);
+			line-height: var(--font-size-hero-large);
 			margin-bottom: 0;
 		}
-
-		.header h2 {
-			font-size: 1.6rem;
-			line-height: 1.6rem;
-			margin-bottom: -40px;
-		}
-
-		.header p {
-			max-width: 200px;
-			margin-top: 80px;
+		
+		h2 {
+			font-size: var(--font-size-heading);
+			line-height:  var(--font-size-heading);
+			margin-bottom: -80px;
 		}
 
 		.marking-country {
-			padding: 0;
+			padding: var(--space-xxxxl) 0;
 		}
 
 		.home-buttons {
@@ -164,7 +161,7 @@
 		}
 
 		button {
-			margin: 2rem 0;
+			margin: var(--space-xl) 0;
 		}
 	}
 </style>

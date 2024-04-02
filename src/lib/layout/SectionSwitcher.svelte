@@ -5,12 +5,28 @@
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 	import { ScrollSmoother } from 'gsap/ScrollSmoother';
+	import { openSwitcher } from '../../stores/sectionSwitcherStore';
 
 	let smoother;
+	let labelRef, ulRef;
 	let menuChecked = false;
 
 	function handleClick(ref) {
 		smoother.scrollTo(ref, true, 'top top');
+		menuChecked = false;
+	}
+
+	function closeMenuOnClickOutside(event) {
+		if (
+			menuButtonRef &&
+			!menuButtonRef.contains(event.target) &&
+			labelRef &&
+			!labelRef.contains(event.target) &&
+			ulRef &&
+			!ulRef.contains(event.target)
+		) {
+			menuChecked = false;
+		}
 	}
 
 	onMount(() => {
@@ -22,10 +38,25 @@
 			effects: true,
 			normalize: true
 		});
+
+		// Listen for clicks to close the menu if clicked outside
+		document.addEventListener('click', closeMenuOnClickOutside);
+
+		// Close menu on scroll
+		const handleScroll = () => {
+			menuChecked = false;
+		};
+		window.addEventListener('scroll', handleScroll, { passive: true });
+
+		return () => {
+            // Cleanup listeners
+            document.removeEventListener('click', closeMenuOnClickOutside);
+            // Your existing cleanup
+        };
 	});
 </script>
 
-<nav class="wrapper">
+<nav class="wrapper" class:lower-z={$openSwitcher}>
 	<input
 		type="checkbox"
 		class="menu-button"
@@ -33,17 +64,16 @@
 		bind:checked={menuChecked}
 		on:click={() => (menuChecked = !menuChecked)}
 	/>
-	<label for="dot-nav" class:open={menuChecked}>
+	<label for="dot-nav" bind:this={labelRef} class:open={menuChecked}>
 		<div class="arrow--l-r" class:left={menuChecked}>
 			<span />
-            <span />
-            <span />
-            <span />
-            <span />
+			<span />
+			<span />
+			<span />
+			<span />
 		</div>
 	</label>
-	<!-- <div class="top-bar-underlay" class:open={menuChecked} aria-hidden={ariaHidden} /> -->
-	<ul class:open={menuChecked}>
+	<ul class:open={menuChecked} bind:this={ulRef}>
 		{#each links as { title, ref }}
 			<li>
 				<a href={ref} on:click|preventDefault={() => handleClick(ref)}>{title}</a>
@@ -60,6 +90,14 @@
 		z-index: 990;
 		top: 80px;
 		right: 0;
+		opacity: 1;
+		transition: opacity 0.5s ease-in-out, z-index 0s linear 0.5s;
+	}
+
+	.wrapper.lower-z {
+		transition: opacity 0.5s ease-in-out;
+		opacity: 0;
+		z-index: 800;
 	}
 
 	input {
@@ -70,31 +108,36 @@
 		display: initial;
 		/* top: 80px; */
 		position: absolute;
-		width: 40px;
+		width: 67px;
 		height: 40px;
-		background: rgb(153, 10, 10);
+		background: var(--clr-dark-charcoal);
+		border: 2px solid var(--clr-charcoal);
+		border-right: 0;
+		border-radius: var(--space-sm) 0 0 var(--space-sm);
 		padding: 8px;
-		right: 0;
+		right: -2px;
 		z-index: 200;
 		transform: translateX(0);
 		transition: background-color 0.2s ease-in-out, transform 0.3s ease-in-out;
 	}
 	label.open {
 		/* right: translateX(-200px); */
-		transform: translateX(-200px);
+		transform: translateX(-320px);
 	}
 
 	ul {
 		padding: 2rem 4rem;
 		list-style: none;
-		background: rgb(0, 0, 0);
+		background: var(--clr-dark-charcoal);
 		transform: translateX(100%);
 		transition: transform 0.3s ease-in-out;
-		width: 0;
+		width: 320px;
+		border: 2px solid var(--clr-charcoal);
+		border-bottom-left-radius: var(--space-sm);
 	}
 	ul.open {
 		transform: translateX(0);
-		width: 200px;
+		width: 320px;
 	}
 
 	a {
@@ -109,30 +152,29 @@
 		margin: 0 0.2rem;
 	}
 	.arrow--l-r span:nth-child(4) {
-        visibility: visible;
+		visibility: visible;
 		transform: rotate(-45deg);
 	}
 	.arrow--l-r span:nth-child(5) {
-        visibility: visible;
+		visibility: visible;
 		transform: rotate(45deg);
 	}
-    .arrow--l-r.left span:nth-child(4) {
-        visibility: hidden;
+	.arrow--l-r.left span:nth-child(4) {
+		visibility: hidden;
 		transform: rotate(-45deg);
 	}
 	.arrow--l-r.left span:nth-child(5) {
-        visibility: hidden;
+		visibility: hidden;
 		transform: rotate(45deg);
 	}
 	.arrow--l-r.left span:nth-child(1) {
-        visibility: visible;
+		visibility: visible;
 		transform: rotate(-45deg);
 	}
 	.arrow--l-r.left span:nth-child(2) {
-        visibility: visible;
+		visibility: visible;
 		transform: rotate(45deg);
 	}
-
 
 	.arrow--l-r span {
 		position: absolute;
@@ -166,5 +208,11 @@
 	.arrow--l-r span:nth-child(5) {
 		left: 0;
 		transform-origin: top left;
+	}
+
+	@media (min-width: 1200px) {
+		/* label {
+			right: 20vw;
+		} */
 	}
 </style>

@@ -2,10 +2,10 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
-	import { dotNavData } from '../../stores/dotNavStore';
+	import { switcher } from '../../stores/sectionSwitcherStore';
 	import { onMount } from 'svelte';
 
-	const dotNavLinks = [
+	const switcherLinks = [
 		{ title: 'Header', ref: '#header' },
 		{ title: 'Scroller', ref: '#scroller' },
 		{ title: 'YHeader', ref: '#header2' }
@@ -306,7 +306,7 @@
 	];
 
 	// onMount(() => {
-	// 	dotNavData.set(dotNavLinks);
+	// 	switcher.set(switcherLinks);
 	// });
 </script>
 

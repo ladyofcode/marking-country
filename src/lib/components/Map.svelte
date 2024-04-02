@@ -143,16 +143,15 @@
 			/>
 			<rect
 				x="620"
-				y="1460"
+				y="1500"
 				width="740"
 				height={rectHeight}
 				rx={rectCorner}
 				ry={rectCorner}
 				fill={rectColor}
-				
 				filter="url(#glass)"
 			/>
-			<text x="980" y="1640" class="marker-title">Yawuru</text>
+			<text x="980" y="1670" class="marker-title">Yawuru</text>
 		</g>
 		<g
 			id="woddordda-ngarinyin"
@@ -178,9 +177,9 @@
 				stroke-width="0"
 			/>
 			<rect
-				x="1380"
-				y="1140"
-				width="1120"
+				x="1140"
+				y="1255"
+				width="1160"
 				height={rectHeight}
 				rx={rectCorner}
 				ry={rectCorner}
@@ -188,7 +187,7 @@
 				
 				filter="url(#glass)"
 			/>
-			<text x="1950" y="1320" class="marker-title">
+			<text x="1720" y="1430" class="marker-title">
 				Wurdu/Wudoo</text
 			>
 		</g>
@@ -216,7 +215,7 @@
 				stroke-width="0"
 			/>
 			<rect
-				x="2580"
+				x="2590"
 				y="2960"
 				width="920"
 				height={rectHeight}
@@ -254,8 +253,8 @@
 				stroke-width="0"
 			/>
 			<rect
-				x="2880"
-				y="960"
+				x="2850"
+				y="950"
 				width="920"
 				height={rectHeight}
 				rx={rectCorner}
@@ -264,7 +263,7 @@
 				
 				filter="url(#glass)"
 			/>
-			<text x="3300" y="1140" class="marker-title">
+			<text x="3300" y="1120" class="marker-title">
 				W. Yalanji</text
 			>
 		</g>
@@ -292,17 +291,16 @@
 				stroke-width="0"
 			/>
 			<rect
-				x="3180"
-				y="2260"
+				x="3200"
+				y="2250"
 				width="920"
 				height={rectHeight}
 				rx={rectCorner}
 				ry={rectCorner}
 				fill={rectColor}
-				
 				filter="url(#glass)"
 			/>
-			<text x="3660" y="2420" class="marker-title">
+			<text x="3670" y="2420" class="marker-title">
 				Carnarvon</text
 			>
 		</g>
@@ -359,7 +357,7 @@
 	}
 
 	#icons path:first-of-type {
-		fill: #1a120f;
+		fill: rgb(70, 28, 25);
 	}
 
 	#icons:hover {

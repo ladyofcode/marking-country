@@ -1,124 +1,81 @@
 <script>
-import { base } from "$app/paths";
+	import { base } from '$app/paths';
 
-let anuLogo = `${base}/images/anu_horizontal.png`;
-let arcLogo = `${base}/images/arc-logo-white.png`;
-
+	let anuLogo = `${base}/images/anu_horizontal.png`;
+	let arcLogo = `${base}/images/arc-logo-white.png`;
+	let reLogo = `${base}/images/Menu_Logo_White.png`;
 </script>
 
 <footer>
-	<h2>Research Centre for Deep History</h2>
-	<!-- <div class="menu"> -->
-		<!-- <div class={footerStyles.social}>
-          <a href="https://www.facebook.com/ReDeepHistory/">
-            <img alt="facebook logo" src={fbLogo} />
-          </a>
-          <a href="https://twitter.com/ReDeepHistory">
-            <img alt="twitter logo" src={twitterLogo} />
-          </a>
-          <a href="https://www.youtube.com/channel/UCqehUPTgWdtAZmfwAi0RMkg/featured">
-            <img alt="youtube logo" src={youtubeLogo} />
-          </a>
-          <a href="mailto:#">
-            <img alt="mail icon" src={mailLogo} />
-          </a>
-        </div> -->
-	<!-- </div> -->
-	<!-- <hr /> -->
-	<div class="logos">
-		<img alt="anu logo" src={anuLogo} />
-		<img alt="anu logo" src={arcLogo} />
+	<div class="container">
+		<h2>Research Centre for Deep History</h2>
+		<p><a href="https://re.anu.edu.au/">The Research Centre for Deep History</a> is in the School of History at The Australian National University.</p>
+		<div class="logos">
+			<img alt='' src={reLogo} />
+			<img alt='' src={anuLogo} />
+			<img alt='' src={arcLogo} />
+		</div>
+		<hr />
+			<p>
+				All rights reserved ® Research Centre for Deep History, The ANU | Built by <a href="https://ladyofcode.com">Tabs</a>
+			</p>
 	</div>
-	<div>
-		<p>
-			All rights reserved ® Research Centre for Deep History, 2022 | The School of History, The ANU
-			| Built by <a href="https://ladyofcode.com">Tabs</a>
-		</p>
-	</div>
-
-	<!-- <div id="social" class={footerStyles.social}>
-          <a href="https://www.facebook.com/ReDeepHistory/"><img alt="facebook logo" src={fbLogo} /></a>
-          <a href="https://twitter.com/ReDeepHistory"><img alt="twitter logo" src={twitterLogo} /></a>
-          <a href="https://www.youtube.com/channel/UCqehUPTgWdtAZmfwAi0RMkg/featured"><img alt="youtube logo" src={youtubeLogo} /></a>
-          <a href="mailto:julie.rickwood@anu.edu.au"><img alt="mail icon" src={mailLogo} /></a>
-        </div>  -->
 </footer>
 
 <style>
 	footer {
-		background-color: #231f20;
-		padding: 2rem;
-		margin-top: 8rem;
+		background-color: var(--clr-dark-charcoal);
+		padding: var(--space-xxxl) var(--space-lg);
+		margin-top: var(--space-xxxxl);
+	}
+
+	.container {
+		width: 100%;
+		margin: 0 auto;
+		max-width: var(--width-content);
 	}
 
 	h2,
-	h3,
 	p {
-		color: #ffffff;
+		color: var(--clr-text);
 	}
 
 	p {
-		text-align: center;
+		text-align: left;
+		font-size: var(--font-size-body);
 	}
 
 	h2 {
-		max-width: var(--width-site);
+		font-size: var(--font-size-heading);
 		margin: 0 auto;
-		padding: 8px;
-		margin-top: 2rem;
-		box-sizing: border-box;
-	}
-
-	h3 {
-		text-transform: uppercase;
-		padding: 8px;
 	}
 
 	hr {
-		width: 100%;
-		max-width: var(--width-site);
-		margin: 2rem auto;
-		background-color: #ffffff23;
+		border: 0.5px solid var(--clr-charcoal);
+		margin-bottom: var(--space-xl);
 	}
-
-	.menu {
-		display: flex;
-		flex-direction: column;
-		max-width: var(--width-site);
-		margin: 0 auto;
-		margin-bottom: 2rem;
-	}
-
+	
 	.logos {
 		width: 100%;
-		max-width: 600px;
-		margin: 0 auto;
-		margin-bottom: 4rem;
+		margin: var(--space-xxl) auto;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		gap: var(--space-lg);
 	}
 
 	.logos img {
-		height: 100px;
+		height: 64px;
 		width: auto;
-		margin: 2rem;
-	}
-
-	@media (min-width: 600px) {
-		.menu {
-			flex-direction: row;
-			justify-content: space-between;
-		}
 	}
 
 	@media (min-width: 900px) {
 		.logos {
 			flex-direction: row;
+			justify-content: flex-start;
+			gap: var(--space-xxl);
 		}
-		.logos img {
-			height: 72px;
-		}
+
 	}
 </style>

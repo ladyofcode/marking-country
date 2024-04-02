@@ -14,10 +14,10 @@
 		ImageSingle,
 		TwoColumns
 	} from '$lib';
-	import { dotNavData } from '../../stores/dotNavStore';
+	import { switcher } from '../../stores/sectionSwitcherStore';
 	import { onMount } from 'svelte';
 
-	const dotNavLinks = [
+	const switcherLinks = [
 		{ title: 'Top', ref: '#header' },
 		{ title: 'Mungo Project', ref: '#project' },
 		{ title: 'Mungo Map', ref: '#map' },
@@ -40,7 +40,7 @@
 	const pageTitle = 'Willandra Lakes';
 
 	onMount(() => {
-		dotNavData.set(dotNavLinks);
+		switcher.set(switcherLinks);
 	})
 </script>
 

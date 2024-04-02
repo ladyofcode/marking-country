@@ -5,7 +5,7 @@
 	import { generateSubfolderMedia, generateSingleMedia } from '$lib/imagePaths';
 	import { gsap } from 'gsap/dist/gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-	import { dotNavData } from '../../stores/dotNavStore';
+	import { switcher } from '../../stores/sectionSwitcherStore';
 
 	gsap.registerPlugin(ScrollTrigger);
 
@@ -22,7 +22,7 @@
 		Credits
 	} from '$lib';
 
-	const dotNavLinks = [
+	const switcherLinks = [
 		{ title: 'Header', ref: '#header' },
 		{ title: 'Scroller', ref: '#scroller' },
 		{ title: 'YHeader', ref: '#header2' },
@@ -376,7 +376,7 @@
 	];
 	
 	onMount(() => {
-		dotNavData.set(dotNavLinks);
+		switcher.set(switcherLinks);
 	})
 </script>
 

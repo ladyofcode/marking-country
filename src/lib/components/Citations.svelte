@@ -186,7 +186,7 @@
 	}
 
 	#citation-box {
-		background-color: var(--clr-bg-contrast);
+		background-color: var(--clr-light-contrast);
 	}
 
 	.custom-radio {

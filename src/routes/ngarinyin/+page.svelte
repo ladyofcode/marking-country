@@ -5,6 +5,7 @@
 	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
 
 	import {
+		AudioBlock,
 		GenericContent,
 		QuoteInline,
 		Citations,
@@ -202,7 +203,11 @@
 			link: ''
 		}
 	];
+	
 </script>
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
 
 <Warning>
 	<p>
@@ -357,21 +362,14 @@
 
 	<p><strong>Listen to</strong> David Mowaljarlai:</p>
 
-	<figure class="fullwidth-audio">
-		<audio controls>
-			<source src={davidMowaljarlai} />
-		</audio>
-	</figure>
-
-	<details>
-		<summary>Audio transcript</summary>
+	<AudioBlock source={davidMowaljarlai} summary="Audio transcript">
 		<p>
 			They're all kneeling down like that see. All their handprints are there on that rock, all
 			their knee and their foot. I think when the land was soft, I think, long long time, when it
 			was soft. These stones were soft before they get hard, that's the time. (David Mowaljarlai
 			1974, recorded by Michael Edols)
 		</p>
-	</details>
+	</AudioBlock>
 
 	<p>
 		Travelling on Country, Jalala put there by the Wandjina are a sign there is something

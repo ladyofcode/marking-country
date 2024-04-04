@@ -6,9 +6,9 @@
 	import { onMount } from 'svelte';
 
 	const switcherLinks = [
-		{ title: 'Header', ref: '#header' },
-		{ title: 'Scroller', ref: '#scroller' },
-		{ title: 'YHeader', ref: '#header2' }
+		{ title: 'Top', ref: '#header' },
+		{ title: 'Woddordda Country', ref: '#country' },
+		{ title: 'Short films', ref: '#films' }
 	];
 
 	import {
@@ -305,10 +305,14 @@
 		}
 	];
 
-	// onMount(() => {
-	// 	switcher.set(switcherLinks);
-	// });
+	onMount(() => {
+		switcher.set(switcherLinks);
+	});
 </script>
+
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
 
 <Warning>
 	<p>
@@ -324,7 +328,7 @@
 	alt="The coastline taken as seen from the sea; the water is calm and a depp blue, and the rocky coast line dotted with green trees. "
 	heading="Woddordda"
 	subheading="Ngamardalee and Wudoo"
-	id="intro"
+	id="header"
 	gradientColor="#406467"
 />
 
@@ -357,10 +361,7 @@
 		Western Australia:
 	</p>
 
-	<AudioBlock source={leahIntro} />
-
-	<details>
-		<summary>Audio transcript</summary>
+	<AudioBlock source={leahIntro} summary="Audio transcript">
 		<p>
 			My name is Leah Umbagai. I'm a Woddordda person from the northwest Kimberley region of Western
 			Australia. My bush name is Rinjeewalla I'm part of Dewai, Ardbalanggi, Larinyum. They are the
@@ -370,7 +371,7 @@
 			Country. So we got Wandjina Wunggudd people. We got Woddordda, Ngarinyin and Wunambal people.
 			And I am from the Woddordda tribe.
 		</p>
-	</details>
+	</AudioBlock>
 
 	<p>
 		She has painted a map of the coast where Woddordda people come from, using different symbols to
@@ -383,10 +384,7 @@
 		her use of animals and Woddordda placenames.
 	</p>
 
-	<AudioBlock source={leahSymbols} />
-
-	<details>
-		<summary>Audio transcript</summary>
+	<AudioBlock source={leahSymbols} summary="Audio transcript">
 		<p>
 			This painting that I've done is part of a Wudoo project that we've done through the three
 			tribes. From the Woddordda side I've drawn a map of the coast on which we come from. And this
@@ -399,7 +397,7 @@
 			And we would like to encourage and use it more often in any mapping that we do now. I think
 			it's important that we use our own language in the areas of our Country.
 		</p>
-	</details>
+	</AudioBlock>
 
 	<ImageSingle
 		source={singleImages.Mudmap_01}
@@ -413,7 +411,6 @@
 </GenericContent>
 
 <SideScroller content={sideScrollerTwo} />
-
 
 <GenericContent>
 	<h2>The woman who poked the eye of the sea</h2>
@@ -492,10 +489,7 @@
 <GenericContent>
 	<p><strong>Listen to</strong> Leah Umbagai speak about the significance of the flood.</p>
 
-	<AudioBlock source={leahFlood} />
-
-	<details>
-		<summary>Audio transcript</summary>
+	<AudioBlock source={leahFlood} summary="Audio transcript">
 		<p>
 			How we live now we believe it's associated with the flood. Every year now when we have
 			festival we sing the Wanaliddi Wanaliddi wah yamul yamul. As they sing they stamping the
@@ -507,10 +501,10 @@
 			And it is the same Law, it's the same custom, we can't change anything. Only the Wandjina is
 			the one who can change it.
 		</p>
-	</details>
+	</AudioBlock>
 </GenericContent>
 
-<GenericContent>
+<GenericContent id="country">
 	<h2>Woddordda Country</h2>
 	<p>
 		In addition to named places, each location has a symbol. Wandjina spirit ancestors who burst out
@@ -559,7 +553,7 @@
 </GenericContent>
 <MediaFullWidth youTubeId="4ssgk3TxATI" />
 
-<GenericContent>
+<GenericContent id="films">
 	<h3>Ngamardalee Wudoo (5 mins, 40 sec)</h3>
 
 	<p>

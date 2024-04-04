@@ -226,6 +226,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
+
 <Header
 	image={singleImages.BannerImage}
 	name="yalanji"
@@ -296,6 +300,9 @@ License</a
 </GenericContent>
 <MediaFullWidth
 	image={singleImages.sahul_animated}
+	width="1200"
+	height="1028"
+	contain={true}
 	alt="Animated map showing the changing coastline of Sahul from today to 21,000 years ago."
 	,
 	caption={`Changing coastlines of Sahul. Created by Mike Jones, based on data provided by CartoGIS

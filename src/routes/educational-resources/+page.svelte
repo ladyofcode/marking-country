@@ -395,7 +395,13 @@
 			}
 		}
 	];
+
+	const pageTitle = `Educational resources`
 </script>
+
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
 
 <Header
 	id="intro"

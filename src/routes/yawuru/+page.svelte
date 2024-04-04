@@ -399,6 +399,10 @@
 	const pageTitle = `Jangu yirr Janyjagurdiny: murra mala nyurdany`;
 </script>
 
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
+
 <!-- <SlideshowScroller content={mapsImagesSlides} /> -->
 
 <Header

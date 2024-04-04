@@ -17,6 +17,8 @@
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	gsap.registerPlugin(ScrollTrigger);
 
+	const pageTitle = `Mapping Country, marking Country`
+
 	const singleImagesFilenames = [
 		'map_of_world.jpg',
 		'MagnificentGallery1.jpg',
@@ -289,6 +291,9 @@
 	];
 </script>
 
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
 <Header
 	id="intro"
 	image={image_ngarinyin_header}

@@ -92,6 +92,10 @@
 	const pageTitle = `Walking deep history: Carnarvon Gorge`;
 </script>
 
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
+
 <Header
 	poster={singleImages.carnarvon_poster}
 	video={singleVideos.carnarvonDrone}
@@ -104,7 +108,6 @@
       Gorge"
 	gradientColor="#15150b"
 />
-
 
 <Intro>
 	<p>
@@ -191,7 +194,6 @@
 			</li>
 -->
 
-
 <MediaFullWidth youTubeId="v0tiqh1Ml04" />
 
 <WalkOne />
@@ -231,7 +233,6 @@
 >
 	<p>... and right alongside the base of the ancient rock shelter.</p>
 </ScrollingCaption>
-
 
 <GenericContent>
 	<p>
@@ -566,7 +567,7 @@
 
 <WalkTwo />
 
- <ScrollingCaption
+<ScrollingCaption
 	video={singleVideos.C0008}
 	alt=""
 	poster={singleImages.image_poster_C0008}
@@ -579,7 +580,7 @@
 <ScrollingCaption
 	video={singleVideos.C0009}
 	alt=""
-	poster={singleImages.image_poster_C0009 }
+	poster={singleImages.image_poster_C0009}
 	caption="left"
 	autoplay={true}
 >
@@ -598,7 +599,7 @@
 
 <!-- caption="Rita Huggins, Jackie's mother, in Carnarvon Gorge, QLD. Photo:
 Jane M. Jacobs" -->
- <ScrollingCaption
+<ScrollingCaption
 	image={singleImages.AuntyRita01}
 	orientation="portrait"
 	caption="right"

@@ -15,7 +15,7 @@
 	const ngamardalee = `${base}/stories/woddorda-ngarinyin-intro/images/ngamardalee_navTile.png`;
 
 	let triggers = [],
-		panels = [];
+		containers = [];
 	let wrapper;
 
 	onMount(() => {
@@ -44,7 +44,12 @@
 	onDestroy(() => {
 		killScrollTriggers(triggers);
 	});
+
+	const pageTitle = `Wurdu/Wudoo: Smoke ceremony for babies`
 </script>
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
 
 <div class="wrapper" bind:this={wrapper}>
 	<Warning>
@@ -55,69 +60,76 @@
 		</p>
 	</Warning>
 
-	<div class="panel">
-		<div>
-			<h1>Wurdu/Wudoo</h1>
-			<h2>Smoke ceremony for babies</h2>
+	<div class="container">
+		<div class="panel">
+			<div>
+				<h1>Wurdu/Wudoo</h1>
+				<h2>Smoke ceremony for babies</h2>
+			</div>
 		</div>
 	</div>
 
-	<div class="panel">
-		<p>
-			Warm hands, smoke and words from Elders encircle babies in the Wurdu/Wudoo ceremony, embodying
-			the Laws and guidelines for generations of people from west Kimberley Wandjina Wunggudd
-			culture.
-		</p>
+	<div class="container">
+		<div class="panel">
 
-		<p>
-			<em>The words are put there that the Wandjinas gave us.</em>
-			<br />
-			<strong>Sam Woolagoodja 1972</strong>
-		</p>
-
-		<p>
-			<em>
-				It is the Law. Only our people can carry the Law for Wudoo. It needs to be done properly.
-			</em>
-			<br />
-			<strong>Yorna Woolagoodja 2022</strong>
-		</p>
-
-		<AudioBlock source={sound} />
+			<p>
+				Warm hands, smoke and words from Elders encircle babies in the Wurdu/Wudoo ceremony, embodying
+				the Laws and guidelines for generations of people from west Kimberley Wandjina Wunggudd
+				culture.
+			</p>
+			
+			<p>
+				<em>The words are put there that the Wandjinas gave us.</em>
+				<br />
+				<strong>Sam Woolagoodja 1972</strong>
+			</p>
+			
+			<p>
+				<em>
+					It is the Law. Only our people can carry the Law for Wudoo. It needs to be done properly.
+				</em>
+				<br />
+				<strong>Yorna Woolagoodja 2022</strong>
+			</p>
+			
+		</div>
+			<AudioBlock source={sound} />
 	</div>
 
-	<div class="panel">
-		<p>
-			Wudoo (Woddordda) or Wurdu (Ngarinyin) is a blessing. Certain adults warm their hands by the
-			fire and the smoke, and touch the children on different parts of the body.  Different parts of
-			the body are associated with different behaviours.
-		</p>
+	<div class="container">
+		<div class="panel">
+			<p>
+				Wudoo (Woddordda) or Wurdu (Ngarinyin) is a blessing. Certain adults warm their hands by the
+				fire and the smoke, and touch the children on different parts of the body.  Different parts
+				of the body are associated with different behaviours.
+			</p>
 
-		<p>
-			Listen to Sherika Duckhole (in Ngarinyin) and Leah Umbagai (in Woddordda) give the names and
-			meanings of some of the places on the baby’s body in a Wurdu/Wudoo smoking ceremony.
-		</p>
+			<p>
+				Listen to Sherika Duckhole (in Ngarinyin) and Leah Umbagai (in Woddordda) give the names and
+				meanings of some of the places on the baby’s body in a Wurdu/Wudoo smoking ceremony.
+			</p>
+		</div>
 
 		<YouTube youTubeId="HkKLuybg2p8?rel=0" />
 	</div>
 
-	<div class="panel links">
-		<a href="{base}/woddordda/">
-			<img
-				src={ngamardalee}
-				alt="Map showing the changes to the coastline of Woddordda Country, and includes symbols painted by Leah Umbagai, such as fireplace with red flames and a hand outstretched over the fire; the head and face of a baby; as well as animals, including a brolga, a kangaroo, a quoll, and a snake."
-			/>
-			Woddordda »
-		</a>
+	<div class="container links">
+			<a href="{base}/woddordda/">
+				<img
+					src={ngamardalee}
+					alt="Map showing the changes to the coastline of Woddordda Country, and includes symbols painted by Leah Umbagai, such as fireplace with red flames and a hand outstretched over the fire; the head and face of a baby; as well as animals, including a brolga, a kangaroo, a quoll, and a snake."
+				/>
+				Woddordda »
+			</a>
 
-		<a href="{base}/ngarinyin">
-			<img
-				src={marardda}
-				alt="Satellite photograph of Ngainyin Country with hand painted images of three catfish, a dingo and an eagle."
-			/>
-			Ngarinyin »
-		</a>
-	</div>
+			<a href="{base}/ngarinyin">
+				<img
+					src={marardda}
+					alt="Satellite photograph of Ngainyin Country with hand painted images of three catfish, a dingo and an eagle."
+				/>
+				Ngarinyin »
+			</a>
+		</div>
 </div>
 
 <style>
@@ -130,6 +142,10 @@
 		color: var(--clr-text);
 	}
 
+	h2 {
+		margin-bottom: 0;
+	}
+
 	p {
 		font-size: var(--font-size-text);
 		margin-bottom: var(--space-xl);
@@ -139,11 +155,11 @@
 		text-decoration: none;
 	}
 
-	.panel :global(iframe) {
+	.container :global(iframe) {
 		border-radius: var(--radius-corner);
 	}
 
-	.panel :global(div) {
+	.container :global(div) {
 		height: 100%;
 		width: 100%;
 	}
@@ -153,6 +169,15 @@
 	}
 
 	.panel {
+		padding: var(--space-xl) var(--space-md);
+		background: var(--glass-clr-bg);
+		backdrop-filter: var(--glass-backdrop-filter);
+		-webkit-backdrop-filter: var(--glass-webkit-backdrop-filter);
+		border-radius: var(--glass-border-radius);
+		border: var(--glass-outline);
+	}
+
+	.container {
 		padding: var(--space-xxl) var(--space-lg);
 		width: 100%;
 		height: 100%;
@@ -179,7 +204,7 @@
 		font-size: var(--font-size-heading);
 		max-width: 340px;
 		padding: var(--space-lg);
-		background-color: var(--clr-dark-charcoal);
+		background-color: var(--clr-dark-contrast);
 		border-radius: var(--radius-corner);
 		margin-bottom: var(--space-xxxl);
 	}
@@ -203,7 +228,7 @@
 			font-size: var(--font-size-subheading);
 		}
 
-		.panel {
+		.container {
 			padding: 0;
 		}
 

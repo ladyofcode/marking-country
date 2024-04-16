@@ -42,7 +42,6 @@
 	.wrapper {
 		max-width: var(--width-site);
 		padding: var(--space-xxxl) var(--space-lg);
-		height: 100%;
 		background-color: var(--clr-bg-main);
 	}
 

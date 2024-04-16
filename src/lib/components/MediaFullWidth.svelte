@@ -10,9 +10,11 @@
 		vimeoId = '',
 		galleryId = 'default',
 		width = '',
-		height = '';
+		height = '',
+		contain = false;
 
-	import { Vimeo, YouTube } from 'sveltekit-embed';
+	import { Vimeo } from 'sveltekit-embed';
+	import { EmbedYouTube } from '$lib';
 	import PhotoSwipeLightbox from 'photoswipe/lightbox';
 	import PhotoSwipeDynamicCaption from 'photoswipe-dynamic-caption-plugin';
 	import 'photoswipe/style.css';
@@ -48,7 +50,7 @@
 					target="_blank"
 					rel="noreferrer"
 				>
-					<img src={image} {alt} />
+					<img class={contain ? 'contain' : ''} src={image} {alt} />
 				</a>
 				<figcaption class="pswp-caption-content">
 					{@html caption}
@@ -68,7 +70,7 @@
 				</video>
 			{/if}
 			{#if youTubeId}
-				<YouTube {youTubeId} />
+				<EmbedYouTube videoId={youTubeId} />
 			{/if}
 
 			{#if vimeoId}
@@ -86,6 +88,7 @@
 	:global(iframe) {
 		height: 100%;
 		max-height: calc(var(--height-viewable) - 10vh);
+		border-radius: var(--radius-corner);
 	}
 
 	.wrapper {
@@ -93,29 +96,34 @@
 		max-width: calc(var(--width-site) + 40vh);
 		margin: var(--space-xxxl) auto;
 	}
-
+	
 	img,
 	video {
-		width: 100%;
 		height: 100%;
 		object-fit: contain;
 		object-position: center;
+		border-radius: var(--radius-corner);
 	}
-
+	
+	
 	video {
 		max-height: 100vh;
+		margin: 0 auto;
 	}
-
+	
 	figcaption {
 		max-width: var(--width-content);
 		margin: var(--space-md) auto;
 	}
-
+	
 	a {
 		height: 100%;
 		width: 100%;
-		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		overflow: hidden;
+		border-radius: var(--radius-corner);
 	}
 	.pswp-caption-content {
 		display: block;
@@ -123,7 +131,8 @@
 
 	@media (min-width: 900px) {
 		.wrapper {
-			margin: var(--space-xxxxl) auto;
+			margin: var(--space-xxxl) auto;
+			padding: 0;
 		}
 
 		a {
@@ -133,6 +142,10 @@
 		img,
 		video {
 			object-fit: cover;
+		}
+
+		img.contain{
+			object-fit: contain;
 		}
 		figure {
 			height: 100%;

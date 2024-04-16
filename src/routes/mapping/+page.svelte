@@ -1,6 +1,8 @@
 <script>
 	import { base } from '$app/paths';
 	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
+	import { switcher } from '../../stores/sectionSwitcherStore';
+	import { onMount } from 'svelte';
 
 	import {
 		AiatsisMap,
@@ -16,8 +18,8 @@
 	import { gsap } from 'gsap/dist/gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	gsap.registerPlugin(ScrollTrigger);
-
-	const pageTitle = `Mapping Country, marking Country`
+	const switcherLinks = [];
+	const pageTitle = `Mapping Country, marking Country`;
 
 	const singleImagesFilenames = [
 		'map_of_world.jpg',
@@ -158,8 +160,8 @@
 				props: {
 					source: singleImages.MagnificentGallery1,
 					alt: 'Colour photograph of rock art, showing layers of images painted over the top of each other.',
-					width: '2200',
-					height: '2933',
+					width: '1400',
+					height: '1866',
 					caption: '<em>Magnificent Gallery</em>. Photo: Brad Grogan, Western Yalanji Corporation.',
 					galleryId: 'magnificentGallery1'
 				}
@@ -289,6 +291,10 @@
 			}
 		}
 	];
+
+	onMount(() => {
+		switcher.set(switcherLinks);
+	});
 </script>
 
 <svelte:head>
@@ -360,7 +366,6 @@
 		>
 	</p>
 
-	<!-- <ImageSliderFullscreen slides={slideshowTwo} /> -->
 </GenericContent>
 
 <HorizontalScroller slides={slideshowTwo} />
@@ -556,32 +561,12 @@
 	</p>
 </GenericContent>
 
-<GenericContent>
-	<h2>Credits</h2>
-
-	<Credits
-		credits={[
-			{ title: 'Text', names: 'Ann McGrath' },
-			{
-				title: 'Research Assistants',
-				names: 'Jennifer Bird, Bethany Phillips-Peddlesden, Emma Batchelor'
-			}
-		]}
-	/>
-</GenericContent>
-
-<style>
-	.fullwidth-audio {
-		color: var(--clr-text);
-
-		margin-bottom: 0;
-	}
-
-	.fullwidth-audio audio {
-		width: 100%;
-	}
-
-	.fullwidth-audio-padding {
-		margin-bottom: 4rem;
-	}
-</style>
+<Credits
+	credits={[
+		{ title: 'Text', names: 'Ann McGrath' },
+		{
+			title: 'Research Assistants',
+			names: 'Jennifer Bird, Bethany Phillips-Peddlesden, Emma Batchelor'
+		}
+	]}
+/>

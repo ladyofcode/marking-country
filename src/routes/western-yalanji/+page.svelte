@@ -2,7 +2,6 @@
 	import { page } from '$app/stores';
 	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
 	import { switcher } from '../../stores/sectionSwitcherStore';
-	import { YouTube } from 'sveltekit-embed';
 	import { onMount } from 'svelte';
 
 	const switcherLinks = [
@@ -16,6 +15,7 @@
 		Collapsible,
 		GenericContent,
 		ImageGrid,
+		EmbedYouTube,
 		ImageSingle,
 		QuoteInline,
 		Intro,
@@ -23,7 +23,6 @@
 		Citations,
 		Credits,
 		SideScroller,
-		TwoColumnContent,
 		TwoColumns,
 		YalanjiMap
 	} from '$lib';
@@ -174,7 +173,7 @@
 				}
 			],
 			youtube: {
-				component: YouTube,
+				component: EmbedYouTube,
 				props: {
 					youTubeId: 'Rqa8qxFxwDE',
 					caption:
@@ -211,8 +210,8 @@
 				props: {
 					source: singleImages.Quinkans,
 					alt: "Two 'Quinkan' figures paintings on a rock wall.",
-					width: '2400',
-					height: '3200',
+					width: '1400',
+					height: '1867',
 					caption: 'Quinkans. Photo: Mike Jones, 2021.',
 					galleryId: 'Quinkans',
 					scroller: true
@@ -337,6 +336,8 @@ License</a
 	caption="Aileen Meldrum and Betty Knowles. Courtesy Western Yalanji Aboriginal Corporation.
 	"
 />
+
+
 
 <GenericContent>
 	<p>
@@ -687,7 +688,7 @@ License</a
 		children about their culture and their Country through Stories.
 	</p>
 
-	<TwoColumnContent>
+	<TwoColumns>
 		<div>
 			<p>
 				Roughsey and Trezise gathered legends from elders and, during their frequent stays at
@@ -711,7 +712,7 @@ License</a
 				</figcaption>
 			</figure>
 		</div>
-	</TwoColumnContent>
+	</TwoColumns>
 </Collapsible>
 
 <GenericContent>

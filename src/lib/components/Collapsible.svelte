@@ -67,9 +67,10 @@
 	.label-toggle {
 		display: block;
 		font-family: var(--font-serif);
-		font-weight: 100;
+		font-weight: 600;
 		font-size: 1.2rem;
-		text-transform: uppercase;
+		/* text-transform: uppercase; */
+
 		text-align: center;
 		padding: 1rem;
 		color: var(--clr-clay);

@@ -1,8 +1,10 @@
 <script>
-	export let source;
-	export let credit='';
+	export let source,
+		summary = '';
+	export let credit = '';
 	import { onMount, onDestroy } from 'svelte';
 	import { gsap } from 'gsap';
+	import { Transcript } from '$lib';
 
 	let audio;
 	let isPlaying = false;
@@ -166,6 +168,12 @@
 	{/if}
 </figure>
 
+{#if summary}
+	<Transcript {summary}>
+		<slot />
+	</Transcript>
+{/if}
+
 <style>
 	figure {
 		display: flex;
@@ -200,7 +208,9 @@
 		stroke: var(--clr-text);
 		stroke-width: 6px;
 	}
-
+	button:last-of-type svg path {
+		stroke: var(--clr-text);
+	}
 	button:last-of-type {
 		height: 56px;
 		width: 64px;
@@ -271,23 +281,21 @@
 	}
 
 	.audio-seekbar::-webkit-slider-thumb {
-		-webkit-appearance: none; 
+		-webkit-appearance: none;
 		appearance: none;
-		height: 20px; 
-		width: 20px; 
+		height: 20px;
+		width: 20px;
 		border-radius: 50%;
 		border: 2px solid #ffffff;
 		background: var(--clr-terracotta);
 		cursor: pointer;
-		margin-top: calc(
-			(var(--track-height) - 20px) / 2
-		); 
+		margin-top: calc((var(--track-height) - 20px) / 2);
 	}
 
 	.audio-seekbar::-moz-range-thumb {
 		border: 2px solid #ffffff;
-		height: 20px; 
-		width: 20px; 
+		height: 20px;
+		width: 20px;
 		border-radius: 50%;
 		background: var(--clr-terracotta);
 		cursor: pointer;

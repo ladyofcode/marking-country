@@ -6,7 +6,7 @@
 
 <style>
 	.container {
-		background-color: #000000;
+		background-color: var(--clr-dark-contrast);
 		min-height: 100vh;
 		display: flex;
 		align-items: center;

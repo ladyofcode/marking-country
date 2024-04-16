@@ -11,7 +11,7 @@
 
 	.learn-more-box {
 		border-radius: var(--radius-corner);
-		background-color: var(--clr-charcoal);
+		background-color: var(--clr-light-contrast);
 		display: flex;
 		flex-direction: column;
 		padding: var(--space-xxl) var(--space-lg);
@@ -20,10 +20,15 @@
 
 	.learn-more-box :global(img) {
 		border-radius: var(--radius-corner);
+		max-width: 50%;
 	}
 
 	.learn-more-box :global(h3) {
 		font-weight: 200;
+	}
+	
+	.learn-more-box :global(h3 > a) {
+		font-family: var(--font-serif);
 	}
 
 	.learn-more-box :global(ul) {
@@ -35,8 +40,7 @@
 		padding: 0;
 		margin: 0;
 		text-decoration: none;
-		font-family: var(--font-headings);
-		font-size: var(--font-size-body);
+		font-family: var(--font-sans);
 
 	}
 

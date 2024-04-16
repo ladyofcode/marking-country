@@ -9,9 +9,9 @@
 	import { ScrollSmoother } from 'gsap/ScrollSmoother';
 	import { killScrollTriggers } from '$lib/utils';
 	import { switcher } from '../stores/sectionSwitcherStore';
-	import { isScrollPaused } from '../stores/scrollControlStore';
+	import { isScrollPaused, smootherStore } from '../stores/scrollControlStore';
 	import { base } from '$app/paths';
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount, onDestroy, setContext } from 'svelte';
 
 	import ModalAcknowledgement from '$lib/layout/ModalAcknowledgement.svelte';
 
@@ -20,6 +20,8 @@
 	let showModal = false,
 		smoother;
 
+	let wrapper, content;
+
 	let triggers = [];
 
 	if (typeof window !== 'undefined') {
@@ -27,31 +29,29 @@
 	}
 
 	onMount(() => {
-		smoother = ScrollSmoother.create({
-			wrapper: '.scroll-wrapper',
-			content: '.smooth-content',
-			smooth: 1,
-			effects: true,
-			normalizeScroll: true
-		});
+		// smoother = ScrollSmoother.create({
+		// 	wrapper: wrapper,
+		// 	content: content,
+		// 	smooth: 1,
+		// 	ignoreMobileResize: true,
+		// 	effects: true,
+		// 	normalizeScroll: true
+		// });
 
-		triggers.push(smoother);
+		smootherStore.set(smoother);
+
+		// triggers.push(smoother);
 
 		const data = window.localStorage.getItem('ACKNOWLEDGEMENT_MODAL');
 
 		if (data === null) {
 			showModal = true;
 		}
-
-		return () => {
-			// Cleanup when the component is destroyed
-			smoother.kill();
-		};
 	});
 
-	$: if (smoother) {
-		smoother.paused($isScrollPaused);
-	}
+	// $: if (smoother) {
+	// 	smoother.paused($isScrollPaused);
+	// }
 
 	onDestroy(() => {
 		killScrollTriggers(triggers);
@@ -61,13 +61,13 @@
 	});
 </script>
 
+<ModalAcknowledgement bind:showModal />
+
 <Navigation />
 
 {#if $switcher && $switcher.length > 0}
 	<SectionSwitcher links={$switcher} />
 {/if}
-
-<ModalAcknowledgement bind:showModal />
 
 {#if $page.url.pathname.startsWith('/woddordda-ngarinyin-intro')}
 	<div class="fix-video">
@@ -78,22 +78,34 @@
 	</div>
 {/if}
 
-<div class="smooth-wrapper">
-	<div class="smooth-content">
+<div id="smooth-wrapper" bind:this={wrapper}>
+	<div id="smooth-content" bind:this={content}>
 		<slot />
 		<Footer />
 	</div>
 </div>
 
 <style>
-	.smooth-wrapper {
-		min-height: 100vh;
+	#smooth-wrapper {
+		/* overflow: hidden; */
+		height: 100%;
+		width: 100%;
+	}
+	 #smooth-content {
+		width: 100%;
+		height: 100%;
+		/* overflow: visible; */
+		/* height: 4000px; */
 	}
 
 	.fix-video {
 		height: 100vh;
-		width: 100%;
+		width: 100vw;
 		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
 		background-color: #000000;
 	}
 

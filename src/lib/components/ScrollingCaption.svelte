@@ -1,5 +1,5 @@
 <script>
-	export let image, video, poster, alt, caption, autoplay, orientation;
+	export let image='', video='', poster='', alt='', caption='', autoplay='', orientation='';
 </script>
 
 <div class="background {orientation}">

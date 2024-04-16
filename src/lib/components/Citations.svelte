@@ -210,7 +210,7 @@
 		left: 0;
 		height: 20px;
 		width: 20px;
-		background-color: #eee;
+		background-color: var(--clr-light-contrast);
 		border-radius: 50%;
 	}
 

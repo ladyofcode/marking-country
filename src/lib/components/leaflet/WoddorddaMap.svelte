@@ -2,511 +2,703 @@
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 
-	let audioBooroola = `${base}/stories/woddordda/audio/Booroola.mp3`;
-	let audioIlerdda = `${base}/stories/woddordda/audio/Ilerdda.mp3`;
-	let audioKoolan_Island = `${base}/stories/woddordda/audio/Koolan_Island.mp3`;
-	let audioKunmunya = `${base}/stories/woddordda/audio/Kunmunya.mp3`;
-	let audioManggajaddaa = `${base}/stories/woddordda/audio/Manggajaddaa.mp3`;
-	let audioMarmbulbardda = `${base}/stories/woddordda/audio/Marmbulbardda.mp3`;
-	let audioMowanjum = `${base}/stories/woddordda/audio/Mowanjum.mp3`;
-	let audioMunja = `${base}/stories/woddordda/audio/Munja.mp3`;
-	let audioNgamardalee = `${base}/stories/woddordda/audio/Ngamardalee.mp3`;
-	let audioPantijan = `${base}/stories/woddordda/audio/Pantijan.mp3`;
-	let audioWijeengarddee = `${base}/stories/woddordda/audio/Wijeengarddee.mp3`;
-	let audioWotjulum = `${base}/stories/woddordda/audio/Wotjulum.mp3`;
-	let audioYaloon = `${base}/stories/woddordda/audio/Yaloon.mp3`;
-	let iconDerby = `${base}/stories/woddordda/images/Derby.png`;
-	let iconIlerdda = `${base}/stories/woddordda/images/Ilerdda.png`;
-	let iconKoolan_Island = `${base}/stories/woddordda/images/Koolan_Island.png`;
-	let kunmuyaImage = `${base}/stories/woddordda/images/Kunmunya-pic_341362PD.jpg`;
-	let kunmunyaField = `${base}/stories/woddordda/images/Kunmunya-working-field pic_341322PD.jpg`;
-	let iconKunmunya = `${base}/stories/woddordda/images/Kunmunya.png`;
-	let iconManggajaddaa = `${base}/stories/woddordda/images/Manggajaddaa.png`;
-	let iconMarmbulbardda = `${base}/stories/woddordda/images/Marmbulbardda.png`;
-	let church = `${base}/stories/woddordda/images/Mowanjum-Wandjinas on church wall-1960sCol_02.jpg`;
-	let signToCommunity = `${base}/stories/woddordda/images/Mowanjum-sign-to-communityCol_07.jpg`;
-	let iconMowanjum = `${base}/stories/woddordda/images/Mowanjum.png`;
-	let artCentre = `${base}/stories/woddordda/images/Mowanjum_community_20by20cm_300dpi.jpg`;
-	let munja9006 = `${base}/stories/woddordda/images/Munja-9006_01.jpg`;
-	let peanuts = `${base}/stories/woddordda/images/Munja-women-peanut-sorting-REID90~4.jpg`;
-	let iconMunja = `${base}/stories/woddordda/images/Munja.png`;
-	let iconNgamardalee = `${base}/stories/woddordda/images/Ngamardalee.png`;
-	let iconPantijan = `${base}/stories/woddordda/images/Pantijan.png`;
-	let iconWijeengarddee = `${base}/stories/woddordda/images/Wijeengarddee.png`;
-	let iconWotjulum = `${base}/stories/woddordda/images/Wotjulum.png`;
-	let wotjulumSam = `${base}/stories/woddordda/images/Wotjulum_Sam-Woolagoodja-boat-Fletcher fl-1.jpg`;
-	let wudooWalcott2 = `${base}/stories/woddordda/images/Wudoo-Namaralee-coast2_Tim-Mummery.png`;
-	let wudooTim = `${base}/stories/woddordda/images/Wudoo-Namaralee-coast3_Tim-Mummery.png`;
-	let wudooWalcott = `${base}/stories/woddordda/images/Wudoo-Namaralee-coast4-Walcott_Tim-Mummery.jpg`;
-	let wudooShontae = `${base}/stories/woddordda/images/Wudoo-Shontae_Yorna_Kallum-SLachman-3-6-22.jpg`;
-	let iconYaloon = `${base}/stories/woddordda/images/Yaloon.png`;
-	let mapBackground = `${base}/stories/woddordda/images/interactive-map/background.jpg`;
-	let mapMun = `${base}/stories/woddordda/images/interactive-map/munja.png`;
-	let mapKoo = `${base}/stories/woddordda/images/interactive-map/koolan.png`;
-	let mapIle = `${base}/stories/woddordda/images/interactive-map/ilerdda.png`;
-	let mapMungg = `${base}/stories/woddordda/images/interactive-map/munggajaddaa.png`;
-	let mapWot = `${base}/stories/woddordda/images/interactive-map/wotjulum.png`;
-	let mapYal = `${base}/stories/woddordda/images/interactive-map/yaloon.png`;
-	let mapMow = `${base}/stories/woddordda/images/interactive-map/mowanjum.png`;
-	let mapDer = `${base}/stories/woddordda/images/interactive-map/derby.png`;
-	let mapNgmardalee = `${base}/stories/woddordda/images/interactive-map/ngamardalee.png`;
-	let mapKunmunya = `${base}/stories/woddordda/images/interactive-map/kunmunya.png`;
-	let mapPan = `${base}/stories/woddordda/images/interactive-map/pantijan.png`;
-	let mapMambulbardda = `${base}/stories/woddordda/images/interactive-map/marmbulbardda.png`;
-	let mapWje = `${base}/stories/woddordda/images/interactive-map/wjeengarddee.png`;
-	let mapWudoo = `${base}/stories/woddordda/images/interactive-map/wudoo.png`;
+	import { AudioBlock, ImageSingle, QuoteInline } from '$lib';
 
-	const manggajaddaaText = `
-	
-		<h3>Manggajaddaa</h3>
-		<figure>
-			<audio src=${audioManggajaddaa} controls />
-		</figure>
+	const audioBooroola = `${base}/stories/woddordda/audio/Booroola.mp3`;
+	const audioIlerdda = `${base}/stories/woddordda/audio/Ilerdda.mp3`;
+	const audioKoolan_Island = `${base}/stories/woddordda/audio/Koolan_Island.mp3`;
+	const audioKunmunya = `${base}/stories/woddordda/audio/Kunmunya.mp3`;
+	const audioManggajaddaa = `${base}/stories/woddordda/audio/Manggajaddaa.mp3`;
+	const audioMarmbulbardda = `${base}/stories/woddordda/audio/Marmbulbardda.mp3`;
+	const audioMowanjum = `${base}/stories/woddordda/audio/Mowanjum.mp3`;
+	const audioMunja = `${base}/stories/woddordda/audio/Munja.mp3`;
+	const audioNgamardalee = `${base}/stories/woddordda/audio/Ngamardalee.mp3`;
+	const audioPantijan = `${base}/stories/woddordda/audio/Pantijan.mp3`;
+	const audioWijeengarddee = `${base}/stories/woddordda/audio/Wijeengarddee.mp3`;
+	const audioWotjulum = `${base}/stories/woddordda/audio/Wotjulum.mp3`;
+	const audioYaloon = `${base}/stories/woddordda/audio/Yaloon.mp3`;
+	const iconDerby = `${base}/stories/woddordda/images/Derby.png`;
+	const iconIlerdda = `${base}/stories/woddordda/images/Ilerdda.png`;
+	const iconKoolan_Island = `${base}/stories/woddordda/images/Koolan_Island.png`;
+	const kunmuyaImage = `${base}/stories/woddordda/images/Kunmunya-pic_341362PD.jpg`;
+	const kunmunyaField = `${base}/stories/woddordda/images/Kunmunya-working-field-pic_341322PD.jpg`;
+	const iconKunmunya = `${base}/stories/woddordda/images/Kunmunya.png`;
+	const iconManggajaddaa = `${base}/stories/woddordda/images/Manggajaddaa.png`;
+	const iconMarmbulbardda = `${base}/stories/woddordda/images/Marmbulbardda.png`;
+	const church = `${base}/stories/woddordda/images/Mowanjum-Wandjinas-on-church-wall-1960sCol_02.jpg`;
+	const signToCommunity = `${base}/stories/woddordda/images/Mowanjum-sign-to-communityCol_07.jpg`;
+	const iconMowanjum = `${base}/stories/woddordda/images/Mowanjum.png`;
+	const artCentre = `${base}/stories/woddordda/images/Mowanjum_community_20by20cm_300dpi.jpg`;
+	const munja9006 = `${base}/stories/woddordda/images/Munja-9006_01.jpg`;
+	const peanuts = `${base}/stories/woddordda/images/Munja-women-peanut-sorting-REID90~4.jpg`;
+	const iconMunja = `${base}/stories/woddordda/images/Munja.png`;
+	const iconNgamardalee = `${base}/stories/woddordda/images/Ngamardalee.png`;
+	const iconPantijan = `${base}/stories/woddordda/images/Pantijan.png`;
+	const iconWijeengarddee = `${base}/stories/woddordda/images/Wijeengarddee.png`;
+	const iconWotjulum = `${base}/stories/woddordda/images/Wotjulum.png`;
+	const wotjulumSam = `${base}/stories/woddordda/images/Wotjulum_Sam-Woolagoodja-boat-Fconstcher fl-1.jpg`;
+	const wudooWalcott2 = `${base}/stories/woddordda/images/Wudoo-Namaralee-coast2_Tim-Mummery.png`;
+	const wudooTim = `${base}/stories/woddordda/images/Wudoo-Namaralee-coast3_Tim-Mummery.png`;
+	const wudooWalcott = `${base}/stories/woddordda/images/Wudoo-Namaralee-coast4-Walcott_Tim-Mummery.jpg`;
+	const wudooShontae = `${base}/stories/woddordda/images/Wudoo-Shontae_Yorna_Kallum-SLachman-3-6-22.jpg`;
+	const iconYaloon = `${base}/stories/woddordda/images/Yaloon.png`;
+	const mapBackground = `${base}/stories/woddordda/images/interactive-map/background.jpg`;
+	const mapMun = `${base}/stories/woddordda/images/interactive-map/munja.png`;
+	const mapKoo = `${base}/stories/woddordda/images/interactive-map/koolan.png`;
+	const mapIle = `${base}/stories/woddordda/images/interactive-map/ilerdda.png`;
+	const mapMungg = `${base}/stories/woddordda/images/interactive-map/munggajaddaa.png`;
+	const mapWot = `${base}/stories/woddordda/images/interactive-map/wotjulum.png`;
+	const mapYal = `${base}/stories/woddordda/images/interactive-map/yaloon.png`;
+	const mapMow = `${base}/stories/woddordda/images/interactive-map/mowanjum.png`;
+	const mapDer = `${base}/stories/woddordda/images/interactive-map/derby.png`;
+	const mapNgmardalee = `${base}/stories/woddordda/images/interactive-map/ngamardalee.png`;
+	const mapKunmunya = `${base}/stories/woddordda/images/interactive-map/kunmunya.png`;
+	const mapPan = `${base}/stories/woddordda/images/interactive-map/pantijan.png`;
+	const mapMambulbardda = `${base}/stories/woddordda/images/interactive-map/marmbulbardda.png`;
+	const mapWje = `${base}/stories/woddordda/images/interactive-map/wjeengarddee.png`;
+	const mapWudoo = `${base}/stories/woddordda/images/interactive-map/wudoo.png`;
 
-		<figure>
-			<img src=${iconManggajaddaa} alt="" />
-		</figure>
+	const manggajaddaaText = [
+		{
+			markup: `<h3>Manggajaddaa</h3>`
+		},
+		{
+			component: AudioBlock,
+			props: {
+				source: audioManggajaddaa
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: iconManggajaddaa,
+				alt: '',
+				width: '',
+				height: '',
+				galleryId: 'iconManggajaddaa'
+			}
+		},
+		{
+			markup: `<p>
+        The Ibis at Derby wetlands. This area is where many Mowanjum people
+        collected food held ceremonies and shared their culture with each other.
+        It was a gathering place. Because Yorna Woolagoodja was too ill to travel
+        to the Ngamardalee rock art site or to Wijeengarddee the Wudoo ceremony
+        was performed at Manggajadda.
+    </p>`
+		}
+	];
 
-		<p>
-			The Ibis at Derby wetlands. This area is where many Mowanjum people
-			collected food held ceremonies and shared their culture with each other.
-			It was a gathering place. Because Yorna Woolagoodja was too ill to travel
-			to the Ngamardalee rock art site or to Wijeengarddee the Wudoo ceremony
-			was performed at Manggajadda.
-		</p>
-	`;
-	const mowanjumText = `
-	
-		<h3>Mowanjum</h3>
+	const mowanjumText = [
+		{
+			markup: `<h3>Mowanjum</h3>`
+		},
+		{
+			component: AudioBlock,
+			props: {
+				source: audioMowanjum
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: iconMowanjum,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'iconMowanjum'
+			}
+		},
+		{
+			markup: `<p>
+            In 1956 the government refused to provide further funds for housing or
+            food supplies for the community unless they moved to the mainland near a
+            township where education, hospitals and supplies were available. After
+            strong arguments against the move, the leadership decided they would move
+            to a church administered community outside Derby where they would be
+            relatively independent from the town. They were promised their own houses,
+            school, shop, church and employment on an adjacent pastoral lease.
+        </p>`
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: signToCommunity,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'signToCommunity',
+				caption: 'The entrance to old Mowanjum community occupied from 1956 to 1977.'
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: church,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'church',
+				caption:
+					'Wandjinas representing the three main language groups, Woddordda, Ngarinyin and Wunambal were painted on the wall of the Church, a continuing spiritual presence.'
+			}
+		},
+		{
+			markup: `<p>
+            In 1977 Mowanjum community was moved again, to its current site along the
+            Gibb River road. The government wanted the land at Old Mowanjum to extend
+            Derby airport, and the water had become salty.
+        </p>`
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: artCentre,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'artCentre',
+				caption:
+					'TMowanjum Community with the Wandjina shaped Art and Culture Centre, built in 2006.'
+			}
+		}
+	];
 
-		<figure>
-			<audio src=${audioMowanjum} controls />
-		</figure>
+	const booroolaText = [
+		{
+			markup: `<h3>Booroola (boab tree) and Derby</h3>`
+		},
+		{
+			component: AudioBlock,
+			props: {
+				source: audioBooroola
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: iconDerby,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'iconDerby'
+			}
+		},
+		{
+			markup: `<p>
+            Derby is in Nyikina and Warwar peoples’ area. After being moved from
+            Kunmunya, Munja and again from Wotjulum in 1956, many members of
+            Woddordda, Ngarinyin and Wunambal people came to reside on a community
+            they called Mowanjum ten kilometres outside the township of Derby.
+        </p>`
+		}
+	];
 
-		<figure>
-			<img src=${iconMowanjum} alt="" />
-		</figure>
+	const yaloonText = [
+		{
+			markup: `<h3>Yaloon</h3>`
+		},
+		{
+			component: AudioBlock,
+			props: {
+				source: audioYaloon
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: iconYaloon,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'iconYaloon'
+			}
+		},
+		{
+			markup: `<p>
+            When Europeans came to this Country they called this place Cone Bay. We
+            call it Yaloon. The honeybee is the symbol and representative for Country
+            in the area. The Umbagai, Mungulu and Woolagoodja extended families have
+            built a community there and are gradually establishing the resources to
+            move back to their Country permanently.
+        </p>`
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: wudooTim,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'wudooTim',
+				caption: 'Ngamardalee Coast. Photo: Tim Mummery'
+			}
+		}
+	];
 
-		<p>
-			In 1956 the government refused to provide further funds for housing or
-			food supplies for the community unless they moved to the mainland near a
-			township where education, hospitals and supplies were available. After
-			strong arguments against the move, the leadership decided they would move
-			to a church administered community outside Derby where they would be
-			relatively independent from the town. They were promised their own houses,
-			school, shop, church and employment on an adjacent pastoral lease.
-		</p>
+	const wotjulumText = [
+		{
+			markup: `<h3>Wotjulum</h3>`
+		},
+		{
+			component: AudioBlock,
+			props: {
+				source: audioWotjulum
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: iconWotjulum,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'iconWotjulum'
+			}
+		},
+		{
+			markup: `<p>
+            Spears and woomera symbolise the place where members of all three
+            languages, Ngarinyin and Woddordda and Wunambal, lived together at
+            Wotjulum Mission, run by the Presbyterian church. In 1950 Kunmunya and
+            Munja were dismantled. Staff had been evacuated during World War 2 and
+            buildings were run down. Residents were told to move to the coast and
+            build a new combined community.
+        </p>
+        <p>
+            Albert Barunga remembered the ‘tears that came to our eyes’ when his
+            people left Kunmunya and their Wandjina caves: ‘We were the proud
+            Woddordda tribe living on our own soil!’ At Wotjulum everyone worked hard
+            to build the new community. They also continued to hunt and travel along
+            the coast and islands. The mission failed. There were few staff, and a
+            lack of fresh water, and the government’s welfare officers threatened to
+            enforce assimilation policies to separate children from families to go to
+            school in a township. Faced with the breakup of the community they moved
+            again, this time outside their Country to Derby.
+        </p>`
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: wotjulumSam,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'wotjulumSam',
+				caption: `Operating the mission lugger at Wotjulum in about 1951. Jimmy
+                Montgomery, Sam Woolagoodja (looking to the camera) and Andy Marlum.
+                Photo: Fconstcher collection, Mowanjum.`
+			}
+		}
+	];
 
-		<figure>
-			<img src=${signToCommunity} alt="" />
-			<figcaption>
-				The entrance to old Mowanjum community occupied from 1956 to 1977.
-			</figcaption>
-		</figure>
-
-		<figure>
-			<img src=${church} alt="" />
-			<figcaption>
-				Wandjinas representing the three main language groups, Woddordda,
-				Ngarinyin and Wunambal were painted on the wall of the Church, a
-				continuing spiritual presence.
-			</figcaption>
-		</figure>
-
-		<p>
-			In 1977 Mowanjum community was moved again, to its current site along the
-			Gibb River road. The government wanted the land at Old Mowanjum to extend
-			Derby airport, and the water had become salty.
-		</p>
-
-		<figure>
-			<img src=${artCentre} alt="" />
-			<figcaption>
-				TMowanjum Community with the Wandjina shaped Art and Culture Centre,
-				built in 2006.
-			</figcaption>
-		</figure>
-	`;
-
-	const booroolaText = `
-	
-		<h3>Booroola (boab tree) and Derby</h3>
-		<figure>
-			<audio src=${audioBooroola} controls />
-		</figure>
-
-		<figure>
-			<img src=${iconDerby} alt="" />
-		</figure>
-
-		<p>
-			Derby is in Nyikina and Warwar peoples’ area. After being moved from
-			Kunmunya, Munja and again from Wotjulum in 1956, many members of
-			Woddordda, Ngarinyin and Wunambal people came to reside on a community
-			they called Mowanjum ten kilometres outside the township of Derby.
-		</p>
-	`;
-
-	const yaloonText = `
-	
-		<h3>Yaloon</h3>
-
-		<figure>
-			<audio src=${audioYaloon} controls />
-		</figure>
-
-		<figure>
-			<img src=${iconYaloon} alt="" />
-		</figure>
-
-		<p>
-			When Europeans came to this Country they called this place Cone Bay. We
-			call it Yaloon. The honeybee is the symbol and representative for Country
-			in the area. The Umbagai, Mungulu and Woolagoodja extended families have
-			built a community there and are gradually establishing the resources to
-			move back to their Country permanently.
-		</p>
-
-		<figure>
-			<img src=${wudooTim} alt="" />
-			<figcaption>Ngamardalee Coast. Photo: Tim Mummery</figcaption>
-		</figure>
-	`;
-
-	const wotjulumText = `
-	
-		<h3>Wotjulum</h3>
-		<figure>
-			<audio src=${audioWotjulum} controls />
-		</figure>
-
-		<figure>
-			<img src=${iconWotjulum} alt="" />
-		</figure>
-
-		<p>
-			Spears and woomera symbolise the place where members of all three
-			languages, Ngarinyin and Woddordda and Wunambal, lived together at
-			Wotjulum Mission, run by the Presbyterian church. In 1950 Kunmunya and
-			Munja were dismantled. Staff had been evacuated during World War 2 and
-			buildings were run down. Residents were told to move to the coast and
-			build a new combined community.
-		</p>
-
-		<p>
-			Albert Barunga remembered the ‘tears that came to our eyes’ when his
-			people left Kunmunya and their Wandjina caves: ‘We were the proud
-			Woddordda tribe living on our own soil!’ At Wotjulum everyone worked hard
-			to build the new community. They also continued to hunt and travel along
-			the coast and islands. The mission failed. There were few staff, and a
-			lack of fresh water, and the government’s welfare officers threatened to
-			enforce assimilation policies to separate children from families to go to
-			school in a township. Faced with the breakup of the community they moved
-			again, this time outside their Country to Derby.
-		</p>
-
-		<figure>
-			<img src=${wotjulumSam} alt="" />
-			<figcaption>
-				Operating the mission lugger at Wotjulum in about 1951. Jimmy
-				Montgomery, Sam Woolagoodja (looking to the camera) and Andy Marlum.
-				Photo: Fletcher collection, Mowanjum.
-			</figcaption>
-		</figure>
-	`;
-
-	const goolanooText = `
-	
-		<h3>Goolanoo: Koolan and Cockatoo Islands</h3>
-		<figure>
-			<audio src=${audioKoolan_Island} controls />
-		</figure>
-
-		<figure>
-			<img src=${iconKoolan_Island} alt="" />
-		</figure>
-
-		<p>
+	const goolanooText = [
+		{
+			markup: `<h3>Goolanoo: Koolan and Cockatoo Islands</h3>`
+		},
+		{
+			component: AudioBlock,
+			props: {
+				source: audioKoolan_Island
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: iconKoolan_Island,
+				width: '1150',
+				height: '1101',
+				alt: '',
+				galleryId: 'iconKoolan_Island'
+			}
+		},
+		{
+			markup: `<p>
 			Goolanoo is represented by four Wandjinas. Cockatoo Island is called
 			Umbagai.
-		</p>
-	`;
+		</p>`
+		}
+	];
 
-	const iilerddaText = `
-	
-		<h3>Ilerdda</h3>
-		<figure>
-			<audio src=${audioIlerdda} controls />
-		</figure>
+	const iilerddaText = [
+		{
+			markup: `<h3>Ilerdda</h3>`
+		},
+		{
+			component: AudioBlock,
+			props: {
+				source: audioIlerdda
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: iconIlerdda,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'iconIlerdda'
+			}
+		},
+		{
+			markup: `<p>
+            When Europeans came to this Country they called this place Walcott Inconst.
+            We call it Ilerdda. It is the place for the Barramundi which is associated
+            with the creation of the Walcott river. In Barddabardda Wodjenangorddee
+            (2017), Janet Oobagooma explained that ‘after the Woongudd Snake carved
+            out the river by ‘splitting the country’, the Barramundi ‘marked it’, thus
+            creating its distinctive features.’
+        </p>`
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: wudooWalcott,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'wudooWalcott',
+				caption: 'Ngamardalee Coast, Walcott Inconst. Photo: Tim Mummery.'
+			}
+		}
+	];
 
-		<figure>
-			<img src=${iconIlerdda} alt="" />
-		</figure>
+	const munjaText = [
+		{
+			markup: `<h3>Munja</h3>`
+		},
+		{
+			component: AudioBlock,
+			props: {
+				source: audioMunja
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: iconMunja,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'iconMunja'
+			}
+		},
+		{
+			markup: `<p>
+            Munja is symbolised by a kangaroo as it is a significant and important
+            place for Ngarinyin people to meet. Munja is situated at the mouth of the
+            Charnley River. It became a government ration station 1926, closing in
+            1949.
+        </p>`
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: munja9006,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'munja9006',
+				caption:
+					'People coming in to Munja in about 1934, for their tobacco ration. Courtesy the WA Museum, Harold Reid collection, Mowanjum Archive.'
+			}
+		},
+		{
+			markup: `<p>
+            Throughout its operation, Munja was a place of ceremonies and large
+            gatherings. There was no Christian religious education and very little
+            schooling. After it closed, many of the Ngarinyin traditional owners
+            joined Woddordda and Wunambal people at Wotjulum, while others moved to
+            pastoral stations in nearby Country to work.
+        </p>`
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: peanuts,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'peanuts',
+				caption:
+					'Polly Dangarin, Mangaworla and Bella shelling peanuts at Munja, about 1934. Courtesy the WA Museum, Harold Reid collection, Mowanjum Archive.'
+			}
+		}
+	];
 
-		<p>
-			When Europeans came to this Country they called this place Walcott Inlet.
-			We call it Ilerdda. It is the place for the Barramundi which is associated
-			with the creation of the Walcott river. In Barddabardda Wodjenangorddee
-			(2017), Janet Oobagooma explained that ‘after the Woongudd Snake carved
-			out the river by ‘splitting the country’, the Barramundi ‘marked it’, thus
-			creating its distinctive features.’
-		</p>
+	const bandeejanText = [
+		{
+			markup: `<h3>Bandeejan (Pantijan)</h3>`
+		},
+		{
+			component: AudioBlock,
+			props: {
+				source: audioPantijan
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: iconPantijan,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'iconPantijan'
+			}
+		},
+		{
+			markup: `<p>
+            Bandeejan (also referred to as Pantijan) is represented by a turkey,
+            Banardd. This place is significant for Mowanjum people. It is near Munja
+            where Ngarinyin people in particular came into contact with a government
+            institution. It is a pastoral lease that was handed back to Mowanjum
+            people in 1975.
+        </p>`
+		}
+	];
 
-		<figure>
-			<img src=${wudooWalcott} alt="" />
-			<figcaption>
-				Ngamardalee Coast, Walcott Inlet. Photo: Tim Mummery.
-			</figcaption>
-		</figure>
-	`;
+	const wijeengarddeeText = [
+		{
+			markup: `<h3>Wijeengarddee Bard Bard</h3>`
+		},
+		{
+			component: AudioBlock,
+			props: {
+				source: audioWijeengarddee
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: iconWijeengarddee,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'iconWijeengarddee'
+			}
+		},
+		{
+			markup: `<p>
+            When Europeans came to this Country they called this place Freshwater
+            Cove. We call it Wijeengardee. Wijeengardee, the spotted quoll, is a
+            central character in creating the freshwater spring at this site. He was
+            released to his Country after his death by his widow the black headed
+            python. Their actions have created widow and mourning laws that are
+            practiced today.
+        </p>`
+		}
+	];
 
-	const munjaText = `
-	
-		<h3>Munja</h3>
-		<figure>
-			<audio src=${audioMunja} controls />
-		</figure>
+	const kunmunyaText = [
+		{
+			markup: `<h3>Kunmunya</h3>`
+		},
+		{
+			component: AudioBlock,
+			props: {
+				source: audioKunmunya
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: iconKunmunya,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'iconKunmunya'
+			}
+		},
+		{
+			markup: `<p>
+            It is the site of the first Presbyterian mission Port George IV
+            (1912-1950). From 1920 to 1940 Kunmunya Mission was run by Reverend John
+            Love who worked with Aboriginal leaders like Wundunmoi, Ernie Nyimandum
+            and Albert Barunga, to translate some of the Bible into Woddordda, and to
+            create a system of council decision making sensitive to the existing
+            culture and politics of the people.
+        </p>`
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: kunmuyaImage,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'kunmuyaImage',
+				caption:
+					'Kunmunya Mission buildings in Woddordda Country, about 1925. Photographer unknown. Pudja Barunga Collection, Port George IV Album, Mowanjum.'
+			}
+		},
+		{
+			markup: `<p>
+            Love encouraged the continued use of Woddordda language. Woddordda leaders
+            like Sam Woolagoodja, Elkin Umbagai, Albert Barunga and Daisy Utemorrah
+            grew up at the mission deeply connected to their saltwater culture and
+            languages. They operated the mission lugger, visited their Wandjina sites
+            and islands, and worked to build the mission houses, church and gardens.
+            Kunmunya closed in 1948 and many of the people moved to Wotjulum Mission
+            further south.
+        </p>`
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: kunmunyaField,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'kunmunyaField',
+				caption:
+					'Working in Kunmunya gardens about 1925. Photographer unknown. Photographer unknown. Pudja Barunga Collection, Port George IV Album, Mowanjum.'
+			}
+		}
+	];
 
-		<figure>
-			<img src=${iconMunja} alt="" />
-		</figure>
+	const marmbulbarddaText = [
+		{
+			markup: `<h3>Marmbulbardda</h3>`
+		},
+		{
+			component: AudioBlock,
+			props: {
+				source: audioMarmbulbardda
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: iconMarmbulbardda,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'iconMarmbulbardda'
+			}
+		},
+		{
+			markup: `<p>
+            When Europeans came to this Country they called this place King’s Cascade.
+            We call it Marmbulbardda. Represented by Djirlbun the bowerbird, in the
+            Country belonging to the Morlumbun group.
+        </p>`
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: wudooWalcott2,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'wudooWalcott2',
+				caption: 'Wudoo Ngamardalee Coast. Photo: Tim Mummery.'
+			}
+		}
+	];
 
-		<p>
-			Munja is symbolised by a kangaroo as it is a significant and important
-			place for Ngarinyin people to meet. Munja is situated at the mouth of the
-			Charnley River. It became a government ration station 1926, closing in
-			1949.
-		</p>
+	const ngamardaleeText = [
+		{
+			markup: `<h3>Ngamardalee</h3>`
+		},
+		{
+			component: AudioBlock,
+			props: {
+				source: audioNgamardalee
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: iconNgamardalee,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'iconNgamardalee'
+			}
+		},
+		{
+			markup: `<p>
+            Ngamardalee is a powerful Wandjina, the source of significant laws and
+            customs for Woddordda people. When Elders warm their hands with smoke and
+            fire, and touch and talk to babies during the Wudoo smoking ceremony, they
+            are transmitting Ngamardalee's words, laws and purpose.
+        </p>`
+		},
+		{
+			markup: `<iframe
+            width="100%"
+            height="400"
+            src="https://www.youtube.com/embed/kXm6zGmjN2U?rel=0&amp;modestbranding=1?rel=0"
+            title="YouTube video player"
+            frameBorder="0"
+            allowFullScreen
+        ></iframe>`
+		}
+	];
 
-		<figure>
-			<img src=${munja9006} alt="" />
-			<figcaption>
-				People coming in to Munja in about 1934, for their tobacco ration.
-				Courtesy the WA Museum, Harold Reid collection, Mowanjum Archive.
-			</figcaption>
-		</figure>
+	const wudooText = [
+		{
+			markup: `<h3>Wudoo</h3>`
+		},
+		{
+			component: QuoteInline,
+			props: {
+				caption: '~ Leah Umbagai, 2022.',
+				text: `This is when the Law of the Country starts because a child is
+                    important from the beginning.`
+			}
+		},
+		{
+			component: ImageSingle,
+			props: {
+				source: wudooShontae,
+				width: '',
+				height: '',
+				alt: '',
+				galleryId: 'wudooShontae',
+				caption:
+					'Shontae Charles, Yorna Woolagoodja with baby Marlena and Kallem Mungulu at Manggajadda during the Wudoo ceremony, 2022. Photo: Sahyma Lachman.'
+			}
+		},
+		{
+			markup: `<p>
+            The Wudoo project is about ceremonies to bless children, to nurture them
+            and make them strong. Elders put their hands on the smoke and then toward
+            the child and touch certain areas of the child. As they touch they explain
+            what each area means and what is the Law around it. All three groups,
+            Woddordda, Ngarinyin and Wunambal are associated with the Wudoo ceremony.
+            It has to be performed every time a baby is born.
+        </p>`
+		},
+		{
+			markup: `<iframe
+            width="100%"
+            height="400"
+            src="https://www.youtube.com/embed/6iUxZzuPrEs?rel=0&amp;modestbranding=1?rel=0"
+            title="YouTube video player"
+            frameBorder="0"
+            allowFullScreen
+        ></iframe>`
+		}
+	];
 
-		<p>
-			Throughout its operation, Munja was a place of ceremonies and large
-			gatherings. There was no Christian religious education and very little
-			schooling. After it closed, many of the Ngarinyin traditional owners
-			joined Woddordda and Wunambal people at Wotjulum, while others moved to
-			pastoral stations in nearby Country to work.
-		</p>
+	let infoBox;
 
-		<figure>
-			<img src=${peanuts} alt="" />
-			<figcaption>
-				Polly Dangarin, Mangaworla and Bella shelling peanuts at Munja, about
-				1934. Courtesy the WA Museum, Harold Reid collection, Mowanjum Archive.
-			</figcaption>
-		</figure>
-	`;
+	import NewModal from '$lib/layout/NewModal.svelte';
+	let showModal = false;
+	let heading = '';
+	let modalContent = '';
 
-	const bandeejanText = `
-	
-		<h3>Bandeejan (Pantijan)</h3>
-		<figure>
-			<audio src=${audioPantijan} controls />
-		</figure>
-
-		<figure>
-			<img src=${iconPantijan} alt="" />
-		</figure>
-
-		<p>
-			Bandeejan (also referred to as Pantijan) is represented by a turkey,
-			Banardd. This place is significant for Mowanjum people. It is near Munja
-			where Ngarinyin people in particular came into contact with a government
-			institution. It is a pastoral lease that was handed back to Mowanjum
-			people in 1975.
-		</p>
-	`;
-
-	const wijeengarddeeText = `
-	
-		<h3>Wijeengarddee Bard Bard</h3>
-		<figure>
-			<audio src=${audioWijeengarddee} controls />
-		</figure>
-
-		<figure>
-			<img src=${iconWijeengarddee} alt="" />
-		</figure>
-
-		<p>
-			When Europeans came to this Country they called this place Freshwater
-			Cove. We call it Wijeengardee. Wijeengardee, the spotted quoll, is a
-			central character in creating the freshwater spring at this site. He was
-			released to his Country after his death by his widow the black headed
-			python. Their actions have created widow and mourning laws that are
-			practiced today.
-		</p>
-	`;
-
-	const kunmunyaText = `
-	
-		<h3>Kunmunya</h3>
-		<figure>
-			<audio src=${audioKunmunya} controls />
-		</figure>
-
-		<figure>
-			<img src=${iconKunmunya} alt="" />
-		</figure>
-
-		<p>
-			It is the site of the first Presbyterian mission Port George IV
-			(1912-1950). From 1920 to 1940 Kunmunya Mission was run by Reverend John
-			Love who worked with Aboriginal leaders like Wundunmoi, Ernie Nyimandum
-			and Albert Barunga, to translate some of the Bible into Woddordda, and to
-			create a system of council decision making sensitive to the existing
-			culture and politics of the people.
-		</p>
-
-		<figure>
-			<img src=${kunmuyaImage} alt="" />
-			<figcaption>
-				Kunmunya Mission buildings in Woddordda Country, about 1925.
-				Photographer unknown. Pudja Barunga Collection, Port George IV Album,
-				Mowanjum.
-			</figcaption>
-		</figure>
-
-		<p>
-			Love encouraged the continued use of Woddordda language. Woddordda leaders
-			like Sam Woolagoodja, Elkin Umbagai, Albert Barunga and Daisy Utemorrah
-			grew up at the mission deeply connected to their saltwater culture and
-			languages. They operated the mission lugger, visited their Wandjina sites
-			and islands, and worked to build the mission houses, church and gardens.
-			Kunmunya closed in 1948 and many of the people moved to Wotjulum Mission
-			further south.
-		</p>
-
-		<figure>
-			<img src=${kunmunyaField} alt="" />
-			<figcaption>
-				Working in Kunmunya gardens about 1925. Photographer unknown.
-				Photographer unknown. Pudja Barunga Collection, Port George IV Album,
-				Mowanjum.
-			</figcaption>
-		</figure>
-	`;
-
-	const marmbulbarddaText = `
-	
-		<h3>Marmbulbardda</h3>
-		<figure>
-			<audio src=${audioMarmbulbardda} controls />
-		</figure>
-
-		<figure>
-			<img src=${iconMarmbulbardda} alt="" />
-		</figure>
-
-		<p>
-			When Europeans came to this Country they called this place King’s Cascade.
-			We call it Marmbulbardda. Represented by Djirlbun the bowerbird, in the
-			Country belonging to the Morlumbun group.
-		</p>
-
-		<figure>
-			<img src=${wudooWalcott2} alt="" />
-			<figcaption>Wudoo Ngamardalee Coast. Photo: Tim Mummery.</figcaption>
-		</figure>
-	`;
-
-	const ngamardaleeText = `
-	
-		<h3>Ngamardalee</h3>
-		<figure>
-			<audio src=${audioNgamardalee} controls />
-		</figure>
-
-		<figure>
-			<img src=${iconNgamardalee} alt="" />
-		</figure>
-
-		<p>
-			Ngamardalee is a powerful Wandjina, the source of significant laws and
-			customs for Woddordda people. When Elders warm their hands with smoke and
-			fire, and touch and talk to babies during the Wudoo smoking ceremony, they
-			are transmitting Ngamardalee's words, laws and purpose.
-		</p>
-
-		<iframe
-			width="100%"
-			height="400"
-			src="https://www.youtube.com/embed/kXm6zGmjN2U?rel=0&amp;modestbranding=1?rel=0"
-			title="YouTube video player"
-			frameBorder="0"
-			allowFullScreen
-		></iframe>
-	`;
-
-	const wudooText = `
-	
-		<h3>Wudoo</h3>
-
-		<figure>
-			<blockquote class="quote">
-				<p>
-					This is when the Law of the Country starts because a child is
-					important from the beginning.
-				</p>
-				<figcaption>~ Leah Umbagai, 2022.</figcaption>
-			</blockquote>
-		</figure>
-
-		<figure>
-			<img src=${wudooShontae} alt="" />
-			<figcaption>
-				Shontae Charles, Yorna Woolagoodja with baby Marlena and Kallem Mungulu
-				at Manggajadda during the Wudoo ceremony, 2022. Photo: Sahyma Lachman.
-			</figcaption>
-		</figure>
-
-		<p>
-			The Wudoo project is about ceremonies to bless children, to nurture them
-			and make them strong. Elders put their hands on the smoke and then toward
-			the child and touch certain areas of the child. As they touch they explain
-			what each area means and what is the Law around it. All three groups,
-			Woddordda, Ngarinyin and Wunambal are associated with the Wudoo ceremony.
-			It has to be performed every time a baby is born.
-		</p>
-
-		<iframe
-			width="100%"
-			height="400"
-			src="https://www.youtube.com/embed/6iUxZzuPrEs?rel=0&amp;modestbranding=1?rel=0"
-			title="YouTube video player"
-			frameBorder="0"
-			allowFullScreen
-		></iframe>
-	`;
-
-	let infoText = `
-	<div class="default-text">
-		<hr />
-		<h3>Interactive map</h3>
-		<p>Click an icon to learn more</p>
-		<hr />
-	</div>
-    `;
-
-    let infoBox;
-
-	const handleClick = (text) => {
-        infoText = text;
-        infoBox.scrollTop = 0;
-    }
-
+	function handleClick(text) {
+		showModal = true;
+		modalContent = text;
+		infoBox.scrollTop = 0;
+	}
 </script>
 
 <div class="mudmap-layout">
-	<div id="myModal" class="info" bind:this={infoBox}>
-		{@html infoText}
-	</div>
+	<NewModal bind:showModal bind:this={infoBox} content={modalContent}>
+	</NewModal>
 	<div>
 		<svg
 			version="1.1"
@@ -524,7 +716,11 @@
 				transform="matrix(0.24 0 0 0.24 -0.72 -0.32)"
 			/>
 
-			<g id="Munggajaddaa" class="munggajaddaa" on:click={() => handleClick(manggajaddaaText)}>
+			<g
+				id="Munggajaddaa"
+				class="munggajaddaa"
+				on:click={() => handleClick(manggajaddaaText, (heading = 'Manggajaddaa'))}
+			>
 				<image
 					overflow="visible"
 					width="862"
@@ -670,24 +866,22 @@
 
 <style>
 	.mudmap-layout {
-		border: 2px solid #d5b67b;
-		padding: 1.6rem;
 		width: 100%;
 		height: 100%;
+		min-height: 100vh;
 		display: flex;
 		flex-direction: column-reverse;
 		justify-content: center;
 		align-items: center;
-
-		margin-bottom: 4rem;
 	}
-
+	
 	.mudmap-layout > div {
 		width: 100%;
 		max-width: 600px;
 	}
-
+	
 	svg {
+		border-radius: var(--radius-corner);
 		height: 100%;
 	}
 	svg g image:hover {

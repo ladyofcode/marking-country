@@ -34,7 +34,9 @@
 			throw new Error('Must set either bounds, or view and zoom.');
 		}
 
-		map = L.map(mapElement).on('zoom', (e) => dispatch('zoom', e));
+		map = L.map(mapElement, {
+			scrollWheelZoom: false
+		}).on('zoom', (e) => dispatch('zoom', e));
 
 		L.tileLayer(
 			'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
@@ -42,11 +44,6 @@
 				attribution: `Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community`
 			}
 		).addTo(map);
-
-		// L.marker([-18.32709134868065, 122.06498032635169], { icon: greenPin })
-		// 	.addTo(map)
-		// 	.bindPopup(`<h3>Miriny Gujarra</h3>
-		//     <p>Also known as Cape Villaret.</p>`);
 
 		L.marker([-18.32709134868065, 122.06498032635169], { icon: greenPin }).addTo(map)
 			.bindPopup(`<h3>Miriny Gujarra</h3>
@@ -130,7 +127,7 @@
 	.broome-container {
 		position: relative;
 		min-height: 600px;
-		height: 600px;
+		height: var(--height-viewable);
 		width: 100%;
 	}
 </style>

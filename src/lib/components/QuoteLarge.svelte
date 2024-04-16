@@ -59,18 +59,19 @@
 
 <style>
 	.quote-fullscreen-container {
-		background-color: #21201f;
+		background-color: var(--clr-dark-contrast);
 		min-height: 64vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		margin: var(--space-xxxxl) 0;
 	}
 
 	figure {
-        position: relative;
-        max-width: 80vw;
-        padding: 2.4rem;
+		position: relative;
+		max-width: 80vw;
+		padding: 2.4rem;
 	}
 
 	blockquote {
@@ -88,15 +89,18 @@
 
 	.line {
 		position: absolute;
-        left: 0;
-        width: 2px; /* Width of the line */
-        height: 100%; /* Full height of the parent */
-        background-color: var(--clr-terracotta);
-        transform-origin: center;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 2px;
+		margin: var(--space-xxxl) 0;
+		background-color: var(--clr-clay);
+		transform-origin: center;
+		border-radius: var(--radius-corner);
 	}
 
 	.quote-fullscreen-container :global(p) {
-		color: var(--clr-terracotta);
+		color: var(--clr-clay);
 		font-size: 1.6rem;
 		margin-top: 1rem;
 	}
@@ -104,19 +108,19 @@
 	blockquote:before {
 		content: '';
 		position: absolute;
-		top: 0;
-		left: 50%;
-		height: 4px;
-		margin-top: -3px;
-		margin-left: -1em;
-		width: 4rem;
-		background-color: #21201f;
-	} 
+		left: -50px;
+		top: 50%;
+		height: var(--space-xxxl);
+		margin: 0;
+		margin-top: -1rem;
+		width: 2rem;
+		background-color: var(--clr-dark-contrast);
+	}
 
 	blockquote:after {
 		content: '“';
 		position: absolute;
-		color: var(--clr-terracotta);
+		color: var(--clr-clay);
 		font-style: normal;
 		font-size: 4rem;
 		text-align: center;
@@ -124,7 +128,7 @@
 		width: 1rem;
 		transition: 0.2s all ease-in-out, 0.4s transform ease-in-out;
 		line-height: 1rem;
-		left: -0.5rem;
+		left: -3rem;
 		top: 50%;
 		margin: 0;
 		margin-top: 0.5rem;
@@ -137,7 +141,7 @@
 		text-align: right !important;
 		line-height: 1.8em;
 		width: 100%;
-		color: #ffffff;
+		color: var(--clr-text);
 	}
 
 	@media (min-width: 900px) {
@@ -152,20 +156,16 @@
 		}
 
 		blockquote:before {
-			left: -4px;
-			top: 50%;
-			height: 2rem;
-			margin: 0;
-			margin-top: -1em;
-			width: 2rem;
+			left: -15px;
 		}
+
 		blockquote:after {
-			line-height: 1rem;
-			font-size: 4rem;
 			left: -0.5rem;
-			top: 50%;
+		}
+
+		.line {
+			height: 100%;
 			margin: 0;
-			margin-top: 0.5rem;
 		}
 
 		.quote-fullscreen-container :global(p) {

@@ -46,16 +46,7 @@
 			0
 		);
 
-		const scrollUpTrigger = ScrollTrigger.create({
-			trigger: header,
-			start: 'top top',
-			end: 'bottom 10%',
-			onEnterBack: () => {
-				gsap.to(window, { duration: 0.5, scrollTo: { y: header.offsetTop, autoKill: false } });
-			}
-		});
-
-		triggers.push(paneAnimation, titleAnimation, gradientAnimation, scrollUpTrigger);
+		triggers.push(paneAnimation, titleAnimation, gradientAnimation);
 	});
 
 	onDestroy(() => {
@@ -98,9 +89,10 @@
 	header {
 		width: 100%;
 		height: 100%;
-		overflow-y: scroll;
+		overflow-y: hidden;
 		position: relative;
 		margin-bottom: var(--space-xxxl);
+		padding-bottom: var(--space-xxxl);
 	}
 
 	img {
@@ -146,7 +138,6 @@
 		padding: var(--space-xxl);
 		z-index: 4;
 		background: var(--glass-clr-bg);
-		/* box-shadow: var(--glass-box-shadow); */
 		backdrop-filter: var(--glass-backdrop-filter);
 		-webkit-backdrop-filter: var(--glass-webkit-backdrop-filter);
 		border-radius: var(--glass-border-radius);
@@ -165,7 +156,7 @@
 	}
 
 	h2 {
-		/* text-transform: uppercase; */
+		color: var(--clr-text);
 		font-weight: 400;
 		margin-top: 0.8rem;
 		font-size: 1.6rem;

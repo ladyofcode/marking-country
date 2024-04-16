@@ -11,8 +11,8 @@
 	const switcherLinks = [];
 
 	const sound = `${base}/stories/woddorda-ngarinyin-intro/audio/sound-intro-wudoo_final.mp3`;
-	const marardda = `${base}/stories/woddorda-ngarinyin-intro/images/marardda_navTile.png`;
-	const ngamardalee = `${base}/stories/woddorda-ngarinyin-intro/images/ngamardalee_navTile.png`;
+	const marardda = `${base}/stories/woddorda-ngarinyin-intro/images/marardda_navTile.jpg`;
+	const ngamardalee = `${base}/stories/woddorda-ngarinyin-intro/images/ngamardalee_navTile.jpg`;
 
 	let triggers = [],
 		containers = [];

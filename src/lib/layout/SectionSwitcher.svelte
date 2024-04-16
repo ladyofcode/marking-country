@@ -17,27 +17,27 @@
 	}
 
 	function closeMenuOnClickOutside(event) {
-		if (
-			menuButtonRef &&
-			!menuButtonRef.contains(event.target) &&
-			labelRef &&
-			!labelRef.contains(event.target) &&
-			ulRef &&
-			!ulRef.contains(event.target)
-		) {
-			menuChecked = false;
-		}
+		// if (
+		// 	menuButtonRef &&
+		// 	!menuButtonRef.contains(event.target) &&
+		// 	labelRef &&
+		// 	!labelRef.contains(event.target) &&
+		// 	ulRef &&
+		// 	!ulRef.contains(event.target)
+		// ) {
+		// 	menuChecked = false;
+		// }
 	}
 
 	onMount(() => {
 		ScrollTrigger.normalizeScroll(true);
 
-		smoother = ScrollSmoother.create({
-			content: '.smooth-content',
-			smooth: 2,
-			effects: true,
-			normalize: true
-		});
+		// smoother = ScrollSmoother.create({
+		// 	content: '.smooth-content',
+		// 	smooth: 2,
+		// 	effects: true,
+		// 	normalize: true
+		// });
 
 		// Listen for clicks to close the menu if clicked outside
 		document.addEventListener('click', closeMenuOnClickOutside);
@@ -56,7 +56,7 @@
 	});
 </script>
 
-<nav class="wrapper" class:lower-z={$openSwitcher}>
+<nav class="wrapper {menuChecked ? 'open' : ''}" class:lower-z={$openSwitcher}>
 	<input
 		type="checkbox"
 		class="menu-button"
@@ -89,9 +89,13 @@
 		flex-direction: row;
 		z-index: 990;
 		top: 80px;
+		width: 0;
 		right: 0;
 		opacity: 1;
-		transition: opacity 0.5s ease-in-out, z-index 0s linear 0.5s;
+		transition: width 0.5s ease-in-out, opacity 0.5s ease-in-out, z-index 0s linear 0.5s;
+	}
+	.wrapper.open {
+		width: 320px;
 	}
 
 	.wrapper.lower-z {

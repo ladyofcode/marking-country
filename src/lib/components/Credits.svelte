@@ -70,14 +70,14 @@
 <div class="wrapper" bind:this={wrapper}>
 	<div class="container" bind:this={container}>
 		<h2>Credits</h2>
+		<div bind:this={text}>
+			<slot />
+		</div>
 		<div class="credits">
 			{#each credits as credit, i}
 				<p bind:this={titles[i]}><strong>{credit.title}</strong></p>
 				<p bind:this={names[i]}>{credit.names}</p>
 			{/each}
-		</div>
-		<div bind:this={text}>
-			<slot />
 		</div>
 	</div>
 </div>
@@ -91,7 +91,7 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.container{
+	.container {
 		max-width: var(--width-content);
 	}
 	.credits {

@@ -6,25 +6,35 @@
 
 	let dialog; // HTMLDialogElement
 
-	$: if (dialog && showModal) dialog.showModal();
+	$: if (dialog) {
+		if (showModal) {
+			dialog.showModal();
+		} else {
+			dialog.close();
+		}
+	}
 
 	let background = `${base}/images/acknowledgement_background.jpg`;
 	let handleClick;
 
 	onMount(() => {
+		const acknowledgementSeen = JSON.parse(window.localStorage.getItem('ACKNOWLEDGEMENT_MODAL'));
+		if (acknowledgementSeen) {
+			showModal = false; // Don't show the modal if it's already been acknowledged.
+		} else {
+			showModal = true; // This will trigger the modal to open if not acknowledged.
+		}
+
 		handleClick = () => {
 			dialog.close();
-			window.localStorage.setItem('ACKNOWLEDGEMENT_MODAL', JSON.stringify(showModal));
+			showModal = false; // Ensure showModal is updated to prevent reopening.
+			window.localStorage.setItem('ACKNOWLEDGEMENT_MODAL', JSON.stringify(true)); // Store that modal was acknowledged.
 		};
 	});
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
-<dialog
-	bind:this={dialog}
-	on:close={() => (showModal = false)}
-	
->
+<dialog bind:this={dialog} on:close={() => (showModal = false)}>
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<img src={background} alt="" />
 	<div class="wrapper" on:click|stopPropagation>
@@ -51,6 +61,7 @@
 	dialog {
 		/* max-width: 32em; */
 		/* border-radius: 0.2em; */
+		display: none;
 		overflow: hidden;
 		border: none;
 		padding: 0;
@@ -59,6 +70,7 @@
 		width: 100%;
 		height: 100%;
 		background-color: black;
+		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.585);
@@ -67,7 +79,7 @@
 		padding: 1em;
 	} */
 	dialog[open] {
-		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+		display: block;
 	}
 	.wrapper {
 		overflow: hidden;
@@ -135,7 +147,7 @@
 			padding: 4em;
 			font-size: 1.6rem;
 		}
-		button{
+		button {
 			margin-top: 4rem;
 		}
 	}

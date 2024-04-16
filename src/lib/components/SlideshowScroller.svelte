@@ -9,7 +9,7 @@
 	import ImageFull from './ImageFull.svelte';
 	import QuoteInline from './QuoteInline.svelte';
 	import LearnMoreBox from './LearnMoreBox.svelte';
-	import { YouTube } from 'sveltekit-embed';
+	// import { YouTube } from 'sveltekit-embed';
 
 	let markupContent = [],
 		desktopContent = [],
@@ -17,7 +17,7 @@
 		triggers = [],
 		mobileContentSection = [];
 
-	let gallery, mobilePhotoContainer;
+	let gallery, mobilePhotoContainer, right;
 
 	onMount(() => {
 		const photos = gsap.utils.toArray(desktopPhotos.slice(1));
@@ -83,7 +83,7 @@
 				trigger: gallery,
 				start: 'top top',
 				end: 'bottom bottom',
-				pin: '.right'
+				pin: right
 			});
 
 			//create scrolltrigger for each details section
@@ -142,7 +142,7 @@
 		</div>
 	</div>
 
-	<div class="right">
+	<div class="right" bind:this={right}>
 		<div class="mobileContent">
 			<div class="mobilePhoto" bind:this={mobilePhotoContainer}>
 				{#each content as { markup, image, youtube }, i}

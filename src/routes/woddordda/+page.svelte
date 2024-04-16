@@ -36,7 +36,7 @@
 		'Leah_Umbagai_Wudoo_Tim_Mummery_10072022.jpg',
 		'Mudmap_01.jpg',
 		'Namarali_Olympics02.jpg',
-		'RaftPoint_s_lachman.png',
+		'RaftPoint_s_lachman.jpg',
 		'Yorna_post_painting_Namarali_2002.jpg',
 		'langgi_S_Lachman.jpg',
 		'namarali_langgi.jpg',
@@ -233,8 +233,8 @@
 				component: ImageSingle,
 				props: {
 					source: singleImages.Yorna_Woolagoodja_repaints_Namardarlee_2002,
-					width: '367',
-					height: '550',
+					width: '1400',
+					height: '2100',
 					caption: 'Yorna Woolagoodja refreshing Ngamardarlee in 2002. Photo: Sahyma Lachman.',
 					alt: "Yorna Woolagoodja is using his hands and paint to reach up and 'refresh' a rock painting of Ngarmadalee on an overhanging rock shelter.",
 					galleryId: 'repaints'
@@ -274,8 +274,8 @@
 				component: ImageSingle,
 				props: {
 					source: singleImages.langgi_S_Lachman,
-					width: '2571',
-					height: '1714',
+					width: '1400',
+					height: '933',
 					caption:
 						'Langgee, the rocks that are evidence of the Wandjina battle that killed Ngamardalee. Photo: Sahyma Lachman.',
 					alt: 'Dark vertical rocks of different shapes and sizes, standing upright in sand along a beach. In the background is a small reddish cliff with a rise covered in trees on the top, and on the other side of the rise is another sandy beach, more rocks and more trees.',
@@ -321,6 +321,8 @@
 		their tireless efforts to share their knowledge for future generations.
 	</p>
 </Warning>
+
+<WoddorddaMap />
 
 <Header
 	image={singleImages.woddordda_header}
@@ -401,10 +403,11 @@
 
 	<ImageSingle
 		source={singleImages.Mudmap_01}
-		width="533"
-		height="533"
+		width="1400"
+		height="1402"
 		alt="Map showing the changes to the coastline of Woddordda Country, and includes symbols painted by Leah Umbagai, such as fireplace with red flames and a hand outstretched over the fire; the head and face of a baby; as well as animals, including a brolga, a kangaroo, a quoll, a snake."
 		caption="Map of Woddordda Country by Leah Umbagai."
+		galleryId="Mudmap_01"
 	/>
 
 	<p><a href="#interactive-map">» View the interactive map </a></p>
@@ -463,11 +466,12 @@
 
 	<ImageSingle
 		source={singleImages.RaftPoint_s_lachman}
-		width="2246"
-		height="1080"
+		width="1400"
+		height="673"
 		alt="Rock art painted on a vertical rock wall and on a horizontal, overhanging rock shelter. The figures include fish and two figures with human-like faces. The outlines of the paintings are in a dark red colour."
 		caption="Raft Point Rock Art. A gallery of rock art on the coast that is associated with the story of
 	the woman who poked the eye of the sea. Photo: Sahyma Lachman."
+		galleryId="RaftPoint_s_lachman"
 	/>
 
 	<p>

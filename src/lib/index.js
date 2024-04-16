@@ -3,9 +3,12 @@
 export { default as AiatsisMap } from './components/leaflet/AiatsisMap.svelte';
 export { default as AudioBlock } from './components/AudioBlock.svelte';
 export { default as Bios } from './components/Bios.svelte';
+export { default as CaptionScroller } from './components/CaptionScroller.svelte';
 export { default as Citations } from './components/Citations.svelte';
 export { default as Collapsible } from './components/Collapsible.svelte';
 export { default as Credits } from './components/Credits.svelte';
+export { default as EmbedYouTube } from './components/EmbedYouTube.svelte';
+export { default as FileDownload } from './components/FileDownload.svelte';
 export { default as FullScreenStop } from './components/FullScreenStop.svelte';
 export { default as GalleryOne } from './components/carnarvon/GalleryOne.svelte';
 export { default as GalleryTwo } from './components/carnarvon/GalleryTwo.svelte';
@@ -26,8 +29,10 @@ export { default as ScrollingCaption } from './components/ScrollingCaption.svelt
 export { default as ScrollStop } from './components/ScrollStop.svelte';
 export { default as SideScroller } from './components/SideScroller.svelte';
 export { default as SlideshowScroller } from './components/SlideshowScroller.svelte';
+export { default as Transcript } from './components/Transcript.svelte';
 export { default as TwoColumnContent } from './layout/TwoColumnContent.svelte';
 export { default as TwoColumns } from './layout/TwoColumns.svelte';
+export { default as VideoScrubber } from './components/VideoScrubber.svelte';
 export { default as WalkOne } from './components/carnarvon/WalkOne.svelte';
 export { default as WalkTwo } from './components/carnarvon/WalkTwo.svelte';
 export { default as Warning } from './components/Warning.svelte';

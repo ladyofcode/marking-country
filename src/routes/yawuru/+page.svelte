@@ -1,8 +1,6 @@
 <script>
-	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
-	import { YouTube } from 'sveltekit-embed';
 
 	import {
 		Header,
@@ -68,7 +66,9 @@
 		'15_IMG_0814.jpg',
 		'16_IMG_3011.jpg',
 		'17_IMG_2983.jpg',
-		'18_Storm.mp4'
+		'18_Storm.mp4',
+		'arriving_poster.jpg',
+		'storm_poster.jpg',
 	];
 
 	const slideStationFilenames = [
@@ -118,95 +118,95 @@
 
 	const slider = [
 		{
-			url: makingImages[0],
+			type: 'image', url: makingImages[0], width:'2400', height: '1800',
 			caption:
 				'Naomi Appleby, Susan Yu, Ann McGrath and Shirleen Robinson out the front of NBY Ltd.',
 			alt: 'Naomi Appleby, Susan Yu, Ann McGrath and Shirleen Robinson out the front of NBY Ltd.'
 		},
 		{
-			url: makingImages[1],
+			type: 'image', url: makingImages[1], width:'2400', height: '1800',
 			caption: 'Jimmy Edgar and Ben Silverstein sitting inside at NBY Ltd.',
 			alt: 'Jimmy Edgar and Ben Silverstein sitting at a table inside at NBY. There is a recording device on the table between them, and Ben has his computer open and is looking at some printed text on paper.'
 		},
 		{
-			url: makingImages[2],
+			type: 'image', url: makingImages[2], width:'2400', height: '1800',
 			caption: 'Lloyd Pigram, Susan Edgar, Chad Sloan and Mike Jones.',
 			alt: 'Lloyd Pigram, Susan Edgar, Chad Sloan and Mike Jones, sitting at an outdoor table at the Magrove Hotel.'
 		},
 		{
-			url: makingImages[3],
+			type: 'image', url: makingImages[3], width:'2400', height: '1600',
 			caption: 'Lloyd Pigram and Ben Silverstein at the Roebuck Bay Lookout.',
 			alt: 'Lloyd Pigram and Ben Silverstein at the Roebuck Bay Lookout.'
 		},
 		{
-			url: makingImages[4],
+			type: 'image', url: makingImages[4], width:'2400', height: '1600',
 			caption: 'Thomas Edgar on Didirrgun, Kennedy Hill.',
 			alt: 'Thomas Edgar on Didirrgun, Kennedy Hill.'
 		},
 		{
-			url: makingImages[5],
+			type: 'image', url: makingImages[5], width:'2400', height: '1800',
 			caption: 'Thomas is holding the gate open as a white Toyota 4WD drives through.',
 			alt: 'Thomas is holding the gate open as a white Toyota 4WD drives through.'
 		},
 		{
-			url: makingImages[6],
-			caption: 'Video taken from inside the car of driving into Thangoo Station. ',
+			type: 'video', url: makingImages[6], width:'960', height: '540', poster: makingImages[18],
+			caption: 'Video taken from inside the car of driving into Thangoo Station.',
 			alt: 'It shows a group of brown Brahman cattle standing in the shade of some trees. At the end of the trees is a wide, freen plain. Another car can be seen driving slowly along the track in front.'
 		},
 		{
-			url: makingImages[7],
+			type: 'image', url: makingImages[7], width:'2400', height: '1600',
 			caption: 'Sarah Yu, Thomas Edgar, Ben Silverstein and Dianne Appleby at Janyagurdiny.',
 			alt: 'They are all standing next to a white Toyota 4WD. Sarah is writing something in a notebook. Dianne is pointing towards something and Ben and Thomas are looking at. Ben is holding a voice recorder. It has a face mask over the microphone. Diane, Ben and Sarah are wearing facemasks.'
 		},
 		{
-			url: makingImages[8],
+			type: 'image', url: makingImages[8], width:'2400', height: '1600',
 			caption: 'A jalangardu (goanna) watching us share stories at Janyjagurdiny.',
 			alt: 'A goanna in the shade undernearth a green bush.'
 		},
 		{
-			url: makingImages[9],
+			type: 'image', url: makingImages[9], width:'2400', height: '1600',
 			caption: 'Ben Silverstein, Dianne Appleby, and Thomas Edgar.',
 			alt: "Ben, Dianne and Thomas are standing together talking. There's an electric fence in the background with trees behind it. Dianne is gesturing. Thomas is looking at Ben. Ben is looking at Diane. Ben holds a sound recording with a facemask over the microphone."
 		},
 		{
-			url: makingImages[10],
+			type: 'image', url: makingImages[10], width:'2400', height: '1800',
 			caption: 'Thomas Edgar, Mike Hones abnd Diane Appleby',
 			alt: 'Thomas, Mike, and Diane standing the shade of a tree. Thomas has his hands on his hips and is looking at Diane, Diane is speaking, and Mike is holding a sound recorder that has a face mask over the microphone.'
 		},
 		{
-			url: makingImages[11],
+			type: 'image', url: makingImages[11], width:'2400', height: '1600',
 			caption: 'Thomas Edgar.',
 			alt: 'Close up photo of Thomas Edgar.'
 		},
 		{
-			url: makingImages[12],
+			type: 'image', url: makingImages[12], width:'2400', height: '1800',
 			caption:
 				'Thomas Edgar, Mike Jones, Diane Appleby and Ben Silverstein at the entrace to Thangoo Station.',
 			alt: "Thomas, Diane, Mike and Ben stand on in front of the white metal gate across the road into Thangoo station. The track is red sand and there are trees insude the gate. Thomas has his elbow resting on the top of the gate and Mike is holding a camera that is on a strap around his neck. On the right side of the gate, there are two signs on the fence. The biggest sign is at the top of the gate and reads: 'PRIVATE ROAD: STATION BUSINESS ONLY.' The second sign is smaller and reads 'NO ACCESS TO COAST THANGOO PTY LTD.'"
 		},
 		{
-			url: makingImages[13],
+			type: 'image', url: makingImages[13], width:'2400', height: '1800',
 			caption: 'Mike Jones, Lloyd Pigram, and Susan Edgar working on Jangu yirr Janyjadurdiny.',
 			alt: "Lloyd is pointing to a document projected onto a screen with the title 'Jangu yirr Janyjadurdingy: murra mala nyurdany, Holding Yawuru cultural knowledge on Country at Thangoo Station- WHY?'"
 		},
 		{
-			url: makingImages[14],
+			type: 'image', url: makingImages[14], width:'2400', height: '1800',
 			caption:
 				'Janet Cox, Jimmy edgar, Andy James Jr., Thomas Edgar and Ben Silverstein at NBY Ltd.',
 			alt: 'Janet Cox, Jimmy edgar, Andy James Jr., Thomas Edgar and Ben Silverstein are sitting around a square table, all looking in the same direction. There are some drinks and food on the table, as well as a voice recorder. Ben has a notepad and pen in his lap.'
 		},
 		{
-			url: makingImages[15],
+			type: 'image', url: makingImages[15], width:'2400', height: '1800',
 			caption: 'Mike Jones, Lloyd Pigram and Susan Edgar working on Jangu yirr Janyjadurdiny.',
 			alt: 'Mike Jones, Lloyd Pigram and Susan Edgar sit in chars arounbd an outdoor table. Mike is typing on his laptop, and Susan is writing on some paper. Llyod smiles at the camera. On the table are some food and drinks, documents,sunglasses, a packet of cigarettes and some old photographs in a frame.'
 		},
 		{
-			url: makingImages[16],
+			type: 'image', url: makingImages[16], width:'2400', height: '1800',
 			caption: 'Thomas Edgar and Leo Dehm at NBY Ltd.',
 			alt: 'Thomas and Leo are sitting on a concrete bench outside in the shade. They are looking at each other.'
 		},
 		{
-			url: makingImages[17],
+			type: 'video', url: makingImages[17], width:'1280', height: '720', poster: makingImages[19],
 			caption: 'Short clip of the bay',
 			alt: 'This short clip shows a storm rolling across the bay, with red sand and green mangrove trees in the foreground and the blue water of the bay, followed by grey storm clouds and a lightening bolt.'
 		}
@@ -290,8 +290,8 @@
 				component: ImageFull,
 				props: {
 					source: stationImages[0],
-					width: '',
-					height: '',
+					width: '719',
+					height: '425',
 					alt: "An old black and white photograph of nine people on the Thanhoo homestead verandah in 1932.  There is a group of seven Aboriginal children: Jagana/ Ellen Edar; Gubjarra/ Jack Edgar; Mangkala/Flossie Edgar/Flossie Larry; Jagura/Thelma Sadler; Susand Edgar's mum's brothers and sisters. Two white women stand behind them on the verandah.",
 					galleryId: 'station1'
 				}
@@ -305,8 +305,8 @@
 				component: ImageFull,
 				props: {
 					source: stationImages[1],
-					width: '',
-					height: '',
+					width: '2400',
+					height: '1609',
 					alt: "An old black and white photograph of thirteen people at Janyjagurdiny (Thangoo Station). Date unknown. The photo shows a group of children and three adults: the children  are Frank 'Pilot' Edgar and Annie Edgar's children. The  woman holds the tail of a hunted kangaroo lying in front of her.  There is one white woman in the photo holding a small dog.",
 					galleryId: 'station2'
 				}
@@ -320,8 +320,8 @@
 				component: ImageFull,
 				props: {
 					source: stationImages[2],
-					width: '',
-					height: '',
+					width: '1030',
+					height: '1609',
 					alt: 'Old black and white photograph of Jack Edgar on Thangoo Station. He is wearing work clothes and an Akubra-style hat and standing in front of tractor parked near a fence, with a windmill in the left hand side of the photo and gum trees on the right.',
 					galleryId: 'station3'
 				}
@@ -403,9 +403,7 @@
 	<title>{pageTitle}</title>
 </svelte:head>
 
-<!-- <SlideshowScroller content={mapsImagesSlides} /> -->
-
-<Header
+ <Header
 	image={singleImages.Header_MG_0337}
 	name="yawuru"
 	alt="An expansive flat of red soil, covered with some green shrubs and grass. There is flat horizon and a light blue sky with some light clouds."
@@ -467,8 +465,7 @@
 
 <MediaFullWidth
 	youTubeId="GczGhPs3rzQ"
-	caption="Marrimarrigun (2017), 13mins. Director: Kimberley West. Writers: Dot (Dorothy) West, Dianne
-Appleby. Producer: Jodie Bell. Reproduced with permission."
+	caption="Marrimarrigun (2017), 13mins. Director: Kimberley West. Writers: Dot (Dorothy) West, Dianne Appleby. Producer: Jodie Bell. Reproduced with permission."
 />
 
 <GenericContent>
@@ -562,6 +559,7 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		source={singleImages.YawuruSeasonalCalendar}
 		alt="Graphic depiction of the Yawuru six seasons."
 		caption="Yawuru Seasonal Calendar."
+		galleryId="YawuruSeasonalCalendar"
 	/>
 
 	<QuoteInline credit="Janet Cox, 2022"><p>This is sort of a map.</p></QuoteInline>
@@ -644,11 +642,12 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 	</p>
 
 	<ImageSingle
-		width="2400"
-		height="1958"
+		width="1400"
+		height="1142"
 		source={singleImages.YawuruCountry}
 		alt="A map from the Yawuru Cultural Management Plan."
 		caption="Yawuru Country, as shown in the Yawuru Cultural Management Plan."
+		galleryId="YawuruCountry"
 	/>
 
 	<p>
@@ -760,7 +759,8 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		height="658"
 		source={singleImages.TommyEdgar}
 		caption="Gurndiga/Tommy Edgar"
-		alt="An old lack and white portrait photograph of Gurndiga/Tommy Edgar. He is wearing a white suit, a tie and jacket. "
+		alt="An old lack and white portrait photograph of Gurndiga/Tommy Edgar. He is wearing a white suit, a tie and jacket."
+		galleryId="TommyEdgar"
 	/>
 	<ImageSingle
 		width="234"
@@ -768,6 +768,7 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		source={singleImages.TommyDorisCanberra1969}
 		alt="An old  colour photograph of Ngalyjan/Doris Edgar and Gurndiga/Tommy Edgar. They are both standing: Doris is wearing a dress, white cardigan and white sandals, Tommy is wearing a black suit, tie and shoes and a white shirt."
 		caption="Gurndiga/Tommy Edgar and Ngalyjan/Doris Edgar."
+		galleryId="TommyDorisCanberra1969"
 	/>
 
 	<p>
@@ -834,6 +835,7 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		alt="An old black and white photograph of a car with a group of four adults and two children standing next to it."
 		caption="Elsie Edgar arriving at the Common Gate, where people crossed the municipal boundary into
 	Broome."
+		galleryId="elsie_edgar"
 	/>
 
 	<p>Janet Cox talks about living in Broome and having a home on Thangoo.</p>
@@ -973,11 +975,12 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 	</p>
 
 	<ImageSingle
-		width="2400"
-		height="1962"
+		width="1400"
+		height="1145"
 		source={singleImages.Gate_cropped}
 		alt="The fence next to the gate to Thangoo Station has two hand-painted signs attached to it. The biggest sign is at the top of the gate and reads: 'PRIVATE ROAD: STATION BUSINESS ONLY.' The second sign is smaller and reads 'NO ACCESS TO COAST THANGOO PTY LTD.'"
 		caption="The entrance to Thangoo Station in 2022. Photo: Ben Silverstein."
+		galleryId="Gate_cropped"
 	/>
 
 	<p>
@@ -1067,10 +1070,11 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 
 	<ImageSingle
 		width="1400"
-		height="3153"
+		height="1839"
 		source={singleImages.JackEdgarThangoo}
 		alt="Bulan/Jack Edgar back home at Jangu. This is a colour still (taped onto a piece of cardboard) of Jack Edgar sitting down and playing cards. There are other people sitting close by but their faces are not in frame."
 		caption="Bulan/Jack Edgar back home at Jangu (date unknown). Photo provided by Susan Edgar."
+		galleryId="JackEdgarThangoo"
 	/>
 </GenericContent>
 
@@ -1083,26 +1087,24 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		with Dianne Appleby and Thomas 'Unda' Edgar. By taking younger Yawuru people to Jangu, Dianne
 		and Unda have increased cultural knowledge sharing on Country.
 	</p>
-</GenericContent>
 
-<figure class="image-duo">
-	<div>
-		<img
-			src={singleImages.Lloyd_Unda}
-			alt="Llyod is wearing sunglasses, shorts and thongs and holding a water bottle, Thomas is weating shorts and a t-shirt. It is sunny and looks hot. There are some bags in front of them on the sandy ground and mangroves behind them. "
-		/>
-		<img
-			src={singleImages.Unda}
-			alt="There is a bed of black coals and some read coals beside it, in the shade of  a tree. Thomas is moving the black colas with a long stick. "
-		/>
-	</div>
-	<figcaption>
-		Lloyd Pigram and Thomas 'Unda' Edgar at Urlugurranan (the old jetty at Thangoo Station); and
-		Thomas 'Unda' Edgar cooking fish. Photos: Dianne Appleby, 2018.
-	</figcaption>
-</figure>
+	<ImageSingle
+		width="800"
+		height="600"
+		source={singleImages.Lloyd_Unda}
+		alt="Llyod is wearing sunglasses, shorts and thongs and holding a water bottle, Thomas is weating shorts and a t-shirt. It is sunny and looks hot. There are some bags in front of them on the sandy ground and mangroves behind them. "
+		caption="Lloyd Pigram and Thomas 'Unda' Edgar at Urlugurranan (the old jetty at Thangoo Station)."
+		galleryId="Lloyd_Unda"
+	/>
+	<ImageSingle
+		width="480"
+		height="640"
+		source={singleImages.Unda}
+		alt="There is a bed of black coals and some read coals beside it, in the shade of  a tree. Thomas is moving the black colas with a long stick. "
+		caption="Thomas 'Unda' Edgar cooking fish. Photos: Dianne Appleby, 2018."
+		galleryId="Unda"
+	/>
 
-<GenericContent>
 	<p>Lloyd Pigram talks about the feeling of travelling over from Broome to Jangu.</p>
 
 	<AudioBlock source={singleAudio.Lloyd_goingtoJangu} credit="Lloyd Pigram, 2022." />
@@ -1195,12 +1197,21 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 	</p>
 </GenericContent>
 
-<ImageGrid media={slider} />
+<ImageGrid media={slider} galleryId="sliderGallery" />
 
-<GenericContent>
-	<h2>Credits</h2>
-
-	<p>
+<Credits
+	credits={[
+		{
+			title: 'Yawuru knowledge holders',
+			names: "Janet Cox, Jimmy Edgar, Thomas 'Unda' Edgar, Dianne Appleby, and Susan Edgar"
+		},
+		{ title: 'Cultural Engagement Consultant', names: 'Lloyd Pigram' },
+		{ title: 'Text, interviews, and additional research', names: 'Mike Jones, Ben Silverstein' },
+		{ title: 'Research assistance and additional text', names: 'Fiona Skyring' },
+		{ title: 'Story design and implementation', names: 'Mike Jones' },
+		{ title: 'Director of Research Centre for Deep History', names: 'Ann McGrath' }
+	]}
+	><p>
 		Thank you to Janet Cox, Jimmy Edgar, Thomas 'Unda' Edgar, Dianne Appleby, and Susan Edgar; Susan
 		Gilbert; and to Lloyd Pigram, Sarah Yu, Naomi Appleby, Chad Sloan, and Andy James, Jr.
 	</p>
@@ -1211,85 +1222,41 @@ Appleby. Producer: Jodie Bell. Reproduced with permission."
 		the Australian Research Council: 'Rediscovering the deep human past: global networks, future
 		opportunities' (FL170100121).
 	</p>
+</Credits>
 
-	<Credits
-		credits={[
-			{
-				title: 'Yawuru knowledge holders',
-				names: "Janet Cox, Jimmy Edgar, Thomas 'Unda' Edgar, Dianne Appleby, and Susan Edgar"
-			},
-			{ title: 'Cultural Engagement Consultant', names: 'Lloyd Pigram' },
-			{ title: 'Text, interviews, and additional research', names: 'Mike Jones, Ben Silverstein' },
-			{ title: 'Research assistance and additional text', names: 'Fiona Skyring' },
-			{ title: 'Story design and implementation', names: 'Mike Jones' },
-			{ title: 'Director of Research Centre for Deep History', names: 'Ann McGrath' }
-		]}
-	/>
-</GenericContent>
-
-<GenericContent>
-	<h2>Citations</h2>
-
-	<Citations
-		citations={[
-			{
-				insert: 'this page',
-				authors:
-					'Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
-			},
-			{
-				insert: 'Janet Cox',
-				authors:
-					'Janet Cox cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
-			},
-			{
-				insert: 'Jimmy Edgar',
-				authors:
-					'Jimmy Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
-			},
-			{
-				insert: 'Thomas ‘Unda’ Edgar',
-				authors:
-					'Thomas ‘Unda’ Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
-			},
-			{
-				insert: 'Dianne Appleby',
-				authors:
-					'Dianne Appleby cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
-			},
-			{
-				insert: 'Susan ‘Marjadee’ Edgar',
-				authors:
-					'Susan ‘Marjadee’ Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
-			}
-		]}
-		location={$page.url.href}
-		page={pageTitle}
-	/>
-</GenericContent>
-
-<style>
-	.image-duo {
-		height: 100%;
-		width: 100%;
-		max-height: 100% !important;
-	}
-	.image-duo div {
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		width: 100%;
-		max-width: 100vw;
-	}
-	.image-duo div img {
-		object-fit: contain;
-		max-height: 96vh;
-		background-color: grey;
-	}
-
-	@media (min-width: 900px) {
-		.image-duo {
-			flex-direction: row;
+<Citations
+	citations={[
+		{
+			insert: 'this page',
+			authors:
+				'Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
+		},
+		{
+			insert: 'Janet Cox',
+			authors:
+				'Janet Cox cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
+		},
+		{
+			insert: 'Jimmy Edgar',
+			authors:
+				'Jimmy Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
+		},
+		{
+			insert: 'Thomas ‘Unda’ Edgar',
+			authors:
+				'Thomas ‘Unda’ Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
+		},
+		{
+			insert: 'Dianne Appleby',
+			authors:
+				'Dianne Appleby cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
+		},
+		{
+			insert: 'Susan ‘Marjadee’ Edgar',
+			authors:
+				'Susan ‘Marjadee’ Edgar cited in Janet Cox, Jimmy Edgar, Thomas ‘Unda’ Edgar, Dianne Appleby, Susan ‘Marjadee’ Edgar, Susan Gilbert, Lloyd Pigram, Mike Jones and Ben Silverstein (2022)'
 		}
-	}
-</style>
+	]}
+	location={$page.url.href}
+	page={pageTitle}
+/>

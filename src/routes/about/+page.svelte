@@ -1,4 +1,3 @@
-
 <script>
 	import { onMount, setContext } from 'svelte';
 	import { base } from '$app/paths';
@@ -14,6 +13,7 @@
 		Header,
 		GenericContent,
 		Collapsible,
+		FileDownload,
 		QuoteInline,
 		Intro,
 		LearnMoreBox,
@@ -22,12 +22,7 @@
 		Credits
 	} from '$lib';
 
-	const switcherLinks = [
-		{ title: 'Header', ref: '#header' },
-		{ title: 'Scroller', ref: '#scroller' },
-		{ title: 'YHeader', ref: '#header2' },
-	];
-
+	const switcherLinks = [];
 
 	const singleImageFilenames = [
 		'dualMap.jpg',
@@ -51,6 +46,7 @@
 	const folderPath = `/about/images/`;
 	const singleImages = generateSingleMedia(`${folderPath}`, singleImageFilenames);
 	const slideshow = generateSubfolderMedia(`${folderPath}slideshow_one`, slideshowFilenames);
+	const file = `${base}/about/08_ekkel.pdf`;
 
 	const slideshowOne = [
 		{
@@ -322,44 +318,7 @@
 <p>
 	The RCDH team continues to work with various communities around Australia, and plans to bring
 	more stories online in the coming months.
-</p>`,
-				{
-					component: Collapsible,
-					props: {
-						name: 'collapsibleApproach',
-						label: 'Learn more about our approach',
-						checked: true,
-						readOnly: true
-					},
-					children: `<p>
-			Indigenous performances of stories, song, dance and artistic practices—of marking
-			Country—extend over an exceptionally long span of time and with a depth of understanding that
-			we refer to as
-			<em>deep history</em>.
-		</p>
-		<p>
-			Our team is committed to working alongside and learning from Indigenous practitioners of
-			history. We are inspired by Indigenous ways of thinking about time, and by people’s kinship
-			with Country.
-		</p>
-		<p>
-			In doing so, we commit to community-collaborative research which includes the following
-			guidelines and aims:
-		</p>
-		<p>
-			<strong>Rediscover</strong> - as researchers, we are not seeing anything for the first time; we
-			are not 'discovering' something as such. Rather, we are revisiting pasts that were lived and that
-			remain alive in Country today.
-		</p>
-		<p>
-			<strong>Return</strong> - we return archival knowledge to communities and reciprocate in ways that
-			have real value to Indigenous communities.
-		</p>
-		<p>
-			<strong>Repatriate</strong> - we repatriate knowledge back to Indigenous communities to ensure
-			they retain ownership of their stories.
-		</p>`
-				}
+</p>`
 			],
 			image: {
 				component: ImageSingle,
@@ -374,10 +333,10 @@
 			}
 		}
 	];
-	
+
 	onMount(() => {
 		switcher.set(switcherLinks);
-	})
+	});
 </script>
 
 <Header
@@ -407,16 +366,7 @@
 
 <SideScroller id="scroller" content={sectionOneContent} />
 
-<Header
-	id="header2"
-	image={singleImages.School_Exploration_Map}
-	name="about"
-	alt="A satellite image map of australia taken from Esri map tiles"
-	heading="About <em>Marking Country</em>"
-	gradientColor="#012a40"
-/>
-
-<!-- <GenericContent>
+<GenericContent>
 	<p>
 		<em>Marking Country</em> offers a way of thinking about and sharing these stories with a broader
 		public, while speaking back to dominant traditions of mapping and mapmaking.
@@ -424,7 +374,9 @@
 
 	<LearnMoreBox>
 		<img src={singleImages.dualMap} alt="" />
-		<a href="{base}/mapping"> » Learn more about the history of mapping </a>
+		<div>
+			<h3><a href="{base}/mapping"> » Learn more about the history of mapping </a></h3>
+		</div>
 	</LearnMoreBox>
 
 	<p>
@@ -432,13 +384,16 @@
 		Australian continent. There are no claims to being comprehensive, or representative. We see this
 		as making a start—a pilot project which we hope will be added to into the future.
 	</p>
-</GenericContent> -->
 
-<!-- <SideScroller content={sectionTwoContent} /> -->
+	<FileDownload file={file} fileTitle="MappingDeepHistories.pdf" title="Marking Country: Mapping
+	Deep Histories" />
+</GenericContent>
 
-<!-- <HorizontalScroller slides={slideshowOne} /> -->
+<SideScroller content={sectionTwoContent} />
 
-<!-- <GenericContent>
+<HorizontalScroller slides={slideshowOne} />
+
+<GenericContent>
 	<h2>Research Centre for Deep History</h2>
 
 	<p>
@@ -479,9 +434,64 @@
 
 <SideScroller content={sectionThreeContent} />
 
-<GenericContent>
-	<h2>Credits</h2>
+<Collapsible name="collapsibleApproach" label="Learn more about our approach" checked readOnly>
+	<p>
+		Indigenous performances of stories, song, dance and artistic practices—of marking Country—extend
+		over an exceptionally long span of time and with a depth of understanding that we refer to as
+		<em>deep history</em>.
+	</p>
+	<p>
+		Our team is committed to working alongside and learning from Indigenous practitioners of
+		history. We are inspired by Indigenous ways of thinking about time, and by people’s kinship with
+		Country.
+	</p>
+	<p>
+		In doing so, we commit to community-collaborative research which includes the following
+		guidelines and aims:
+	</p>
+	<p>
+		<strong>Rediscover</strong> - as researchers, we are not seeing anything for the first time; we are
+		not 'discovering' something as such. Rather, we are revisiting pasts that were lived and that remain
+		alive in Country today.
+	</p>
+	<p>
+		<strong>Return</strong> - we return archival knowledge to communities and reciprocate in ways that
+		have real value to Indigenous communities.
+	</p>
+	<p>
+		<strong>Repatriate</strong> - we repatriate knowledge back to Indigenous communities to ensure they
+		retain ownership of their stories.
+	</p>
+</Collapsible>
 
+<Credits
+	credits={[
+		{ title: 'Director of Research Centre for Deep History', names: 'Ann McGrath' },
+		{ title: 'Marking Country Project Manager', names: 'Mike Jones' },
+		{ title: 'Senior Advisor', names: 'Jackie Huggins' },
+		{
+			title: 'Marking Country Researchers',
+			names: 'Ann McGrath, Mike Jones, Laura Rademaker, Ben Silverstein, Amy Way'
+		},
+		{ title: 'Consultant Researchers', names: ' Mary Anne Jebb, Kim Mahood' },
+		{ title: 'Developer', names: 'Tabassum Fakier' },
+		{ title: 'Project Managers', names: 'Jennifer Bird, Julie Rickwood, Alycia Nevalainen' },
+		{
+			title: 'Research Assistants',
+			names: 'Bethany Phillips-Peddlesden, Jessica Urwin, Jennifer Bird, Alycia Nevalainen'
+		},
+		{ title: 'Media and Events', names: 'Emma Batchelor' },
+		{ title: 'Sahul animation', names: 'Mike Jones' },
+		{
+			title: 'Shape files for Sahul animation',
+			names: 'CartoGIS Services, Australian National University'
+		},
+		{
+			title: 'Educational resources',
+			names: 'Beth Marsden'
+		}
+	]}
+>
 	<p>
 		We thank present and past members of the Indigenous Advisory Committee and General Advisory
 		Committee of the Research Centre for Deep History for their advice and guidance.
@@ -497,33 +507,4 @@
 		Chair), Malcolm Allbrook, Lorina L. Barker, Alison Bashford, Emma Kowal, Jane Lydon, Julian
 		Thomas, Asmi Wood, Peter Yu
 	</p>
-
-	<Credits
-		credits={[
-			{ title: 'Director of Research Centre for Deep History', names: 'Ann McGrath' },
-			{ title: 'Marking Country Project Manager', names: 'Mike Jones' },
-			{ title: 'Senior Advisor', names: 'Jackie Huggins' },
-			{
-				title: 'Marking Country Researchers',
-				names: 'Ann McGrath, Mike Jones, Laura Rademaker, Ben Silverstein, Amy Way'
-			},
-			{ title: 'Consultant Researchers', names: ' Mary Anne Jebb, Kim Mahood' },
-			{ title: 'Developer', names: 'Tabassum Fakier' },
-			{ title: 'Project Managers', names: 'Jennifer Bird, Julie Rickwood, Alycia Nevalainen' },
-			{
-				title: 'Research Assistants',
-				names: 'Bethany Phillips-Peddlesden, Jessica Urwin, Jennifer Bird, Alycia Nevalainen'
-			},
-			{ title: 'Media and Events', names: 'Emma Batchelor' },
-			{ title: 'Sahul animation', names: 'Mike Jones' },
-			{
-				title: 'Shape files for Sahul animation',
-				names: 'CartoGIS Services, Australian National University'
-			},
-			{
-				title: 'Educational resources',
-				names: 'Beth Marsden'
-			}
-		]}
-	/>
-</GenericContent> -->
+</Credits>

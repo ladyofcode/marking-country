@@ -1,11 +1,11 @@
-<div class="wrapper">
+<div class="wrapper-warning">
 	<div>
 		<slot />
 	</div>
 </div>
 
 <style>
-	.wrapper {
+	.wrapper-warning {
 		height: 100%;
 		min-height: 100vh;
 		display: flex;
@@ -13,9 +13,10 @@
 		justify-content: center;
 		position: relative;
 		z-index: 20;
+		background-color: var(--clr-dark-charcoal);
 	}
 
-	.wrapper div {
+	.wrapper-warning div {
 		width: 100%;
 		max-width: var(--width-content);
 		text-align: center;
@@ -23,9 +24,10 @@
 		animation: fadeIn 1.5s ease-out forwards;
 	}
 
-	.wrapper div :global(p) {
+	.wrapper-warning div :global(p) {
 		font-family: var(--font-serif);
 		font-size: var(--font-size-heading);
+		color: var(--clr-lightGrey);
 	}
 
 	@keyframes fadeIn {
@@ -38,7 +40,7 @@
 	}
 
 	@media (min-width: 900px) {
-		.wrapper div {
+		.wrapper-warning div {
 			padding: 0;
 		}
 	}

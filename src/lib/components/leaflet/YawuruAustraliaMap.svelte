@@ -8,7 +8,7 @@
 
 	export let bounds;
 	export let view = [-25, 130];
-	export let zoom = 3;
+	export let zoom = 4;
 
 	const dispatch = createEventDispatcher();
 
@@ -19,7 +19,7 @@
 		iconUrl: mapPin,
 		className: `pin`,
 		html: `<img src=${mapPin}></img>`,
-		iconSize: [25, 25]
+		iconSize: [60, 60]
 	});
 
 	onMount(() => {
@@ -27,8 +27,9 @@
 			throw new Error('Must set either bounds, or view and zoom.');
 		}
 
-		map = L.map(mapElement)
-			.on('zoom', (e) => dispatch('zoom', e));
+		map = L.map(mapElement, {
+			scrollWheelZoom: false
+		}).on('zoom', (e) => dispatch('zoom', e));
 
 		L.tileLayer(
 			'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
@@ -60,20 +61,14 @@
 	}
 </script>
 
-<div class="australia-container" bind:this={mapElement}>
-
-</div>
+<div class="australia-container" bind:this={mapElement} />
 
 <style>
 	.australia-container {
-    position: relative;
-    min-height: 400px;
-    height: 400px;
-    width: 100%;
-}
+		position: relative;
+		min-height: 400px;
+		height: 80vh;
+		width: 100%;
+	}
 
-:global(.leaflet-popup-content-wrapper),
-:global(.leaflet-popup-tip) {
-	background-color: var(--clr-dark-charcoal);
-}
 </style>

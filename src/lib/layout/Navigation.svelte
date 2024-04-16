@@ -171,6 +171,7 @@
 		right: 0;
 		height: 0;
 		z-index: 900;
+		box-shadow: 0 2px 2px -3px rgba(0,0,0,.2);
 	}
 	.wrapper.open {
 		pointer-events: auto;
@@ -214,7 +215,7 @@
 	nav,
 	.top-bar-underlay,
 	label {
-		background-color: var(--clr-dark-contrast);
+		background-color: var(--clr-bg-block-dark);
 	}
 
 	.top-bar-underlay {
@@ -384,7 +385,7 @@
 		.top-bar,
 		.top-bar.open,
 		.subnav-content {
-			background-color: var(--clr-dark-contrast);
+			background-color: var(--clr-bg-block-dark);
 		}
 
 		.top-bar,

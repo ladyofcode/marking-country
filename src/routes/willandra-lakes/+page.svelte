@@ -259,8 +259,8 @@ id="header"
 		<ImageSingle
 			source={singleImages.NLAVisit}
 			galleryId="NLAvisit"
-			width="4032"
-			height="3024"
+			width="1400"
+			height="1050"
 			alt="Six people standing the Willandra Map on the table at ANU."
 			caption="National Library of Australia staff visiting the Research Centre for Deep History at the
 		Australian National University to see the Willandra Lakes Map, June 2021. Photo: Mike Jones."
@@ -349,8 +349,8 @@ id="header"
 
 <MediaFullWidth
 	image={singleImages.dune_tree}
-	width="3456"
-	height="1515"
+	width="1400"
+	height="614"
 	galleryId="dune_tree"
 	alt="A typical Willandra Lakes scene, with a sandy dune, some scrubs and a small tree, and a vast blue sky in the background."
 	caption="Willandra Lakes—a Pleistocene Dry Lake Landscape. Photo: Ann
@@ -421,8 +421,8 @@ id="header"
 
 	<ImageSingle
 		source={singleImages.MungoReturn_cropped}
-		width="3456"
-		height="1912"
+		width="1400"
+		height="775"
 		alt="The return of Mungo Man's remains to Lake Mungo in 2017 in a 1970s blarge black hearse  with an Aboriginal flag on the door. A group of people are standing and sitting on chairs nearby."
 		caption="Return and reburial of Mungo Man's remains, 17 November 2017, Lake Mungo. Photo: Ann McGrath."
 		galleryId="mungoReturn"
@@ -454,8 +454,8 @@ id="header"
 
 <MediaFullWidth
 	image={singleImages.VisitingANU_3000px}
-	width="3000"
-	height="2000"
+	width="1400"
+	height="933"
 	galleryId="visiting_anu"
 	alt="Participants from the Willandra Lakes map project standing in front of a min-bus at ANU."
 	caption="Visitors and friends from the Willandra Lakes World Heritage region

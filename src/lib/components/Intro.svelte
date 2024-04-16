@@ -99,6 +99,7 @@
 		}
 		.wrapper > .container {
 			margin: var(--space-xxxl) auto;
+			margin-top: 0;
 		}
 	}
 </style>

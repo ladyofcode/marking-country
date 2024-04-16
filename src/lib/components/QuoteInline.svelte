@@ -65,7 +65,7 @@
 <style>
 	figure {
 		padding: var(--space-xxl) 0;
-		height: 100%;
+		/* height: 100%; */
 	}
 
 	figure :global(blockquote > p) {

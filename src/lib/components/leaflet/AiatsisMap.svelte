@@ -6,40 +6,41 @@
 
 	let mapImage = `${base}/mapping/images/AIATSIS_map_2021-map only.jpg`;
 
+	const width = 1311;
+	const height= 1083;
+
 	const bounds = [
 		[0, 0],
-		[800, 1000]
+		[height, width]
 	];
-	export let view;
-	export let zoom;
 
 	const dispatch = createEventDispatcher();
 
 	let map;
 	let mapElement;
 
+	function calculateInitialZoom() {
+		if (window.innerWidth < 768) {
+			return -2;
+		}
+		return -1;
+	}
+
 	onMount(() => {
 		if (!bounds && (!view || !zoom)) {
 			throw new Error('Must set either bounds, or view and zoom.');
 		}
 
-		// map = L.map('map', {
-		// 	crs: L.CRS.Simple,
-		// 	minZoom: -3
-		// });
+		const initialZoom = calculateInitialZoom();
 
 		map = L.map(mapElement, {
 			crs: L.CRS.Simple,
-			minZoom: -1,
-			maxZoom: 13
-		})
-			// example to expose map events to parent components:
-			.on('zoom', (e) => dispatch('zoom', e));
+			minZoom: initialZoom,
+			maxZoom: 13,
+			scrollWheelZoom: false
+		}).on('zoom', (e) => dispatch('zoom', e));
 
-		// L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-		// 	attribution: `&copy;<a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>,&copy;<a href="https://carto.com/attributions" target="_blank">CARTO</a>`
-		// }).addTo(map);
-		let imageOverlay = L.imageOverlay(mapImage, bounds).addTo(map);
+		L.imageOverlay(mapImage, bounds).addTo(map);
 	});
 
 	onDestroy(() => {
@@ -68,6 +69,6 @@
 
 <style>
 	.container {
-		min-height: 400px;
+		height: 72vh;
 	}
 </style>

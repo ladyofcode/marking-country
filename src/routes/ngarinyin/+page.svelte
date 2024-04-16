@@ -3,21 +3,32 @@
 	import { page } from '$app/stores';
 	import { Vimeo } from 'sveltekit-embed';
 	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
+	import { onMount } from 'svelte';
+	import { switcher } from '../../stores/sectionSwitcherStore';
+
+	const switcherLinks = [
+		{ title: 'Top', ref: '#header' },
+		{ title: 'Marardda map', ref: '#map' },
+		{ title: 'Short films', ref: '#films' }
+	];
 
 	import {
 		AudioBlock,
+		Bios,
 		GenericContent,
 		QuoteInline,
 		Citations,
 		Credits,
 		Header,
 		Intro,
+		ImageGrid,
 		Collapsible,
-		TwoColumnContent,
 		ImageSliderFullscreen,
 		Warning,
 		MararddaMap
 	} from '$lib';
+	import MediaFullWidth from '$lib/components/MediaFullWidth.svelte';
+	import ImageSingle from '$lib/components/ImageSingle.svelte';
 
 	const singleImageFilenames = [
 		'Chloe_Nulgit_Collecting_alga_02_Mummery_06062022.jpg',
@@ -61,7 +72,7 @@
 
 	const folderPath = `/stories/ngarinyin/images/`;
 	const davidMowaljarlai = `${base}/stories/ngarinyin/audio/David-Mowaljarlai-when-earth-soft-Edols-1974.mp3`;
-	const video_NgarinyinOpening = `${base}/stories/ngarinyin/videos/NgarinyinOpening.webm`;
+	const video_NgarinyinOpening = `${base}/stories/ngarinyin/videos/NgarinyinOpening.mp4`;
 
 	const singleImages = generateSingleMedia(`${folderPath}`, singleImageFilenames);
 	const makingImages = generateSubfolderMedia(
@@ -77,76 +88,91 @@
 
 	const slideshowOne = [
 		{
+			type: 'image',
 			url: wurduImages[0],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[1],
 			caption: 'Collecting Jalagu (algae) for Wurdu. Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[2],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[3],
 			caption: 'Burning Jalagu to make smoke. Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[4],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[5],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[6],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[7],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[8],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[9],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[10],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[11],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[12],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[13],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
 		},
 		{
+			type: 'image',
 			url: wurduImages[14],
 			caption: 'Photo: Tim Mummery 2022.',
 			link: ''
@@ -203,8 +229,60 @@
 			link: ''
 		}
 	];
-	
+
+	const bios = [
+		{
+			heading:
+				'Pansy Nulgit, Ngarinyin, Manambardanyin, senior cultural elder, knowledge keeper, and teacher.',
+			image: {
+				source: singleImages.Pansy_Nulgit_06062022_Tim_Mummery_RCDH3,
+				caption: 'Photo: Tim Mummery 2022.',
+				alt: 'Pansy Nulgit, with trees, grass, and scrub in the background. Pansy is gesturing with her right hand.'
+			}
+		},
+		{
+			heading:
+				'Matthew Dembal Martin, Ngarinyin, Manambarda, knowledge keeper, cultural singer, and language teacher.',
+			image: {
+				source: singleImages.Matthew_Dembal_Martin_sings_06062022_RCDH,
+				caption: 'Photo: Tim Mummery 2022.',
+				alt: 'Matthew Dembal Martin. He is sitting on a chair, holding clap sticks and there are a group of women sitting close by on the ground.'
+			}
+		},
+		{
+			heading:
+				'Chloe Nulgit, Ngarinyin Ngarangarddi woman, cultural adviser. Collecting jalagu for Wurdu.',
+			image: {
+				source: singleImages.Chloe_Nulgit_Collecting_alga_02_Mummery_06062022,
+				caption: 'Photo: Tim Mummery 2022.',
+				alt: 'Chloe Nulgit, sitting in a water hole. The water reaches the top of her arms and her hands are floating on top of the water. She is in the water to collect Jalagu (algae) for Wurdu.'
+			}
+		},
+		{
+			heading:
+				'Phillip (Cracker) Duckhole, Ngarinyin Bremaradda, custodian of Walarda Mindi (Mount Hart), teacher of cultural arts and crafts.',
+			image: {
+				source: singleImages.Phillip_Cracker_Duckhole_at_creek_RCDH,
+				caption: 'Photo: Tim Mummery 2022.',
+				alt: 'Philip Duckhole, with a track and scrub in the background.'
+			}
+		},
+		{
+			heading:
+				'Sherika Duckhole, Ngarinyin Bremaradda woman, singer, community researcher and cultural language adviser.',
+			image: {
+				source: singleImages.Sherika_Duckhole_Tim_Mummery_2022,
+				caption: 'Photo: Tim Mummery 2022.',
+				alt: 'Sherika Duckhole.'
+			}
+		}
+	];
+
+	onMount(() => {
+		switcher.set(switcherLinks);
+	});
 </script>
+
 <svelte:head>
 	<title>{pageTitle}</title>
 </svelte:head>
@@ -218,7 +296,7 @@
 </Warning>
 
 <Header
-	id="intro"
+	id="header"
 	image={singleImages.ngarinyin_header}
 	name="ngarinyin"
 	alt="A water hold, seen through paper bark trees, with a bright blue sky in the background."
@@ -237,93 +315,9 @@
 		short film about Wurdu, and a short film about Durdu-ngardi—the place where the catfish go round
 		and round.
 	</p>
-
-	<TwoColumnContent>
-		<figure>
-			<div>
-				<img
-					src={singleImages.Pansy_Nulgit_06062022_Tim_Mummery_RCDH3}
-					alt="Pansy Nulgit, wiht trees, grass and scrub in the background. Pansy is gesturing with her right hand."
-				/>
-			</div>
-			<div>
-				<h3>
-					Pansy Nulgit, Ngarinyin, Manambardanyin, senior cultural elder, knowledge keeper, and
-					teacher.
-				</h3>
-				<figcaption>Photo: Tim Mummery 2022.</figcaption>
-			</div>
-		</figure>
-	</TwoColumnContent>
-
-	<TwoColumnContent>
-		<figure>
-			<div>
-				<img
-					src={singleImages.Matthew_Dembal_Martin_sings_06062022_RCDH}
-					alt="Matthew Dembal Martin. He is sitting on a chair, holding clap sticks and there are a group of women sitting close by on the ground."
-				/>
-			</div>
-			<div>
-				<h3>
-					Matthew Dembal Martin, Ngarinyin, Manambarda, knowledge keeper, cultural singer, and
-					language teacher.
-				</h3>
-				<figcaption>Photo: Tim Mummery 2022.</figcaption>
-			</div>
-		</figure>
-	</TwoColumnContent>
-
-	<TwoColumnContent>
-		<figure>
-			<div>
-				<img
-					src={singleImages.Chloe_Nulgit_Collecting_alga_02_Mummery_06062022}
-					alt="Chloe Nulgit, sitting in a water hole. The water reaches the top of her arms and  her hands are floating on top of the water. She is in the water to collect Jalagu (algae) for Wurdu."
-				/>
-			</div>
-			<div>
-				<h3>
-					Chloe Nulgit, Ngarinyin Ngarangarddi woman, cultural adviser. Collecting jalagu for Wurdu.
-				</h3>
-				<figcaption>Photo: Tim Mummery 2022.</figcaption>
-			</div>
-		</figure>
-	</TwoColumnContent>
-
-	<TwoColumnContent>
-		<figure>
-			<div>
-				<img
-					src={singleImages.Phillip_Cracker_Duckhole_at_creek_RCDH}
-					alt="Philip Duckhole, with a track and scrub in the background."
-				/>
-			</div>
-			<div>
-				<h3>
-					Phillip (Cracker) Duckhole, Ngarinyin Bremaradda, custodian of Walarda Mindi (Mount Hart),
-					teacher of cultural arts and crafts.
-				</h3>
-				<figcaption>Photo: Tim Mummery 2022.</figcaption>
-			</div>
-		</figure>
-	</TwoColumnContent>
-
-	<TwoColumnContent>
-		<figure>
-			<div>
-				<img src={singleImages.Sherika_Duckhole_Tim_Mummery_2022} alt="Sherika Duckhole." />
-			</div>
-			<div>
-				<h3>
-					Sherika Duckhole, Ngarinyin Bremaradda woman, singer, community researcher and cultural
-					language adviser.
-				</h3>
-				<figcaption>Photo: Tim Mummery 2022.</figcaption>
-			</div>
-		</figure>
-	</TwoColumnContent>
 </Intro>
+
+<Bios content={bios} />
 
 <GenericContent>
 	<p>
@@ -334,18 +328,17 @@
 		their Wunggudd place in their Country where their spirit was created and where they will return
 		when they die.
 	</p>
+</GenericContent>
+<MediaFullWidth
+	video={video_NgarinyinOpening}
+	poster={singleImages.ngarinyin_poster}
+	type="video/mp4"
+	name="ngarinyin"
+	alt=""
+	controls
+/>
 
-	<figure>
-		<video
-			src={video_NgarinyinOpening}
-			poster={singleImages.ngarinyin_poster}
-			type="video/webm"
-			name="ngarinyin"
-			alt=""
-			controls
-		/>
-	</figure>
-
+<GenericContent>
 	<p>
 		The Country is inland, and is made up of vast ranges and rivers dotted with permanent
 		waterholes. Marardda also includes the areas where saltwater turns to freshwater and major
@@ -386,13 +379,14 @@
 		</p>
 	</QuoteInline>
 
-	<figure>
-		<img
-			src={singleImages.Jalala_MtHartMarkingStones07}
-			alt="A Jalala standing upright as a marker among a collection of rocks surrounded by grass."
-		/>
-		<figcaption>Jalala—Mt. Hart Marking Stones. Photo: Tim Mummery, 2022.</figcaption>
-	</figure>
+	<ImageSingle
+		width="4032"
+		height="3024"
+		source={singleImages.Jalala_MtHartMarkingStones07}
+		alt="A Jalala standing upright as a marker among a collection of rocks surrounded by grass."
+		caption="Jalala—Mt. Hart Marking Stones. Photo: Tim Mummery, 2022."
+		galleryId="Jalala_MtHartMarkingStones07"
+	/>
 
 	<p>
 		Most Ngarinyin people live in communities along the Gibb River Road on or near their Country, or
@@ -417,8 +411,8 @@
 	</p>
 </GenericContent>
 
-<GenericContent>
-	<h2 id="map">Marardda</h2>
+<GenericContent id="map">
+	<h2>Marardda</h2>
 </GenericContent>
 
 <MararddaMap />
@@ -449,10 +443,10 @@
 	</QuoteInline>
 </GenericContent>
 
-<ImageSliderFullscreen slides={slideshowOne} />
+<ImageGrid media={slideshowOne} galleryId="slides" />
 
-<GenericContent>
-	<h2 id="films">Watch short films</h2>
+<GenericContent id="films">
+	<h2>Watch short films</h2>
 	<h3>Ngarinyin Wurdu (2 mins, 45 sec)</h3>
 
 	<p>
@@ -464,7 +458,8 @@
 	</p>
 
 	<Vimeo vimeoId="770337914?h=0afe3ac12f&amp" />
-
+</GenericContent>
+<GenericContent>
 	<h3 id="durdu-ngardi-film">Durdu-ngardi (4 mins, 17 sec)</h3>
 
 	<p>
@@ -533,72 +528,66 @@
 	<ImageSliderFullscreen slides={slideShowTwo} />
 </Collapsible>
 
-<GenericContent>
-	<Collapsible name="referencesNgarinyin" label="References and further reading">
-		<ul>
-			<li>
-				Blundell, Valda, Kim Doohan, Daniel Vachon, Malcolm Allbrook, Mary Anne Jebb and Joh
-				Bornman. 2017.
-				<em>
-					Barddabardda Wodjenangorddee: We're Telling All of You, The Creation, History and People
-					of Dambeemangaddee Country
-				</em>
-				. Derby: Dambimangari Aboriginal Corporation.
-			</li>
-			<li>
-				Crawford, I.M. 1968.
-				<em>
-					The Art of the Wandjina: Aboriginal Cave Paintings in Kimberley, Western Australia
-				</em>
-				. Melbourne: Oxford University Press.
-			</li>
-			<li>
-				Doring, Jeff. ed. 2000
-				<em>
-					Gwion Gwion: Secret and Sacred Pathways of the Ngarinyin Aboriginal People of Australia
-				</em>
-				, Koln: Germany.
-			</li>
-			<li>
-				Jebb, Mary Anne. ed. 1996.
-				<em>
-					Emerarra: A Man of Merarra: Morndi Munro talks with Daisy Angajit, Weeda Nyanulla,
-					Campbell Allenbar and Banjo Woorunmurra
-				</em>
-				. Broome: Magabala Books.
-			</li>
-			<li>
-				Jebb, Mary Anne. 2002.
-				<em>
-					Blood, Sweat and Welfare: A History of White Bosses and Aboriginal Pastoral Workers
-				</em>
-				. Nedlands: University of Western Australia Press.
-			</li>
-			<li>
-				Jebb, Mary Anne. ed. 2008.
-				<em>Mowanjum: 50 Years Community History</em>. Derby: Mowanjum Aboriginal Community and
-				Mowanjum Artists Spirit of the Wandjina Aboriginal Corporation.
-			</li>
-			<li>
-				Love, J.R.B. 1936.
-				<em>
-					Stone-age Bushmen of To-day: Life and Adventure among A Tribe of Savages in North-Western
-					Australia
-				</em>
-				. London and Glasgow: Blackie & Son Limited.
-			</li>
-			<li>
-				McGrath, Ann. 1987.
-				<em>Born in the Cattle: Aborigines in Cattle Country</em>. Sydney: Allen & Unwin.
-			</li>
-			<li>
-				Mowaljarlai, David and Jutta Malnic. 1993.
-				<em> Yorro Yorro: Everything Standing Up Alive: Spirit of the Kimberley </em>
-				. Broome: Magabala Books.
-			</li>
-		</ul>
-	</Collapsible>
-</GenericContent>
+<Collapsible name="referencesNgarinyin" label="References and further reading">
+	<ul>
+		<li>
+			Blundell, Valda, Kim Doohan, Daniel Vachon, Malcolm Allbrook, Mary Anne Jebb and Joh Bornman.
+			2017.
+			<em>
+				Barddabardda Wodjenangorddee: We're Telling All of You, The Creation, History and People of
+				Dambeemangaddee Country
+			</em>
+			. Derby: Dambimangari Aboriginal Corporation.
+		</li>
+		<li>
+			Crawford, I.M. 1968.
+			<em> The Art of the Wandjina: Aboriginal Cave Paintings in Kimberley, Western Australia </em>
+			. Melbourne: Oxford University Press.
+		</li>
+		<li>
+			Doring, Jeff. ed. 2000
+			<em>
+				Gwion Gwion: Secret and Sacred Pathways of the Ngarinyin Aboriginal People of Australia
+			</em>
+			, Koln: Germany.
+		</li>
+		<li>
+			Jebb, Mary Anne. ed. 1996.
+			<em>
+				Emerarra: A Man of Merarra: Morndi Munro talks with Daisy Angajit, Weeda Nyanulla, Campbell
+				Allenbar and Banjo Woorunmurra
+			</em>
+			. Broome: Magabala Books.
+		</li>
+		<li>
+			Jebb, Mary Anne. 2002.
+			<em> Blood, Sweat and Welfare: A History of White Bosses and Aboriginal Pastoral Workers </em>
+			. Nedlands: University of Western Australia Press.
+		</li>
+		<li>
+			Jebb, Mary Anne. ed. 2008.
+			<em>Mowanjum: 50 Years Community History</em>. Derby: Mowanjum Aboriginal Community and
+			Mowanjum Artists Spirit of the Wandjina Aboriginal Corporation.
+		</li>
+		<li>
+			Love, J.R.B. 1936.
+			<em>
+				Stone-age Bushmen of To-day: Life and Adventure among A Tribe of Savages in North-Western
+				Australia
+			</em>
+			. London and Glasgow: Blackie & Son Limited.
+		</li>
+		<li>
+			McGrath, Ann. 1987.
+			<em>Born in the Cattle: Aborigines in Cattle Country</em>. Sydney: Allen & Unwin.
+		</li>
+		<li>
+			Mowaljarlai, David and Jutta Malnic. 1993.
+			<em> Yorro Yorro: Everything Standing Up Alive: Spirit of the Kimberley </em>
+			. Broome: Magabala Books.
+		</li>
+	</ul>
+</Collapsible>
 
 <Collapsible name="collapsibleSpelling" label="Note on spelling">
 	<p>
@@ -610,63 +599,54 @@
 	</p>
 </Collapsible> -
 
-<GenericContent>
-	<h2>Credits</h2>
-
+<Credits
+	credits={[
+		{
+			title: 'Senior cultural advisers',
+			names: 'Pansy Nulgit, Matthew Dembal Martin, Chloe Nulgit, Phillip (Cracker) Duckhole'
+		},
+		{ title: 'Community researcher & language adviser', names: 'Sherika Duckhole' },
+		{ title: 'Artworks', names: 'Chloe Nulgit, Phillip (Cracker) Duckhole' },
+		{ title: 'Written by', names: 'Mary Anne Jebb' },
+		{ title: 'Story developed by', names: 'Mary Anne Jebb, Mike Jones' },
+		{ title: 'Marking Country Project Manager', names: 'Mike Jones' },
+		{ title: 'Developer', names: 'Tabassum Fakier' },
+		{ title: 'Camera and editing', names: 'Tim Mummery' },
+		{ title: 'Short films directed by', names: 'Mary Anne Jebb' },
+		{ title: 'Director of Research Centre for Deep History', names: 'Ann McGrath' }
+	]}
+>
 	<p>
 		This digital story was developed in collaboration with Pansy Nulgit, Matthew Dembal Martin,
 		Chloe Nulgit, Phillip (Cracker) Duckhole, and Sherika Duckhole. Thank you to Ngarinyin community
 		members, and to Mowanjum Aboriginal Art & Culture Centre for providing facilities and support.
 	</p>
-
-	<Credits
-		credits={[
-			{
-				title: 'Senior cultural advisers',
-				names: 'Pansy Nulgit, Matthew Dembal Martin, Chloe Nulgit, Phillip (Cracker) Duckhole'
-			},
-			{ title: 'Community researcher & language adviser', names: 'Sherika Duckhole' },
-			{ title: 'Artworks', names: 'Chloe Nulgit, Phillip (Cracker) Duckhole' },
-			{ title: 'Written by', names: 'Mary Anne Jebb' },
-			{ title: 'Story developed by', names: 'Mary Anne Jebb, Mike Jones' },
-			{ title: 'Marking Country Project Manager', names: 'Mike Jones' },
-			{ title: 'Developer', names: 'Tabassum Fakier' },
-			{ title: 'Camera and editing', names: 'Tim Mummery' },
-			{ title: 'Short films directed by', names: 'Mary Anne Jebb' },
-			{ title: 'Director of Research Centre for Deep History', names: 'Ann McGrath' }
-		]}
-	/>
-
 	<p>Header landscape image by Ann McGrath, 2022.</p>
-</GenericContent>
+</Credits>
 
-<GenericContent>
-	<h2>Citations</h2>
-
-	<Citations
-		citations={[
-			{
-				insert: 'this page',
-				authors:
-					'Pansy Nulgit, Matthew Dembal Martin, Chloe Nulgit, Phillip ‘Cracker’ Duckhole, Sherika Duckhole, Mary Anne Jebb and Ann McGrath (2022)'
-			},
-			{
-				insert: '‘Durdu-ngardi’',
-				authors:
-					'Matthew Dembal Martin and Pansy Nulgit, ‘Durdu-ngardi’ in Pansy Nulgit, Matthew Dembal Martin, Chloe Nulgit, Phillip ‘Cracker’ Duckhole, Sherika Duckhole, Mary Anne Jebb and Ann McGrath (2022)'
-			},
-			{
-				insert: 'Sherika Duckhole',
-				authors:
-					'Sherika Duckhole cited in Pansy Nulgit, Matthew Dembal Martin, Chloe Nulgit, Phillip ‘Cracker’ Duckhole, Sherika Duckhole, Mary Anne Jebb and Ann McGrath (2022)'
-			},
-			{
-				insert: 'David Mowaljarli',
-				authors:
-					'David Mowaljarli cited in Pansy Nulgit, Matthew Dembal Martin, Chloe Nulgit, Phillip ‘Cracker’ Duckhole, Sherika Duckhole, Mary Anne Jebb and Ann McGrath (2022)'
-			}
-		]}
-		location={$page.url.href}
-		page={pageTitle}
-	/>
-</GenericContent>
+<Citations
+	citations={[
+		{
+			insert: 'this page',
+			authors:
+				'Pansy Nulgit, Matthew Dembal Martin, Chloe Nulgit, Phillip ‘Cracker’ Duckhole, Sherika Duckhole, Mary Anne Jebb and Ann McGrath (2022)'
+		},
+		{
+			insert: '‘Durdu-ngardi’',
+			authors:
+				'Matthew Dembal Martin and Pansy Nulgit, ‘Durdu-ngardi’ in Pansy Nulgit, Matthew Dembal Martin, Chloe Nulgit, Phillip ‘Cracker’ Duckhole, Sherika Duckhole, Mary Anne Jebb and Ann McGrath (2022)'
+		},
+		{
+			insert: 'Sherika Duckhole',
+			authors:
+				'Sherika Duckhole cited in Pansy Nulgit, Matthew Dembal Martin, Chloe Nulgit, Phillip ‘Cracker’ Duckhole, Sherika Duckhole, Mary Anne Jebb and Ann McGrath (2022)'
+		},
+		{
+			insert: 'David Mowaljarli',
+			authors:
+				'David Mowaljarli cited in Pansy Nulgit, Matthew Dembal Martin, Chloe Nulgit, Phillip ‘Cracker’ Duckhole, Sherika Duckhole, Mary Anne Jebb and Ann McGrath (2022)'
+		}
+	]}
+	location={$page.url.href}
+	page={pageTitle}
+/>

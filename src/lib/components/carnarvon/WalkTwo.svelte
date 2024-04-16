@@ -1,20 +1,47 @@
 <script>
 	import { base } from '$app/paths';
-	import { YouTube } from 'sveltekit-embed';
-
-	import QuoteInline from '../QuoteInline.svelte';
+	import { EmbedYouTube, ImageSingle, QuoteInline } from '$lib';
+	import { gsap } from 'gsap';
+	import ScrollTrigger from 'gsap/ScrollTrigger';
+	import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
 
 	let image_still_02 = `${base}/stories/carnarvon/images/still_02.jpg`;
 	let image_C0006_poster = `${base}/stories/carnarvon/images/C0006.jpg`;
 	let video_C0006 = `${base}/stories/carnarvon/video/C0006.webm`;
 	let image_ANU7376 = `${base}/stories/carnarvon/images/_ANU7376.jpg`;
 	let image_walk2 = `${base}/stories/carnarvon/images/Walk2.jpg`;
+
+	gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+
+	import { onMount } from 'svelte';
+
+	let left, svgPin, path;
+
+	onMount(() => {
+		gsap.set(path, { drawSVG: '0%' });
+
+		ScrollTrigger.create({
+			trigger: left,
+			start: 'top top',
+			end: 'bottom bottom',
+			scrub: true,
+			pin: svgPin,
+			pinSpacing: false,
+
+			onUpdate: (self) => {
+				const progress = self.progress;
+				gsap.to(path, {
+					drawSVG: `${progress * 100}%`
+				});
+			}
+		});
+	});
 </script>
 
-<div class="map-section">
+<div class="wrapper">
 	<h2 id="bidjara-history">Learn Bijdara History along Mickey's Creek</h2>
 
-	<div class="container-left">
+	<div class="left" bind:this={left}>
 		<p>
 			The next day, Uncle Fred and Jackie lead our team and two former Rangers, Bernice Sigley and
 			Kristine Sloman, along Mickey’s Creek. As on our previous journey, Uncle stops every few
@@ -22,15 +49,16 @@
 			Country has to offer, and high regard for his ancestors, who knew how to benefit and honour
 			Country.
 		</p>
-		
-		<figure>
-			<img src={image_still_02} alt="Uncle Fred's hands in which he is holding white myrtle leaves." />
-			<figcaption>
-				Uncle Fred makes soap from white myrtle leaves, Carnarvon Gorge, QLD, 23 March 2022. Photo:
-				Amy Way.
-			</figcaption>
-		</figure>
 
+		<ImageSingle
+			source={image_still_02}
+			alt="Uncle Fred's hands in which he is holding white myrtle leaves."
+			caption="Uncle Fred makes soap from white myrtle leaves, Carnarvon Gorge, QLD, 23 March 2022. Photo:
+Amy Way."
+			width=""
+			height=""
+			galleryId="image_still_02"
+		/>
 
 		<p>
 			The white myrtle tree has a number of uses for the Bidjara, primarily as a source of soap.
@@ -39,14 +67,11 @@
 			fish.
 		</p>
 
-		<figure class="bush-video">
-			<YouTube youTubeId="bJsmRVXDbTc" />
-
-			<figcaption>
-				Uncle Fred explains the use of plant anaesthetic, Carnarvon Gorge, QLD, 23 March 2022.
-				Photo: Amy Way.
-			</figcaption>
-		</figure>
+		<EmbedYouTube
+			youTubeId="bJsmRVXDbTc"
+			caption="Uncle Fred explains the use of plant anaesthetic, Carnarvon Gorge, QLD, 23 March 2022.
+		Photo: Amy Way."
+		/>
 
 		<p>
 			Another plant was used as an anaesthetic during initiation ceremonies. Young boys chewed the
@@ -71,115 +96,140 @@
 			collected from native bee hives to eat on the go or to take back to their humpies.
 		</p>
 
-		<figure>
-			<img src={image_ANU7376} alt="A folded pouch of palm bark on the ground." />
-			<figcaption>
-				A folded pouch of palm bark, Carnarvon Gorge, QLD, 23 March 2022. Photo: Amy Way.
-			</figcaption>
-		</figure>
+		<ImageSingle
+			width=""
+			height=""
+			source={image_ANU7376}
+			alt="A folded pouch of palm bark on the ground."
+			caption="A folded pouch of palm bark, Carnarvon Gorge, QLD, 23 March 2022. Photo: Amy Way."
+			galleryId="image_ANU7376"
+		/>
 	</div>
 
-	<div id="rock-archive-inner-container" class="image-container">
-		<div id="scrolling-image-container" class="scrolling-image-container">
-			<svg
-				version="1.1"
-				xmlns="http://www.w3.org/2000/svg"
-				xmlnsXlink="http://www.w3.org/1999/xlink"
-				x="0px"
-				y="0px"
-				viewBox="0 0 400 691.85"
-				enableBackground="new 0 0 400 691.85"
-				xml:space="preserve"
-				preserveAspectRatio="xMidYMax meet"
-			>
-				<g id="Topographic_image">
-					<image
-						overflow="visible"
-						width="1512"
-						height="2615"
-						id="background-map"
-						xlink:href={image_walk2}
-						transform="matrix(0.2646 0 0 0.2646 0 0)"
+	<div id="rock-archive-inner-container" class="right">
+		<svg
+			bind:this={svgPin}
+			version="1.1"
+			xmlns="http://www.w3.org/2000/svg"
+			xmlns:xlink="http://www.w3.org/1999/xlink"
+			x="0px"
+			y="0px"
+			viewBox="0 0 472 945"
+			enable-background="new 0 0 472 945"
+			xml:space="preserve"
+		>
+			<g id="image">
+				<image overflow="visible" width="472" height="945" id="bg" xlink:href={image_walk2} />
+			</g>
+			<g id="Location_markers">
+				<circle
+					id="end"
+					fill="#E6E6E7"
+					stroke="#272525"
+					stroke-linecap="round"
+					stroke-miterlimit="10"
+					cx="390"
+					cy="789"
+					r="30"
+				/>
+
+				<circle
+					id="purple_x5F_berries"
+					fill="#E6E6E7"
+					stroke="#272525"
+					stroke-linecap="round"
+					stroke-miterlimit="10"
+					cx="322"
+					cy="651"
+					r="30"
+				/>
+
+				<circle
+					id="anaesthetic"
+					fill="#E6E6E7"
+					stroke="#272525"
+					stroke-linecap="round"
+					stroke-miterlimit="10"
+					cx="337.3"
+					cy="491"
+					r="30"
+				/>
+
+				<circle
+					id="white_x5F_myrtle"
+					fill="#E6E6E7"
+					stroke="#272525"
+					stroke-linecap="round"
+					stroke-miterlimit="10"
+					cx="289.3"
+					cy="352"
+					r="30"
+				/>
+				<circle
+					id="start"
+					fill="#E6E6E7"
+					stroke="#272525"
+					stroke-linecap="round"
+					stroke-miterlimit="10"
+					cx="228.5"
+					cy="225.5"
+					r="30"
+				/>
+			</g>
+			<g id="route">
+				<g id="path">
+					<path
+						id="path"
+						bind:this={path}
+						fill="none"
+						stroke-linecap="round"
+						stroke-width="18px"
+						stroke-miterlimit="1.5"
+						d="M229.5,227.5c17,32.2,32.1,60.8,45.7,86.5c4.5,8.4,4,20,11.2,26.2c6.9,5.9,2.2,13.3,5.5,19
+			c2.5,4.2,6.3,7.5,8.6,11.8c3.4,6.3,3.3,13.9,6.3,20.4c4.8,10.6,16.4,16.1,23.9,25c16.1,19.1,14.5,50.9,6.6,74.6
+			c-10.9,32.7-28,64.3-20.1,97.8c1.4,5.8,3.3,11.5,4.3,17.4c3,17.9-0.2,36.2,0.6,54.4c0.9,21.5,13.3,40.1,31.2,47
+			c15.3,5.8,24.5,4.3,30.8,13.4c11.1,16,5.1,46.5,6,66"
 					/>
 				</g>
-				<!-- <g id="Path">
-            <polyline id="path-2" fill="none" stroke="#740000" strokeWidth="8" strokeMiterlimit="10" points="336.16,57.42 241.18,166.18 
-      241.18,288.74 	"/>
-
-            <line ref={(ref) => this.path = ref} id="path-1" fill="none" stroke="#740000" strokeWidth="8" strokeMiterlimit="10" x1="278.75" y1="339.16" x2="94.12" y2="618.1" />
-          </g>  -->
-			</svg>
-		</div>
-		<!--  <div id="end" class={styles.end}></div> -->
+			</g>
+		</svg>
 	</div>
 </div>
 
 <style>
-	.map-section {
-		max-width: 800px;
-		margin: 6.4rem auto;
-		padding: 0 1.6rem;
+	.wrapper {
+		max-width: var(--width-site);
+		margin: 0 auto;
 		min-height: 100vh;
 		display: flex;
-		flex-wrap: wrap;
-		align-items: stretch;
-		height: 100%;
+		flex-direction: row;
+		flex-flow: row wrap;
+		gap: var(--space-lg);
 	}
 	h2 {
 		flex: 0 0 100%;
 	}
-	figure {
-		margin-bottom: 1.6rem;
+	.left,
+	.right {
+		flex: 1;
+		min-height: 100vh;
 	}
-	figure img {
-		border-radius: var(--radius-corner);
-	}
-	.container-left {
+	.left {
 		height: 100%;
-		flex: 1 0 50%;
 		background-color: var(--clr-dark-charcoal);
-		z-index: 200;
 	}
-	.container-left figure:first-child {
-		margin-top: 2rem;
+	.right {
+		position: relative;
 	}
-	.image-container {
-		flex: 1 0 50%;
-		width: 100%;
+	#path {
+		stroke: var(--clr-dark-red);
 	}
-	.scrolling-image-container {
-		border-radius: 2px;
-		padding-top: 2rem;
-		padding-bottom: 4rem;
-		position: sticky;
-		top: -1px;
-		z-index: 10;
+	circle {
+		fill: #ffffffa6;
+		stroke: var(--clr-dark-red);
+		stroke-width: 4px;
 	}
-	.scrolling-image-container svg {
-		margin: 0 auto;
-		width: 100%;
-		margin-left: 0.8rem;
-	}
-
-	@media (min-width: 600px) {
-		.map-section {
-			padding: 0;
-			display: flex;
-			flex-direction: row;
-			flex-flow: row wrap;
-		}
-		.image-container {
-			display: inline;
-			padding-left: 1rem;
-		}
-		.scrolling-image-container {
-			max-width: 400px;
-			margin-left: auto;
-		}
-		svg {
-			max-height: 200px;
-			transform: rotate(-180deg);
-			max-height: 100%;
-		}
+	image {
+		clip-path: inset(0% round 1%);
 	}
 </style>

@@ -56,13 +56,61 @@
 		const options = {
 			gallery: '#' + galleryId,
 			children: links,
-			pswpModule: () => import('photoswipe')
+			pswpModule: () => import('photoswipe'),
+			items: media
 		};
+
 		const lightbox = new PhotoSwipeLightbox(options);
 
 		const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
 			// Plugins options, for example:
 			type: 'auto'
+		});
+
+		// Extend item data to include video attributes
+		lightbox.addFilter('itemData', (itemData, index) => {
+			// console.log(element)
+			const type = itemData.element.dataset.pswpType;
+			if (type === 'video') {
+				itemData.type = type; // Mark item as video
+				itemData.videoSrc = itemData.element.dataset.videoSrc; // Video source URL
+				itemData.videoPoster = itemData.element.dataset.videoPoster; // Video poster URL
+			}
+			return itemData;
+		});
+
+
+		lightbox.on('contentLoad', (e) => {
+			const { content } = e;
+
+			if (content.data.type === 'video') {
+				e.preventDefault(); // Stop default content loading
+
+				content.element = document.createElement('video');
+				content.element.setAttribute('controls', '');
+				content.element.style.width = '100%';
+				content.element.style.height = '100%';
+
+				if (content.data.videoPoster) {
+					content.element.setAttribute('poster', content.data.videoPoster);
+				}
+
+				const source = document.createElement('source');
+				source.setAttribute('src', content.data.videoSrc);
+				source.setAttribute('type', 'video/mp4');
+				content.element.appendChild(source);
+
+				content.state = 'loaded'; // Mark content as loaded
+			}
+		});
+
+		lightbox.on('contentAppend', (e) => {
+			const { content } = e;
+			if (content.data.type === 'video' && !content.element.parentNode) {
+				e.preventDefault();
+				content.slide.container.appendChild(content.element);
+				content.element.load(); 
+			}
 		});
 
 		lightbox.init();
@@ -74,41 +122,57 @@
 </script>
 
 <div class="wrapper">
-<div
-	class="container pswp-gallery pswp-gallery--single-column"
-	bind:this={container}
-	id={galleryId}
->
-	{#each media as { type, url, caption, width, height, alt = '' }, i}
-		<figure class="pswp-gallery__item" bind:this={box[i]}>
-			<a
-				href={url}
-				data-pswp-width={width}
-				data-pswp-height={height}
-				target="_blank"
-				rel="noreferrer"
-				bind:this={links[i]}
-			>
+	<div
+		class="container pswp-gallery pswp-gallery--single-column"
+		bind:this={container}
+		id={galleryId}
+	>
+		{#each media as { type, url, caption, width, height, poster, alt = '' }, i}
+			<figure class="pswp-gallery__item" bind:this={box[i]}>
 				{#if type === 'image'}
-					<img src={url} {alt} />
+					<a
+						href={url}
+						data-pswp-type={type}
+						data-pswp-width={width}
+						data-pswp-height={height}
+						target="_blank"
+						rel="noreferrer"
+						bind:this={links[i]}
+					>
+						<img src={url} {alt} data-caption={caption} />
+					</a>
 				{/if}
-
 				{#if type === 'video'}
-					<video>
-						<track kind="captions" />
-					</video>
+					<a
+						href="#"
+						data-pswp-type={type}
+						data-video-src={url}
+						data-video-poster={poster}
+						data-pswp-width={width}
+						data-pswp-height={height}
+						target="_blank"
+						rel="noreferrer"
+						bind:this={links[i]}
+					>
+						<img src={poster} alt={caption} data-caption={caption} />
+					</a>
 				{/if}
-			</a>
-			<figcaption class="pswp-caption-content">
-				{@html caption}
-			</figcaption>
-		</figure>
-	{/each}
+				<figcaption class="pswp-caption-content">
+					{@html caption}
+				</figcaption>
+			</figure>
+		{/each}
+	</div>
 </div>
-</div>
-
 
 <style>
+	:global(.custom-caption) {
+		position: absolute;
+		top: 0;
+		height: 400px;
+		width: 400px;
+		background-color: purple;
+	}
 	.wrapper {
 		width: 100%;
 		display: flex;
@@ -133,6 +197,7 @@
 		opacity: 0;
 	}
 
+	video,
 	img {
 		width: 100%;
 		height: 100%;

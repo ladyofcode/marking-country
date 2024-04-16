@@ -43,7 +43,7 @@
 		<!-- <img src="/assets/moon.svg" alt="Enable Light Mode" class="icon-moon" /> -->
 		{#if !$darkMode}
 			<svg
-				fill="#f3e3e3"
+				fill="#c26f67"
 				id="icon-sun"
 				class="icon-sun"
 				x="0px"

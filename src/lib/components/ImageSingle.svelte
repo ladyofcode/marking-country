@@ -57,22 +57,24 @@
 
 <style>
 	div {
-		background: #110d0d;
-		box-shadow: inset 8px 8px 16px #070606, inset -8px -8px 16px #1b1616;
+		background: var(--clr-bg-main);
+		box-shadow: var(--box-shadow);
 		border-radius: var(--radius-corner);
 		padding: var(--space-md);
 		margin: var(--space-xxxl) 0;
-		height: 100%;
+		/* height: 100%; */
 	}
 	div.top-margin-remove {
 		margin-top: 0;
 	}
 	figure {
-		display: flex;
+		display:inline-block;
+		width: 100%;
+		/* display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
-		height: auto;
+		justify-content: center; */
+		height: 100%;
 		padding: 0;
 		margin: 0;
 		border-radius: var(--radius-corner);
@@ -84,16 +86,21 @@
 	}
 	figcaption {
 		max-width: var(--width-content);
+		margin: 0 auto;
 	}
 	a {
-		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		width: 100%;
 		height: 100%;
 		max-height: calc(var(--height-viewable) - 20vh);
-		overflow: hidden;
+		/* overflow: hidden; */
+		border-radius: var(--radius-corner);
 	}
 	img {
-		height: 100%;
+		height: auto;
+		max-height: calc(var(--height-viewable) - 20vh);
 		width: 100%;
 		object-fit: contain;
 		border-radius: var(--radius-corner);
@@ -120,5 +127,9 @@
 		div {
 			padding: var(--space-lg);
 		}
+		/* img {
+			height: 100%;
+			width: auto;
+		} */
 	}
 </style>

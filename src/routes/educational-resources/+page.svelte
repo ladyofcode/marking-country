@@ -1,8 +1,12 @@
 <script>
 	import { base } from '$app/paths';
+	import { onMount } from 'svelte';
 	import { generateSubfolderMedia } from '$lib/imagePaths';
+	import { switcher } from '../../stores/sectionSwitcherStore';
 
-	import { GenericContent, Header, ImageSingle, SideScroller } from '$lib';
+	const switcherLinks = [];
+
+	import { GenericContent, Header, ImageSingle, SideScroller, FileDownload } from '$lib';
 
 	const uncleFredFilenames = [
 		'IMG_2552.jpg',
@@ -31,20 +35,13 @@
 		`${folderPath}willandra_slideshow`,
 		willandraFilenames
 	);
+	const file = `${base}/education/informit.476271710767168.pdf`;
 
 	const sectionOneContent = [
 		{
 			markup: [
 				`
-						<h2>Resources for teachers</h2>
-						
-						<p>
-							<strong
-							>Please note: A Teacher's Guide, which addresses the aims of the National Curriculum is
-							currently being prepared and will be posted in the coming months.</strong
-							>
-							</p>
-							
+	
 							<h3>What is 'deep history'?</h3>
 							<h4>Ann McGrath, Australian National University</h4>`
 			],
@@ -396,7 +393,11 @@
 		}
 	];
 
-	const pageTitle = `Educational resources`
+	const pageTitle = `Educational resources`;
+
+	onMount(() => {
+		switcher.set(switcherLinks);
+	});
 </script>
 
 <svelte:head>
@@ -411,6 +412,18 @@
 	heading="Educational resources"
 	gradientColor="#364840"
 />
+
+<GenericContent>
+	<h2>Resources for teachers</h2>
+
+	<p>
+		<strong
+			>Please note: A Teacher's Guide, which addresses the aims of the National Curriculum is
+			currently being prepared and will be posted in the coming months.</strong
+		>
+	</p>
+	<FileDownload file={file} fileTitle="informit.476271710767168.pdf" title="What is 'Deep history?'" />
+</GenericContent>
 
 <SideScroller content={sectionOneContent} />
 

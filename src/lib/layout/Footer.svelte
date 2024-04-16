@@ -24,7 +24,8 @@
 
 <style>
 	footer {
-		background-color: var(--clr-dark-charcoal);
+		background-color: var(--clr-bg-block-dark);
+		border-top: 2px solid var(--clr-bg-block-dark);
 		padding: var(--space-xxxl) var(--space-lg);
 		margin-top: var(--space-xxxxl);
 	}
@@ -51,7 +52,7 @@
 	}
 
 	hr {
-		border: 0.5px solid var(--clr-charcoal);
+		border: 0.5px solid var(--clr-light-contrast);
 		margin-bottom: var(--space-xl);
 	}
 	
@@ -68,6 +69,7 @@
 	.logos img {
 		height: 64px;
 		width: auto;
+		filter: var(--clr-images);
 	}
 
 	@media (min-width: 900px) {
@@ -76,6 +78,5 @@
 			justify-content: flex-start;
 			gap: var(--space-xxl);
 		}
-
 	}
 </style>

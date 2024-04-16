@@ -1,29 +1,45 @@
 <script>
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import { YouTube } from 'sveltekit-embed';
+	// import { YouTube } from 'sveltekit-embed';
+
 	import { generateSingleMedia, generateSubfolderMedia } from '$lib/imagePaths';
+	import { onMount } from 'svelte';
+	import { switcher } from '../../stores/sectionSwitcherStore';
+
+	const switcherLinks = [
+		{ title: 'Walk to archive', ref: '#rock-walk' },
+		{ title: 'Rock archive', ref: '#rock-archive' },
+		{ title: 'Protecting sacred sites', ref: '#sacred-sites' },
+		{ title: 'Bidjara history', ref: '#bidjara-history' },
+		{ title: 'Creek stories', ref: '#creek-stories' }
+	];
 
 	import {
+		AudioBlock,
 		Header,
 		GenericContent,
+		CaptionScroller,
 		Citations,
 		Credits,
 		Collapsible,
+		EmbedYouTube,
 		TwoColumnContent,
 		MediaFullWidth,
 		ImageSliderFullscreen,
-		AudioBlock,
 		Intro,
+		ImageSingle,
 		QuoteInline,
 		QuoteLarge,
 		ScrollingCaption,
 		FullScreenStop,
 		ScrollStop,
+		TwoColumns,
 		GalleryOne,
 		GalleryTwo,
 		WalkOne,
 		WalkTwo,
+		VideoScrubber,
 		ZoomableContent
 	} from '$lib';
 
@@ -69,17 +85,19 @@
 	];
 
 	const singleVideosFilenames = [
-		'C0001.webm',
-		'C0008.webm',
-		'C0009.webm',
-		'C0010.webm',
-		'C0006.webm',
-		'C0016.webm',
-		'C0025.webm',
-		'C0027.webm',
-		'C0028.webm',
-		'carnarvonDrone.webm',
-		'UncleFredArrival.webm'
+		'C0001.mp4',
+		'C0008.mp4',
+		'C0009.mp4',
+		'C0010.mp4',
+		'C0006.mp4',
+		'C0016.mp4',
+		'C0025.mp4',
+		'C0027.mp4',
+		'C0028.mp4',
+		'carnarvonDrone.mp4',
+		'UncleFredArrival.mp4',
+		'map1.mp4',
+		'map2.mp4',
 	];
 
 	const filePathImages = `/stories/carnarvon/images/`;
@@ -90,11 +108,214 @@
 	const singleVideos = generateSingleMedia(`${filePathVideo}`, singleVideosFilenames);
 
 	const pageTitle = `Walking deep history: Carnarvon Gorge`;
+
+	const sectionOneVideos = [
+		{
+			markup: [`<p>Walking Carnarvon Gorge takes you down into shaded rainforests...</p>`],
+			media: {
+				type: 'video',
+				videoType: 'webm',
+				source: singleVideos.C0025,
+				poster: singleImages.image_poster_C0025,
+				autoplay: true
+			}
+		},
+		{
+			markup: [`<p>... over creek crossings...</p>`],
+			media: {
+				type: 'video',
+				videoType: 'webm',
+				source: singleVideos.C0027,
+				poster: singleImages.image_poster_C0027,
+				autoplay: true
+			}
+		},
+		{
+			markup: [`<p>... and right alongside the base of the ancient rock shelter.</p>`],
+			media: {
+				type: 'video',
+				videoType: 'webm',
+				source: singleVideos.C0028,
+				poster: singleImages.image_poster_C0028,
+				autoplay: true
+			}
+		}
+	];
+
+	const sectionTwoVideos = [
+		{
+			markup: [`<p>Even when the creek is dry, there is a coolness to this Country</p>`],
+			media: {
+				type: 'video',
+				videoType: 'webm',
+				source: singleVideos.C0008,
+				poster: singleImages.image_poster_C0008,
+				autoplay: true
+			}
+		},
+		{
+			markup: [`<p>A valley of palms, ferns, and grasses...</p>`],
+			media: {
+				type: 'video',
+				videoType: 'webm',
+				source: singleVideos.C0009,
+				poster: singleImages.image_poster_C0009,
+				autoplay: true
+			}
+		},
+		{
+			markup: [`<p>...whose path is nestled underneath the rock.</p>`],
+			media: {
+				type: 'video',
+				videoType: 'webm',
+				source: singleVideos.C0010,
+				poster: singleImages.image_poster_C0010,
+				autoplay: true
+			}
+		}
+	];
+	const burntGallery = [
+		{
+			markup: [
+				`<p>It takes time to walk the debris-covered track to the site. The destruction is obvious as soon as we arrive.</p>`
+			],
+			media: {
+				type: 'image',
+				source: slideshow[0],
+				alt: 'An overhanging rock outcrop, blackened and damaged by fire.'
+			}
+		},
+		{
+			markup: [
+				`<p>The entire rock overhang has been burnt and its painted underside demolished.</p>`
+			],
+			media: {
+				type: 'image',
+				source: slideshow[1],
+				alt: 'Broken rock on the ground that has fallen from the overhanging rock outcrop.',
+				orientation: 'portrait'
+			}
+		},
+		{
+			markup: [
+				`<p>The destructive power of the fire was fuelled by a plastic walkway and viewing platform that had been built, against community wishes, in 2014.</p>`
+			],
+			media: {
+				type: 'image',
+				source: slideshow[2],
+				alt: 'The overhanging rock outcrop, showing some remaining pieces of art that have not fallen down.'
+			}
+		},
+		{
+			markup: [
+				`<p>The supposedly fire-retardant material ignited to create a fire so hot it shattered the rock, reducing enormous slabs of painted walls into piles of rubble.</p>`
+			],
+			media: {
+				type: 'image',
+				source: slideshow[3],
+				alt: 'The overhanging rock outcrop, showing some remaining pieces of art that have not fallen down.'
+			}
+		},
+		{
+			markup: [
+				`<p>Plastic fibres remain mixed with the soil and rock. Very few images from the ancient archive survived.</p>`
+			],
+			media: {
+				type: 'image',
+				source: slideshow[4],
+				alt: 'Piles of broken rock.'
+			}
+		},
+		{
+			markup: [`<p>Site photos. Carnarvon Gorge, QLD, 23 March 2022. Photos: Amy Way</p>`],
+			media: {
+				type: 'image',
+				source: slideshow[5],
+				alt: 'Pieces of twisted, melted plastic from the boardwalk.'
+			}
+		},
+		{
+			markup: [
+				`<p>It's like the blueprint has been desecrated, and we cannot rebuild something that was here for thousands and thousands and thousands of years before white man colonisation.</p>`
+			],
+			media: {
+				type: 'image',
+				source: singleImages._ANU7606,
+				alt: 'Jackie standing with one hand on a walking stick the other hand resting on her hip, surrounded by trees.',
+				credit:
+					'Professor Jackie Huggins discusses fire damage in Carnarvon Gorge, Queensland, 24 March 2022. Photo: Amy Way.'
+			}
+		}
+	];
+
+	const fireDamage = [
+		{
+			markup: `<p>"Listen, consult, and action everything that we say."</p> <a class="youtube-button" href="https://www.youtube.com/watch?v=LXrYauhb3Po">
+		Watch full interview on YouTube (04:55)
+	</a>`,
+			media: {
+				type: 'image',
+				source: singleImages.Still_C0027,
+				credit:
+					'Professor Jackie Huggins discusses fire damage in Carnarvon Gorge Queensland, 24 March 2022. Photo: Amy Way.',
+				alt: 'Close of up Jackie. '
+			}
+		}
+	];
+
+	const endGroupPhoto = [
+		{
+			markup: `<p>
+		Coming back, every time I ask Uncle to come with me and to guide us, to steer us in the right
+		direction. And I'm so glad he came for us. - Professor Jackie Huggins
+	</p>
+
+	<p>
+		Yesterday was a great challenge for both myself and my niece. I'm so proud of going up to the
+		Art Gallery yesterday and explaining some of the significancy to the camera. - Uncle Fred
+	</p>
+
+	<p>
+		Photo: Jackie Huggins refers to Uncle Fred as her 'teacher' and eminent Bidjara knowledge
+		holder. Mickey's Creek, Carnarvon Gorge, QLD, 23 March 2022. Photo by Amy Way
+	</p>`,
+			media: {
+				type: 'image',
+				source: singleImages._ANU7346,
+				alt: 'Jackie and Uncle Fred sitting on some rocks in the Gorge; Jackie is smiling, Uncle Fred is holding his walking stick in one and and pointing to something with the other hand.'
+			}
+		}
+	];
+
+	const map1Text = [
+		`<p>
+		The National Park is surrounded by government and private property; state forests, cattle
+		stations and pastoral leases whose origins date back to the area's violent colonial history.
+	</p>`,
+
+		`<p>
+		In 1897, after decades of brutal guerrilla warfare between settlers, police, and Aboriginal
+		nations, the Queensland colonial government ordered the forced removal of Aboriginal people from
+		their Country.
+	</p>`,
+
+		`<p>
+		Jackie's mother, Rita Huggins, was born in a cave at Carnarvon Gorge in 1922. Not long after,
+		Rita and her entire family were forcibly taken from Bidjara Country to Barambah reserve
+		(Cherbourg).
+	</p>`,
+		`<p>The gorge became part of the Carnarvon National Park in 1932.</p>`
+	];
+
+	onMount(() => {
+		switcher.set(switcherLinks);
+	});
 </script>
 
 <svelte:head>
 	<title>{pageTitle}</title>
 </svelte:head>
+
 
 <Header
 	poster={singleImages.carnarvon_poster}
@@ -175,64 +396,11 @@
     Creek, Carnavon Gorge, Queensland, 23 March 2022. Photo: Amy Way."
 />
 
-<!-- Quick links
+ <MediaFullWidth youTubeId="v0tiqh1Ml04" />
 
-	<li>
-				<a href="#rock-walk">Walk with Uncle to the rock archive</a>
-			</li>
-			<li>
-				<a href="#rock-archive">Skip to the rock archive</a>
-			</li>
-			<li>
-				<a href="#sacred-sites"> Protecting sacred sites</a>
-			</li>
-			<li>
-				<a href="#bidjara-history"> Learn Bidjara history along Mickey's Creek </a>
-			</li>
-			<li>
-				<a href="#creek-stories">Skip to Creek stories</a>
-			</li>
--->
+<WalkOne id="rock-walk" />
 
-<MediaFullWidth youTubeId="v0tiqh1Ml04" />
-
-<WalkOne />
-
-<ScrollingCaption
-	id="trio1"
-	video={singleVideos.C0025}
-	type="video/webm"
-	caption="left"
-	alt=""
-	poster={singleImages.image_poster_C0025}
-	autoplay={true}
->
-	<p>Walking Carnarvon Gorge takes you down into shaded rainforests...</p>
-</ScrollingCaption>
-
-<ScrollingCaption
-	id="trio2"
-	video={singleVideos.C0027}
-	type="video/webm"
-	caption="left"
-	alt=""
-	poster={singleImages.image_poster_C0027}
-	autoplay={true}
->
-	<p>... over creek crossings...</p>
-</ScrollingCaption>
-
-<ScrollingCaption
-	id="trio3"
-	video={singleVideos.C0028}
-	caption="left"
-	type="video/webm"
-	alt=""
-	poster={singleImages.image_poster_C0028}
-	autoplay={true}
->
-	<p>... and right alongside the base of the ancient rock shelter.</p>
-</ScrollingCaption>
+<CaptionScroller content={sectionOneVideos} />
 
 <GenericContent>
 	<p>
@@ -244,7 +412,7 @@
 	</p>
 </GenericContent>
 
-<FullScreenStop>
+<FullScreenStop id="rock-archive">
 	<p id="rock-archive">The reunion is intimate.</p>
 	<p>
 		It is the first time Uncle has been back in almost three years— since his battle with cancer.
@@ -255,18 +423,25 @@
 
 <ScrollStop video={singleVideos.UncleFredArrival} alt="" poster={singleImages.reunion} />
 
-<ScrollingCaption
-	image={singleImages._ANU7118_cropped}
-	caption="right"
-	credit="Uncle Fred explains the significance of the Art Gallery in
-    Carnarvon Gorge, QLD, 22 March 2022. Photo: Amy Way."
-	orientation="portrait"
-	alt="Uncle Fred standing on the boardwalk near the gallery, resting his hands on the railing."
->
-	<audio src={audio_C0041_AudioOnly2} controls />
+<TwoColumns center={true}>
+	<div slot="column1">
+		<ImageSingle
+			width=""
+			height=""
+			source={singleImages._ANU7118_cropped}
+			caption="Uncle Fred explains the significance of the Art Gallery in
+		Carnarvon Gorge, QLD, 22 March 2022. Photo: Amy Way."
+			alt="Uncle Fred standing on the boardwalk near the gallery, resting his hands on the railing."
+			galleryId="_ANU7118_cropped"
+		/>
+	</div>
 
-	<p>"I'm happy to be home. That's why I said <em>yumbagurri</em>. I'm coming home."</p>
-</ScrollingCaption>
+	<div slot="column2">
+		<AudioBlock src={audio_C0041_AudioOnly2} />
+
+		<p>"I'm happy to be home. That's why I said <em>yumbagurri</em>. I'm coming home."</p>
+	</div>
+</TwoColumns>
 
 <GenericContent>
 	<p>
@@ -285,16 +460,15 @@
 </GenericContent>
 
 <GenericContent>
-	<figure>
-		<img
-			src={singleImages._ANU7106}
-			alt="Uncle Fred sitting on the railing, with the rock art gallery behind him; gesturing with his hands."
-		/>
-		<figcaption>
-			Uncle Fred explaining Bidjara deep history at the Art Gallery in Carnarvon Gorge, QLD, 22
-			March 2022. Photo: Amy Way.
-		</figcaption>
-	</figure>
+	<ImageSingle
+		height=""
+		width=""
+		source={singleImages._ANU7106}
+		caption="Uncle Fred explaining Bidjara deep history at the Art Gallery in Carnarvon Gorge, QLD, 22
+	March 2022. Photo: Amy Way."
+		alt="Uncle Fred sitting on the railing, with the rock art gallery behind him; gesturing with his hands."
+		galleryId="_ANU7106"
+	/>
 </GenericContent>
 
 <GalleryOne />
@@ -350,7 +524,7 @@
 	alt="The woman's place in the Art Gallery."
 	caption="A woman's place, Art Gallery, Carnarvon Gorge, QLD 22 March 2022.
     Photo: Amy Way."
-/>
+/> 
 
 <GenericContent>
 	<p>
@@ -373,12 +547,14 @@
 </GenericContent>
 
 <GenericContent>
-	<figure>
-		<img src={singleImages._ANU7181} alt="Graffiti on the Art Gallery rock wall." />
-		<figcaption>
-			Graffiti at the Art Gallery in Carnarvon Gorge, QLD, 22 March 2022. Photo: Amy Way.
-		</figcaption>
-	</figure>
+	<ImageSingle
+		width=""
+		height=""
+		source={singleImages._ANU7181}
+		caption="Graffiti at the Art Gallery in Carnarvon Gorge, QLD, 22 March 2022. Photo: Amy Way."
+		alt="Graffiti on the Art Gallery rock wall."
+		galleryId="_ANU7181"
+	/>
 </GenericContent>
 
 <GenericContent>
@@ -388,25 +564,7 @@
 	</p>
 </GenericContent>
 
-<ZoomableContent>
-	<p>
-		The National Park is surrounded by government and private property; state forests, cattle
-		stations and pastoral leases whose origins date back to the area's violent colonial history.
-	</p>
-
-	<p>
-		In 1897, after decades of brutal guerrilla warfare between settlers, police, and Aboriginal
-		nations, the Queensland colonial government ordered the forced removal of Aboriginal people from
-		their Country.
-	</p>
-
-	<p>
-		Jackie's mother, Rita Huggins, was born in a cave at Carnarvon Gorge in 1922. Not long after,
-		Rita and her entire family were forcibly taken from Bidjara Country to Barambah reserve
-		(Cherbourg).
-	</p>
-	<p>The gorge became part of the Carnarvon National Park in 1932.</p>
-</ZoomableContent>
+<VideoScrubber videoUrl={singleVideos.map1} text={map1Text} />
 
 <FullScreenStop>
 	<p id="sacred-sites">
@@ -426,87 +584,10 @@
 	</p>
 </FullScreenStop>
 
-<ScrollStop>
-	<YouTube youTubeId="/uwCshjO59-o" />
-	<!-- <iframe
-        width="100%"
-        height="100%"
-        src="https://www.youtube.com/embed/uwCshjO59-o?rel=0"
-        title="YouTube video player"
-        frameBorder="0"
-        allowFullScreen
-      ></iframe> -->
+<ScrollStop id="sacred-sites" youTubeId="uwCshjO59-o">
 </ScrollStop>
 
-<ScrollingCaption
-	image={slideshow[0]}
-	alt="An overhanging rock outcrop, blackened and damaged by fire. "
-	caption="left"
->
-	<p>
-		It takes time to walk the debris-covered track to the site. The destruction is obvious as soon
-		as we arrive.
-	</p>
-</ScrollingCaption>
-
-<ScrollingCaption
-	image={slideshow[1]}
-	alt="Broken rock on the ground that has fallen from the overhanging rock outcrop."
-	caption="left"
-	orientation="portrait"
->
-	<p>The entire rock overhang has been burnt and its painted underside demolished.</p>
-</ScrollingCaption>
-
-<ScrollingCaption
-	image={slideshow[2]}
-	alt="The overhanging rock outcrop, showing some remaining pieces of art that have not fallen down."
-	caption="left"
->
-	<p>
-		The destructive power of the fire was fuelled by a plastic walkway and viewing platform that had
-		been built, against community wishes, in 2014.
-	</p>
-</ScrollingCaption>
-
-<ScrollingCaption
-	image={slideshow[3]}
-	alt="The overhanging rock outcrop, showing some remaining pieces of art that have not fallen down."
-	caption="left"
->
-	<p>
-		The supposedly fire-retardant material ignited to create a fire so hot it shattered the rock,
-		reducing enormous slabs of painted walls into piles of rubble.
-	</p>
-</ScrollingCaption>
-
-<ScrollingCaption image={slideshow[4]} alt="Piles of broken rock." caption="left">
-	<p>
-		Plastic fibres remain mixed with the soil and rock. Very few images from the ancient archive
-		survived.
-	</p>
-</ScrollingCaption>
-<ScrollingCaption
-	image={slideshow[5]}
-	alt="Pieces of twisted, melted plastic from the boardwalk."
-	caption="left"
->
-	<p>Site photos. Carnarvon Gorge, QLD, 23 March 2022. Photos: Amy Way</p>
-</ScrollingCaption>
-
-<ScrollingCaption
-	image={singleImages._ANU7350}
-	alt="Jackie standing with one hand on a walking stick the other hand resting on her hip, surrounded by trees. "
-	credit="Professor Jackie Huggins discusses fire damage in Carnarvon Gorge,
-      Queensland, 24 March 2022. Photo: Amy Way."
-	align="right"
-	caption="left"
->
-	<p>
-		It's like the blueprint has been desecrated, and we cannot rebuild something that was here for
-		thousands and thousands and thousands of years before white man colonisation.
-	</p>
-</ScrollingCaption>
+<CaptionScroller content={burntGallery} />
 
 <GenericContent>
 	<p>
@@ -549,79 +630,47 @@
 	<p>All quotes above are by Professor Jackie Huggins.</p>
 </GenericContent>
 
-<ScrollingCaption
-	image={singleImages.Still_C0027}
-	credit="Professor Jackie Huggins discusses fire damage in Carnarvon Gorge,
-    Queensland, 24 March 2022. Photo: Amy Way."
-	alt="Close of up Jackie. "
-	caption="left"
->
-	<p>"Listen, consult, and action everything that we say."</p>
+<CaptionScroller content={fireDamage} />
 
-	<a class="youtube-button" href="https://www.youtube.com/watch?v=LXrYauhb3Po">
-		Watch full interview on YouTube (04:55)
-	</a>
-</ScrollingCaption>
+<VideoScrubber videoUrl={singleVideos.map2}  />
 
-<MediaFullWidth video={singleVideos.C0001} poster={singleImages.C0001} alt="" /> -
 
-<WalkTwo />
+<MediaFullWidth video={singleVideos.C0001} poster={singleImages.C0001} alt="" />
 
-<ScrollingCaption
-	video={singleVideos.C0008}
-	alt=""
-	poster={singleImages.image_poster_C0008}
-	caption="left"
-	autoplay={true}
->
-	<p>Even when the creek is dry, there is a coolness to this Country</p>
-</ScrollingCaption>
+<WalkTwo id="bidjara-history" />
 
-<ScrollingCaption
-	video={singleVideos.C0009}
-	alt=""
-	poster={singleImages.image_poster_C0009}
-	caption="left"
-	autoplay={true}
->
-	<p>A valley of palms, ferns, and grasses...</p>
-</ScrollingCaption>
+<CaptionScroller content={sectionTwoVideos} />
 
-<ScrollingCaption
-	video={singleVideos.C0010}
-	alt=""
-	poster={singleImages.image_poster_C0028}
-	caption="left"
-	autoplay={true}
->
-	<p>...whose path is nestled underneath the rock.</p>
-</ScrollingCaption>
+<TwoColumns center={true}>
+	<div slot="column1">
+		<ImageSingle
+			width=""
+			height=""
+			source={singleImages.AuntyRita01}
+			alt="Rita Huggins, sitting underneath an rock wall covered with red and white tock art. "
+			galleryId="AuntyRita01"
+		/>
+	</div>
 
-<!-- caption="Rita Huggins, Jackie's mother, in Carnarvon Gorge, QLD. Photo:
-Jane M. Jacobs" -->
-<ScrollingCaption
-	image={singleImages.AuntyRita01}
-	orientation="portrait"
-	caption="right"
-	alt="Rita Huggins, sitting underneath an rock wall covered with red and white tock art. "
->
+	<div slot="column2">
+		<p>
+			In our land are waterfalls, waterholes and creeks where we swam and where the older people
+			fished. Our mob always seemed cool, even on the hottest days, because the country was like an
+			oasis.
+		</p>
+		<p>
+			There were huge king ferns. ...They have been described as living fossils because their form
+			has not changed for thousands of years.
+		</p>
+
+		<p>- Rita Huggins in 'Auntie Rita'</p>
+
+		<p>Image: Rita Huggins, Jackie's mother, in Carnarvon Gorge, QLD. Jane M. Jacobs.</p>
+	</div>
+</TwoColumns>
+
+<GenericContent id="creek-stories">
 	<p>
-		In our land are waterfalls, waterholes and creeks where we swam and where the older people
-		fished. Our mob always seemed cool, even on the hottest days, because the country was like an
-		oasis.
-	</p>
-	<p>
-		There were huge king ferns. ...They have been described as living fossils because their form has
-		not changed for thousands of years.
-	</p>
-
-	<p>- Rita Huggins in 'Auntie Rita'</p>
-
-	<p>Image: Rita Huggins, Jackie's mother, in Carnarvon Gorge, QLD. Jane M. Jacobs.</p>
-</ScrollingCaption>
-
-<GenericContent>
-	<p id="creek-stories">
 		Being on Country has such special significance for Jackie and Uncle Fred. After the Covid-19
 		pandemic and personal health challenges kept them both away, physically reconnecting with
 		Carnarvon Gorge is restorative.
@@ -655,28 +704,7 @@ Jane M. Jacobs" -->
 	</p>
 </GenericContent>
 
-<ScrollingCaption
-	align="left"
-	id="groupPhoto"
-	image={singleImages._ANU7346}
-	caption="right"
-	alt="Jakcie and Uncle Fred sitting on some rocks in the Gorge; Jackie is smiling, Uncle Fred is holding his walking stick in one and and pointing to something with the other hand."
->
-	<p>
-		Coming back, every time I ask Uncle to come with me and to guide us, to steer us in the right
-		direction. And I'm so glad he came for us. - Professor Jackie Huggins
-	</p>
-
-	<p>
-		Yesterday was a great challenge for both myself and my niece. I'm so proud of going up to the
-		Art Gallery yesterday and explaining some of the significancy to the camera. - Uncle Fred
-	</p>
-
-	<p>
-		Photo: Jackie Huggins refers to Uncle Fred as her 'teacher' and eminent Bidjara knowledge
-		holder. Mickey's Creek, Carnarvon Gorge, QLD, 23 March 2022. Photo by Amy Way
-	</p>
-</ScrollingCaption>
+<CaptionScroller content={endGroupPhoto} right={true} />
 
 <GenericContent>
 	<p>
@@ -686,19 +714,20 @@ Jane M. Jacobs" -->
 		including in the many organisations and Committees she has served - always working for
 		historical recognition and justice.
 	</p>
-	<TwoColumnContent>
-		<div>
-			<figure>
-				<img
-					src={singleImages.jackie_portrait}
-					alt="Jackie sitting on rocks, smiling at the camera, her hands together in front of her."
-				/>
-			</figure>
+	<TwoColumns>
+		<div slot="column1">
+			<ImageSingle
+				width=""
+				height=""
+				source={singleImages.jackie_portrait}
+				alt="Jackie sitting on rocks, smiling at the camera, her hands together in front of her."
+				galleryId="jackie_portrait"
+			/>
 			<a class="youtube-button" href="https://youtu.be/mzZDd21hfug">
 				Watch Jackie's full story on YouTube (22:17)
 			</a>
 		</div>
-		<div>
+		<div slot="column2">
 			<QuoteInline credit="Professor Jackie Huggins">
 				<p>
 					We're all about truth telling in our Country now. Where do we start? Well, we start at the
@@ -711,7 +740,7 @@ Jane M. Jacobs" -->
 				</p>
 			</QuoteInline>
 		</div>
-	</TwoColumnContent>
+	</TwoColumns>
 
 	<p>
 		For Uncle Fred, escaping Woorabinda and working throughout Queensland showed him the depth of
@@ -719,19 +748,20 @@ Jane M. Jacobs" -->
 		of his culture and more determined to educate others by sharing it.
 	</p>
 
-	<TwoColumnContent>
-		<div>
-			<figure>
-				<img
-					src={singleImages.uncle_fred_portrait}
-					alt="Uncle Fred sitting on rocks, resting his chi on his hands that are folded over the top of his walking stick. "
-				/>
-			</figure>
+	<TwoColumns>
+		<div slot="column1">
+			<ImageSingle
+				width=""
+				height=""
+				source={singleImages.uncle_fred_portrait}
+				alt="Uncle Fred sitting on rocks, resting his chi on his hands that are folded over the top of his walking stick. "
+				galleryId="uncle_fred_portrait"
+			/>
 			<a class="youtube-button" href="https://youtu.be/NqytF0jltm4">
 				Watch Uncle Fred's full story on YouTube (21:48)
 			</a>
 		</div>
-		<div>
+		<div slot="column2">
 			<QuoteInline credit="Uncle Fred Conway">
 				<p>
 					I don't think any Indigenous people on this continent will ever forget how we've been
@@ -742,7 +772,7 @@ Jane M. Jacobs" -->
 				</p>
 			</QuoteInline>
 		</div>
-	</TwoColumnContent>
+	</TwoColumns>
 </GenericContent>
 
 <QuoteLarge credit="Uncle Fred Conway, 2022">
@@ -755,90 +785,85 @@ Jane M. Jacobs" -->
 
 <MediaFullWidth video={singleVideos.C0016} poster={singleImages.C0016} alt="" autoplay={true} />
 
-<GenericContent>
-	<Collapsible name="referencesCarnarvon" label="References and further reading">
-		<ul>
-			<li>
-				Raymond Evans, Kay Saunders and Kathryn Cronin,
-				<em>
-					Race relations in colonial Queensland: a history of exclusion, exploitation and
-					extermination
-				</em>
-				(St. Lucia: University of Queensland Press, 1993)
-			</li>
+<Collapsible name="referencesCarnarvon" label="References and further reading">
+	<ul>
+		<li>
+			Raymond Evans, Kay Saunders and Kathryn Cronin,
+			<em>
+				Race relations in colonial Queensland: a history of exclusion, exploitation and
+				extermination
+			</em>
+			(St. Lucia: University of Queensland Press, 1993)
+		</li>
 
-			<li>
-				Natalie R. Franklin, 'Visitor books in the management of rock art sites: An evaluation using
-				Carnarvon Gorge as a test case,'
-				<em>Rock Art Research</em> 28:2 (2011): 251-264.
-			</li>
+		<li>
+			Natalie R. Franklin, 'Visitor books in the management of rock art sites: An evaluation using
+			Carnarvon Gorge as a test case,'
+			<em>Rock Art Research</em> 28:2 (2011): 251-264.
+		</li>
 
-			<li>
-				Marisa Giorgi and Paul S. C. Taçon, 'Carnarvon Gorge: Safekeeping a place and Indigenous
-				agency within rock art research and management,' <em>Australian Archaeology</em> 85:2 (2019):
-				184-195.
-			</li>
+		<li>
+			Marisa Giorgi and Paul S. C. Taçon, 'Carnarvon Gorge: Safekeeping a place and Indigenous
+			agency within rock art research and management,' <em>Australian Archaeology</em> 85:2 (2019): 184-195.
+		</li>
 
-			<li>
-				Jackie Huggins, 'White Aprons, Black Hands: Aboriginal Women Domestic Servants in
-				Queensland,' <em>Labour History</em> 69 (1995): 188-195
-			</li>
+		<li>
+			Jackie Huggins, 'White Aprons, Black Hands: Aboriginal Women Domestic Servants in Queensland,' <em
+				>Labour History</em
+			> 69 (1995): 188-195
+		</li>
 
-			<li>
-				Jackie Huggins,
-				<em> Sister Girl: Reflections on Tiddaism, Identity and Reconciliation </em>
-				(St Lucia: University of Queensland Press, 2022)
-			</li>
+		<li>
+			Jackie Huggins,
+			<em> Sister Girl: Reflections on Tiddaism, Identity and Reconciliation </em>
+			(St Lucia: University of Queensland Press, 2022)
+		</li>
 
-			<li>
-				Jackie Huggins and Ngaire Jarro, <em>Jack of Hearts: QX11594</em>
-				(Broome: Magabala Books, 2022)
-			</li>
+		<li>
+			Jackie Huggins and Ngaire Jarro, <em>Jack of Hearts: QX11594</em>
+			(Broome: Magabala Books, 2022)
+		</li>
 
-			<li>
-				Jackie Huggins, Rita Huggins and Jane M. Jacobs, 'Korramindanjie: Place and the
-				Postcolonial,' <em>History Workshop Journal</em> 39 (1995): 164-181.
-			</li>
+		<li>
+			Jackie Huggins, Rita Huggins and Jane M. Jacobs, 'Korramindanjie: Place and the Postcolonial,' <em
+				>History Workshop Journal</em
+			> 39 (1995): 164-181.
+		</li>
 
-			<li>
-				Rita Huggins and Jackie Huggins, <em>Auntie Rita</em> (Canberra: Aboriginal Studies Press, 1996)
-			</li>
+		<li>
+			Rita Huggins and Jackie Huggins, <em>Auntie Rita</em> (Canberra: Aboriginal Studies Press, 1996)
+		</li>
 
-			<li>
-				Erin Semmler, 'Queensland cancer battler Fred Conway wants to close the healthcare gap,' <em
-					>ABC News</em
-				>, February 9, 2022
-			</li>
+		<li>
+			Erin Semmler, 'Queensland cancer battler Fred Conway wants to close the healthcare gap,' <em
+				>ABC News</em
+			>, February 9, 2022
+		</li>
 
-			<li>
-				Erin Semmler, 'Indigenous rangers at Carnarvon Gorge in Queensland stoked to be working on
-				country,' <em>ABC News/ABC Capricornia</em>, October 14, 2021
-			</li>
-		</ul>
-	</Collapsible>
-</GenericContent>
+		<li>
+			Erin Semmler, 'Indigenous rangers at Carnarvon Gorge in Queensland stoked to be working on
+			country,' <em>ABC News/ABC Capricornia</em>, October 14, 2021
+		</li>
+	</ul>
+</Collapsible>
 
-<GenericContent>
-	<h2>Credits</h2>
-
-	<Credits
-		credits={[
-			{
-				title: 'Collaborating scholars',
-				names: "Bidjara elders: Uncle Fred 'Cotto' Conway, Jackie Huggins"
-			},
-			{ title: 'Words', names: 'Amy Way, Ann McGrath' },
-			{ title: 'Photography, video, and story design', names: 'Amy Way' },
-			{
-				title: 'Appearing',
-				names: 'Former National Park Rangers: Bernice Sigley, Kristine Sloman'
-			},
-			{ title: 'Marking Country Project Manager', names: 'Mike Jones' },
-			{ title: 'Developer', names: 'Tabassum Fakier' },
-			{ title: 'Director of Research Centre for Deep History', names: 'Ann McGrath' }
-		]}
-	/>
-
+<Credits
+	credits={[
+		{
+			title: 'Collaborating scholars',
+			names: "Bidjara elders: Uncle Fred 'Cotto' Conway, Jackie Huggins"
+		},
+		{ title: 'Words', names: 'Amy Way, Ann McGrath' },
+		{ title: 'Photography, video, and story design', names: 'Amy Way' },
+		{
+			title: 'Appearing',
+			names: 'Former National Park Rangers: Bernice Sigley, Kristine Sloman'
+		},
+		{ title: 'Marking Country Project Manager', names: 'Mike Jones' },
+		{ title: 'Developer', names: 'Tabassum Fakier' },
+		{ title: 'Director of Research Centre for Deep History', names: 'Ann McGrath' }
+	]}
+>
 	<p>
 		Produced for Marking Country as part of the Australian Research Council Kathleen Fitzpatrick
 		Laureate Project.
@@ -847,32 +872,28 @@ Jane M. Jacobs" -->
 		<em>Rediscovering the deep human past: global networks, future opportunities (FL170100121) </em>
 		at the Australian National University, Canberra.
 	</p>
-</GenericContent>
+</Credits>
 
-<GenericContent>
-	<h2>Citations</h2>
-
-	<Citations
-		citations={[
-			{
-				insert: 'this page',
-				authors: 'Uncle Fred Conway, Jackie Huggins, Amy Way and Ann McGrath (2022)'
-			},
-			{
-				insert: 'Uncle Fred Conway',
-				authors:
-					'Uncle Fred Conway cited in Uncle Fred Conway, Jackie Huggins, Amy Way and Ann McGrath (2022)'
-			},
-			{
-				insert: 'Jackie Huggins',
-				authors:
-					'Jackie Huggins cited in Uncle Fred Conway, Jackie Huggins, Amy Way and Ann McGrath (2022)'
-			}
-		]}
-		location={$page.url.href}
-		page={pageTitle}
-	/>
-</GenericContent>
+<Citations
+	citations={[
+		{
+			insert: 'this page',
+			authors: 'Uncle Fred Conway, Jackie Huggins, Amy Way and Ann McGrath (2022)'
+		},
+		{
+			insert: 'Uncle Fred Conway',
+			authors:
+				'Uncle Fred Conway cited in Uncle Fred Conway, Jackie Huggins, Amy Way and Ann McGrath (2022)'
+		},
+		{
+			insert: 'Jackie Huggins',
+			authors:
+				'Jackie Huggins cited in Uncle Fred Conway, Jackie Huggins, Amy Way and Ann McGrath (2022)'
+		}
+	]}
+	location={$page.url.href}
+	page={pageTitle}
+/>
 
 <style>
 	.youtube-button {

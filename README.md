@@ -16,25 +16,9 @@ This site was originally built with Gatsby, Strapi and GSAP; it has been rebuilt
 ### General
   
 * [] Convert hexcodes to use color()
----
-* [x] Fix **footer**
-* [x] Readjust the icons on the homepage
-* [x] Fix menu styles; add transition out, submenus all close on menu close
-* [x] Fix quick switcher styles
-* [] Styles - lightmode
-* [] Remove flash from acknowledgement
-* [] Rebuild Galleries with Leaflet/zoom function (will confirm)
-* [] Remove unrelated videos
-* [] Sort out YT warnings?
-
 
 ### Scrollytelling
 * [] Add superscroll support (speed to end rush through anims)
-* [] Rewrite ImageSingle to take 1 image or video, caption optional, border optional
-* [] Yawuru - rotate calendar on scroll
-* [] Yawuru: Uncrop Susan Edgar's father, carrying fish, at Karnin (in downloads)
-* [] Forced stops on welcomes (Carnarvon)
-* [] Carnarvon - scrolling gallery fullheight of burnt damage
 * [] Carnarvon: Add aerial map to Carnarvon
 * [] Carnarvon - aerial map reveal, then disappear, then show again
 * [] Carnarvon: Check Baloon video - Jackie's welcome (file C0022) (Scroll/full stop)

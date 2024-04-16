@@ -8,7 +8,7 @@
 
 	const switcherLinks = [];
 
-	const video = `${base}/videos/Introduction.webm`;
+	const video = `${base}/videos/Introduction.mp4`;
 
 	let showModal = false;
 
@@ -56,12 +56,13 @@
 	</div>
 </section>
 
+
 <style>
 	.header {
 		max-width: var(--width-site);
 		margin: 0 auto;
 		margin-bottom: 12px;
-		padding: 2rem 2rem 2rem 2rem;
+		padding: var(--space-lg);
 	}
 
 	h1 {
@@ -131,8 +132,7 @@
 	@media (min-width: 900px) {
 		.header {
 			padding: 0;
-			margin-top: var(--space-xxl);
-			padding-top: var(--space-xxl);
+			padding-top: calc(var(--space-xxxl) + var(--space-lg));
 		}
 
 		h1, h2 {

@@ -7,10 +7,10 @@
 	import { killScrollTriggers } from '$lib/utils';
 	gsap.registerPlugin(ScrollTrigger);
 
-	import ImageSingle from './ImageSingle.svelte';
-	import QuoteInline from './QuoteInline.svelte';
-	import LearnMoreBox from './LearnMoreBox.svelte';
-	import { YouTube } from 'sveltekit-embed';
+	// import ImageSingle from './ImageSingle.svelte';
+	// import QuoteInline from './QuoteInline.svelte';
+	// import LearnMoreBox from './LearnMoreBox.svelte';
+	// import { YouTube } from 'sveltekit-embed';
 
 	let markupContent = [],
 		desktopContent = [],

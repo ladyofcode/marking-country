@@ -1,5 +1,6 @@
 <script>
 	export let showModal; // boolean
+	export let content='';
 
 	let dialog; // HTMLDialogElement
 

@@ -2,7 +2,7 @@
 	export let showModal; // boolean
 
 	import { base } from '$app/paths';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
 	let dialog; // HTMLDialogElement
 
@@ -14,8 +14,25 @@
 		}
 	}
 
-	let background = `${base}/images/acknowledgement_background.jpg`;
+	let background = `${base}/images/acknowledgement_background.png`;
 	let handleClick;
+	// Function to disable scrolling
+	function disableScroll() {
+		document.body.classList.add('no-scroll');
+	}
+
+	// Function to enable scrolling
+	function enableScroll() {
+		document.body.classList.remove('no-scroll');
+	}
+
+	// Reactively open/close the dialog and toggle scroll
+	$: if (dialog && showModal) {
+		dialog.showModal();
+		disableScroll();
+	} else {
+		enableScroll();
+	}
 
 	onMount(() => {
 		const acknowledgementSeen = JSON.parse(window.localStorage.getItem('ACKNOWLEDGEMENT_MODAL'));
@@ -31,12 +48,16 @@
 			window.localStorage.setItem('ACKNOWLEDGEMENT_MODAL', JSON.stringify(true)); // Store that modal was acknowledged.
 		};
 	});
+
+	// Cleanup: Make sure scrolling is enabled when the component is destroyed
+	onDestroy(() => {
+		enableScroll();
+	});
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
 <dialog bind:this={dialog} on:close={() => (showModal = false)}>
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
-	<img src={background} alt="" />
 	<div class="wrapper" on:click|stopPropagation>
 		<div class="content">
 			<p>
@@ -55,6 +76,7 @@
 			<button autofocus on:click={() => handleClick()}>Continue</button>
 		</div>
 	</div>
+	<img src={background} alt="" />
 </dialog>
 
 <style>
@@ -65,15 +87,20 @@
 		overflow: hidden;
 		border: none;
 		padding: 0;
-		margin: 0 auto;
-		margin-top: 20px;
-		width: 100%;
-		height: 100%;
-		background-color: black;
+		/* margin: 0 auto; */
+		position: fixed;
+		bottom: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100vw;
+		height: 100vh;
 		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+		background-color: var(--clr-bg-main);
 	}
 	dialog::backdrop {
-		background: rgba(0, 0, 0, 0.585);
+		position: relative;
+		z-index: 4;
 	}
 	/* dialog > div {
 		padding: 1em;
@@ -84,29 +111,31 @@
 	.wrapper {
 		overflow: hidden;
 		height: 100vh;
-		width: 100%;
+		width: 100vw;
+		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
 	.content {
-		max-width: 800px;
+		max-width: var(--width-content);
 		background-color: rgba(50, 50, 50, 0.711);
-		padding: 2em;
+		padding: var(--space-lg);
 		text-align: center;
+		border-radius: var(--radius-corner);
 	}
 	button {
 		display: block;
 		border: none;
 		border-radius: 2px;
 		background-color: #935550;
-		font-size: 1rem;
+		font-size: var(--font-size-body);
 		color: #ffffff;
-		padding: 1rem 2rem;
+		padding: var(--space-md) var(--space-xl);
 		font-family: 'Work Sans', Arial, Helvetica, sans-serif;
 		font-weight: 400;
 		margin: 0 auto;
-		margin-top: 1.2rem;
+		margin-top: var(--space-lg);
 	}
 
 	button:hover {
@@ -117,9 +146,11 @@
 	img {
 		height: 100%;
 		width: 100%;
-		object-fit: cover;
+		margin: 0 auto;
+		object-fit: contain;
 		position: fixed;
 		z-index: -2;
+		top: 0;
 	}
 
 	@keyframes zoom {
@@ -144,11 +175,11 @@
 
 	@media (min-width: 900px) {
 		.content {
-			padding: 4em;
-			font-size: 1.6rem;
+			padding: var(--space-xxxl);
+			font-size: var(--font-size-body);
 		}
 		button {
-			margin-top: 4rem;
+			margin-top: var(--space-xxl);
 		}
 	}
 </style>

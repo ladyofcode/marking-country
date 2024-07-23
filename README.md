@@ -11,7 +11,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-**Note**: You'll need to have access to GSAP Club plugins to install them via npm or their zipped folder of plugins for either dev or build modes.
+**Note**: You'll need to have access to GSAP Club plugins. If you have the zipped file, Put the gsap-bonus.tgz file, found in the npm-install-this directory, in the root directory of your project. Then run `npm install ./gsap-bonus.tgz`.
 
 ## Building
 

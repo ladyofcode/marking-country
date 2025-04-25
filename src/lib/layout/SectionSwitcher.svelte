@@ -1,38 +1,31 @@
 <script>
 	export let links = '';
+	export let smoother;
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 	import { openSwitcher } from '../../stores/sectionSwitcherStore';
 
-	let smoother;
 	let labelRef, ulRef;
 	let menuChecked = false;
 
 	function handleClick(ref) {
-		smoother.scrollTo(ref, true, 'top top');
+		gsap.to(window, {
+			duration: 1,
+			scrollTo: {
+				y: ref,
+				offsetY: 0
+			},
+			ease: 'power2.inOut'
+		});
 		menuChecked = false;
 	}
 
-	function closeMenuOnClickOutside(event) {
-		// if (
-		// 	menuButtonRef &&
-		// 	!menuButtonRef.contains(event.target) &&
-		// 	labelRef &&
-		// 	!labelRef.contains(event.target) &&
-		// 	ulRef &&
-		// 	!ulRef.contains(event.target)
-		// ) {
-		// 	menuChecked = false;
-		// }
-	}
 
 	onMount(() => {
 		ScrollTrigger.normalizeScroll(true);
-
-		// Listen for clicks to close the menu if clicked outside
-		document.addEventListener('click', closeMenuOnClickOutside);
 
 		// Close menu on scroll
 		const handleScroll = () => {
@@ -41,9 +34,7 @@
 		window.addEventListener('scroll', handleScroll, { passive: true });
 
 		return () => {
-			// Cleanup listeners
-			document.removeEventListener('click', closeMenuOnClickOutside);
-			// Your existing cleanup
+			window.removeEventListener('scroll', handleScroll);
 		};
 	});
 </script>

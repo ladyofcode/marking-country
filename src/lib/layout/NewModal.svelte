@@ -3,15 +3,14 @@
 	import gsap from 'gsap';
 	import { killScrollTriggers } from '$lib/utils';
 
-	export let showModal; // boolean
+	export let showModal;
 	export let heading = 'Information';
 	export let content = '';
 	export let thinImage = false;
 
 	let triggers = [];
-	let dialog, contentDiv; // HTMLDialogElement
+	let dialog, contentDiv;
 
-	// Function to disable scrolling
 	function disableScroll() {
 		if (typeof window !== 'undefined') {
 			document.documentElement.classList.add('no-scroll');
@@ -19,7 +18,6 @@
 		}
 	}
 
-	// Function to enable scrolling
 	function enableScroll() {
 		if (typeof window !== 'undefined') {
 			document.documentElement.classList.remove('no-scroll');
@@ -28,7 +26,7 @@
 	}
 
 	$: if (showModal) {
-		// Assuming dialog is not undefined here, otherwise, guard against it
+		// Assuming dialog is not undefined, otherwise guard against it
 		dialog?.showModal();
 		disableScroll();
 	} else {
@@ -36,6 +34,8 @@
 		if (dialog) {
 			dialog.close();
 			enableScroll();
+			const videos = dialog.querySelectorAll('video');
+			videos.forEach(video => video.pause());
 		}
 	}
 

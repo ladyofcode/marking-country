@@ -21,10 +21,16 @@
 				pin: true,
 				start: 'top top',
 				end: `+=100%`,
-				scrub: true,
+				scrub: 0.5,
+				anticipatePin: 1,
+				fastScrollEnd: true,
 				onUpdate: (self) => {
-					frameNumber = (self.progress / 10) * 100 - 1;
-					videoScroll.currentTime = frameNumber;
+					const progress = Math.min(Math.max(self.progress, 0), 1);
+					const frameNumber = (progress * (videoScroll.duration - 0.1));
+					
+					if (Math.abs(videoScroll.currentTime - frameNumber) > 0.1) {
+						videoScroll.currentTime = frameNumber;
+					}
 				}
 			}
 		});

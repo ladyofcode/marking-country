@@ -23,26 +23,20 @@
 		isMobile = !isDesktop;
 	}
 
-	onMount(async () => {
+	async function initializeScrollTriggers() {
 		await tick();
 		ScrollTrigger.refresh();
-		const mediaQuery = window.matchMedia('(min-width: 600px)');
-		adjustLayout(mediaQuery);
-		// Listen for changes
-		mediaQuery.onchange = (e) => adjustLayout(mediaQuery);
-
+		
 		const photos = gsap.utils.toArray(desktopPhotos.slice(1));
 		const details = gsap.utils.toArray(markupContent.slice(1));
 
+		// Set initial state
 		gsap.set(photos, { yPercent: 101 });
-
 		const allPhotos = gsap.utils.toArray(desktopPhotos);
 
 		let mm = gsap.matchMedia();
 
 		mm.add('(min-width: 600px)', () => {
-			// this setup code only runs when viewport is at least 600px wide
-
 			const rightScroll = ScrollTrigger.create({
 				trigger: gallery,
 				start: 'top top',
@@ -51,9 +45,6 @@
 				pin: right
 			});
 
-			//create scrolltrigger for each details section
-			//trigger photo animation when headline of each details section
-			//reaches 80% of window height
 			details.forEach((detail, index) => {
 				let headline = desktopContent[index + 1];
 				const animation = gsap
@@ -75,10 +66,33 @@
 
 			return () => {
 				rightScroll.kill();
-				// optional
-				// custom cleanup code here (runs when it STOPS matching)
 			};
 		});
+	}
+
+	onMount(async () => {
+		const mediaQuery = window.matchMedia('(min-width: 600px)');
+		adjustLayout(mediaQuery);
+		mediaQuery.onchange = (e) => adjustLayout(mediaQuery);
+
+		// Wait for images to load before initializing scroll triggers
+		const imagePromises = desktopPhotos.map(photo => {
+			const img = photo.querySelector('img');
+			if (img) {
+				return new Promise((resolve) => {
+					if (img.complete) {
+						resolve();
+					} else {
+						img.onload = resolve;
+						img.onerror = resolve; // Handle error case
+					}
+				});
+			}
+			return Promise.resolve();
+		});
+
+		await Promise.all(imagePromises);
+		await initializeScrollTriggers();
 	});
 
 	onDestroy(() => {

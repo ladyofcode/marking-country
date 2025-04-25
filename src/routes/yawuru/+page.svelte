@@ -375,7 +375,7 @@
 				props: {
 					source: stationImages[2],
 					width: '1030',
-					height: '1609',
+					height: '778',
 					alt: 'Old black and white photograph of Jack Edgar on Thangoo Station. He is wearing work clothes and an Akubra-style hat and standing in front of tractor parked near a fence, with a windmill in the left hand side of the photo and gum trees on the right.',
 					galleryId: 'station3'
 				}

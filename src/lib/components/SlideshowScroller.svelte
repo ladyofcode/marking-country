@@ -85,9 +85,10 @@
 
 			const rightScroll = ScrollTrigger.create({
 				trigger: gallery,
-				start: 'top 72px',
+				start: 'top top',
 				end: 'bottom bottom',
-				pin: right
+				pin: right,
+				pinSpacing: true
 			});
 
 			//create scrolltrigger for each details section
@@ -97,14 +98,15 @@
 				let headline = desktopContent[index + 1];
 				const animation = gsap
 					.timeline()
-					.to(photos[index], { yPercent: 0 })
+					.to(photos[index], { yPercent: 0, duration: 0.5 })
 					.set(allPhotos[index], { autoAlpha: 0 });
 				ScrollTrigger.create({
 					trigger: headline,
-					start: 'top 50%',
-					end: 'top 50%',
+					start: 'top 80%',
+					end: 'top 20%',
 					animation: animation,
-					scrub: true
+					scrub: 1,
+					markers: false
 				});
 				triggers.push(animation);
 			});
@@ -114,7 +116,6 @@
 			return () => {
 				rightScroll.kill();
 				killScrollTriggers(triggers);
-				// custom cleanup code here (runs when it STOPS matching)
 			};
 		});
 	});
@@ -198,6 +199,8 @@
 <style>
 	.gallery {
 		display: flex;
+		position: relative;
+		width: 100%;
 	}
 
 	.left {
@@ -211,11 +214,14 @@
 		flex-wrap: wrap;
 		width: 100%;
 		height: auto;
+		position: relative;
 	}
 
 	.desktopContent {
 		margin: auto;
 		width: 80%;
+		position: relative;
+		z-index: 1;
 	}
 
 	.desktopContentSection {
@@ -223,6 +229,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		position: relative;
 	}
 
 	.desktopPhotos {
@@ -230,12 +237,17 @@
 		border-radius: 20px;
 		position: relative;
 		overflow: hidden;
+		width: 100%;
+		height: 100%;
 	}
 
 	.desktopPhoto {
 		position: absolute;
 		width: 100%;
 		height: 100%;
+		top: 0;
+		left: 0;
+		transition: opacity 0.5s ease;
 	}
 
 	.mobilePhoto {
@@ -244,6 +256,7 @@
 		border-radius: 6vw;
 		overflow: visible;
 		top: 0;
+		z-index: 2;
 	}
 
 	.mobilePhoto > div {
@@ -252,14 +265,18 @@
 		padding-top: var(--space-xl);
 		padding-bottom: var(--space-xl);
 		background-color: var(--clr-bg-main);
+		transition: opacity 0.5s ease;
 	}
 
 	.mobileContent {
 		display: block;
+		position: relative;
+		z-index: 1;
 	}
 
 	.mobileContentSection {
 		max-width: 80vw;
+		position: relative;
 	}
 
 	.mobileMarkupWrapper {
@@ -272,15 +289,18 @@
 			display: block;
 			width: 100%;
 			max-width: 30vw;
+			position: relative;
+			z-index: 1;
 		}
 
 		.right {
 			height: var(--height-viewable);
-			width: 50;
+			width: 50%;
 			width: 100%;
 			flex-direction: column;
 			justify-content: center;
 			padding-left: 100px;
+			position: relative;
 		}
 
 		.desktopContent {
@@ -294,10 +314,14 @@
 			display: block;
 			width: 100%;
 			height: 100%;
+			position: relative;
 		}
 
 		.desktopPhoto {
 			margin: 0 auto;
+			position: absolute;
+			top: 0;
+			left: 0;
 		}
 
 		.mobileContent {

@@ -1,12 +1,13 @@
 <script>
 	export let videoId;
+	export let youTubeId;
 	export let width = '100%'; // Default width
 	export let height = '100%'; // Default height
 
 	let iframe;
 
 	// Construct the src URL dynamically based on the passed videoId
-	$: src = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0`;
+	$: src = `https://www.youtube-nocookie.com/embed/${youTubeId || videoId}?rel=0`;
 </script>
 
 <iframe

@@ -116,7 +116,8 @@
 		got a story, got a connection to this land here that we are talking about."
 	</p>
 </GenericContent>
-<Collapsible type="wide" name="collapsibleProcess" label="Learn more about the mapping process">
+
+<Collapsible name="collapsibleProcess" label="Learn more about the mapping process">
 	<p>
 		Indigenous representatives involved in the Willandra Lakes World heritage region had helped us
 		understand the 'deep histories' of the Pleistocene Lakes, but they pointed out that there was a

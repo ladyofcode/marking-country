@@ -3,10 +3,18 @@
 		label = '',
 		checked = false;
 
-	import { onMount, tick } from 'svelte';
+	import { onMount, onDestroy, tick } from 'svelte';
 	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { killScrollTriggers } from '$lib/utils';
+
+	// Register ScrollTrigger
+	if (typeof window !== 'undefined') {
+		gsap.registerPlugin(ScrollTrigger);
+	}
 
 	let container;
+	let triggers = [];
 
 	async function toggleCollapsible() {
 		await tick();
@@ -15,10 +23,20 @@
 		} else {
 			gsap.fromTo(container, { height: 0 }, { height: 'auto', duration: 0.5 });
 		}
+		// Refresh ScrollTrigger after height animation completes
+		if (typeof window !== 'undefined') {
+			setTimeout(() => {
+				ScrollTrigger.refresh(true);
+			}, 500);
+		}
 	}
 
 	onMount(() => {
 		toggleCollapsible(); // Initial check
+	});
+
+	onDestroy(() => {
+		killScrollTriggers(triggers);
 	});
 
 	$: checked, toggleCollapsible();

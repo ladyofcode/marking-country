@@ -12,28 +12,18 @@
 	let dialog, contentDiv;
 
 	function disableScroll() {
-		if (typeof window !== 'undefined') {
-			document.documentElement.classList.add('no-scroll');
-			document.body.classList.add('no-scroll');
-		}
+		// No longer needed - handled by CSS
 	}
 
 	function enableScroll() {
-		if (typeof window !== 'undefined') {
-			document.documentElement.classList.remove('no-scroll');
-			document.body.classList.remove('no-scroll');
-		}
+		// No longer needed - handled by CSS
 	}
 
 	$: if (showModal) {
-		// Assuming dialog is not undefined, otherwise guard against it
 		dialog?.showModal();
-		disableScroll();
 	} else {
-		// Ensure dialog is defined and potentially delay closing to handle race conditions
 		if (dialog) {
 			dialog.close();
-			enableScroll();
 			const videos = dialog.querySelectorAll('video');
 			videos.forEach(video => video.pause());
 		}
@@ -53,7 +43,6 @@
 		if (contentDiv) {
 			contentDiv.removeEventListener('wheel', handleScroll);
 		}
-		enableScroll();
 	});
 </script>
 
@@ -89,8 +78,8 @@
 </dialog>
 
 <style>
-	.no-scroll {
-		overflow: hidden !important;
+	:global(body:has(dialog[open])) {
+		overflow: hidden;
 	}
 	dialog {
 		width: 100%;
